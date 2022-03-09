@@ -654,9 +654,9 @@ public class CastProjectile : IComboEvent
                     break;
                 
                 case TypeSpawn.Forward:
-                    Vector3 localScaleCalculate = new Vector3(LocalScale.x * (baseTransform.localScale.x < 0 ? -1f : 1f),
-                                                            LocalScale.y,
-                                                            LocalScale.z);
+//                    Vector3 localScaleCalculate = new Vector3(LocalScale.x * (baseTransform.localScale.x < 0 ? -1f : 1f),
+//                                                            LocalScale.y,
+//                                                            LocalScale.z);
                     Collider2D[] cols = Physics2D.OverlapCircleAll(baseTransform.position, 100, LayerMaskLimitPosition);
                     if (cols != null)
                     {
@@ -666,7 +666,7 @@ public class CastProjectile : IComboEvent
                             {
                                 Vector3 direction = col.transform.position - baseTransform.position;
                                 Vector3 rightTransform = direction.normalized  * baseTransform.localScale.x ;
-                                prefabSpawned = ObjectPool.Spawn(Prefab, baseTransform, localPosition, rightTransform, localScaleCalculate);
+                                prefabSpawned = ObjectPool.Spawn(Prefab, baseTransform, localPosition, rightTransform, LocalScale);
                                 break;
                             }
                         }
