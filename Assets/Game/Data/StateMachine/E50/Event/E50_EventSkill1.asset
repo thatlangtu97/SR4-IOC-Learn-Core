@@ -52,7 +52,7 @@ MonoBehaviour:
       Data: false
     - Name: typeSpawn
       Entry: 3
-      Data: 0
+      Data: 2
     - Name: Prefab
       Entry: 10
       Data: 0
@@ -172,7 +172,7 @@ MonoBehaviour:
       Data: false
     - Name: typeSpawn
       Entry: 3
-      Data: 0
+      Data: 2
     - Name: Prefab
       Entry: 10
       Data: 0
