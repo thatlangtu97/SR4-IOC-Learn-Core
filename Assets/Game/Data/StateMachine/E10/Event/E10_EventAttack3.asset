@@ -70,7 +70,7 @@ MonoBehaviour:
       Data: UnityEngine.Vector3, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 0
+      Data: 1.5
     - Name: 
       Entry: 4
       Data: 2
@@ -145,7 +145,7 @@ MonoBehaviour:
       Data: 100
     - Name: timeTriggerEvent
       Entry: 4
-      Data: 1.52
+      Data: 1.5
     - Name: useDuration
       Entry: 5
       Data: true
@@ -199,10 +199,10 @@ MonoBehaviour:
       Data: UnityEngine.Vector3, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 1
+      Data: 1.5
     - Name: 
       Entry: 4
-      Data: 1
+      Data: 1.5
     - Name: 
       Entry: 4
       Data: 1
@@ -265,7 +265,7 @@ MonoBehaviour:
       Data: 200
     - Name: timeTriggerEvent
       Entry: 4
-      Data: 1.52
+      Data: 1.5
     - Name: useDuration
       Entry: 5
       Data: true
@@ -319,10 +319,10 @@ MonoBehaviour:
       Data: UnityEngine.Vector3, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: -1
+      Data: -1.5
     - Name: 
       Entry: 4
-      Data: 1
+      Data: 1.5
     - Name: 
       Entry: 4
       Data: 1
