@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class GameUIController : MonoBehaviour
 {
@@ -14,10 +15,13 @@ public class GameUIController : MonoBehaviour
 
     public LayerMask maskToolTest;
 
+    public PlayerInput playerInput;
+    
     private bool useRayCastTest;
     //public Button btnJump, btnDash, btnAttack, btnSkill1, btnSkill2;
     //public EventTrigger EJump, EDash, EAttack, ESkill1, ESkill2;
     [Button("MODIFY", ButtonSizes.Gigantic), GUIColor(0.4f, 0.8f, 1),]
+
     void MODIFY()
     {
         
@@ -46,6 +50,9 @@ public class GameUIController : MonoBehaviour
     {
         useRayCastTest = true;
     }
+    
+    private Gamepad gamePad;
+    public Vector2 VectorMove;
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.D))
@@ -81,13 +88,38 @@ public class GameUIController : MonoBehaviour
         //{
         //    OnInputSkill(3);
         //}
-        
+        if (gamePad!=null)
+        {
+
+            if(gamePad.squareButton.wasPressedThisFrame || gamePad.buttonWest.wasPressedThisFrame)
+                Attack();
+            if(gamePad.circleButton.wasPressedThisFrame || gamePad.buttonEast.wasPressedThisFrame )
+                Dash();
+            if( gamePad.triangleButton.wasPressedThisFrame|| gamePad.buttonNorth.wasPressedThisFrame || gamePad.buttonSouth.wasPressedThisFrame || gamePad.crossButton.wasPressedThisFrame)
+                Jump();
+            if(gamePad.leftShoulder.wasPressedThisFrame || gamePad.leftTrigger.wasPressedThisFrame)
+                Skill1();
+            if(gamePad.rightShoulder.wasPressedThisFrame || gamePad.rightTrigger.wasPressedThisFrame)
+                Skill2();
+            Joystick.MoveGamePad(gamePad);
+        }
+        else
+        {
+            gamePad = Gamepad.current;
+        }
+
         if(Input.GetMouseButtonDown(0) && useRayCastTest )
             RayCastChangeObject();
+    }
+
+    public void Dash(InputValue value)
+    {
+        
     }
     private void Start()
     {
         MODIFY();
+        
     }
     public void Jump()
     {
@@ -129,4 +161,7 @@ public class GameUIController : MonoBehaviour
         }
         Debug.DrawRay(Camera.main.transform.position , (Camera.main.transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition) ).normalized  *100f,Color.blue);
     }
+
+
+
 }

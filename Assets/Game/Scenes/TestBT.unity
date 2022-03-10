@@ -226,7 +226,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!224 &17509189
 RectTransform:
@@ -1311,7 +1311,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!224 &110231403
 RectTransform:
@@ -1358,7 +1358,7 @@ MonoBehaviour:
   DoubleClickRegisterInterval: 0.2
   InputData:
     EnableAlternateInputs: 1
-    InputMode: 2
+    InputMode: 0
     KeyCode: 13
     KeyCodeAlt: 32
     VirtualButtonName: Submit
@@ -5792,7 +5792,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!224 &427092960
 RectTransform:
@@ -5950,7 +5950,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!224 &446778791
 RectTransform:
@@ -5997,7 +5997,7 @@ MonoBehaviour:
   DoubleClickRegisterInterval: 0.2
   InputData:
     EnableAlternateInputs: 1
-    InputMode: 2
+    InputMode: 0
     KeyCode: 13
     KeyCodeAlt: 32
     VirtualButtonName: Submit
@@ -8959,14 +8959,13 @@ GameObject:
   - component: {fileID: 483247842}
   - component: {fileID: 483247841}
   - component: {fileID: 483247840}
-  - component: {fileID: 483247843}
   - component: {fileID: 483247844}
   m_Layer: 5
   m_Name: Button_Dash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!224 &483247839
 RectTransform:
@@ -9067,34 +9066,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 483247838}
   m_CullTransparentMesh: 0
---- !u!114 &483247843
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 483247838}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 2
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 522082317}
-          m_MethodName: Dash
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!114 &483247844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9121,7 +9092,7 @@ MonoBehaviour:
   DoubleClickRegisterInterval: 0.2
   InputData:
     EnableAlternateInputs: 1
-    InputMode: 2
+    InputMode: 0
     KeyCode: 13
     KeyCodeAlt: 32
     VirtualButtonName: Submit
@@ -9560,7 +9531,18 @@ MonoBehaviour:
         CustomSortingLayer: Default
       Event:
         m_PersistentCalls:
-          m_Calls: []
+          m_Calls:
+          - m_Target: {fileID: 522082317}
+            m_MethodName: Dash
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
       GameEvents: []
       SoundData:
         SoundSource: 0
@@ -11734,12 +11716,13 @@ GameObject:
   - component: {fileID: 522082314}
   - component: {fileID: 522082313}
   - component: {fileID: 522082317}
+  - component: {fileID: 522082318}
   m_Layer: 5
   m_Name: Canvas_UIController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!114 &522082313
 MonoBehaviour:
@@ -11844,6 +11827,50 @@ MonoBehaviour:
   maskToolTest:
     serializedVersion: 2
     m_Bits: 6144
+  playerInput: {fileID: 522082318}
+  VectorMove: {x: 0, y: 0}
+--- !u!114 &522082318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 522082312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 0b79bbf813fe8f04cadbf2399383daf1,
+    type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 522082317}
+        m_MethodName: Dash
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: 
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &523041948
 GameObject:
   m_ObjectHideFlags: 0
@@ -13061,7 +13088,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 0
 --- !u!224 &689637403
 RectTransform:
@@ -14218,7 +14245,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!224 &931071009
 RectTransform:
@@ -14261,6 +14288,7 @@ MonoBehaviour:
   space: 3.7
   effectLook: {fileID: 689637403}
   componentManager: {fileID: 1786180277}
+  VectorMove: {x: 0, y: 0}
 --- !u!114 &931071011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14582,14 +14610,13 @@ GameObject:
   - component: {fileID: 981300002}
   - component: {fileID: 981300001}
   - component: {fileID: 981300000}
-  - component: {fileID: 981299999}
   - component: {fileID: 981299998}
   m_Layer: 5
   m_Name: Button_Skill1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!224 &981299997
 RectTransform:
@@ -14636,7 +14663,7 @@ MonoBehaviour:
   DoubleClickRegisterInterval: 0.2
   InputData:
     EnableAlternateInputs: 1
-    InputMode: 2
+    InputMode: 0
     KeyCode: 13
     KeyCodeAlt: 32
     VirtualButtonName: Submit
@@ -15075,7 +15102,18 @@ MonoBehaviour:
         CustomSortingLayer: Default
       Event:
         m_PersistentCalls:
-          m_Calls: []
+          m_Calls:
+          - m_Target: {fileID: 522082317}
+            m_MethodName: Skill1
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
       GameEvents: []
       SoundData:
         SoundSource: 0
@@ -16902,34 +16940,6 @@ MonoBehaviour:
     PresetName: 
   TargetLabel: 0
   TextLabel: {fileID: 0}
---- !u!114 &981299999
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 981299996}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 2
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 522082317}
-          m_MethodName: Skill1
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!114 &981300000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17022,14 +17032,13 @@ GameObject:
   - component: {fileID: 1005691557}
   - component: {fileID: 1005691556}
   - component: {fileID: 1005691555}
-  - component: {fileID: 1005691558}
   - component: {fileID: 1005691559}
   m_Layer: 5
   m_Name: Button_Attack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!224 &1005691554
 RectTransform:
@@ -17130,34 +17139,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1005691553}
   m_CullTransparentMesh: 0
---- !u!114 &1005691558
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1005691553}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 2
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 522082317}
-          m_MethodName: Attack
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!114 &1005691559
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17184,10 +17165,10 @@ MonoBehaviour:
   DoubleClickRegisterInterval: 0.2
   InputData:
     EnableAlternateInputs: 1
-    InputMode: 2
+    InputMode: 0
     KeyCode: 13
     KeyCodeAlt: 32
-    VirtualButtonName: Submit
+    VirtualButtonName: Vertical
     VirtualButtonNameAlt: Jump
   LongClickRegisterInterval: 0.5
   OnPointerEnter:
@@ -17623,7 +17604,18 @@ MonoBehaviour:
         CustomSortingLayer: Default
       Event:
         m_PersistentCalls:
-          m_Calls: []
+          m_Calls:
+          - m_Target: {fileID: 522082317}
+            m_MethodName: Attack
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
       GameEvents: []
       SoundData:
         SoundSource: 0
@@ -22407,7 +22399,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!224 &1592252835
 RectTransform:
@@ -23117,14 +23109,13 @@ GameObject:
   - component: {fileID: 1680160145}
   - component: {fileID: 1680160144}
   - component: {fileID: 1680160143}
-  - component: {fileID: 1680160142}
   - component: {fileID: 1680160141}
   m_Layer: 5
   m_Name: Button_Skill2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!224 &1680160140
 RectTransform:
@@ -23171,7 +23162,7 @@ MonoBehaviour:
   DoubleClickRegisterInterval: 0.2
   InputData:
     EnableAlternateInputs: 1
-    InputMode: 2
+    InputMode: 0
     KeyCode: 13
     KeyCodeAlt: 32
     VirtualButtonName: Submit
@@ -23610,7 +23601,18 @@ MonoBehaviour:
         CustomSortingLayer: Default
       Event:
         m_PersistentCalls:
-          m_Calls: []
+          m_Calls:
+          - m_Target: {fileID: 522082317}
+            m_MethodName: Skill2
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
       GameEvents: []
       SoundData:
         SoundSource: 0
@@ -25437,34 +25439,6 @@ MonoBehaviour:
     PresetName: 
   TargetLabel: 0
   TextLabel: {fileID: 0}
---- !u!114 &1680160142
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1680160139}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 2
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 522082317}
-          m_MethodName: Skill2
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 1
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!114 &1680160143
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25561,7 +25535,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!224 &1683239001
 RectTransform:
@@ -25871,7 +25845,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!224 &1741230522
 RectTransform:
@@ -27482,14 +27456,13 @@ GameObject:
   - component: {fileID: 2022680029}
   - component: {fileID: 2022680028}
   - component: {fileID: 2022680027}
-  - component: {fileID: 2022680030}
   - component: {fileID: 2022680031}
   m_Layer: 5
   m_Name: Button_Jump
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!224 &2022680026
 RectTransform:
@@ -27590,34 +27563,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2022680025}
   m_CullTransparentMesh: 0
---- !u!114 &2022680030
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2022680025}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 2
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 522082317}
-          m_MethodName: Jump
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!114 &2022680031
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27644,7 +27589,7 @@ MonoBehaviour:
   DoubleClickRegisterInterval: 0.2
   InputData:
     EnableAlternateInputs: 1
-    InputMode: 2
+    InputMode: 0
     KeyCode: 13
     KeyCodeAlt: 32
     VirtualButtonName: Submit
@@ -28083,7 +28028,18 @@ MonoBehaviour:
         CustomSortingLayer: Default
       Event:
         m_PersistentCalls:
-          m_Calls: []
+          m_Calls:
+          - m_Target: {fileID: 522082317}
+            m_MethodName: Jump
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
       GameEvents: []
       SoundData:
         SoundSource: 0
@@ -30073,7 +30029,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!224 &2049287183
 RectTransform:
@@ -30120,7 +30076,7 @@ MonoBehaviour:
   DoubleClickRegisterInterval: 0.2
   InputData:
     EnableAlternateInputs: 1
-    InputMode: 2
+    InputMode: 0
     KeyCode: 13
     KeyCodeAlt: 32
     VirtualButtonName: Submit
@@ -32852,7 +32808,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!224 &2138351009
 RectTransform:
