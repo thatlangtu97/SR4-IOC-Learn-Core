@@ -14,10 +14,10 @@ public class TestTakeDamage : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            AddReactiveComponent();
-        }
+//        if (Input.GetKeyDown(KeyCode.T))
+//        {
+//            AddReactiveComponent();
+//        }
     }
     public void AddReactiveComponent()
     {

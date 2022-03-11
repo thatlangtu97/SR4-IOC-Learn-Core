@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using strange.extensions.context.impl;
+using UnityEngine.SceneManagement;
 
 namespace EntrySystem {
 	public class EntryContextView : ContextView {
@@ -8,7 +9,7 @@ namespace EntrySystem {
 			DontDestroyOnLoad(gameObject);
 			context = new EntryContext(this, true);
 			context.Start();
-			
+			SceneManager.LoadScene("FlashScene");
 		}
 	}
 }

@@ -13,7 +13,7 @@ public class PanelCurrencyView : View
     protected override void Awake()
     {
         base.CopyStart();
-        /*
+        
         if(ShopStaminaBtn!=null)
             ShopStaminaBtn.onClick.AddListener(() => { showPopupStaminaSignal.Dispatch(); });
         if (ShopGoldBtn != null)
@@ -26,26 +26,43 @@ public class PanelCurrencyView : View
             ShopGemBtn.onClick.AddListener(() => { showPanelShopSignal.Dispatch(); });
             ShopGemBtn.onClick.AddListener(() => { ShowShop(PopupKey.ShopGemPopup, PanelKey.PanelShop); });
         }
-        */
+        
         ////
-        if (UIBtnShopStamina != null)
-            UIBtnShopStamina.OnClick.OnTrigger.Event.AddListener(() => { showPopupStaminaSignal.Dispatch(); });
-        if (UIBtnShopGold != null)
-        {
-            UIBtnShopGold.OnClick.OnTrigger.Event.AddListener(() => { showPanelShopSignal.Dispatch(); });
-            UIBtnShopGold.OnClick.OnTrigger.Event.AddListener(() => { ShowShop(PopupKey.ShopGoldPopup, PanelKey.PanelShop); });
-        }
-        if (UIBtnShopGem != null)
-        {
-            UIBtnShopGem.OnClick.OnTrigger.Event.AddListener(() => { showPanelShopSignal.Dispatch(); });
-            UIBtnShopGem.OnClick.OnTrigger.Event.AddListener(() => { ShowShop(PopupKey.ShopGemPopup, PanelKey.PanelShop); });
-        }
+//        if (UIBtnShopStamina != null)
+//            UIBtnShopStamina.OnClick.OnTrigger.Event.AddListener(() => { showPopupStaminaSignal.Dispatch(); });
+//        if (UIBtnShopGold != null)
+//        {
+//            UIBtnShopGold.OnClick.OnTrigger.Event.AddListener(() => { showPanelShopSignal.Dispatch(); });
+//            UIBtnShopGold.OnClick.OnTrigger.Event.AddListener(() => { ShowShop(PopupKey.ShopGoldPopup, PanelKey.PanelShop); });
+//        }
+//        if (UIBtnShopGem != null)
+//        {
+//            UIBtnShopGem.OnClick.OnTrigger.Event.AddListener(() => { showPanelShopSignal.Dispatch(); });
+//            UIBtnShopGem.OnClick.OnTrigger.Event.AddListener(() => { ShowShop(PopupKey.ShopGemPopup, PanelKey.PanelShop); });
+//        }
 
     }
+
     void ShowShop(PopupKey keyPopup , PanelKey panelKey)
     {
         popupManager.popupKey = keyPopup;
         popupManager.ShowPanel(panelKey);
     }
 
+    public void ShowShopGem()
+    {
+        showPanelShopSignal.Dispatch();
+        ShowShop(PopupKey.ShopGemPopup, PanelKey.PanelShop);
+    }
+    
+    public void ShowShopGold()
+    {
+        showPanelShopSignal.Dispatch();
+        ShowShop(PopupKey.ShopGoldPopup, PanelKey.PanelShop);
+    }
+    
+    public void ShowPopupStamina()
+    {
+        showPopupStaminaSignal.Dispatch();
+    }
 }

@@ -1,0 +1,174 @@
+
+daruma_big.png
+size: 1140,1140
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+big
+  rotate: false
+  xy: 2, 717
+  size: 391, 412
+  orig: 393, 415
+  offset: 1, 1
+  index: -1
+fx1 (1)/1
+  rotate: false
+  xy: 669, 96
+  size: 197, 110
+  orig: 398, 221
+  offset: 105, 0
+  index: -1
+fx1 (1)/2
+  rotate: false
+  xy: 395, 577
+  size: 305, 165
+  orig: 398, 221
+  offset: 41, 8
+  index: -1
+fx1 (1)/3 (1)
+  rotate: false
+  xy: 775, 951
+  size: 352, 178
+  orig: 398, 221
+  offset: 20, 20
+  index: -1
+fx1 (1)/4 (1)
+  rotate: false
+  xy: 395, 744
+  size: 374, 184
+  orig: 398, 221
+  offset: 10, 28
+  index: -1
+fx1 (1)/5 (1)
+  rotate: false
+  xy: 2, 516
+  size: 378, 199
+  orig: 398, 221
+  offset: 9, 17
+  index: -1
+fx1 (1)/6 (1)
+  rotate: false
+  xy: 395, 930
+  size: 378, 199
+  orig: 398, 221
+  offset: 9, 17
+  index: -1
+fx1 (1)/7
+  rotate: false
+  xy: 2, 317
+  size: 378, 197
+  orig: 398, 221
+  offset: 9, 17
+  index: -1
+fx_die/Layer 38
+  rotate: false
+  xy: 2, 107
+  size: 285, 208
+  orig: 287, 218
+  offset: 1, 5
+  index: -1
+fx_die/Layer 41
+  rotate: false
+  xy: 2, 2
+  size: 207, 103
+  orig: 209, 107
+  offset: 1, 3
+  index: -1
+fx_die/Layer 42
+  rotate: false
+  xy: 666, 408
+  size: 254, 160
+  orig: 257, 171
+  offset: 2, 8
+  index: -1
+fx_die/Layer 43
+  rotate: false
+  xy: 771, 570
+  size: 267, 183
+  orig: 269, 206
+  offset: 1, 16
+  index: -1
+fx_die/Layer 44
+  rotate: false
+  xy: 775, 755
+  size: 272, 194
+  orig: 275, 205
+  offset: 1, 9
+  index: -1
+fx_die/Layer 45
+  rotate: false
+  xy: 382, 371
+  size: 282, 204
+  orig: 284, 213
+  offset: 1, 6
+  index: -1
+fx_die/Layer 46
+  rotate: false
+  xy: 382, 183
+  size: 285, 186
+  orig: 287, 197
+  offset: 1, 7
+  index: -1
+piece1
+  rotate: false
+  xy: 922, 366
+  size: 198, 202
+  orig: 200, 204
+  offset: 1, 1
+  index: -1
+piece2
+  rotate: false
+  xy: 211, 51
+  size: 58, 54
+  orig: 61, 56
+  offset: 1, 1
+  index: -1
+piece3
+  rotate: false
+  xy: 868, 23
+  size: 191, 147
+  orig: 193, 150
+  offset: 1, 1
+  index: -1
+piece4
+  rotate: true
+  xy: 373, 27
+  size: 154, 169
+  orig: 156, 171
+  offset: 1, 1
+  index: -1
+piece5
+  rotate: false
+  xy: 1049, 890
+  size: 59, 59
+  orig: 61, 61
+  offset: 1, 1
+  index: -1
+piece6
+  rotate: false
+  xy: 905, 172
+  size: 196, 192
+  orig: 198, 194
+  offset: 1, 1
+  index: -1
+piece8
+  rotate: true
+  xy: 289, 157
+  size: 158, 82
+  orig: 160, 84
+  offset: 1, 1
+  index: -1
+piece9
+  rotate: true
+  xy: 702, 669
+  size: 73, 51
+  orig: 75, 53
+  offset: 1, 1
+  index: -1
+scar
+  rotate: true
+  xy: 669, 208
+  size: 198, 234
+  orig: 204, 238
+  offset: 2, 1
+  index: -1

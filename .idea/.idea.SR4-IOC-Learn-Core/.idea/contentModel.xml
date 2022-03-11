@@ -1961,6 +1961,7 @@
               <e p="GlobalData.cs" t="Include" />
               <e p="PrefabUtils.cs" t="Include" />
               <e p="UIBasePanel.cs" t="Include" />
+              <e p="UIEventSystem.cs" t="Include" />
             </e>
             <e p="EquipmentScript" t="Include">
               <e p="Command" t="Include">

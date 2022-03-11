@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using strange.extensions.signal.impl;
+using UnityEngine.EventSystems;
 
 public class PopupManager 
 {
@@ -13,7 +14,7 @@ public class PopupManager
     public PanelKey BasePabelKey;
     public Dictionary<string, IEnumerator> listActionDelay = new Dictionary<string, IEnumerator>();
     //public Dictionary<PanelKey, List<GameObject>> ListPopupOfPanel = new Dictionary<PanelKey, List<GameObject>>();
-
+    public EventSystem eventSystem { get; set; }
     [Inject] public ShowPanelHeroSignal showPanelHeroSignal { get; set; }
     [Inject] public ShowPanelHomeSignal showPanelHomeSignal { get; set; }
     [Inject] public ShowPanelShopSignal showPanelShopSignal { get; set; }
@@ -21,6 +22,13 @@ public class PopupManager
     {
     }
 
+    public void SetFirstSelect(GameObject gameObjectFirst)
+    {
+        if (eventSystem)
+        {
+            eventSystem.firstSelectedGameObject = gameObjectFirst;
+        }
+    }
     public void AddUILayer(UILayer layer, Transform transform)
     {
 

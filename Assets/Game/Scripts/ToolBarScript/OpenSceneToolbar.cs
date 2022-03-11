@@ -10,6 +10,11 @@ public class OpenSceneToolbar : MonoBehaviour
     {
         OpenScene("UIDev");
     }
+    [MenuItem("Open Scene/Entry &6")]
+    public static void OpenEntry()
+    {
+        OpenScene("EntryScene");
+    }
     [MenuItem("Open Scene/FlashScene &2")]
     public static void OpenFlashScene()
     {

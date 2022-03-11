@@ -40,4 +40,9 @@ public abstract class AbsPanelView : View
 	{
 		
 	}
+
+	public virtual void SetUpGamePad()
+	{
+		
+	}
 }

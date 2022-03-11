@@ -1,1 +1,33 @@
-﻿{}
+{
+    "name": "InputGamePad",
+    "maps": [
+        {
+            "name": "New action map",
+            "id": "34abfccf-8dbc-425e-b2c9-cefed48da82b",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "4ca0aa48-9c47-48a3-915c-5feb31a1ef84",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "43be228b-b17f-4742-a4d5-cb2d203fc01d",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

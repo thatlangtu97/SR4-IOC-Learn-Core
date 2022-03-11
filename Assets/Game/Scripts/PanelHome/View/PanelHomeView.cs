@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class PanelHomeView : AbsPanelView
@@ -18,12 +20,10 @@ public class PanelHomeView : AbsPanelView
     protected override void Start()
     {
         base.Start();
+        HeroBtn.onClick.AddListener(ShowPanelHero);
+        CraftBtn.onClick.AddListener(ShowPanelCraft);
 
-        //HeroBtn.onClick.AddListener(() => { showPanelHeroSignal.Dispatch(); });
-        //CraftBtn.onClick.AddListener(() => { showPanelCraftSignal.Dispatch(); });
-
-        //ShopBtn.onClick.AddListener(() => { showPanelShopSignal.Dispatch(); });
-        //ShopBtn.onClick.AddListener(() => { popupManager.popupKey = PopupKey.ShopGoldPopup; });
+        ShopBtn.onClick.AddListener(ShowPanelShopGold);
         /*
         StaminaBtn.onClick.AddListener( ()=>{ showPopupStaminaSignal.Dispatch(); });
         ShopGoldBtn.onClick.AddListener(() => { showPanelShopSignal.Dispatch(); });
@@ -32,19 +32,27 @@ public class PanelHomeView : AbsPanelView
         ShopGemBtn.onClick.AddListener(() => { popupManager.popupKey = PopupKey.ShopGemPopup; });
         */
 
-        UIBtnHero.OnClick.OnTrigger.Event.AddListener(ShowPanelHero);
-        UIBtnShop.OnClick.OnTrigger.Event.AddListener(ShowPanelShopGold);
-        UIBtnCraft.OnClick.OnTrigger.Event.AddListener(ShowPanelCraft);
+//        UIBtnHero.OnClick.OnTrigger.Event.AddListener(ShowPanelHero);
+//        UIBtnShop.OnClick.OnTrigger.Event.AddListener(ShowPanelShopGold);
+//        UIBtnCraft.OnClick.OnTrigger.Event.AddListener(ShowPanelCraft);
+    
     }
-    void ShowPanelHero()
+
+    public override void ShowPanelByCmd()
+    {
+        base.ShowPanelByCmd();
+        popupManager.SetFirstSelect(ShopBtn.gameObject);
+    }
+
+    public void ShowPanelHero()
     {
         showPanelHeroSignal.Dispatch();
     }
-    void ShowPanelCraft()
+    public void ShowPanelCraft()
     {
         showPanelCraftSignal.Dispatch();
     }
-    void ShowPanelShopGold()
+    public void ShowPanelShopGold()
     {
         popupManager.popupKey = PopupKey.ShopGoldPopup;
         showPanelShopSignal.Dispatch();

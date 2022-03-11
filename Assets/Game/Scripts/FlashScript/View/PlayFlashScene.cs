@@ -11,7 +11,7 @@ public class PlayFlashScene : View
     public string nameScene;
     public Button StartGameBtn;
     public Animator animator;
-
+    public GameObject parent;
     protected override void Start()
     {
         base.Start();
@@ -19,6 +19,7 @@ public class PlayFlashScene : View
         {
             instance = this;
         }
+        DontDestroyOnLoad(parent);
     }
     
     public void StartGameClick()
