@@ -11,12 +11,16 @@ public class ItemShopView : View
     public int cost;
     public int value;
     public Text costText, valueText;
+    public Button btnBuy;
     protected override void Awake()
     {
         base.Awake();
         base.CopyStart();
         costText.text = $"{cost}";
         valueText.text = $"{value}";
+        if(btnBuy)
+            btnBuy.onClick.AddListener(BuyItem);
+        
     }
     public void BuyItem()
     {

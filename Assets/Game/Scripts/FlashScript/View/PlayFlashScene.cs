@@ -20,6 +20,7 @@ public class PlayFlashScene : View
             instance = this;
         }
         DontDestroyOnLoad(parent);
+        StartGameBtn.onClick.AddListener(StartGameClick);
     }
     
     public void StartGameClick()

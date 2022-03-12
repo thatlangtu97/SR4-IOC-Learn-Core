@@ -10,11 +10,14 @@ public class ItemShopAds : View
     public CurrencyType currencyType;
     public int value;
     public Text valueText;
+    public Button btnBuy;
     protected override void Awake()
     {
         base.Awake();
         base.CopyStart();
         valueText.text = $"{value}";
+        if(btnBuy)
+            btnBuy.onClick.AddListener(BuyItem);
     }
     public void BuyItem()
     {
