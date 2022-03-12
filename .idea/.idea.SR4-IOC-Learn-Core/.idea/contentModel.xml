@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\Toan\.Rider2019.1\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\Toan\.Rider2019.1\system\resharper-host\local\Transient\ReSharperHost\v191\SolutionCaches\_SR4-IOC-Learn-Core.-1955574992.00" t="ExcludeRecursive" />
-    <e p="D:\SR4-IOC-Learn-Core" t="IncludeRecursive">
+    <e p="C:\ProjectUnity\SR4-IOC-Learn-Core" t="IncludeRecursive">
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
@@ -1563,6 +1561,15 @@
                 <e p="2D_Alpha 1.shader" t="Include" />
                 <e p="player.atlas.txt" t="Include" />
               </e>
+              <e p="leo_fist" t="Include">
+                <e p="fx" t="Include">
+                  <e p="fx_skill2.atlas.txt" t="Include" />
+                </e>
+                <e p="Fx2" t="Include">
+                  <e p="fx_skill2_air.atlas.txt" t="Include" />
+                </e>
+                <e p="new_char.atlas.txt" t="Include" />
+              </e>
               <e p="player-ani-noEffect" t="Include">
                 <e p="player.atlas.txt" t="Include" />
               </e>
@@ -1571,6 +1578,14 @@
               <e p="BosssTest" t="Include">
                 <e p="miniboss2_ani" t="Include">
                   <e p="miniboss2.atlas.txt" t="Include" />
+                </e>
+              </e>
+              <e p="daruma" t="Include">
+                <e p="daruma_big-ani" t="Include">
+                  <e p="daruma_big.atlas.txt" t="Include" />
+                </e>
+                <e p="daruma_small-ani" t="Include">
+                  <e p="daruma_small.atlas.txt" t="Include" />
                 </e>
               </e>
               <e p="Death Knight" t="Include">
@@ -1743,6 +1758,12 @@
                   <e p="E9.atlas.txt" t="Include" />
                 </e>
               </e>
+              <e p="frog-ani" t="Include">
+                <e p="frog.atlas.txt" t="Include" />
+              </e>
+              <e p="kappa_anim" t="Include">
+                <e p="kappa_layer2.atlas.txt" t="Include" />
+              </e>
               <e p="Mentor" t="Include">
                 <e p="mentor.atlas.txt" t="Include" />
               </e>
@@ -1839,6 +1860,7 @@
                 <e p="StateMachine" t="Include">
                   <e p="AttackState" t="Include">
                     <e p="AirAttackState.cs" t="Include" />
+                    <e p="AttackAndMoveState.cs" t="Include" />
                     <e p="AttackState.cs" t="Include" />
                     <e p="FlyAttackState.cs" t="Include" />
                   </e>
@@ -2808,5 +2830,7 @@
       <e p="SR4-IOC-Learn-Core.sln" t="IncludeFlat" />
       <e p="Temp\bin" t="ExcludeRecursive" />
     </e>
+    <e p="C:\Users\ADMIN\.Rider2019.1\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\ADMIN\.Rider2019.1\system\resharper-host\local\Transient\ReSharperHost\v191\SolutionCaches\_SR4-IOC-Learn-Core.446730325.00" t="ExcludeRecursive" />
   </component>
 </project>

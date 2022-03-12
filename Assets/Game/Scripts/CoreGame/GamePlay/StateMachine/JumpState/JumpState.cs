@@ -25,7 +25,7 @@ public class JumpState : State
     }
     public override void UpdateState()
     {
-        base.UpdateState();
+        base.UpdateState();                                            
         if (controller.componentManager.checkGround() == false)
         {
             controller.componentManager.Rotate();

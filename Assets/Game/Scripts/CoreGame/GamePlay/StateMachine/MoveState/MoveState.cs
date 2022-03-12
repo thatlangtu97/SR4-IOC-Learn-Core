@@ -16,6 +16,7 @@ public class MoveState : State
     }
     public override void UpdateState()
     {
+        base.UpdateState();
         controller.componentManager.rgbody2D.velocity = new Vector2(controller.componentManager.speedMove, controller.componentManager.rgbody2D.velocity.y);
         controller.componentManager.Rotate();
         if (controller.componentManager.checkGround() == false)

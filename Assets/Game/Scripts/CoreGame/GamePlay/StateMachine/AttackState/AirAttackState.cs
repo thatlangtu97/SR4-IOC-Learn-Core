@@ -22,6 +22,11 @@ public class AirAttackState : State
             {
                 controller.componentManager.Rotate();
                 controller.componentManager.rgbody2D.velocity = new Vector2(controller.componentManager.speedMove, controller.componentManager.rgbody2D.velocity.y);
+                
+//                Vector2 velocityAttack = new Vector2( controller.componentManager.speedMove * eventCollectionData[idState].curveX.Evaluate(timeTrigger),
+//                    eventCollectionData[idState].curveY.Evaluate(timeTrigger));
+//
+//                controller.componentManager.rgbody2D.velocity = velocityAttack;
             }
             if (timeTrigger >= eventCollectionData[idState].durationAnimation)
             {
@@ -70,6 +75,7 @@ public class AirAttackState : State
     {
         base.ExitState();
         controller.componentManager.isAttack = false;
+        idState = 0;
 
     }
     public void CastSkill()

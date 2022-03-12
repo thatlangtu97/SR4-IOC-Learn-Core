@@ -1,0 +1,62 @@
+
+fx_skill2_air.png
+size: 513,513
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+FXattack1/ATTK3
+  rotate: true
+  xy: 403, 270
+  size: 241, 94
+  orig: 250, 100
+  offset: 7, 3
+  index: -1
+L_punch
+  rotate: true
+  xy: 188, 8
+  size: 153, 139
+  orig: 156, 141
+  offset: 1, 1
+  index: -1
+fx_skill2-2/0
+  rotate: false
+  xy: 359, 117
+  size: 152, 151
+  orig: 168, 171
+  offset: 9, 10
+  index: -1
+fx_skill2-2/1
+  rotate: true
+  xy: 188, 163
+  size: 164, 169
+  orig: 182, 181
+  offset: 8, 4
+  index: -1
+fx_skill2-2/2
+  rotate: false
+  xy: 2, 150
+  size: 184, 178
+  orig: 208, 191
+  offset: 13, 6
+  index: -1
+fx_skill2-2/3
+  rotate: false
+  xy: 207, 329
+  size: 194, 182
+  orig: 208, 191
+  offset: 9, 7
+  index: -1
+fx_skill2-2/4
+  rotate: false
+  xy: 2, 330
+  size: 203, 181
+  orig: 217, 197
+  offset: 5, 11
+  index: -1
+fx_skill2-2/5
+  rotate: false
+  xy: 2, 22
+  size: 120, 126
+  orig: 140, 150
+  offset: 16, 11
+  index: -1
