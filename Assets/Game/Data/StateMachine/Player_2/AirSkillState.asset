@@ -25,6 +25,6 @@ MonoBehaviour:
   Immunes: 00000000
   eventCollectionData:
   - {fileID: 11400000, guid: c5cbd0193e1e4d74998917427e3d5c07, type: 2}
-  - {fileID: 11400000, guid: 3a5f3e85330479a4c909c0980099997c, type: 2}
+  - {fileID: 11400000, guid: 0f577ca6fcc36c44580fa479f93fda54, type: 2}
   LockGravity: 1
   useCheckEnemyForwark: 0

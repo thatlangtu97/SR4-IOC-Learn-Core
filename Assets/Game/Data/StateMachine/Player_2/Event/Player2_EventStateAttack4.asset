@@ -36,7 +36,7 @@ MonoBehaviour:
       Data: 0
     - Name: timeTriggerEvent
       Entry: 4
-      Data: 0.08
+      Data: 0.1
     - Name: layerMaskEnemy
       Entry: 7
       Data: UnityEngine.LayerMask, UnityEngine.CoreModule
@@ -57,7 +57,7 @@ MonoBehaviour:
       Data: 0
     - Name: 
       Entry: 4
-      Data: 0.5
+      Data: 1
     - Name: 
       Entry: 4
       Data: 0
@@ -69,10 +69,10 @@ MonoBehaviour:
       Data: UnityEngine.Vector3, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 2
+      Data: 2.5
     - Name: 
       Entry: 4
-      Data: 1.5
+      Data: 2
     - Name: 
       Entry: 4
       Data: 0
@@ -143,10 +143,37 @@ MonoBehaviour:
       Entry: 8
       Data: 
   NameTrigger: attack4
-  durationAnimation: 0.467
+  durationAnimation: 0.31133333
   curveX:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 41.416603
+      outSlope: 41.416603
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.11249989
+      outWeight: 0.33403885
+    - serializedVersion: 3
+      time: 0.1
+      value: 15
+      inSlope: 97.118
+      outSlope: 97.118
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.21951467
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.11
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
@@ -161,7 +188,16 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 1.5
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1.5
       inSlope: 0
       outSlope: 0
       tangentMode: 0

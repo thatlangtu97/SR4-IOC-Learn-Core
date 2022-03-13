@@ -27,6 +27,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a58347dd4b751524ebf4a5f4980ddd8b, type: 2}
   - {fileID: 11400000, guid: 81c7d682c06b8744fb40ef641a49399b, type: 2}
   - {fileID: 11400000, guid: 5c2e0a08ec7b9124c975d24e9ff0e468, type: 2}
+  - {fileID: 11400000, guid: c01bf05702bc3ea46b957854ccf5fa45, type: 2}
   timeBuffer: 0.075
   useCheckEnemyForwark: 0
-  scaleSpeed: 0.5
+  scaleSpeed: 0.3

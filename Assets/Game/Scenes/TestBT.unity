@@ -11833,7 +11833,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Joystick: {fileID: 931071010}
   cameraFollow: {fileID: 1597534331}
-  stateMachine: {fileID: 1915414529}
+  stateMachine: {fileID: 1364293105}
   maskToolTest:
     serializedVersion: 2
     m_Bits: 6144
@@ -21290,7 +21290,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1364293100
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21400,7 +21400,7 @@ MonoBehaviour:
   - NameState: 7
     StateToClone: {fileID: 11400000, guid: 1d312a40d721f7c4bba2094124a8ee5a, type: 2}
   - NameState: 8
-    StateToClone: {fileID: 11400000, guid: b59341d45f194e443b4cc894e95c3fe4, type: 2}
+    StateToClone: {fileID: 11400000, guid: 06e42375c58574044b4e09aad28ec98d, type: 2}
   - NameState: 9
     StateToClone: {fileID: 11400000, guid: 0b15fcb84a767714c88b353b34016a27, type: 2}
   - NameState: 10
@@ -21469,7 +21469,7 @@ MonoBehaviour:
   jumpCount: 0
   dashCount: 0
   maxSpeedMove: 3
-  gravityScale: 2
+  gravityScale: 4
   maxJump: 2
   maxDash: 1
   maxAttackAirCount: 1
@@ -21490,7 +21490,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 2
+  m_GravityScale: 4
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 0
@@ -27520,7 +27520,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &1915414525
 BoxCollider2D:
   m_ObjectHideFlags: 0
