@@ -4054,7 +4054,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &123914736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8401,7 +8401,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &447276978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11833,7 +11833,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Joystick: {fileID: 931071010}
   cameraFollow: {fileID: 1597534331}
-  stateMachine: {fileID: 1915414529}
+  stateMachine: {fileID: 123914736}
   maskToolTest:
     serializedVersion: 2
     m_Bits: 6144
@@ -27520,7 +27520,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!61 &1915414525
 BoxCollider2D:
   m_ObjectHideFlags: 0

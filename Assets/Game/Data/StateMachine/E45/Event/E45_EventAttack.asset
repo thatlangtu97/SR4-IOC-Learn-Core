@@ -36,7 +36,7 @@ MonoBehaviour:
       Data: 0
     - Name: timeTriggerEvent
       Entry: 4
-      Data: 0.32
+      Data: 0.5
     - Name: layerMaskEnemy
       Entry: 7
       Data: UnityEngine.LayerMask, UnityEngine.CoreModule
@@ -57,7 +57,7 @@ MonoBehaviour:
       Data: 0.5
     - Name: 
       Entry: 4
-      Data: 0.5
+      Data: 0.75
     - Name: 
       Entry: 4
       Data: 0
@@ -72,7 +72,7 @@ MonoBehaviour:
       Data: 1
     - Name: 
       Entry: 4
-      Data: 1
+      Data: 1.5
     - Name: 
       Entry: 4
       Data: 0
@@ -82,21 +82,6 @@ MonoBehaviour:
     - Name: radius
       Entry: 4
       Data: 0
-    - Name: powerCollider
-      Entry: 3
-      Data: 4
-    - Name: forcePower
-      Entry: 7
-      Data: UnityEngine.Vector2, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 200
-    - Name: 
-      Entry: 4
-      Data: 200
-    - Name: 
-      Entry: 8
-      Data: 
     - Name: castByTime
       Entry: 5
       Data: false
@@ -158,7 +143,7 @@ MonoBehaviour:
       Entry: 8
       Data: 
   NameTrigger: attack1
-  durationAnimation: 0.667
+  durationAnimation: 1
   curveX:
     serializedVersion: 2
     m_Curve: []
@@ -175,7 +160,34 @@ MonoBehaviour:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0
+      time: 0.0974161
+      value: 1.4831673
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.11989486
+      value: 0.3
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.4053077
+      value: 0.3
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.40862602
       value: 1
       inSlope: 0
       outSlope: 0

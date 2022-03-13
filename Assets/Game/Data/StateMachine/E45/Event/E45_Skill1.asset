@@ -33,7 +33,7 @@ MonoBehaviour:
       Data: 1|ColliderEvent, Assembly-CSharp
     - Name: idEvent
       Entry: 3
-      Data: 0
+      Data: 10
     - Name: timeTriggerEvent
       Entry: 4
       Data: 0.35
@@ -57,7 +57,7 @@ MonoBehaviour:
       Data: 0.5
     - Name: 
       Entry: 4
-      Data: 0.5
+      Data: 0.75
     - Name: 
       Entry: 4
       Data: 0
@@ -72,7 +72,7 @@ MonoBehaviour:
       Data: 1
     - Name: 
       Entry: 4
-      Data: 1
+      Data: 1.5
     - Name: 
       Entry: 4
       Data: 0

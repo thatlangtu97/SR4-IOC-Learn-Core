@@ -14,7 +14,7 @@
         <entry file="file://$PROJECT_DIR$/Assets/Game/Scripts/CoreGame/GamePlay/StateMachine/AttackState/AttackState.cs">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-383">
-              <caret line="45" column="67" lean-forward="true" selection-start-line="45" selection-start-column="67" selection-end-line="45" selection-end-column="67" />
+              <caret line="45" column="67" selection-start-line="45" selection-start-column="67" selection-end-line="45" selection-end-column="67" />
               <folding>
                 <marker date="1647196236575" expanded="true" signature="6:52" ph="..." />
                 <marker date="1647196236575" expanded="true" signature="170:5826" ph="{...}" />
@@ -425,7 +425,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="1">
     <option name="x" value="95" />
     <option name="y" value="57" />
     <option name="width" value="1679" />
@@ -497,12 +497,12 @@
       <workItem from="1646892046331" duration="6244000" />
       <workItem from="1646981879109" duration="7389000" />
       <workItem from="1647105827337" duration="5643000" />
-      <workItem from="1647156678814" duration="9485000" />
+      <workItem from="1647156678814" duration="10073000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33219000" />
+    <option name="totallyTimeSpent" value="33807000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -514,8 +514,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="95" y="57" width="1679" height="1000" extended-state="0" />
-    <editor active="true" />
+    <frame x="95" y="57" width="1679" height="1000" extended-state="1" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22235948" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -1431,7 +1430,7 @@
     <entry file="file://$PROJECT_DIR$/Assets/Game/Scripts/CoreGame/GamePlay/StateMachine/AttackState/AttackState.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-383">
-          <caret line="45" column="67" lean-forward="true" selection-start-line="45" selection-start-column="67" selection-end-line="45" selection-end-column="67" />
+          <caret line="45" column="67" selection-start-line="45" selection-start-column="67" selection-end-line="45" selection-end-column="67" />
           <folding>
             <marker date="1647196236575" expanded="true" signature="6:52" ph="..." />
             <marker date="1647196236575" expanded="true" signature="170:5826" ph="{...}" />
