@@ -35,28 +35,37 @@ MonoBehaviour:
       Entry: 8
       Data: 
   NameTrigger: dash
-  durationAnimation: 0.2
+  durationAnimation: 0.25
   curveX:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 15
-      inSlope: 0.0007919864
-      outSlope: 0.0007919864
+      value: 0
+      inSlope: Infinity
+      outSlope: Infinity
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.43236583
+      outWeight: 0
     - serializedVersion: 3
-      time: 0.19778806
-      value: 15
+      time: 0.098992616
+      value: 20
       inSlope: 0.101078756
       outSlope: 0.101078756
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.5910183
       outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.20243245
+      value: 20
+      inSlope: 0.2013875
+      outSlope: 0.2013875
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.32334006
     - serializedVersion: 3
       time: 0.4
       value: 1

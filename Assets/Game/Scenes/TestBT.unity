@@ -5651,7 +5651,7 @@ MonoBehaviour:
   speedMove: 0
   originBoxCheckGround2d: {x: 0.4, y: 0.1}
   currentImunes: 
-  heal: 100
+  heal: 1000
   baseImmunes: 
   jumpCount: 0
   dashCount: 0
@@ -8401,7 +8401,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &447276978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11833,7 +11833,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Joystick: {fileID: 931071010}
   cameraFollow: {fileID: 1597534331}
-  stateMachine: {fileID: 1364293105}
+  stateMachine: {fileID: 1915414529}
   maskToolTest:
     serializedVersion: 2
     m_Bits: 6144
@@ -21290,7 +21290,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1364293100
 MonoBehaviour:
   m_ObjectHideFlags: 0

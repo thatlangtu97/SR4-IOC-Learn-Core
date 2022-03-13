@@ -166,6 +166,24 @@ public class Joystick : MonoBehaviour, IDragHandler, IPointerUpHandler, IPointer
         }
     }
 
+    public void MoveKeyboard()
+    {
+        Vector2 sizeDelta = BackGround.rectTransform.sizeDelta;
+        VectorMove = new Vector2(Input.GetAxisRaw("Horizontal"),0);
+        PointJoystick.rectTransform.anchoredPosition = new Vector3((VectorMove.x * sizeDelta.x) / space,
+            (VectorMove.y * sizeDelta.y) / space);
+        ForceVector = VectorMove;
+        if (ForceVector.x != 0)
+        {
+            OnMove();
+        }
+        else
+        {
+            OnStop();
+            PointJoystick.rectTransform.anchoredPosition = Vector3.zero;
+        }
+    }
+
     public void MoveHorizontal(float horizontal)
     {
         

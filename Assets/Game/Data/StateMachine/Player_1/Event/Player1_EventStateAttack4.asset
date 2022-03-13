@@ -124,7 +124,7 @@ MonoBehaviour:
       Data: UnityEngine.Vector2, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 200
+      Data: 50
     - Name: 
       Entry: 4
       Data: 0
@@ -247,26 +247,26 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 102.640396
-      outSlope: 102.640396
+      inSlope: 130.41206
+      outSlope: 130.41206
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0
-      outWeight: 0.07819466
+      inWeight: 0.11249989
+      outWeight: 0.1278486
     - serializedVersion: 3
-      time: 0.1
-      value: 7
-      inSlope: -0
-      outSlope: -0
+      time: 0.10073587
+      value: 17
+      inSlope: 7.242534
+      outSlope: 7.242534
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0
+      inWeight: 0.1649271
       outWeight: 0
     - serializedVersion: 3
-      time: 0.11
+      time: 0.101
       value: 0
-      inSlope: 0
-      outSlope: 0
+      inSlope: Infinity
+      outSlope: Infinity
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
@@ -276,7 +276,25 @@ MonoBehaviour:
     m_RotationOrder: 4
   curveY:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4

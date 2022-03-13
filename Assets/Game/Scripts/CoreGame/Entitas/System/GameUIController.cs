@@ -55,11 +55,11 @@ public class GameUIController : MonoBehaviour
     public Vector2 VectorMove;
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.W))
         {
             Dash();
         }
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             Attack();
         }
@@ -71,11 +71,11 @@ public class GameUIController : MonoBehaviour
         {
             stateMachine.ChangeState(NameState.ReviveState, true);
         }
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             Skill1();
         }
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.R))
         {
             Skill2();
         }
@@ -106,6 +106,7 @@ public class GameUIController : MonoBehaviour
         else
         {
             gamePad = Gamepad.current;
+            Joystick.MoveKeyboard();
         }
 
         if(Input.GetMouseButtonDown(0) && useRayCastTest )

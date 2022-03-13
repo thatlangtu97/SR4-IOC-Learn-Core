@@ -220,7 +220,7 @@ MonoBehaviour:
       Data: UnityEngine.Vector2, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 100
+      Data: 50
     - Name: 
       Entry: 4
       Data: 0
@@ -247,26 +247,26 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 41.416603
-      outSlope: 41.416603
+      inSlope: 130.41206
+      outSlope: 130.41206
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.11249989
-      outWeight: 0.33403885
+      outWeight: 0.1278486
     - serializedVersion: 3
-      time: 0.1
-      value: 7
-      inSlope: 97.118
-      outSlope: 97.118
+      time: 0.10073587
+      value: 9
+      inSlope: 7.242534
+      outSlope: 7.242534
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.21951467
+      inWeight: 0.1649271
       outWeight: 0
     - serializedVersion: 3
-      time: 0.11
+      time: 0.101
       value: 0
-      inSlope: 0
-      outSlope: 0
+      inSlope: Infinity
+      outSlope: Infinity
       tangentMode: 0
       weightedMode: 0
       inWeight: 0

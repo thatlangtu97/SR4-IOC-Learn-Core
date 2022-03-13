@@ -6,10 +6,15 @@ public class AttackState : State
     bool isEnemyForwark;
     public float timeBuffer = 0.15f;
     public bool useCheckEnemyForwark=true;
+    public bool lockGravity = false;
     public override void EnterState()
     {
         base.EnterState();
         controller.componentManager.isAttack = true;
+        if (lockGravity)
+        {
+            controller.componentManager.rgbody2D.gravityScale = 0;
+        }
         CastSkill();
     }
     public override void UpdateState()
@@ -21,37 +26,47 @@ public class AttackState : State
                 isEnemyForwark = controller.componentManager.checkEnemyForwark();
             if (!isEnemyForwark)
             {
-                if (controller.componentManager.checkGround())
-                {
+//                if (controller.componentManager.checkGround())
+//                {
                     Vector2 velocityAttack = new Vector2(eventCollectionData[idState].curveX.Evaluate(timeTrigger),
                         eventCollectionData[idState].curveY.Evaluate(timeTrigger));
                     controller.componentManager.rgbody2D.position +=
                         new Vector2(velocityAttack.x * controller.transform.localScale.x,
                             velocityAttack.y * controller.transform.localScale.y) * Time.deltaTime;
                     controller.componentManager.rgbody2D.velocity = Vector2.zero;
-                }
+//                }
 
             }
 
-            if (controller.componentManager.isBufferAttack == true && (timeTrigger + timeBuffer) > eventCollectionData[idState].durationAnimation)
+            if (controller.componentManager.checkGround() == false)
             {
-                timeTrigger += timeBuffer;
-                if (!controller.componentManager.checkGround())
-                {
+                if (controller.componentManager.isBufferAttack == true)
                     controller.ChangeState(NameState.AirAttackState);
-                }
+                else
+                    controller.ChangeState(NameState.FallingState);
+            }
 
-            }
-            else
-            {
-                if ((timeTrigger + timeBuffer) > eventCollectionData[idState].durationAnimation)
-                {
-                    if (controller.componentManager.checkGround() == false)
-                    {
-                        controller.ChangeState(NameState.FallingState);
-                    }
-                }
-            }
+
+//
+//            if (controller.componentManager.isBufferAttack == true && (timeTrigger + timeBuffer) > eventCollectionData[idState].durationAnimation)
+//            {
+//                timeTrigger += timeBuffer;
+//                if (!controller.componentManager.checkGround())
+//                {
+//                    controller.ChangeState(NameState.AirAttackState);
+//                }
+//            }
+//            else
+//            {
+//                if ((timeTrigger + timeBuffer) > eventCollectionData[idState].durationAnimation)
+//                {
+//                    if (controller.componentManager.checkGround() == false)
+//                    {
+//                        controller.ChangeState(NameState.FallingState);
+//                    }
+//                }
+//            }
+            
         }
         else
         {
@@ -98,6 +113,10 @@ public class AttackState : State
         base.ExitState();
         controller.componentManager.isAttack = false;
         idState = 0;
+        if (lockGravity)
+        {
+            controller.componentManager.rgbody2D.gravityScale = controller.componentManager.gravityScale;
+        }
     }
     public void CastSkill()
     {

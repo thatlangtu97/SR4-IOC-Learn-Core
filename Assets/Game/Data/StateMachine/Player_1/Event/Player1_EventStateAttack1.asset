@@ -37,7 +37,7 @@ MonoBehaviour:
       Data: 0
     - Name: timeTriggerEvent
       Entry: 4
-      Data: 0.1
+      Data: 0.15
     - Name: duration
       Entry: 4
       Data: 0.33333
@@ -220,7 +220,7 @@ MonoBehaviour:
       Data: UnityEngine.Vector2, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 100
+      Data: 50
     - Name: 
       Entry: 4
       Data: 0
@@ -240,33 +240,33 @@ MonoBehaviour:
       Entry: 8
       Data: 
   NameTrigger: attack1
-  durationAnimation: 0.35
+  durationAnimation: 0.37
   curveX:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 41.416603
-      outSlope: 41.416603
+      inSlope: 130.41206
+      outSlope: 130.41206
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.11249989
-      outWeight: 0.33403885
+      outWeight: 0.1278486
     - serializedVersion: 3
-      time: 0.1
-      value: 7
-      inSlope: 97.118
-      outSlope: 97.118
+      time: 0.10073587
+      value: 5
+      inSlope: 7.242534
+      outSlope: 7.242534
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.21951467
+      inWeight: 0.1649271
       outWeight: 0
     - serializedVersion: 3
-      time: 0.11
+      time: 0.101
       value: 0
-      inSlope: 0
-      outSlope: 0
+      inSlope: Infinity
+      outSlope: Infinity
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
@@ -285,6 +285,33 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 3
       time: 0
+      value: 1.5
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.4126538
+      value: 0.6168119
+      inSlope: -1.5973847
+      outSlope: -1.5973847
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.30501404
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.66951704
+      value: 1.5
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
       value: 1.5
       inSlope: 0
       outSlope: 0
