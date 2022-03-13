@@ -130,7 +130,7 @@ MonoBehaviour:
       Data: 2|ColliderEvent, Assembly-CSharp
     - Name: idEvent
       Entry: 3
-      Data: 100
+      Data: 10
     - Name: timeTriggerEvent
       Entry: 4
       Data: 0.07
@@ -179,21 +179,6 @@ MonoBehaviour:
     - Name: radius
       Entry: 4
       Data: 1.1
-    - Name: powerCollider
-      Entry: 3
-      Data: 1
-    - Name: forcePower
-      Entry: 7
-      Data: UnityEngine.Vector2, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
     - Name: castByTime
       Entry: 5
       Data: true
@@ -255,7 +240,7 @@ MonoBehaviour:
       Entry: 8
       Data: 
   NameTrigger: airattack
-  durationAnimation: 0.6
+  durationAnimation: 0.3
   curveX:
     serializedVersion: 2
     m_Curve: []
@@ -267,7 +252,7 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 7
+      value: 10
       inSlope: 0
       outSlope: 0
       tangentMode: 34
@@ -276,7 +261,7 @@ MonoBehaviour:
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 0.6
-      value: 7
+      value: 10
       inSlope: 0
       outSlope: 0
       tangentMode: 34

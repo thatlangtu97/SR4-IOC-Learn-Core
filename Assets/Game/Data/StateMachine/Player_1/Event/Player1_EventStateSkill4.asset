@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ebed730887a86b4ba06c1a18d85cad2, type: 3}
-  m_Name: Player1_EventStateMove
+  m_Name: Player1_EventStateSkill4
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -34,26 +34,38 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  NameTrigger: move
-  durationAnimation: 1
+  NameTrigger: skill3
+  durationAnimation: 0.778
   curveX:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 3
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.7
+      value: 0
+      inSlope: -3.501053
+      outSlope: -3.501053
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.035299063
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
   curveY:
     serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  curveSpeedAnimation:
-    serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 2
+      value: -10
       inSlope: 0
       outSlope: 0
       tangentMode: 34
@@ -62,12 +74,27 @@ MonoBehaviour:
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 1
-      value: 2
+      value: -10
       inSlope: 0
       outSlope: 0
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  curveSpeedAnimation:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1.5
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2

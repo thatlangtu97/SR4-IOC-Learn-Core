@@ -83,21 +83,6 @@ MonoBehaviour:
     - Name: radius
       Entry: 4
       Data: 0
-    - Name: powerCollider
-      Entry: 3
-      Data: 0
-    - Name: forcePower
-      Entry: 7
-      Data: UnityEngine.Vector2, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 200
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
     - Name: castByTime
       Entry: 5
       Data: false
@@ -255,7 +240,7 @@ MonoBehaviour:
       Entry: 8
       Data: 
   NameTrigger: attack3
-  durationAnimation: 0.567
+  durationAnimation: 0.35
   curveX:
     serializedVersion: 2
     m_Curve:
@@ -270,7 +255,7 @@ MonoBehaviour:
       outWeight: 0.07819466
     - serializedVersion: 3
       time: 0.1
-      value: 5
+      value: 7
       inSlope: -0
       outSlope: -0
       tangentMode: 0
@@ -300,7 +285,7 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 1.4
       inSlope: 0
       outSlope: 0
       tangentMode: 0

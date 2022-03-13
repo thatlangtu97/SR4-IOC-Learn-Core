@@ -24,6 +24,7 @@ MonoBehaviour:
   idState: 0
   Immunes: 00000000
   eventCollectionData:
-  - {fileID: 11400000, guid: af4cef181e4d06e40bb47c297cd73e0f, type: 2}
-  - {fileID: 11400000, guid: 5a8a802e2ca233740bf9143eeb7b54e5, type: 2}
+  - {fileID: 11400000, guid: fc0130a5cdc113844a1757a20c24e2d2, type: 2}
+  - {fileID: 11400000, guid: dc0ea300b5960bb4689bb6f1b433ed7d, type: 2}
   LockGravity: 1
+  useCheckEnemyForwark: 0

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ebed730887a86b4ba06c1a18d85cad2, type: 3}
-  m_Name: Player1_EventStateAttack1
+  m_Name: Player1_EventStateAttack4
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -31,109 +31,13 @@ MonoBehaviour:
       Data: 2
     - Name: 
       Entry: 7
-      Data: 1|SpawnGameObject, Assembly-CSharp
+      Data: 1|ColliderEvent, Assembly-CSharp
     - Name: idEvent
       Entry: 3
       Data: 0
     - Name: timeTriggerEvent
       Entry: 4
-      Data: 0.1
-    - Name: duration
-      Entry: 4
-      Data: 0.33333
-    - Name: Prefab
-      Entry: 10
-      Data: 0
-    - Name: localPosition
-      Entry: 7
-      Data: UnityEngine.Vector3, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0.3
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: LocalRotation
-      Entry: 7
-      Data: UnityEngine.Vector3, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 90
-    - Name: 
-      Entry: 4
-      Data: 130
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: LocalScale
-      Entry: 7
-      Data: UnityEngine.Vector3, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0.4
-    - Name: 
-      Entry: 4
-      Data: 0.4
-    - Name: 
-      Entry: 4
-      Data: 0.4
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: ForceSpawn
-      Entry: 7
-      Data: UnityEngine.Vector2, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: setParent
-      Entry: 5
-      Data: true
-    - Name: UseDuration
-      Entry: 5
-      Data: true
-    - Name: forceWhenFinishEvent
-      Entry: 5
-      Data: false
-    - Name: typeSpawn
-      Entry: 3
-      Data: 0
-    - Name: LayerMask
-      Entry: 7
-      Data: UnityEngine.LayerMask, UnityEngine.CoreModule
-    - Name: 
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 2|ColliderEvent, Assembly-CSharp
-    - Name: idEvent
-      Entry: 3
-      Data: 100
-    - Name: timeTriggerEvent
-      Entry: 4
-      Data: 0.2
+      Data: 0.16
     - Name: layerMaskEnemy
       Entry: 7
       Data: UnityEngine.LayerMask, UnityEngine.CoreModule
@@ -169,7 +73,7 @@ MonoBehaviour:
       Data: 2
     - Name: 
       Entry: 4
-      Data: 1
+      Data: 1.5
     - Name: 
       Entry: 4
       Data: 0
@@ -208,19 +112,19 @@ MonoBehaviour:
       Data: 
     - Name: damageInfoEvent
       Entry: 7
-      Data: 3|DamageInfoEvent, Assembly-CSharp
+      Data: 2|DamageInfoEvent, Assembly-CSharp
     - Name: damageScale
       Entry: 4
-      Data: 0.6
+      Data: 1
     - Name: powerCollider
       Entry: 3
-      Data: 1
+      Data: 4
     - Name: forcePower
       Entry: 7
       Data: UnityEngine.Vector2, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 100
+      Data: 200
     - Name: 
       Entry: 4
       Data: 0
@@ -234,33 +138,129 @@ MonoBehaviour:
       Entry: 8
       Data: 
     - Name: 
+      Entry: 7
+      Data: 3|SpawnGameObject, Assembly-CSharp
+    - Name: idEvent
+      Entry: 3
+      Data: 100
+    - Name: timeTriggerEvent
+      Entry: 4
+      Data: 0.1
+    - Name: duration
+      Entry: 4
+      Data: 0.5
+    - Name: Prefab
+      Entry: 10
+      Data: 0
+    - Name: localPosition
+      Entry: 7
+      Data: UnityEngine.Vector3, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0.1
+    - Name: 
+      Entry: 4
+      Data: 0.8
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: LocalRotation
+      Entry: 7
+      Data: UnityEngine.Vector3, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 90
+    - Name: 
+      Entry: 4
+      Data: -90
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: LocalScale
+      Entry: 7
+      Data: UnityEngine.Vector3, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0.4
+    - Name: 
+      Entry: 4
+      Data: 0.4
+    - Name: 
+      Entry: 4
+      Data: 0.3
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: ForceSpawn
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: setParent
+      Entry: 5
+      Data: false
+    - Name: UseDuration
+      Entry: 5
+      Data: true
+    - Name: forceWhenFinishEvent
+      Entry: 5
+      Data: false
+    - Name: typeSpawn
+      Entry: 3
+      Data: 0
+    - Name: LayerMask
+      Entry: 7
+      Data: UnityEngine.LayerMask, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
       Entry: 13
       Data: 
     - Name: 
       Entry: 8
       Data: 
-  NameTrigger: attack1
-  durationAnimation: 0.35
+  NameTrigger: attack4
+  durationAnimation: 0.3
   curveX:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 41.416603
-      outSlope: 41.416603
+      inSlope: 102.640396
+      outSlope: 102.640396
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.11249989
-      outWeight: 0.33403885
+      inWeight: 0
+      outWeight: 0.07819466
     - serializedVersion: 3
       time: 0.1
       value: 7
-      inSlope: 97.118
-      outSlope: 97.118
+      inSlope: -0
+      outSlope: -0
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.21951467
+      inWeight: 0
       outWeight: 0
     - serializedVersion: 3
       time: 0.11
@@ -285,7 +285,7 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1.5
+      value: 1.4
       inSlope: 0
       outSlope: 0
       tangentMode: 0

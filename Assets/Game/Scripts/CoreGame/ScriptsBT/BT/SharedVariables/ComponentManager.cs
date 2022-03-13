@@ -69,6 +69,8 @@ public class ComponentManager : MonoBehaviour
     [FoldoutGroup("PROPERTIES")] 
     public float maxSpeedMove = 2f;
     [FoldoutGroup("PROPERTIES")] 
+    public float gravityScale = 2f;
+    [FoldoutGroup("PROPERTIES")] 
     public int maxJump,maxDash, maxAttackAirCount;
     private void Awake()
     {

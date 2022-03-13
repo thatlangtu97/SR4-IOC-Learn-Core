@@ -4305,6 +4305,7 @@ MonoBehaviour:
   jumpCount: 0
   dashCount: 0
   maxSpeedMove: 0.5
+  gravityScale: 2
   maxJump: 0
   maxDash: 0
   maxAttackAirCount: 0
@@ -4624,6 +4625,7 @@ MonoBehaviour:
   jumpCount: 0
   dashCount: 0
   maxSpeedMove: 2.5
+  gravityScale: 2
   maxJump: 0
   maxDash: 0
   maxAttackAirCount: 0
@@ -5649,6 +5651,7 @@ MonoBehaviour:
   jumpCount: 0
   dashCount: 0
   maxSpeedMove: 1
+  gravityScale: 2
   maxJump: 0
   maxDash: 0
   maxAttackAirCount: 0
@@ -8674,6 +8677,7 @@ MonoBehaviour:
   jumpCount: 0
   dashCount: 0
   maxSpeedMove: 1
+  gravityScale: 2
   maxJump: 0
   maxDash: 0
   maxAttackAirCount: 0
@@ -21450,6 +21454,7 @@ MonoBehaviour:
   jumpCount: 0
   dashCount: 0
   maxSpeedMove: 3
+  gravityScale: 2
   maxJump: 2
   maxDash: 1
   maxAttackAirCount: 1
@@ -22599,6 +22604,7 @@ MonoBehaviour:
   jumpCount: 0
   dashCount: 0
   maxSpeedMove: 2
+  gravityScale: 2
   maxJump: 0
   maxDash: 0
   maxAttackAirCount: 0
@@ -26661,6 +26667,7 @@ MonoBehaviour:
   jumpCount: 0
   dashCount: 0
   maxSpeedMove: 1
+  gravityScale: 2
   maxJump: 0
   maxDash: 0
   maxAttackAirCount: 0
@@ -26929,6 +26936,7 @@ MonoBehaviour:
   jumpCount: 0
   dashCount: 0
   maxSpeedMove: 1
+  gravityScale: 2
   maxJump: 0
   maxDash: 0
   maxAttackAirCount: 0
@@ -27234,6 +27242,7 @@ MonoBehaviour:
   jumpCount: 0
   dashCount: 0
   maxSpeedMove: 1
+  gravityScale: 2
   maxJump: 0
   maxDash: 0
   maxAttackAirCount: 0
@@ -27493,7 +27502,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!61 &1915414525
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -27672,6 +27681,7 @@ MonoBehaviour:
   jumpCount: 0
   dashCount: 0
   maxSpeedMove: 3
+  gravityScale: 4
   maxJump: 2
   maxDash: 1
   maxAttackAirCount: 1
@@ -27692,7 +27702,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 2
+  m_GravityScale: 4
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 0

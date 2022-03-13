@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ebed730887a86b4ba06c1a18d85cad2, type: 3}
-  m_Name: Player1_EventStateAttack1
+  m_Name: Player1_EventStateAirSkill4
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
-    - {fileID: 6511985301000678627, guid: 40be303f4c3fe304097825f2ecd987cb, type: 3}
+    - {fileID: 1744892889613756, guid: 3e54e5bc5065cdb469f03f82eb7e408a, type: 3}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -37,10 +37,10 @@ MonoBehaviour:
       Data: 0
     - Name: timeTriggerEvent
       Entry: 4
-      Data: 0.1
+      Data: 0
     - Name: duration
       Entry: 4
-      Data: 0.33333
+      Data: 0.6
     - Name: Prefab
       Entry: 10
       Data: 0
@@ -49,10 +49,10 @@ MonoBehaviour:
       Data: UnityEngine.Vector3, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 0
+      Data: 2.5
     - Name: 
       Entry: 4
-      Data: 0.3
+      Data: 0.5
     - Name: 
       Entry: 4
       Data: 0
@@ -67,10 +67,10 @@ MonoBehaviour:
       Data: 0
     - Name: 
       Entry: 4
-      Data: 90
+      Data: -90
     - Name: 
       Entry: 4
-      Data: 130
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -79,13 +79,13 @@ MonoBehaviour:
       Data: UnityEngine.Vector3, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 0.4
+      Data: 0.3
     - Name: 
       Entry: 4
-      Data: 0.4
+      Data: 0.2
     - Name: 
       Entry: 4
-      Data: 0.4
+      Data: 0.3
     - Name: 
       Entry: 8
       Data: 
@@ -103,7 +103,7 @@ MonoBehaviour:
       Data: 
     - Name: setParent
       Entry: 5
-      Data: true
+      Data: false
     - Name: UseDuration
       Entry: 5
       Data: true
@@ -133,7 +133,7 @@ MonoBehaviour:
       Data: 100
     - Name: timeTriggerEvent
       Entry: 4
-      Data: 0.2
+      Data: 0.1
     - Name: layerMaskEnemy
       Entry: 7
       Data: UnityEngine.LayerMask, UnityEngine.CoreModule
@@ -151,7 +151,7 @@ MonoBehaviour:
       Data: UnityEngine.Vector3, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 0
+      Data: -0.3
     - Name: 
       Entry: 4
       Data: 0.5
@@ -166,10 +166,10 @@ MonoBehaviour:
       Data: UnityEngine.Vector3, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 2
+      Data: 3.5
     - Name: 
       Entry: 4
-      Data: 1
+      Data: 0.5
     - Name: 
       Entry: 4
       Data: 0
@@ -211,16 +211,16 @@ MonoBehaviour:
       Data: 3|DamageInfoEvent, Assembly-CSharp
     - Name: damageScale
       Entry: 4
-      Data: 0.6
+      Data: 1
     - Name: powerCollider
       Entry: 3
-      Data: 1
+      Data: 2
     - Name: forcePower
       Entry: 7
       Data: UnityEngine.Vector2, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 100
+      Data: 200
     - Name: 
       Entry: 4
       Data: 0
@@ -239,38 +239,47 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  NameTrigger: attack1
-  durationAnimation: 0.35
+  NameTrigger: dashattack
+  durationAnimation: 0.3
   curveX:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 41.416603
-      outSlope: 41.416603
+      time: -0.0129362345
+      value: 10.072821
+      inSlope: -0.49677056
+      outSlope: -0.49677056
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.11249989
-      outWeight: 0.33403885
+      inWeight: 0.33333334
+      outWeight: 0.8616153
     - serializedVersion: 3
-      time: 0.1
-      value: 7
-      inSlope: 97.118
-      outSlope: 97.118
+      time: 0.09805836
+      value: 10.072821
+      inSlope: -0.33292922
+      outSlope: -0.33292922
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.21951467
-      outWeight: 0
+      inWeight: 0.982587
+      outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.11
-      value: 0
-      inSlope: 0
-      outSlope: 0
+      time: 0.18808268
+      value: 12.072821
+      inSlope: 0.048975233
+      outSlope: 0.048975233
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0
-      outWeight: 0
+      inWeight: 0.74486595
+      outWeight: 0.6490851
+    - serializedVersion: 3
+      time: 0.3
+      value: 2
+      inSlope: -43.37748
+      outSlope: -43.37748
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.3737978
+      outWeight: 0.4511315
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4

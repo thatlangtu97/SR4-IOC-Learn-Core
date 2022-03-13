@@ -27,22 +27,31 @@ public class SkillState : State
                 velocityAttack.y * controller.transform.localScale.y);
             if (!useCheckEnemyForwark)
             {
-               
-                controller.componentManager.rgbody2D.position += force * Time.deltaTime;
+                Vector2 forceClone = force;
+                if (controller.componentManager.checkGround() == true)
+                {
+                    forceClone.y = 0;
+                }
+                controller.componentManager.rgbody2D.position += forceClone * Time.deltaTime;
             }
             else
             {
                 bool isEnemyForwark = controller.componentManager.checkEnemyForwark();
                 if (!isEnemyForwark)
-                {
-                    controller.componentManager.rgbody2D.position += force * Time.deltaTime;
-                }
+                { 
+                    Vector2 forceClone = force;
+                    if (controller.componentManager.checkGround() == true)
+                    {
+                        forceClone.y = 0;
+                    }
+                    controller.componentManager.rgbody2D.position += forceClone * Time.deltaTime;
+                } 
             }
         }
         else
         {
             if(LockGravity)
-                controller.componentManager.rgbody2D.gravityScale = 2;
+                controller.componentManager.rgbody2D.gravityScale = controller.componentManager.gravityScale;
             if (controller.componentManager.checkGround() == true)
             {
                 if (controller.componentManager.speedMove != 0)
@@ -64,7 +73,7 @@ public class SkillState : State
     {
         base.ExitState();
         if(LockGravity)
-            controller.componentManager.rgbody2D.gravityScale = 2;
+            controller.componentManager.rgbody2D.gravityScale = controller.componentManager.gravityScale;
     }
     public void CastSkill()
     {
