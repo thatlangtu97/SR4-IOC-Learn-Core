@@ -82,6 +82,7 @@ MonoBehaviour:
     forcePower: {x: 0, y: 0}
   damageProperties: {fileID: 0}
   component: {fileID: 5006971484636475976}
+  RecycleWhenCollider: 0
 --- !u!60 &5006971484636475982
 PolygonCollider2D:
   m_ObjectHideFlags: 0

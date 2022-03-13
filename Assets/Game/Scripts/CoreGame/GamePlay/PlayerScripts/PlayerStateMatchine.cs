@@ -42,6 +42,8 @@ public class PlayerStateMatchine : StateMachineController
     public override void OnInputSkill(int idSkill)
     {
         if (currentState == null) return;
+        if(currentNameState == NameState.SkillState || currentNameState == NameState.AirSkillState) return;
+        
         base.OnInputSkill(idSkill);
         bool check = false;
         if (dictionaryStateMachine.ContainsKey(NameState.SkillState))

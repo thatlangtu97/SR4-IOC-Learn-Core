@@ -11,6 +11,7 @@ public class ProjectileCollider : MonoBehaviour
     [ReadOnly]
     public DamageProperties damageProperties;
     public ProjectileComponent component;
+    public bool RecycleWhenCollider = true;
     public virtual void OnTriggerEnter2D(Collider2D other)
     {
         void Action()
@@ -22,6 +23,7 @@ public class ProjectileCollider : MonoBehaviour
         
         DamageInfoSend damageInfoSend = new DamageInfoSend(damageInfoEvent, damageProperties, Action);
         DealDmgManager.DealDamage(other, component.entity, damageInfoSend);
-        ObjectPool.Recycle(this.gameObject);
+        if(RecycleWhenCollider)
+            ObjectPool.Recycle(this.gameObject);
     }
 }

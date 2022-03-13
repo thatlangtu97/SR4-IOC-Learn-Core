@@ -21,14 +21,26 @@ public class AttackState : State
                 isEnemyForwark = controller.componentManager.checkEnemyForwark();
             if (!isEnemyForwark)
             {
-                Vector2 velocityAttack = new Vector2(eventCollectionData[idState].curveX.Evaluate(timeTrigger), eventCollectionData[idState].curveY.Evaluate(timeTrigger));
-                controller.componentManager.rgbody2D.position += new Vector2(velocityAttack.x * controller.transform.localScale.x, velocityAttack.y * controller.transform.localScale.y) * Time.deltaTime;
-                controller.componentManager.rgbody2D.velocity = Vector2.zero;
+                if (controller.componentManager.checkGround())
+                {
+                    Vector2 velocityAttack = new Vector2(eventCollectionData[idState].curveX.Evaluate(timeTrigger),
+                        eventCollectionData[idState].curveY.Evaluate(timeTrigger));
+                    controller.componentManager.rgbody2D.position +=
+                        new Vector2(velocityAttack.x * controller.transform.localScale.x,
+                            velocityAttack.y * controller.transform.localScale.y) * Time.deltaTime;
+                    controller.componentManager.rgbody2D.velocity = Vector2.zero;
+                }
+
             }
 
             if (controller.componentManager.isBufferAttack == true && (timeTrigger + timeBuffer) > eventCollectionData[idState].durationAnimation)
             {
                 timeTrigger += timeBuffer;
+                if (!controller.componentManager.checkGround())
+                {
+                    controller.ChangeState(NameState.AirAttackState);
+                }
+
             }
             else
             {

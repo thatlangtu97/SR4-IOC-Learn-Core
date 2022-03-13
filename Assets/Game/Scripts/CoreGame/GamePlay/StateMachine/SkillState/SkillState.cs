@@ -8,6 +8,7 @@ public class SkillState : State
     public bool useCheckEnemyForwark=false;
     public override void EnterState()
     {
+        Debug.Log("EnterSkill");
         base.EnterState();
 
         CastSkill();
@@ -105,16 +106,16 @@ public class SkillState : State
             controller.ChangeState(NameState.MoveState);
         }
     }
-    public override void OnInputSkill(int idSkill)
-    {
-//        if (timeTrigger >= eventCollectionData[idState].durationAnimation)
-//        {
-//            base.OnInputSkill(idSkill);
-//            idState = idSkill;
-//            EnterState();
-//        }
-
-    }
+//    public override void OnInputSkill(int idSkill)
+//    {
+////        if (timeTrigger >= eventCollectionData[idState].durationAnimation)
+////        {
+////            base.OnInputSkill(idSkill);
+////            idState = idSkill;
+////            EnterState();
+////        }
+//
+//    }
     public override void OnInputAttack()
     {
         if (timeTrigger >= eventCollectionData[idState].durationAnimation)

@@ -581,6 +581,7 @@ MonoBehaviour:
     forcePower: {x: 0, y: 0}
   damageProperties: {fileID: 0}
   component: {fileID: 40049888}
+  RecycleWhenCollider: 1
 --- !u!114 &40049888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -867,6 +868,7 @@ MonoBehaviour:
     forcePower: {x: 0, y: 0}
   damageProperties: {fileID: 0}
   component: {fileID: 63286512}
+  RecycleWhenCollider: 1
 --- !u!114 &63286512
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1238,6 +1240,7 @@ MonoBehaviour:
     forcePower: {x: 0, y: 0}
   damageProperties: {fileID: 0}
   component: {fileID: 104479896}
+  RecycleWhenCollider: 1
 --- !u!114 &104479896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3974,6 +3977,7 @@ MonoBehaviour:
     forcePower: {x: 0, y: 0}
   damageProperties: {fileID: 0}
   component: {fileID: 116585515}
+  RecycleWhenCollider: 1
 --- !u!114 &116585515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5118,6 +5122,7 @@ MonoBehaviour:
     forcePower: {x: 0, y: 0}
   damageProperties: {fileID: 0}
   component: {fileID: 248063180}
+  RecycleWhenCollider: 1
 --- !u!114 &248063180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8897,6 +8902,7 @@ MonoBehaviour:
     forcePower: {x: 0, y: 0}
   damageProperties: {fileID: 0}
   component: {fileID: 447989793}
+  RecycleWhenCollider: 1
 --- !u!114 &447989793
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12192,6 +12198,7 @@ MonoBehaviour:
     forcePower: {x: 0, y: 0}
   damageProperties: {fileID: 0}
   component: {fileID: 597903488}
+  RecycleWhenCollider: 1
 --- !u!114 &597903488
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12405,6 +12412,7 @@ MonoBehaviour:
     forcePower: {x: 0, y: 0}
   damageProperties: {fileID: 0}
   component: {fileID: 598530250}
+  RecycleWhenCollider: 1
 --- !u!114 &598530250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12644,6 +12652,7 @@ MonoBehaviour:
     forcePower: {x: 0, y: 0}
   damageProperties: {fileID: 0}
   component: {fileID: 620082095}
+  RecycleWhenCollider: 1
 --- !u!114 &620082095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13027,6 +13036,7 @@ MonoBehaviour:
     forcePower: {x: 0, y: 0}
   damageProperties: {fileID: 0}
   component: {fileID: 682880782}
+  RecycleWhenCollider: 1
 --- !u!114 &682880782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13427,6 +13437,7 @@ MonoBehaviour:
     forcePower: {x: 0, y: 0}
   damageProperties: {fileID: 0}
   component: {fileID: 782806251}
+  RecycleWhenCollider: 1
 --- !u!114 &782806251
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14302,6 +14313,7 @@ MonoBehaviour:
     forcePower: {x: 0, y: 0}
   damageProperties: {fileID: 0}
   component: {fileID: 927732705}
+  RecycleWhenCollider: 1
 --- !u!114 &927732705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14654,6 +14666,7 @@ MonoBehaviour:
     forcePower: {x: 0, y: 0}
   damageProperties: {fileID: 0}
   component: {fileID: 969829065}
+  RecycleWhenCollider: 1
 --- !u!114 &969829065
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19794,6 +19807,7 @@ MonoBehaviour:
     forcePower: {x: 0, y: 0}
   damageProperties: {fileID: 0}
   component: {fileID: 1078341616}
+  RecycleWhenCollider: 1
 --- !u!114 &1078341616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20798,6 +20812,7 @@ MonoBehaviour:
     forcePower: {x: 0, y: 0}
   damageProperties: {fileID: 0}
   component: {fileID: 1271660777}
+  RecycleWhenCollider: 1
 --- !u!114 &1271660777
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22194,6 +22209,7 @@ MonoBehaviour:
     forcePower: {x: 0, y: 0}
   damageProperties: {fileID: 0}
   component: {fileID: 1476106631}
+  RecycleWhenCollider: 1
 --- !u!114 &1476106631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23022,6 +23038,7 @@ MonoBehaviour:
     forcePower: {x: 0, y: 0}
   damageProperties: {fileID: 0}
   component: {fileID: 1594628745}
+  RecycleWhenCollider: 1
 --- !u!114 &1594628745
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27451,6 +27468,7 @@ MonoBehaviour:
     forcePower: {x: 0, y: 0}
   damageProperties: {fileID: 0}
   component: {fileID: 1901077573}
+  RecycleWhenCollider: 1
 --- !u!114 &1901077573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27602,8 +27620,6 @@ MonoBehaviour:
     StateToClone: {fileID: 11400000, guid: d30ae874de99c294ba5f94c82f815d63, type: 2}
   - NameState: 9
     StateToClone: {fileID: 11400000, guid: 5e24f7d891ae6f1469628ca8040781d6, type: 2}
-  - NameState: 10
-    StateToClone: {fileID: 11400000, guid: aaaef473f45593f458855bb42d0c04fd, type: 2}
   - NameState: 11
     StateToClone: {fileID: 11400000, guid: 866e9660dbdb06d409d953099a05b66a, type: 2}
   - NameState: 17
