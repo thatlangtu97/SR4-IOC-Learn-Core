@@ -26,19 +26,23 @@ public class AttackState : State
                 controller.componentManager.rgbody2D.velocity = Vector2.zero;
             }
 
-            if (controller.componentManager.isBufferAttack == true && (timeTrigger + timeBuffer) > eventCollectionData[idState].durationAnimation)
+//            if (controller.componentManager.isBufferAttack == true && (timeTrigger + timeBuffer) > eventCollectionData[idState].durationAnimation)
+//            {
+//                timeTrigger += timeBuffer;
+//            }
+//            else
+//            {
+//                if ((timeTrigger + timeBuffer) > eventCollectionData[idState].durationAnimation)
+//                {
+//                    if (controller.componentManager.checkGround() == false)
+//                    {
+//                        controller.ChangeState(NameState.FallingState);
+//                    }
+//                }
+//            }
+            if (controller.componentManager.checkGround() == false)
             {
-                timeTrigger += timeBuffer;
-            }
-            else
-            {
-                if ((timeTrigger + timeBuffer) > eventCollectionData[idState].durationAnimation)
-                {
-                    if (controller.componentManager.checkGround() == false)
-                    {
-                        controller.ChangeState(NameState.FallingState);
-                    }
-                }
+                controller.ChangeState(NameState.FallingState);
             }
         }
         else
