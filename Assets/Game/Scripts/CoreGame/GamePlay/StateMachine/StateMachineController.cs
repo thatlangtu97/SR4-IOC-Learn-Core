@@ -157,6 +157,7 @@ public class StateMachineController : MonoBehaviour
     }
     public virtual void OnHit(Action action)
     {
+        ShakeManager.instance.Shake(animator.transform,.2f,.3f);
         if(componentManager.HasImmune(Immune.HIT)) 
             return;
         if (action != null)
