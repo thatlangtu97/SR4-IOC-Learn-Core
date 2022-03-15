@@ -30,3 +30,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a47e9f9f67d82e240a76d05926ff354a, type: 2}
   timeBuffer: 0.15
   useCheckEnemyForwark: 1
+  timeBuffers:
+  - 0.2
+  - 0.15
+  - 0.16
+  - 0

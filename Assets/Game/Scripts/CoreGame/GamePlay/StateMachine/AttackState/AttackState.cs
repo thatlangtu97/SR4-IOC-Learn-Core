@@ -1,11 +1,30 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using Sirenix.OdinInspector;
 [CreateAssetMenu(fileName = "AttackState", menuName = "CoreGame/State/AttackState")]
 public class AttackState : State
 {
     bool isEnemyForwark;
     public float timeBuffer = 0.15f;
     public bool useCheckEnemyForwark=true;
+    public List<float> timeBuffers = new List<float>();
+    protected override void OnBeforeSerialize()
+    {
+        if (eventCollectionData == null) return;
+        if (eventCollectionData.Count==0 ) return;
+
+        if (timeBuffers.Count < eventCollectionData.Count)
+        {
+            timeBuffers.Add(0f);
+        }
+        else
+        {
+            if (timeBuffers.Count > eventCollectionData.Count)
+            {
+                timeBuffers.RemoveAt(timeBuffers.Count-1);
+            }
+        }
+    }
     public override void EnterState()
     {
         base.EnterState();
@@ -26,24 +45,24 @@ public class AttackState : State
                 controller.componentManager.rgbody2D.velocity = Vector2.zero;
             }
 
-//            if (controller.componentManager.isBufferAttack == true && (timeTrigger + timeBuffer) > eventCollectionData[idState].durationAnimation)
-//            {
-//                timeTrigger += timeBuffer;
-//            }
-//            else
-//            {
-//                if ((timeTrigger + timeBuffer) > eventCollectionData[idState].durationAnimation)
-//                {
-//                    if (controller.componentManager.checkGround() == false)
-//                    {
-//                        controller.ChangeState(NameState.FallingState);
-//                    }
-//                }
-//            }
-            if (controller.componentManager.checkGround() == false)
+            if (controller.componentManager.isBufferAttack == true && (timeTrigger + timeBuffers[idState]) > eventCollectionData[idState].durationAnimation)
             {
-                controller.ChangeState(NameState.FallingState);
+                timeTrigger += timeBuffer;
             }
+            else
+            {
+                if ((timeTrigger + timeBuffer) > eventCollectionData[idState].durationAnimation)
+                {
+                    if (controller.componentManager.checkGround() == false)
+                    {
+                        controller.ChangeState(NameState.FallingState);
+                    }
+                }
+            }
+//            if (controller.componentManager.checkGround() == false)
+//            {
+//                controller.ChangeState(NameState.FallingState);
+//            }
         }
         else
         {
