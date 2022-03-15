@@ -30,7 +30,7 @@ public class ComponentManager : MonoBehaviour
     public DamageInfoEvent damageInfoEvent;
     
     [FoldoutGroup("BUFFER")]
-    public LayerMask layerMaskGround,layerMaskWall,layerEnemy;
+    public LayerMask layerMaskGround,layerMaskWall,layerEnemy, layerPlatForm;
     [FoldoutGroup("BUFFER")]
     public bool isAttack = false;
     [FoldoutGroup("BUFFER")]
@@ -168,6 +168,20 @@ public class ComponentManager : MonoBehaviour
             isOnGround = false;
             return false;
         }
+    }
+
+    public bool CheckGroundFlatform()
+    {
+
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, distanceCheckGround, layerPlatForm);
+            if (hit.collider != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
     }
     
 //    public bool checkGroundBoxCast

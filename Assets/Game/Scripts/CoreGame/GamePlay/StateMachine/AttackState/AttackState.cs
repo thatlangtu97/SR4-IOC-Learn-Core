@@ -5,8 +5,8 @@ using Sirenix.OdinInspector;
 public class AttackState : State
 {
     bool isEnemyForwark;
-    public float timeBuffer = 0.15f;
     public bool useCheckEnemyForwark=true;
+    public bool useCheckFlatForm = false;
     public List<float> timeBuffers = new List<float>();
     protected override void OnBeforeSerialize()
     {
@@ -41,17 +41,30 @@ public class AttackState : State
             if (!isEnemyForwark)
             {
                 Vector2 velocityAttack = new Vector2(eventCollectionData[idState].curveX.Evaluate(timeTrigger), eventCollectionData[idState].curveY.Evaluate(timeTrigger));
-                controller.componentManager.rgbody2D.position += new Vector2(velocityAttack.x * controller.transform.localScale.x, velocityAttack.y * controller.transform.localScale.y) * Time.deltaTime;
-                controller.componentManager.rgbody2D.velocity = Vector2.zero;
-            }
+                Vector2 velocityFinal = new Vector2(velocityAttack.x * controller.transform.localScale.x,velocityAttack.y * controller.transform.localScale.y) * Time.deltaTime;
+//                if (useCheckFlatForm)
+//                {
+//                    if (controller.componentManager.CheckGroundFlatform() == false && controller.componentManager.checkGround() == false )
+//                    {
+//                        velocityFinal.x = 0;
+//                    }
+//                    
+//                }
+                    controller.componentManager.rgbody2D.position += velocityFinal;
+                    //controller.componentManager.rgbody2D.velocity = Vector2.zero;
+                }
 
             if (controller.componentManager.isBufferAttack == true && (timeTrigger + timeBuffers[idState]) > eventCollectionData[idState].durationAnimation)
             {
-                timeTrigger += timeBuffer;
+                timeTrigger +=  timeBuffers[idState];
+                if (controller.componentManager.checkGround() == false)
+                {
+                    controller.ChangeState(NameState.AirAttackState);
+                }
             }
             else
             {
-                if ((timeTrigger + timeBuffer) > eventCollectionData[idState].durationAnimation)
+                if ((timeTrigger + timeBuffers[idState]) > eventCollectionData[idState].durationAnimation)
                 {
                     if (controller.componentManager.checkGround() == false)
                     {
@@ -59,10 +72,7 @@ public class AttackState : State
                     }
                 }
             }
-//            if (controller.componentManager.checkGround() == false)
-//            {
-//                controller.ChangeState(NameState.FallingState);
-//            }
+
         }
         else
         {

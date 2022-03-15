@@ -906,7 +906,7 @@ GameObject:
   - component: {fileID: 83148528}
   - component: {fileID: 83148530}
   - component: {fileID: 83148529}
-  m_Layer: 9
+  m_Layer: 16
   m_Name: Plat (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4065,6 +4065,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentState: {fileID: 0}
   currentNameState: 0
+  previousNameState: 0
   States:
   - NameState: 1
     StateToClone: {fileID: 11400000, guid: 5f405f588b004144eb0cccd36ad522a0, type: 2}
@@ -4289,6 +4290,9 @@ MonoBehaviour:
   layerEnemy:
     serializedVersion: 2
     m_Bits: 2048
+  layerPlatForm:
+    serializedVersion: 2
+    m_Bits: 0
   isAttack: 0
   isOnGround: 0
   isBufferAttack: 0
@@ -4406,6 +4410,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentState: {fileID: 0}
   currentNameState: 0
+  previousNameState: 0
   States:
   - NameState: 2
     StateToClone: {fileID: 11400000, guid: ea6b7805631001f429b749eca33d71d2, type: 2}
@@ -4608,6 +4613,9 @@ MonoBehaviour:
   layerEnemy:
     serializedVersion: 2
     m_Bits: 2048
+  layerPlatForm:
+    serializedVersion: 2
+    m_Bits: 0
   isAttack: 0
   isOnGround: 0
   isBufferAttack: 0
@@ -4794,7 +4802,7 @@ GameObject:
   - component: {fileID: 230371032}
   - component: {fileID: 230371034}
   - component: {fileID: 230371033}
-  m_Layer: 9
+  m_Layer: 16
   m_Name: Plat (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4872,7 +4880,7 @@ GameObject:
   - component: {fileID: 237644226}
   - component: {fileID: 237644228}
   - component: {fileID: 237644227}
-  m_Layer: 9
+  m_Layer: 16
   m_Name: Plat (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5217,7 +5225,7 @@ GameObject:
   - component: {fileID: 281476319}
   - component: {fileID: 281476321}
   - component: {fileID: 281476320}
-  m_Layer: 9
+  m_Layer: 16
   m_Name: Plat (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5409,6 +5417,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentState: {fileID: 0}
   currentNameState: 0
+  previousNameState: 0
   States:
   - NameState: 1
     StateToClone: {fileID: 11400000, guid: 78f4b06927e5ddf4fa211b0ae247f31d, type: 2}
@@ -5633,6 +5642,9 @@ MonoBehaviour:
   layerEnemy:
     serializedVersion: 2
     m_Bits: 2048
+  layerPlatForm:
+    serializedVersion: 2
+    m_Bits: 0
   isAttack: 0
   isOnGround: 0
   isBufferAttack: 0
@@ -5860,7 +5872,7 @@ GameObject:
   m_Component:
   - component: {fileID: 443395350}
   - component: {fileID: 443395351}
-  m_Layer: 9
+  m_Layer: 16
   m_Name: GRound (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8408,6 +8420,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentState: {fileID: 0}
   currentNameState: 0
+  previousNameState: 0
   States:
   - NameState: 2
     StateToClone: {fileID: 11400000, guid: 3537d59c8044c814ea7422be1eba6367, type: 2}
@@ -8658,6 +8671,9 @@ MonoBehaviour:
   layerEnemy:
     serializedVersion: 2
     m_Bits: 2048
+  layerPlatForm:
+    serializedVersion: 2
+    m_Bits: 0
   isAttack: 0
   isOnGround: 0
   isBufferAttack: 0
@@ -11885,7 +11901,7 @@ GameObject:
   m_Component:
   - component: {fileID: 523041949}
   - component: {fileID: 523041950}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: GRound (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12767,7 +12783,7 @@ GameObject:
   m_Component:
   - component: {fileID: 680534168}
   - component: {fileID: 680534169}
-  m_Layer: 9
+  m_Layer: 16
   m_Name: GRound (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13486,7 +13502,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 807161502}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20053,7 +20069,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1137572384}
   - component: {fileID: 1137572385}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: GRound (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20165,7 +20181,7 @@ GameObject:
   - component: {fileID: 1147139839}
   - component: {fileID: 1147139841}
   - component: {fileID: 1147139840}
-  m_Layer: 9
+  m_Layer: 16
   m_Name: Plat (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21365,6 +21381,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentState: {fileID: 0}
   currentNameState: 0
+  previousNameState: 0
   States:
   - NameState: 1
     StateToClone: {fileID: 11400000, guid: b6c1183484ce7fd41a6f67a5f1a235ea, type: 2}
@@ -21434,6 +21451,9 @@ MonoBehaviour:
   layerEnemy:
     serializedVersion: 2
     m_Bits: 4096
+  layerPlatForm:
+    serializedVersion: 2
+    m_Bits: 0
   isAttack: 0
   isOnGround: 0
   isBufferAttack: 0
@@ -21668,7 +21688,7 @@ GameObject:
   - component: {fileID: 1370341094}
   - component: {fileID: 1370341096}
   - component: {fileID: 1370341095}
-  m_Layer: 9
+  m_Layer: 16
   m_Name: Plat (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22280,6 +22300,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentState: {fileID: 0}
   currentNameState: 0
+  previousNameState: 0
   States:
   - NameState: 2
     StateToClone: {fileID: 11400000, guid: 0293a879d0d2f874d9bae76df58137f7, type: 2}
@@ -22583,6 +22604,9 @@ MonoBehaviour:
   layerEnemy:
     serializedVersion: 2
     m_Bits: 2048
+  layerPlatForm:
+    serializedVersion: 2
+    m_Bits: 0
   isAttack: 0
   isOnGround: 0
   isBufferAttack: 0
@@ -22679,7 +22703,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1552321422}
   - component: {fileID: 1552321423}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: GRound (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23193,7 +23217,7 @@ GameObject:
   - component: {fileID: 1605414349}
   - component: {fileID: 1605414351}
   - component: {fileID: 1605414350}
-  m_Layer: 9
+  m_Layer: 16
   m_Name: Plat (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23349,7 +23373,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1643663806}
   - component: {fileID: 1643663807}
-  m_Layer: 9
+  m_Layer: 16
   m_Name: GRound (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26313,6 +26337,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentState: {fileID: 0}
   currentNameState: 0
+  previousNameState: 0
   States:
   - NameState: 2
     StateToClone: {fileID: 11400000, guid: fdb5e19fbde92154bb0cd6d07a97dad3, type: 2}
@@ -26645,6 +26670,9 @@ MonoBehaviour:
   layerEnemy:
     serializedVersion: 2
     m_Bits: 2048
+  layerPlatForm:
+    serializedVersion: 2
+    m_Bits: 0
   isAttack: 0
   isOnGround: 0
   isBufferAttack: 0
@@ -26730,6 +26758,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentState: {fileID: 0}
   currentNameState: 0
+  previousNameState: 0
   States:
   - NameState: 1
     StateToClone: {fileID: 11400000, guid: 268911980fba1a04ea40b58943a29995, type: 2}
@@ -26913,6 +26942,9 @@ MonoBehaviour:
   layerEnemy:
     serializedVersion: 2
     m_Bits: 2048
+  layerPlatForm:
+    serializedVersion: 2
+    m_Bits: 0
   isAttack: 0
   isOnGround: 0
   isBufferAttack: 0
@@ -27000,6 +27032,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentState: {fileID: 0}
   currentNameState: 0
+  previousNameState: 0
   States:
   - NameState: 1
     StateToClone: {fileID: 11400000, guid: 1736a7429d6283b47933e872df8074c5, type: 2}
@@ -27218,6 +27251,9 @@ MonoBehaviour:
   layerEnemy:
     serializedVersion: 2
     m_Bits: 2048
+  layerPlatForm:
+    serializedVersion: 2
+    m_Bits: 0
   isAttack: 0
   isOnGround: 0
   isBufferAttack: 0
@@ -27574,6 +27610,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentState: {fileID: 0}
   currentNameState: 0
+  previousNameState: 0
   States:
   - NameState: 1
     StateToClone: {fileID: 11400000, guid: 3e27fdd4391b07847b5f077a425a8611, type: 2}
@@ -27649,13 +27686,16 @@ MonoBehaviour:
     forcePower: {x: 0, y: 0}
   layerMaskGround:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 66048
   layerMaskWall:
     serializedVersion: 2
     m_Bits: 8192
   layerEnemy:
     serializedVersion: 2
     m_Bits: 4096
+  layerPlatForm:
+    serializedVersion: 2
+    m_Bits: 65536
   isAttack: 0
   isOnGround: 0
   isBufferAttack: 0
@@ -33087,7 +33127,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2124903795}
   - component: {fileID: 2124903796}
-  m_Layer: 9
+  m_Layer: 16
   m_Name: GRound (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
