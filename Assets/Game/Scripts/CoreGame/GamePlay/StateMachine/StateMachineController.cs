@@ -10,6 +10,8 @@ public class StateMachineController : MonoBehaviour
     public State currentState;
     [BoxGroup("Current State")]
     public NameState currentNameState;
+    [BoxGroup("Previous State")]
+    public NameState previousNameState;
     [LabelText("STATE TO CLONE")]
     public List<StateClone> States;
     public void SetupState()
@@ -69,12 +71,15 @@ public class StateMachineController : MonoBehaviour
         {
             if (currentNameState != NameState.DieState && currentNameState != NameState.ReviveState)
             {
+                
                 if (nameState != currentNameState)
                 {
                     if (currentState)
                     {
                         currentState.ExitState();
                     }
+
+                    previousNameState = currentNameState;
                     currentState = newState;
                     currentNameState = nameState;
                     currentState.EnterState();
@@ -87,6 +92,7 @@ public class StateMachineController : MonoBehaviour
             {
                 currentState.ExitState();
             }
+            previousNameState = currentNameState;
             currentState = newState;
             currentNameState = nameState;
             currentState.EnterState();
@@ -107,6 +113,7 @@ public class StateMachineController : MonoBehaviour
                     {
                         currentState.ExitState();
                     }
+                    previousNameState = currentNameState;
                     currentState = newState;
                     currentNameState = nameState;
                     currentState.EnterState();
@@ -119,6 +126,7 @@ public class StateMachineController : MonoBehaviour
             {
                 currentState.ExitState();
             }
+            previousNameState = currentNameState;
             currentState = newState;
             currentNameState = nameState;
             currentState.EnterState();

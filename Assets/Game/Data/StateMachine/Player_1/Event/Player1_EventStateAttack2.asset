@@ -16,7 +16,7 @@ MonoBehaviour:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
-    - {fileID: 6511985301000678627, guid: 40be303f4c3fe304097825f2ecd987cb, type: 3}
+    - {fileID: 6511985301000678627, guid: 6dc5891bc26822848890f6bd738ca147, type: 3}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -303,7 +303,7 @@ MonoBehaviour:
       outWeight: 0.26865104
     - serializedVersion: 3
       time: 0.011947699
-      value: 2
+      value: 1.5
       inSlope: -0.011032224
       outSlope: -0.011032224
       tangentMode: 0
@@ -311,8 +311,8 @@ MonoBehaviour:
       inWeight: 0.33333334
       outWeight: 1
     - serializedVersion: 3
-      time: 0.112475604
-      value: 2
+      time: 0.14456092
+      value: 1.5
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -320,8 +320,8 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 0.12688991
-      value: 0
+      time: 0.15897523
+      value: 0.39103776
       inSlope: -50.30689
       outSlope: -50.30689
       tangentMode: 0
@@ -330,7 +330,7 @@ MonoBehaviour:
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 0.38991475
-      value: 0
+      value: 0.39103776
       inSlope: Infinity
       outSlope: Infinity
       tangentMode: 0

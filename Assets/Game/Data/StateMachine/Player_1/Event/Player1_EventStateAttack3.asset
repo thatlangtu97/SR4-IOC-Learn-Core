@@ -16,7 +16,7 @@ MonoBehaviour:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
-    - {fileID: 6511985301000678627, guid: 40be303f4c3fe304097825f2ecd987cb, type: 3}
+    - {fileID: 6511985301000678627, guid: aaceef303bd41fd47add417c82d20de7, type: 3}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -31,7 +31,103 @@ MonoBehaviour:
       Data: 2
     - Name: 
       Entry: 7
-      Data: 1|ColliderEvent, Assembly-CSharp
+      Data: 1|SpawnGameObject, Assembly-CSharp
+    - Name: idEvent
+      Entry: 3
+      Data: 100
+    - Name: timeTriggerEvent
+      Entry: 4
+      Data: 0.15
+    - Name: duration
+      Entry: 4
+      Data: 0.5
+    - Name: Prefab
+      Entry: 10
+      Data: 0
+    - Name: localPosition
+      Entry: 7
+      Data: UnityEngine.Vector3, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0.1
+    - Name: 
+      Entry: 4
+      Data: 0.8
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: LocalRotation
+      Entry: 7
+      Data: UnityEngine.Vector3, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: -60
+    - Name: 
+      Entry: 4
+      Data: 90
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: LocalScale
+      Entry: 7
+      Data: UnityEngine.Vector3, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0.45
+    - Name: 
+      Entry: 4
+      Data: 0.45
+    - Name: 
+      Entry: 4
+      Data: 0.35
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: ForceSpawn
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: setParent
+      Entry: 5
+      Data: true
+    - Name: UseDuration
+      Entry: 5
+      Data: true
+    - Name: forceWhenFinishEvent
+      Entry: 5
+      Data: false
+    - Name: typeSpawn
+      Entry: 3
+      Data: 0
+    - Name: LayerMask
+      Entry: 7
+      Data: UnityEngine.LayerMask, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 2|ColliderEvent, Assembly-CSharp
     - Name: idEvent
       Entry: 3
       Data: 0
@@ -112,7 +208,7 @@ MonoBehaviour:
       Data: 
     - Name: damageInfoEvent
       Entry: 7
-      Data: 2|DamageInfoEvent, Assembly-CSharp
+      Data: 3|DamageInfoEvent, Assembly-CSharp
     - Name: damageScale
       Entry: 4
       Data: 1
@@ -131,102 +227,6 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 3|SpawnGameObject, Assembly-CSharp
-    - Name: idEvent
-      Entry: 3
-      Data: 100
-    - Name: timeTriggerEvent
-      Entry: 4
-      Data: 0.13
-    - Name: duration
-      Entry: 4
-      Data: 0.5
-    - Name: Prefab
-      Entry: 10
-      Data: 0
-    - Name: localPosition
-      Entry: 7
-      Data: UnityEngine.Vector3, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0.1
-    - Name: 
-      Entry: 4
-      Data: 0.8
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: LocalRotation
-      Entry: 7
-      Data: UnityEngine.Vector3, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: -60
-    - Name: 
-      Entry: 4
-      Data: 90
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: LocalScale
-      Entry: 7
-      Data: UnityEngine.Vector3, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0.4
-    - Name: 
-      Entry: 4
-      Data: 0.4
-    - Name: 
-      Entry: 4
-      Data: 0.3
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: ForceSpawn
-      Entry: 7
-      Data: UnityEngine.Vector2, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: setParent
-      Entry: 5
-      Data: true
-    - Name: UseDuration
-      Entry: 5
-      Data: true
-    - Name: forceWhenFinishEvent
-      Entry: 5
-      Data: false
-    - Name: typeSpawn
-      Entry: 3
-      Data: 0
-    - Name: LayerMask
-      Entry: 7
-      Data: UnityEngine.LayerMask, UnityEngine.CoreModule
-    - Name: 
-      Entry: 3
-      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -263,7 +263,7 @@ MonoBehaviour:
       inWeight: 0.35642126
       outWeight: 0
     - serializedVersion: 3
-      time: 0.133966
+      time: 0.23711956
       value: 4.9939313
       inSlope: 0.12465167
       outSlope: 0.12465167
@@ -272,7 +272,7 @@ MonoBehaviour:
       inWeight: 0.5937775
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.17843021
+      time: 0.2815838
       value: 0.024554064
       inSlope: 0
       outSlope: 0
@@ -294,15 +294,15 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1.0023572
-      inSlope: 25.260729
-      outSlope: 25.260729
+      value: 0.21885987
+      inSlope: Infinity
+      outSlope: Infinity
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.26865104
+      outWeight: 0
     - serializedVersion: 3
-      time: 0.011947699
+      time: 0.07367658
       value: 2
       inSlope: -0.011032224
       outSlope: -0.011032224
@@ -311,7 +311,7 @@ MonoBehaviour:
       inWeight: 0.33333334
       outWeight: 1
     - serializedVersion: 3
-      time: 0.16913396
+      time: 0.23086284
       value: 2
       inSlope: 0
       outSlope: 0
@@ -320,7 +320,7 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 0.22
+      time: 0.28172886
       value: 0
       inSlope: -10.824026
       outSlope: -10.824026

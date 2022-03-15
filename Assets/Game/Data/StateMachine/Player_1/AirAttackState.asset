@@ -25,4 +25,5 @@ MonoBehaviour:
   Immunes: 00000000
   eventCollectionData:
   - {fileID: 11400000, guid: 9b752436eab3b63458ce4dd22282c8e2, type: 2}
+  - {fileID: 11400000, guid: 465b9e1d207bde342a2bc73fcad575c6, type: 2}
   timeTriggerGroundPlatform: 0.3

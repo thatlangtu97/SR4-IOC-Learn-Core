@@ -26,12 +26,14 @@ MonoBehaviour:
   eventCollectionData:
   - {fileID: 11400000, guid: fbe34101dd472824d8c69c5fd1b08c9a, type: 2}
   - {fileID: 11400000, guid: 38b86457c920f8e4dadb64ee1184988e, type: 2}
-  - {fileID: 11400000, guid: 6823c88c64949b149a92ed653fdf116f, type: 2}
-  - {fileID: 11400000, guid: a47e9f9f67d82e240a76d05926ff354a, type: 2}
+  - {fileID: 11400000, guid: fbe34101dd472824d8c69c5fd1b08c9a, type: 2}
+  - {fileID: 11400000, guid: 38b86457c920f8e4dadb64ee1184988e, type: 2}
+  - {fileID: 11400000, guid: 465b9e1d207bde342a2bc73fcad575c6, type: 2}
   timeBuffer: 0.15
   useCheckEnemyForwark: 1
   timeBuffers:
-  - 0.2
-  - 0.15
-  - 0.16
+  - 0.1
+  - 0.1
+  - 0.1
+  - 0
   - 0
