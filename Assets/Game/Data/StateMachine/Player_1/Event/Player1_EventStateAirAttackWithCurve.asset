@@ -109,7 +109,7 @@ MonoBehaviour:
       Data: true
     - Name: forceWhenFinishEvent
       Entry: 5
-      Data: true
+      Data: false
     - Name: typeSpawn
       Entry: 3
       Data: 0
@@ -302,7 +302,7 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.39681584
+      time: 0.26580387
       value: 1
       inSlope: -0.007804358
       outSlope: -0.007804358
@@ -311,10 +311,10 @@ MonoBehaviour:
       inWeight: 0.33333334
       outWeight: 0.49778226
     - serializedVersion: 3
-      time: 0.6
-      value: 1.1940613
-      inSlope: 0.9551003
-      outSlope: 0.9551003
+      time: 0.37264407
+      value: 1.2
+      inSlope: 1.8719552
+      outSlope: 1.8719552
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334

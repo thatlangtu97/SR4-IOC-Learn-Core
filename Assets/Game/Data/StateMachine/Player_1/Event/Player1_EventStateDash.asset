@@ -134,7 +134,7 @@ MonoBehaviour:
       Data: 100
     - Name: timeTriggerEvent
       Entry: 4
-      Data: 0.1
+      Data: 0
     - Name: duration
       Entry: 4
       Data: 1
@@ -235,7 +235,7 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 13
+      value: 15
       inSlope: 0.0007919864
       outSlope: 0.0007919864
       tangentMode: 0
@@ -244,7 +244,7 @@ MonoBehaviour:
       outWeight: 0.43236583
     - serializedVersion: 3
       time: 0.20016831
-      value: 13
+      value: 15
       inSlope: 0.101078756
       outSlope: 0.101078756
       tangentMode: 0
