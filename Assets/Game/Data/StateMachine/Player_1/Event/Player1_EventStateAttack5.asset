@@ -37,7 +37,7 @@ MonoBehaviour:
       Data: 100
     - Name: timeTriggerEvent
       Entry: 4
-      Data: 0.3
+      Data: 0.25
     - Name: duration
       Entry: 4
       Data: 0.5
@@ -133,7 +133,7 @@ MonoBehaviour:
       Data: 0
     - Name: timeTriggerEvent
       Entry: 4
-      Data: 0.16
+      Data: 0.32
     - Name: layerMaskEnemy
       Entry: 7
       Data: UnityEngine.LayerMask, UnityEngine.CoreModule
@@ -151,7 +151,7 @@ MonoBehaviour:
       Data: UnityEngine.Vector3, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 0
+      Data: 0.5
     - Name: 
       Entry: 4
       Data: 0.5
@@ -288,22 +288,31 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 5
-      inSlope: 4.896724
-      outSlope: 4.896724
+      value: 6
+      inSlope: 58.63485
+      outSlope: 58.63485
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.52426165
+      outWeight: 0.14648117
     - serializedVersion: 3
-      time: 0.29812318
-      value: -5
-      inSlope: 0.18017058
-      outSlope: 0.18017058
+      time: 0.11890865
+      value: 10
+      inSlope: -32.06813
+      outSlope: -32.06813
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 1
+      inWeight: 0.3493041
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.22422764
+      value: -14.935867
+      inSlope: -0.1337773
+      outSlope: 0.6449584
+      tangentMode: 1
+      weightedMode: 0
+      inWeight: 0.66692877
+      outWeight: 0.27022395
     - serializedVersion: 3
       time: 0.44252685
       value: 0
@@ -339,7 +348,7 @@ MonoBehaviour:
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 0.5
-      value: 0.5
+      value: 0.3
       inSlope: -0.011320355
       outSlope: -0.011320355
       tangentMode: 0
@@ -349,8 +358,8 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0.8
       value: 1
-      inSlope: 1.6666666
-      outSlope: 1.6666666
+      inSlope: 2.3333333
+      outSlope: 2.3333333
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334

@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b6d3eb2417d382459149b5f4e76b277, type: 3}
-  m_Name: AttackState
+  m_Script: {fileID: 11500000, guid: d551b2f24c495694dbe48ea17aa9705b, type: 3}
+  m_Name: AirAttackStateWithCurve
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -22,16 +22,7 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   idState: 0
-  Immunes: 00000000
+  Immunes: 
   eventCollectionData:
-  - {fileID: 11400000, guid: 38b86457c920f8e4dadb64ee1184988e, type: 2}
-  - {fileID: 11400000, guid: fbe34101dd472824d8c69c5fd1b08c9a, type: 2}
-  - {fileID: 11400000, guid: 38b86457c920f8e4dadb64ee1184988e, type: 2}
-  - {fileID: 11400000, guid: 465b9e1d207bde342a2bc73fcad575c6, type: 2}
-  useCheckEnemyForwark: 1
-  useCheckFlatForm: 1
-  timeBuffers:
-  - 0.15
-  - 0.15
-  - 0.2
-  - 0
+  - {fileID: 11400000, guid: 945bfadb48e590745b08f4767bb95366, type: 2}
+  timeTriggerGroundPlatform: 0.3

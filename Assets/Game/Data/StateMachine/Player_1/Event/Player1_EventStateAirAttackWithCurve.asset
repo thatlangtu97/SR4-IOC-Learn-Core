@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ebed730887a86b4ba06c1a18d85cad2, type: 3}
-  m_Name: Player1_EventStateAttack1
+  m_Name: Player1_EventStateAirAttackWithCurve
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
-    - {fileID: 6511985301000678627, guid: 78ee0cd3b63f1bd45a38ed97e1099e1f, type: 3}
+    - {fileID: 7826628561346898220, guid: 7be97970b895d1c4fb3164527361e539, type: 3}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -37,10 +37,10 @@ MonoBehaviour:
       Data: 0
     - Name: timeTriggerEvent
       Entry: 4
-      Data: 0.15
+      Data: 0
     - Name: duration
       Entry: 4
-      Data: 0.5
+      Data: 0.6
     - Name: Prefab
       Entry: 10
       Data: 0
@@ -52,7 +52,7 @@ MonoBehaviour:
       Data: 0
     - Name: 
       Entry: 4
-      Data: 0.4
+      Data: 0.6
     - Name: 
       Entry: 4
       Data: 0
@@ -70,7 +70,7 @@ MonoBehaviour:
       Data: 90
     - Name: 
       Entry: 4
-      Data: 130
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -79,13 +79,13 @@ MonoBehaviour:
       Data: UnityEngine.Vector3, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 0.4
+      Data: 0.3
     - Name: 
       Entry: 4
-      Data: 0.4
+      Data: 0.3
     - Name: 
       Entry: 4
-      Data: 0.4
+      Data: 0.3
     - Name: 
       Entry: 8
       Data: 
@@ -109,7 +109,7 @@ MonoBehaviour:
       Data: true
     - Name: forceWhenFinishEvent
       Entry: 5
-      Data: false
+      Data: true
     - Name: typeSpawn
       Entry: 3
       Data: 0
@@ -130,10 +130,10 @@ MonoBehaviour:
       Data: 2|ColliderEvent, Assembly-CSharp
     - Name: idEvent
       Entry: 3
-      Data: 100
+      Data: 10
     - Name: timeTriggerEvent
       Entry: 4
-      Data: 0.2
+      Data: 0.07
     - Name: layerMaskEnemy
       Entry: 7
       Data: UnityEngine.LayerMask, UnityEngine.CoreModule
@@ -145,13 +145,13 @@ MonoBehaviour:
       Data: 
     - Name: typeCast
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: localPosition
       Entry: 7
       Data: UnityEngine.Vector3, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 0.3
+      Data: 0
     - Name: 
       Entry: 4
       Data: 0.5
@@ -166,10 +166,10 @@ MonoBehaviour:
       Data: UnityEngine.Vector3, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 2
+      Data: 0
     - Name: 
       Entry: 4
-      Data: 1
+      Data: 0
     - Name: 
       Entry: 4
       Data: 0
@@ -178,22 +178,22 @@ MonoBehaviour:
       Data: 
     - Name: radius
       Entry: 4
-      Data: 0
+      Data: 1.1
     - Name: castByTime
       Entry: 5
-      Data: false
+      Data: true
     - Name: idStartCastByTime
       Entry: 3
-      Data: 0
+      Data: 10
     - Name: timeStartCastByTime
       Entry: 4
-      Data: 0
+      Data: 0.07
     - Name: timeStepCastByTime
       Entry: 4
-      Data: 0
+      Data: 0.1
     - Name: maxCastByTime
       Entry: 3
-      Data: 0
+      Data: 6
     - Name: useColliderComponent
       Entry: 5
       Data: false
@@ -211,7 +211,7 @@ MonoBehaviour:
       Data: 3|DamageInfoEvent, Assembly-CSharp
     - Name: damageScale
       Entry: 4
-      Data: 0.6
+      Data: 0.3
     - Name: powerCollider
       Entry: 3
       Data: 1
@@ -220,7 +220,7 @@ MonoBehaviour:
       Data: UnityEngine.Vector2, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 100
+      Data: 0
     - Name: 
       Entry: 4
       Data: 0
@@ -239,53 +239,53 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  NameTrigger: attack1
-  durationAnimation: 0.4
+  NameTrigger: airattack
+  durationAnimation: 0.6
   curveX:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1.0126343
-      inSlope: 0.08034551
-      outSlope: 0.08034551
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.11249989
-      outWeight: 0.6611678
-    - serializedVersion: 3
-      time: 0.096232064
-      value: 5
-      inSlope: -0.10240323
-      outSlope: -0.10240323
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.35642126
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.133966
-      value: 4.9939313
-      inSlope: 0.12465167
-      outSlope: 0.12465167
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.5937775
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.17843021
-      value: 0.024554064
+      value: 1
       inSlope: 0
       outSlope: 0
-      tangentMode: 0
+      tangentMode: 34
       weightedMode: 0
       inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
   curveY:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 6
+      inSlope: -0.047837313
+      outSlope: -0.047837313
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.44571427
+    - serializedVersion: 3
+      time: 0.48019394
+      value: -5.4596634
+      inSlope: -71.26071
+      outSlope: -71.26071
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.04332594
+      outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
@@ -294,57 +294,30 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1.0023572
-      inSlope: 25.260729
-      outSlope: 25.260729
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.26865104
-    - serializedVersion: 3
-      time: 0.011947699
-      value: 1.5
-      inSlope: -0.011032224
-      outSlope: -0.011032224
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 1
-    - serializedVersion: 3
-      time: 0.12203783
-      value: 1.5
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.17290387
-      value: 0.47684455
-      inSlope: -10.824026
-      outSlope: -10.824026
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.35237327
-      value: 0.47684455
-      inSlope: Infinity
-      outSlope: Infinity
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.35290387
       value: 1
       inSlope: 0
       outSlope: 0
-      tangentMode: 0
+      tangentMode: 34
       weightedMode: 0
       inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.39681584
+      value: 1
+      inSlope: -0.007804358
+      outSlope: -0.007804358
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.49778226
+    - serializedVersion: 3
+      time: 0.6
+      value: 1.1940613
+      inSlope: 0.9551003
+      outSlope: 0.9551003
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2

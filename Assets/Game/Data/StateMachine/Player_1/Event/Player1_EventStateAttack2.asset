@@ -151,7 +151,7 @@ MonoBehaviour:
       Data: UnityEngine.Vector3, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 0
+      Data: 0.3
     - Name: 
       Entry: 4
       Data: 0.5
@@ -329,7 +329,7 @@ MonoBehaviour:
       inWeight: 0.17775741
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.38991475
+      time: 0.3581289
       value: 0.39103776
       inSlope: Infinity
       outSlope: Infinity
@@ -338,8 +338,8 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 0.39044535
-      value: 1
+      time: 0.3586595
+      value: 1.5
       inSlope: 0
       outSlope: 0
       tangentMode: 0

@@ -28,6 +28,7 @@ public class State : SerializedScriptableObject
         timeTrigger = 0f;
         idEventTrigged = new Dictionary<int, IComboEvent>();
         controller.componentManager.AddImunes(Immunes);
+        
     }
     public virtual void ResetTrigger()
     {
