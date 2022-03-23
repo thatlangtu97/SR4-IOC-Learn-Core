@@ -4911,7 +4911,7 @@ EdgeCollider2D:
   m_GameObject: {fileID: 237644225}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 9330e18a8c7c4124bb43de347e860ced, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 1
   m_UsedByComposite: 0
@@ -20208,7 +20208,7 @@ EdgeCollider2D:
   m_GameObject: {fileID: 1147139838}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 9330e18a8c7c4124bb43de347e860ced, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 1
   m_UsedByComposite: 0
@@ -23158,7 +23158,7 @@ EdgeCollider2D:
   m_GameObject: {fileID: 1605414348}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 9330e18a8c7c4124bb43de347e860ced, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 1
   m_UsedByComposite: 0
@@ -27519,7 +27519,7 @@ MonoBehaviour:
   - NameState: 7
     StateToClone: {fileID: 11400000, guid: 89df74a5cecf98b4395d4788866be1bf, type: 2}
   - NameState: 8
-    StateToClone: {fileID: 11400000, guid: d30ae874de99c294ba5f94c82f815d63, type: 2}
+    StateToClone: {fileID: 11400000, guid: 6cdf6024a75441444aa5eb13295db76c, type: 2}
   - NameState: 9
     StateToClone: {fileID: 11400000, guid: 1d93410633f6c694e952b26b8ab61de4, type: 2}
   - NameState: 10

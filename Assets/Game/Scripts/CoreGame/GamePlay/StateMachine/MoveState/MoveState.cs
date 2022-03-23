@@ -14,7 +14,6 @@ public class MoveState : State
             case NameState.FallingState:
             case NameState.JumpState:
             case NameState.AirAttackState:
-            case NameState.AirSkillState:   
                 controller.animator.SetTrigger("jumptomove");
                 break;
             case NameState.DashState:

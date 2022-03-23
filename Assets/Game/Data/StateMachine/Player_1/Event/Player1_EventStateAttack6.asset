@@ -107,7 +107,7 @@ MonoBehaviour:
       Data: false
     - Name: UseDuration
       Entry: 5
-      Data: false
+      Data: true
     - Name: forceWhenFinishEvent
       Entry: 5
       Data: false
