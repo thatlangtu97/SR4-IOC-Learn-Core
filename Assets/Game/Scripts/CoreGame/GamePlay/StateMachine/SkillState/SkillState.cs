@@ -6,6 +6,7 @@ public class SkillState : State
 {
     public bool LockGravity = true;
     public bool useCheckEnemyForwark=false;
+    public bool useVelocityCurve = false;
     public override void EnterState()
     {
         base.EnterState();
@@ -27,15 +28,28 @@ public class SkillState : State
                 velocityAttack.y * controller.transform.localScale.y);
             if (!useCheckEnemyForwark)
             {
-               
-                controller.componentManager.rgbody2D.position += force * Time.deltaTime;
+                if (!useVelocityCurve)
+                {
+                    controller.componentManager.rgbody2D.position += force * Time.deltaTime;
+                }
+                else
+                {
+                    controller.componentManager.rgbody2D.velocity = force;
+                }
             }
             else
             {
                 bool isEnemyForwark = controller.componentManager.checkEnemyForwark();
                 if (!isEnemyForwark)
                 {
-                    controller.componentManager.rgbody2D.position += force * Time.deltaTime;
+                    if (!useVelocityCurve)
+                    {
+                        controller.componentManager.rgbody2D.position += force * Time.deltaTime;
+                    }
+                    else
+                    {
+                        controller.componentManager.rgbody2D.velocity = force;
+                    }
                 }
             }
         }

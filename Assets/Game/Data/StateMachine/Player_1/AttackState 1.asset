@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d27183991ccac3e4bb061ec7a5dd07ff, type: 3}
-  m_Name: AirSkillState
+  m_Script: {fileID: 11500000, guid: 1b6d3eb2417d382459149b5f4e76b277, type: 3}
+  m_Name: AttackState 1
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -24,8 +24,14 @@ MonoBehaviour:
   idState: 0
   Immunes: 00000000
   eventCollectionData:
-  - {fileID: 11400000, guid: 161e749af81c07441bd55f57dc9c1867, type: 2}
-  - {fileID: 11400000, guid: 5a8a802e2ca233740bf9143eeb7b54e5, type: 2}
-  LockGravity: 1
-  useCheckEnemyForwark: 0
+  - {fileID: 11400000, guid: 38b86457c920f8e4dadb64ee1184988e, type: 2}
+  - {fileID: 11400000, guid: fbe34101dd472824d8c69c5fd1b08c9a, type: 2}
+  - {fileID: 11400000, guid: 38b86457c920f8e4dadb64ee1184988e, type: 2}
+  - {fileID: 11400000, guid: 465b9e1d207bde342a2bc73fcad575c6, type: 2}
+  useCheckEnemyForwark: 1
   useVelocityCurve: 1
+  timeBuffers:
+  - 0.2
+  - 0.2
+  - 0.2
+  - 0

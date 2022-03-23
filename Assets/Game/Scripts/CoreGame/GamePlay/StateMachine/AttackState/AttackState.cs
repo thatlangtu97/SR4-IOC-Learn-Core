@@ -6,7 +6,7 @@ public class AttackState : State
 {
     bool isEnemyForwark;
     public bool useCheckEnemyForwark=true;
-    public bool useCheckFlatForm = false;
+    public bool useVelocityCurve = false;
     public List<float> timeBuffers = new List<float>();
     protected override void OnBeforeSerialize()
     {
@@ -40,8 +40,7 @@ public class AttackState : State
                 isEnemyForwark = controller.componentManager.checkEnemyForwark();
             if (!isEnemyForwark)
             {
-                Vector2 velocityAttack = new Vector2(eventCollectionData[idState].curveX.Evaluate(timeTrigger), eventCollectionData[idState].curveY.Evaluate(timeTrigger));
-                Vector2 velocityFinal = new Vector2(velocityAttack.x * controller.transform.localScale.x,velocityAttack.y * controller.transform.localScale.y) * Time.deltaTime;
+                
 //                if (useCheckFlatForm)
 //                {
 //                    if (controller.componentManager.CheckGroundFlatform() == false && controller.componentManager.checkGround() == false )
@@ -50,7 +49,19 @@ public class AttackState : State
 //                    }
 //                    
 //                }
+                if (!useVelocityCurve)
+                {
+                    Vector2 velocityAttack = new Vector2(eventCollectionData[idState].curveX.Evaluate(timeTrigger), eventCollectionData[idState].curveY.Evaluate(timeTrigger));
+                    Vector2 velocityFinal = new Vector2(velocityAttack.x * controller.transform.localScale.x,velocityAttack.y * controller.transform.localScale.y) * Time.deltaTime;
                     controller.componentManager.rgbody2D.position += velocityFinal;
+                }
+                else
+                {
+                    Vector2 velocityAttack = new Vector2(eventCollectionData[idState].curveX.Evaluate(timeTrigger), eventCollectionData[idState].curveY.Evaluate(timeTrigger));
+                    Vector2 velocityFinal = new Vector2(velocityAttack.x * controller.transform.localScale.x,
+                        velocityAttack.y * controller.transform.localScale.y);
+                    controller.componentManager.rgbody2D.velocity = velocityFinal;
+                }
                     //controller.componentManager.rgbody2D.velocity = Vector2.zero;
                 }
 
