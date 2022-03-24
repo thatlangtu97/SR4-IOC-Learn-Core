@@ -1561,6 +1561,10 @@
                 <e p="2D_Alpha 1.shader" t="Include" />
                 <e p="player.atlas.txt" t="Include" />
               </e>
+              <e p="leo-ninja-ani 1" t="Include">
+                <e p="2D_Alpha 1.shader" t="Include" />
+                <e p="player.atlas.txt" t="Include" />
+              </e>
               <e p="leo_fist" t="Include">
                 <e p="fx" t="Include">
                   <e p="fx_skill2.atlas.txt" t="Include" />

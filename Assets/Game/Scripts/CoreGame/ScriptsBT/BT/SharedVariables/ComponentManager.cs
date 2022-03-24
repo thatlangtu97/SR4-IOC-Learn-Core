@@ -123,7 +123,11 @@ public class ComponentManager : MonoBehaviour
             speedMove = maxSpeedMove;
         }
     }
-    
+
+    public void SetTriggerAnim(string nameTrigger)
+    {
+        
+    }
     public void ResetJumpCount()
     {
         jumpCount = 0;

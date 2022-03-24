@@ -257,7 +257,7 @@ MonoBehaviour:
       Data: 0.3
     - Name: 
       Entry: 4
-      Data: 1
+      Data: 1.2
     - Name: 
       Entry: 4
       Data: 0
@@ -287,7 +287,7 @@ MonoBehaviour:
       Data: 0.2
     - Name: 
       Entry: 4
-      Data: 0.5
+      Data: 0.4
     - Name: 
       Entry: 4
       Data: 0.3
