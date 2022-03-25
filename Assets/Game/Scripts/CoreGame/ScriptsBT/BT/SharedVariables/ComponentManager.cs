@@ -4,6 +4,7 @@ using Entitas.Unity;
 using System.Collections;
 using System.Collections.Generic;
 using Doozy.Engine.Extensions;
+using Entitas;
 using Sirenix.OdinInspector;
 using UnityEngine;
 [System.Serializable]
@@ -70,6 +71,9 @@ public class ComponentManager : MonoBehaviour
     public float maxSpeedMove = 2f;
     [FoldoutGroup("PROPERTIES")] 
     public int maxJump,maxDash, maxAttackAirCount;
+    [ShowInInspector]
+    public List<IAutoAdd<GameEntity>> AutoAdds = new List<IAutoAdd<GameEntity>>();
+    
     private void Awake()
     {
         // var components = GetComponentsInChildren<IAutoAdd<GameEntity>>();
@@ -77,7 +81,17 @@ public class ComponentManager : MonoBehaviour
         //{
         //    component.AddComponent(ref entity);
         //}
-        
+    }
+
+    [Button("ACCEPT MODIFY", ButtonSizes.Gigantic), GUIColor(0.4f, 0.8f, 1),]
+    void FindComponentEntitas()
+    { 
+        var components = GetComponentsInChildren<IAutoAdd<GameEntity>>();
+        foreach (var component in components)
+        {
+            if(AutoAdds.Contains(component)) continue;
+            AutoAdds.Add(component);
+        }
     }
     public void OnEnable()
     {
@@ -87,23 +101,26 @@ public class ComponentManager : MonoBehaviour
             if (meshRenderer)
                 meshRenderer.enabled = false;
         }
-
         if (!damageProperties)
             damageProperties = GetComponent<DamageProperties>();
         
         currentImunes = baseImmunes.Clone();
         entity = Contexts.sharedInstance.game.CreateEntity();
         link = gameObject.Link(entity);
-        //var component = GetComponent<IAutoAdd<GameEntity>>();
-        //component.AddComponent(ref entity);
 
-        var components = GetComponentsInChildren<IAutoAdd<GameEntity>>();
-        foreach (var component in components)
+//        var components = GetComponentsInChildren<IAutoAdd<GameEntity>>();
+//        foreach (var component in components)
+//        {
+//            component.AddComponent(ref entity);
+//            ComponentManagerUtils.AddComponent(this);
+//        }
+        foreach (var component in AutoAdds)
         {
             component.AddComponent(ref entity);
             ComponentManagerUtils.AddComponent(this);
         }
     }
+    
     private void OnDisable()
     {
         DestroyEntity();
@@ -252,6 +269,7 @@ public class ComponentManager : MonoBehaviour
         if (entity != null)
         {
             gameObject.Unlink();
+            entity.RemoveAllComponents();
             entity.Destroy();
             entity = null;
             link = null;

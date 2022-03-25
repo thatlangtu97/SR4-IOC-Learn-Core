@@ -4125,7 +4125,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77e0333c9605d43d9bfceb332c275006, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateMachine: {fileID: 123914736}
+  stateMachineContainerComponent:
+    stateMachine: {fileID: 0}
 --- !u!50 &123914739
 Rigidbody2D:
   serializedVersion: 4
@@ -4462,7 +4463,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77e0333c9605d43d9bfceb332c275006, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateMachine: {fileID: 164031655}
+  stateMachineContainerComponent:
+    stateMachine: {fileID: 0}
 --- !u!50 &164031658
 Rigidbody2D:
   serializedVersion: 4
@@ -5477,7 +5479,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77e0333c9605d43d9bfceb332c275006, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateMachine: {fileID: 380558429}
+  stateMachineContainerComponent:
+    stateMachine: {fileID: 0}
 --- !u!50 &380558432
 Rigidbody2D:
   serializedVersion: 4
@@ -8554,7 +8557,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77e0333c9605d43d9bfceb332c275006, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateMachine: {fileID: 447276978}
+  stateMachineContainerComponent:
+    stateMachine: {fileID: 0}
 --- !u!114 &447276981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21350,6 +21354,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08cecbac18c3a7c4f9662146b3000e7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerFlagComponent:
+    isPlayer: 1
 --- !u!114 &1364293104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21362,7 +21368,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77e0333c9605d43d9bfceb332c275006, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateMachine: {fileID: 1364293105}
+  stateMachineContainerComponent:
+    stateMachine: {fileID: 0}
 --- !u!114 &1364293105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22269,7 +22276,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77e0333c9605d43d9bfceb332c275006, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateMachine: {fileID: 1526201459}
+  stateMachineContainerComponent:
+    stateMachine: {fileID: 0}
 --- !u!50 &1526201462
 Rigidbody2D:
   serializedVersion: 4
@@ -26295,7 +26303,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77e0333c9605d43d9bfceb332c275006, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateMachine: {fileID: 1786180270}
+  stateMachineContainerComponent:
+    stateMachine: {fileID: 0}
 --- !u!114 &1786180273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26708,7 +26717,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77e0333c9605d43d9bfceb332c275006, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateMachine: {fileID: 1832217146}
+  stateMachineContainerComponent:
+    stateMachine: {fileID: 0}
 --- !u!50 &1832217149
 Rigidbody2D:
   serializedVersion: 4
@@ -26978,7 +26988,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77e0333c9605d43d9bfceb332c275006, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateMachine: {fileID: 1892798796}
+  stateMachineContainerComponent:
+    stateMachine: {fileID: 0}
 --- !u!50 &1892798799
 Rigidbody2D:
   serializedVersion: 4
@@ -27408,13 +27419,15 @@ GameObject:
   m_Component:
   - component: {fileID: 1915414533}
   - component: {fileID: 1915414532}
-  - component: {fileID: 1915414531}
-  - component: {fileID: 1915414529}
-  - component: {fileID: 1915414528}
-  - component: {fileID: 1915414527}
-  - component: {fileID: 1915414526}
   - component: {fileID: 1915414525}
+  - component: {fileID: 1915414529}
+  - component: {fileID: 1915414531}
+  - component: {fileID: 1915414526}
   - component: {fileID: 1915414530}
+  - component: {fileID: 1915414528}
+  - component: {fileID: 1915414534}
+  - component: {fileID: 1915414527}
+  - component: {fileID: 1915414535}
   m_Layer: 11
   m_Name: player
   m_TagString: Untagged
@@ -27475,6 +27488,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08cecbac18c3a7c4f9662146b3000e7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerFlagComponent:
+    isPlayer: 1
 --- !u!114 &1915414528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27487,7 +27502,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77e0333c9605d43d9bfceb332c275006, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateMachine: {fileID: 1915414529}
+  stateMachineContainerComponent:
+    stateMachine: {fileID: 1915414529}
 --- !u!114 &1915414529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27646,6 +27662,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1915414534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1915414524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 844c2e9915e3dd54da7a3cf2dd8b0299, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthComponent:
+    health: 100
+    maxHealth: 100
+--- !u!114 &1915414535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1915414524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1ef77160bb4e3947a21998ab4a822de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerComponent:
+    power: 10
 --- !u!1 &1973251308
 GameObject:
   m_ObjectHideFlags: 0

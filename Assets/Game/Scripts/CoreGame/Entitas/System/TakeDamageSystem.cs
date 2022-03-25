@@ -70,6 +70,7 @@ public class TakeDamageSystem : ReactiveSystem<GameEntity>
                 }
                 
             }
+            myEntity.RemoveAllComponents();
             myEntity.Destroy();
         }
     }

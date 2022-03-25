@@ -35,6 +35,7 @@ public class DamageTextSystem : ReactiveSystem<GameEntity>
             text.transform.position = myEntity.damageText.position;
             text.transform.DOMove(text.transform.position + new Vector3(0f,.3f,0f),.4f);
             ObjectPool.instance.Recycle(text.gameObject,.5f);
+            myEntity.RemoveAllComponents();
             myEntity.Destroy();
         }
     }

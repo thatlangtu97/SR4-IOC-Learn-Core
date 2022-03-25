@@ -1794,8 +1794,10 @@
             <e p="CoreGame" t="Include">
               <e p="Entitas" t="Include">
                 <e p="AutoAdd" t="Include">
+                  <e p="HealthAutoAdd.cs" t="Include" />
                   <e p="IAutoAdd.cs" t="Include" />
                   <e p="PlayerFlagAutoAdd.cs" t="Include" />
+                  <e p="PowerAutoAdd.cs" t="Include" />
                   <e p="ProjectileComponentAutoAdd.cs" t="Include" />
                   <e p="StateMachineAutoAdd.cs" t="Include" />
                 </e>

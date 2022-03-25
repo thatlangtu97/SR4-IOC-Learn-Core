@@ -18,8 +18,9 @@ public class StateMachineUpdateSystem : IExecuteSystem
     {
         foreach (var e in entities.GetEntities())
         {
-            if (!e.stateMachineContainer.stateMachine)
+            if (!e.hasStateMachineContainer)
             {
+                e.RemoveAllComponents();
                 e.Destroy();
                 continue;
             }

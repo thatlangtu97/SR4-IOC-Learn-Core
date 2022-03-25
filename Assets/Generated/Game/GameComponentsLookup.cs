@@ -35,6 +35,8 @@ public static class GameComponentsLookup {
         typeof(PowerComponent),
         typeof(ProjectileContainerComponent),
         typeof(StateMachineContainerComponent),
-        typeof(TakeDamageComponent)
+        typeof(TakeDamageComponent),
+        typeof(BehaviourTreeComponent),
+        
     };
 }

@@ -27,6 +27,7 @@ public class ProjectileComponent : MonoBehaviour
         if (entity != null)
         {
             gameObject.Unlink();
+            entity.RemoveAllComponents();
             entity.Destroy();
             entity = null;
             link = null;
