@@ -15,8 +15,6 @@ public class ComponentManager : MonoBehaviour
     [FoldoutGroup("REFERENCE")]
     public StateMachineController stateMachine;
     [FoldoutGroup("REFERENCE")]
-    public BehaviorTree BehaviorTree;
-    [FoldoutGroup("REFERENCE")]
     public Rigidbody2D rgbody2D;
     [FoldoutGroup("REFERENCE")]
     public MeshRenderer meshRenderer;
@@ -95,9 +93,9 @@ public class ComponentManager : MonoBehaviour
     }
     public void OnEnable()
     {
-        if (this.BehaviorTree)
+        if (entity.hasBehaviourTree)
         {
-            this.BehaviorTree.DisableBehavior();
+            entity.behaviourTree.behaviorTree.DisableBehavior();
             if (meshRenderer)
                 meshRenderer.enabled = false;
         }
@@ -130,8 +128,10 @@ public class ComponentManager : MonoBehaviour
     private void OnDisable()
     {
         DestroyEntity();
-        if(this.BehaviorTree)
-            this.BehaviorTree.DisableBehavior();
+        if (entity.hasBehaviourTree)
+        {
+            entity.behaviourTree.behaviorTree.DisableBehavior();
+        }
     }
     public void OnInputChangeFacing()
     {

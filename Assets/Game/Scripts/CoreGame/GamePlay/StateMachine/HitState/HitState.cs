@@ -7,8 +7,10 @@ public class HitState : State
     public override void EnterState()
     {
         base.EnterState();
-        if (controller.componentManager.BehaviorTree)
-            controller.componentManager.BehaviorTree.DisableBehavior();
+        if (entity.hasBehaviourTree)
+        {
+            entity.behaviourTree.behaviorTree.DisableBehavior();
+        }
         if (eventCollectionData.Count!=0)
         idState = (idState + 1) % eventCollectionData.Count;
         controller.SetTrigger(eventCollectionData[idState].NameTrigger);
@@ -36,8 +38,10 @@ public class HitState : State
     public override void ExitState()
     {
         base.ExitState();
-        if (controller.componentManager.BehaviorTree)
-            controller.componentManager.BehaviorTree.EnableBehavior();
+        if (entity.hasBehaviourTree)
+        {
+            entity.behaviourTree.behaviorTree.EnableBehavior();
+        }
     }
     public override void OnHit()
     {

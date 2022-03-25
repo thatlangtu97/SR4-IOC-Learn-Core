@@ -5,10 +5,10 @@ using Sirenix.OdinInspector;
 public class DamageInfoSend
 {
     public DamageInfoEvent damageInfoEvent;
-    public DamageProperties damageProperties;
+    public int damageProperties;
     public Action action;
     public DamageInfoSend(){}
-    public DamageInfoSend(DamageInfoEvent damageInfoEvent , DamageProperties damageProperties, Action action)
+    public DamageInfoSend(DamageInfoEvent damageInfoEvent , int damageProperties, Action action)
     {
         this.damageInfoEvent = damageInfoEvent;
         this.damageProperties = damageProperties;

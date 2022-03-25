@@ -26,10 +26,10 @@ public class GameUIController : MonoBehaviour
     {
         
         Joystick.componentManager = stateMachine.componentManager;
-        if (stateMachine.componentManager.BehaviorTree)
-        {
-            stateMachine.componentManager.BehaviorTree.enabled = false;
-        }
+//        if (stateMachine.componentManager.BehaviorTree)
+//        {
+//            stateMachine.componentManager.BehaviorTree.enabled = false;
+//        }
         if(cameraFollow)
             cameraFollow.player = stateMachine.gameObject;
         //btnJump.onClick.RemoveAllListeners();

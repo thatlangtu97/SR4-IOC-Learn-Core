@@ -39,7 +39,7 @@ public class TakeDamageSystem : ReactiveSystem<GameEntity>
 
             if (!stateMachine.componentManager.HasImmune(Immune.BLOCK))
             {
-                int damageTake=(int) (myEntity.takeDamage.damageInfoSend.damageProperties.baseDamage *
+                int damageTake=(int) (myEntity.takeDamage.damageInfoSend.damageProperties *
                                       myEntity.takeDamage.damageInfoSend.damageInfoEvent.damageScale);
                 stateMachine.componentManager.heal -= damageTake;
                     

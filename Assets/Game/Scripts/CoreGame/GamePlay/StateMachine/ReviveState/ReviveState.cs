@@ -36,7 +36,9 @@ public class ReviveState : State
     public override void ExitState()
     {
         base.ExitState();
-        if (controller.componentManager.BehaviorTree)
-            controller.componentManager.BehaviorTree.EnableBehavior();
+        if (entity.hasBehaviourTree)
+        {
+            entity.behaviourTree.behaviorTree.EnableBehavior();
+        }
     }
 }

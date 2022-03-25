@@ -9,7 +9,7 @@ public class DamageCollider : MonoBehaviour
     public BoxCollider2D boxCollider2D;
     public CircleCollider2D circleCollider2D;
     public DamageInfoEvent damageInfoEvent;
-    public DamageProperties damageProperties;
+    public int damageProperties;
     public GameEntity myEntity;
     public virtual void OnTriggerEnter2D(Collider2D other)
     {
@@ -24,12 +24,12 @@ public class DamageCollider : MonoBehaviour
         Debug.Log("damage by Object");
     }
 
-    public void SetCollider(ColliderCast typeCollider, Vector2 sizeBox , DamageProperties damageProperties , DamageInfoEvent damageInfoEvent, GameEntity myEntity)
+    public void SetCollider(ColliderCast typeCollider, Vector2 sizeBox , int damageProperties , DamageInfoEvent damageInfoEvent, GameEntity myEntity)
     {
         switch (typeCollider)
         {
             case ColliderCast.Box:
-                this.damageProperties = new DamageProperties(damageProperties);
+                this.damageProperties = damageProperties;
                 this.damageInfoEvent= new DamageInfoEvent(damageInfoEvent);
                 boxCollider2D.size = sizeBox;
                 boxCollider2D.enabled = true;
@@ -38,12 +38,12 @@ public class DamageCollider : MonoBehaviour
                 break;
         }
     }
-    public void SetCollider(ColliderCast typeCollider, float radius, DamageProperties damageProperties , DamageInfoEvent damageInfoEvent, GameEntity myEntity)
+    public void SetCollider(ColliderCast typeCollider, float radius,  int damageProperties , DamageInfoEvent damageInfoEvent, GameEntity myEntity)
     {
         switch (typeCollider)
         {
             case ColliderCast.Circle:
-                this.damageProperties = new DamageProperties(damageProperties);
+                this.damageProperties = damageProperties;
                 this.damageInfoEvent= new DamageInfoEvent(damageInfoEvent);
                 circleCollider2D.radius = radius;
                 boxCollider2D.enabled = false;

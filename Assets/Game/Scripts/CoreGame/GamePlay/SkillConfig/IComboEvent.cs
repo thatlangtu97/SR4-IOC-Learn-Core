@@ -440,7 +440,7 @@ public class ColliderEvent : IComboEvent
                     countDuration = 0;
                     col = ObjectPool.Spawn(prefab);
                     damageCollider = col.GetComponent<DamageCollider>();
-                    damageCollider.SetCollider(typeCast, sizeBox, entity.stateMachineContainer.stateMachine.componentManager.damageProperties, damageInfoEvent, entity);
+                    damageCollider.SetCollider(typeCast, sizeBox, entity.power.power, damageInfoEvent, entity);
                     col.transform.position = point;
                     if (setParen)
                     {
@@ -458,7 +458,7 @@ public class ColliderEvent : IComboEvent
                             {
                                 
                                 Vector2 direction = (col.transform.position - transform.position).normalized;
-                                DamageProperties damageProperties = new DamageProperties(entity.stateMachineContainer.stateMachine.componentManager.damageProperties);
+                                int damageProperties = entity.power.power;
                                 DamageInfoEvent damageInfoEventTemp = new DamageInfoEvent(damageInfoEvent);
                                 damageInfoEventTemp.forcePower = damageInfoEvent.forcePower * direction;
                                 void Action()
@@ -484,7 +484,8 @@ public class ColliderEvent : IComboEvent
                     countDuration = 0;
                     col = ObjectPool.Spawn(prefab);
                     damageCollider = col.GetComponent<DamageCollider>();
-                    damageCollider.SetCollider(typeCast, radius, entity.stateMachineContainer.stateMachine.componentManager.damageProperties, damageInfoEvent, entity);
+                    int damageProperties = entity.power.power;
+                    damageCollider.SetCollider(typeCast, radius, damageProperties, damageInfoEvent, entity);
                     col.transform.position = point;
                     if (setParen)
                     {
@@ -501,7 +502,7 @@ public class ColliderEvent : IComboEvent
                             if (col != null)
                             {
                                 Vector2 direction = (col.transform.position - transform.position).normalized;
-                                DamageProperties damageProperties = new DamageProperties(entity.stateMachineContainer.stateMachine.componentManager.damageProperties);
+                                int damageProperties = entity.power.power;
                                 DamageInfoEvent damageInfoEventTemp = new DamageInfoEvent(damageInfoEvent);
                                 damageInfoEventTemp.forcePower = damageInfoEvent.forcePower * direction;
                                 Action action = delegate
@@ -694,7 +695,7 @@ public class CastProjectile : IComboEvent
             {
                 if (prj.component.entity != null)
                 {
-                    prj.damageProperties = new DamageProperties(entity.stateMachineContainer.stateMachine.componentManager.damageProperties); 
+                    prj.damageProperties = entity.power.power; 
                     prj.damageInfoEvent =  new DamageInfoEvent(damageInfoEvent);
                 }
 

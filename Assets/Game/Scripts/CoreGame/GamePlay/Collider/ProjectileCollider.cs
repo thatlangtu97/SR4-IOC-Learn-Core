@@ -9,7 +9,7 @@ public class ProjectileCollider : MonoBehaviour
 {
     public DamageInfoEvent damageInfoEvent;
     [ReadOnly]
-    public DamageProperties damageProperties;
+    public int damageProperties;
     public ProjectileComponent component;
     public virtual void OnTriggerEnter2D(Collider2D other)
     {
