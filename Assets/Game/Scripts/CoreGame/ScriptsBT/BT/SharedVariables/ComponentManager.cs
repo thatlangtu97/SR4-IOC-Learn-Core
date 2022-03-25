@@ -24,8 +24,6 @@ public class ComponentManager : MonoBehaviour
     [ShowInInspector]
     public GameEntity entity;
     [FoldoutGroup("REFERENCE")]
-    public DamageProperties damageProperties;
-    [FoldoutGroup("REFERENCE")]
     public DamageInfoEvent damageInfoEvent;
     
     [FoldoutGroup("BUFFER")]
@@ -93,25 +91,10 @@ public class ComponentManager : MonoBehaviour
     }
     public void OnEnable()
     {
-        if (entity.hasBehaviourTree)
-        {
-            entity.behaviourTree.behaviorTree.DisableBehavior();
-            if (meshRenderer)
-                meshRenderer.enabled = false;
-        }
-        if (!damageProperties)
-            damageProperties = GetComponent<DamageProperties>();
-        
         currentImunes = baseImmunes.Clone();
         entity = Contexts.sharedInstance.game.CreateEntity();
         link = gameObject.Link(entity);
-
-//        var components = GetComponentsInChildren<IAutoAdd<GameEntity>>();
-//        foreach (var component in components)
-//        {
-//            component.AddComponent(ref entity);
-//            ComponentManagerUtils.AddComponent(this);
-//        }
+        
         var components = GetComponentsInChildren<IAutoAdd<GameEntity>>();
         foreach (var component in components)
         {
@@ -123,15 +106,22 @@ public class ComponentManager : MonoBehaviour
             component.AddComponent(ref entity);
             ComponentManagerUtils.AddComponent(this);
         }
+        if (entity.hasBehaviourTree)
+        {
+            entity.behaviourTree.behaviorTree.DisableBehavior();
+            if (meshRenderer)
+                meshRenderer.enabled = false;
+        }
+        
     }
     
     private void OnDisable()
     {
-        DestroyEntity();
         if (entity.hasBehaviourTree)
         {
             entity.behaviourTree.behaviorTree.DisableBehavior();
         }
+        DestroyEntity();
     }
     public void OnInputChangeFacing()
     {

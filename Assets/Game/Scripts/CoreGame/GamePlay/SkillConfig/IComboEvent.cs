@@ -687,8 +687,9 @@ public class CastProjectile : IComboEvent
             {
                 if (state.componentManager.entity != null)
                 {
-                    state.componentManager.damageInfoEvent = new DamageInfoEvent(damageInfoEvent); 
-                    state.componentManager.damageProperties = new DamageProperties(entity.stateMachineContainer.stateMachine.componentManager.damageProperties);
+                    state.componentManager. damageInfoEvent = new DamageInfoEvent(damageInfoEvent);
+                    state.componentManager.entity.power.power = entity.power.power;
+                    //state.componentManager.damageProperties = new DamageProperties(entity.stateMachineContainer.stateMachine.componentManager.damageProperties);
                 }
             }
             if (prj != null)

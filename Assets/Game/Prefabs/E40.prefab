@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 6471316227819945576}
   - component: {fileID: 6471316227819945591}
   - component: {fileID: 6471316227819945590}
-  - component: {fileID: 1563325963}
   m_Layer: 12
   m_Name: E40
   m_TagString: Untagged
@@ -53,15 +52,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 0}
   stateMachine: {fileID: 6471316227819945590}
-  BehaviorTree: {fileID: 6471316227819945578}
   rgbody2D: {fileID: 6471316227819945577}
   meshRenderer: {fileID: 6471316228301277990}
   link: {fileID: 0}
-  damageProperties: {fileID: 1563325963}
   damageInfoEvent:
     damageScale: 0
     powerCollider: 0
-    forcePower: {x: 0, y: 0, z: 0}
+    forcePower: {x: 0, y: 0}
   layerMaskGround:
     serializedVersion: 2
     m_Bits: 512
@@ -71,6 +68,9 @@ MonoBehaviour:
   layerEnemy:
     serializedVersion: 2
     m_Bits: 2048
+  layerPlatForm:
+    serializedVersion: 2
+    m_Bits: 0
   isAttack: 0
   isOnGround: 0
   isBufferAttack: 0
@@ -197,7 +197,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77e0333c9605d43d9bfceb332c275006, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateMachine: {fileID: 6471316227819945590}
+  stateMachineContainerComponent:
+    stateMachine: {fileID: 0}
 --- !u!61 &6471316227819945591
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -238,6 +239,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentState: {fileID: 0}
   currentNameState: 0
+  previousNameState: 0
   States:
   - NameState: 1
     StateToClone: {fileID: 11400000, guid: 268911980fba1a04ea40b58943a29995, type: 2}
@@ -257,19 +259,6 @@ MonoBehaviour:
     StateToClone: {fileID: 11400000, guid: e5fb2d1f899029e46b41ea7de491e5ed, type: 2}
   componentManager: {fileID: 6471316227819945579}
   animator: {fileID: 6471316228301277988}
---- !u!114 &1563325963
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6471316227819945589}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7b2839081093b049b08316c68a4aa4f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  baseDamage: 10
 --- !u!1 &6471316228301277987
 GameObject:
   m_ObjectHideFlags: 0

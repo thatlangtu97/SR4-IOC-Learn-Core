@@ -80,7 +80,7 @@ MonoBehaviour:
     damageScale: 0
     powerCollider: 1
     forcePower: {x: 0, y: 0}
-  damageProperties: {fileID: 0}
+  damageProperties: 0
   component: {fileID: 2149371864225604895}
 --- !u!60 &2149371864225604889
 PolygonCollider2D:
