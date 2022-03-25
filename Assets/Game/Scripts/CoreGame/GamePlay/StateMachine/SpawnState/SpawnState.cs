@@ -7,7 +7,7 @@ public class SpawnState : State
     public override void EnterState()
     {
         base.EnterState();
-        controller.animator.SetTrigger(eventCollectionData[idState].NameTrigger);
+        controller.SetTrigger(eventCollectionData[idState].NameTrigger);
         if(controller.componentManager.BehaviorTree)
             controller.componentManager.BehaviorTree.DisableBehavior();
     }

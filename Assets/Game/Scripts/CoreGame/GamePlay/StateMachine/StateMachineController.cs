@@ -26,11 +26,18 @@ public class StateMachineController : MonoBehaviour
     public ComponentManager componentManager;
     public Animator animator;
 
-    public void SetAnim(string name)
+    public void SetTrigger(string name)
     {
         if (animator)
         {
             animator.SetTrigger(name);
+        }
+    }
+    public void SetSpeed(float speed)
+    {
+        if (animator)
+        {
+            animator.speed = speed;
         }
     }
     public virtual void InitStateMachine()

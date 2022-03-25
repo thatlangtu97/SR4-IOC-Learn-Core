@@ -7,7 +7,7 @@ public class ReviveState : State
     public override void EnterState()
     {
         base.EnterState();
-        controller.animator.SetTrigger(eventCollectionData[idState].NameTrigger);
+        controller.SetTrigger(eventCollectionData[idState].NameTrigger);
         controller.componentManager.rgbody2D.velocity = Vector2.zero;
     }
     public override void UpdateState()

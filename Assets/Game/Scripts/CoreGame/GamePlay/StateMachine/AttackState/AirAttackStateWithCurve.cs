@@ -89,8 +89,8 @@ public class AirAttackStateWithCurve : State
     {
         ResetEvent();
         controller.componentManager.Rotate();
-        controller.animator.SetTrigger(eventCollectionData[idState].NameTrigger);
-        controller.animator.speed = eventCollectionData[idState].curveSpeedAnimation.Evaluate(timeTrigger);
+        controller.SetTrigger(eventCollectionData[idState].NameTrigger);
+        controller.SetSpeed( eventCollectionData[idState].curveSpeedAnimation.Evaluate(timeTrigger));
         //controller.componentManager.rgbody2D.velocity = new Vector2(controller.componentManager.rgbody2D.velocity.x, eventCollectionData[idState].curveY.Evaluate(0));
     }
     public override void OnInputDash()

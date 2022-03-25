@@ -10,7 +10,6 @@ public class FreezeState : State
         base.EnterState();
         if (controller.componentManager.BehaviorTree)
             controller.componentManager.BehaviorTree.DisableBehavior();
-        controller.animator.speed = 0f;
     }
     public override void UpdateState()
     {
@@ -27,6 +26,5 @@ public class FreezeState : State
         base.ExitState();
         if (controller.componentManager.BehaviorTree)
             controller.componentManager.BehaviorTree.EnableBehavior();
-        controller.animator.speed = 1f;
     }
 }

@@ -6,7 +6,7 @@ public class RollOutState : State
     {
         base.EnterState();
         controller.componentManager.dashCount += 1;
-        controller.animator.SetTrigger(eventCollectionData[idState].NameTrigger);
+        controller.SetTrigger(eventCollectionData[idState].NameTrigger);
         //controller.componentManager.Rotate();
     }
     public override void UpdateState()

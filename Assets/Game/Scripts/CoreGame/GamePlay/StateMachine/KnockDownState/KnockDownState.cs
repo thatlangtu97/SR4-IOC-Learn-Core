@@ -11,7 +11,7 @@ public class KnockDownState : State
         if(controller.componentManager.BehaviorTree)
             controller.componentManager.BehaviorTree.DisableBehavior();
         controller.componentManager.rgbody2D.velocity = new Vector2 (0f, 0f);
-        controller.animator.SetTrigger(eventCollectionData[idState].NameTrigger);
+        controller.SetTrigger(eventCollectionData[idState].NameTrigger);
     }
     public override void UpdateState()
     {

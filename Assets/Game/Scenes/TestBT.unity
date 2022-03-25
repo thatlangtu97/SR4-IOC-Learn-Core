@@ -5395,9 +5395,9 @@ GameObject:
   - component: {fileID: 380558433}
   - component: {fileID: 380558432}
   - component: {fileID: 380558430}
-  - component: {fileID: 380558431}
   - component: {fileID: 380558429}
   - component: {fileID: 380558434}
+  - component: {fileID: 380558431}
   - component: {fileID: 380558439}
   - component: {fileID: 380558438}
   - component: {fileID: 380558435}
@@ -5483,7 +5483,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateMachineContainerComponent:
-    stateMachine: {fileID: 0}
+    stateMachine: {fileID: 380558429}
 --- !u!50 &380558432
 Rigidbody2D:
   serializedVersion: 4

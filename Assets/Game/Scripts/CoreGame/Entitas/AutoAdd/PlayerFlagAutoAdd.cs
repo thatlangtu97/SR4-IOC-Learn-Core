@@ -7,7 +7,7 @@ public class PlayerFlagAutoAdd : MonoBehaviour, IAutoAdd<GameEntity>
     public PlayerFlagComponent playerFlagComponent;
     public void AddComponent(ref GameEntity e)
     {
-        e.playerFlag.isPlayer = playerFlagComponent.isPlayer;
+        e.AddPlayerFlag(playerFlagComponent.isPlayer);
     }
     
 }

@@ -60,7 +60,7 @@ public class State : SerializedScriptableObject
     }
     public virtual void UpdateState()
     {
-        controller.animator.speed = eventCollectionData[idState].curveSpeedAnimation.Evaluate(timeTrigger);
+        controller.SetSpeed( eventCollectionData[idState].curveSpeedAnimation.Evaluate(timeTrigger));
         timeTrigger += Time.deltaTime;
         if (eventCollectionData != null && eventCollectionData.Count > idState && idState >= 0)
         {

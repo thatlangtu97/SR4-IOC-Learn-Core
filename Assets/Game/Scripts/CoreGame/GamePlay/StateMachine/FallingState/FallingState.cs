@@ -7,7 +7,7 @@ public class FallingState : State
     public override void EnterState()
     {
         base.EnterState();
-        controller.animator.SetTrigger(AnimationTriger.JUMPFAIL);
+        controller.SetTrigger(AnimationTriger.JUMPFAIL);
         controller.componentManager.Rotate();
 
     }

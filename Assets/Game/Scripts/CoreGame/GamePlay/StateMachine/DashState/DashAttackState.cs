@@ -46,7 +46,7 @@ public class DashAttackState : State
     {
         ResetEvent();
         controller.componentManager.Rotate();
-        controller.animator.SetTrigger(eventCollectionData[idState].NameTrigger);
+        controller.SetTrigger(eventCollectionData[idState].NameTrigger);
         controller.componentManager.rgbody2D.velocity = Vector2.zero;
         controller.componentManager.isBufferAttack = false;
     }

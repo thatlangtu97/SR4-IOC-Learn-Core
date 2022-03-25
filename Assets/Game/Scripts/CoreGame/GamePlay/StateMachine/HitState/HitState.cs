@@ -11,7 +11,7 @@ public class HitState : State
             controller.componentManager.BehaviorTree.DisableBehavior();
         if (eventCollectionData.Count!=0)
         idState = (idState + 1) % eventCollectionData.Count;
-        controller.animator.SetTrigger(eventCollectionData[idState].NameTrigger);
+        controller.SetTrigger(eventCollectionData[idState].NameTrigger);
     }
     public override void UpdateState()
     {

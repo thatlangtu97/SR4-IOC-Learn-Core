@@ -84,7 +84,7 @@ public class SkillState : State
     {
         ResetEvent();
         controller.componentManager.Rotate();
-        controller.animator.SetTrigger(eventCollectionData[idState].NameTrigger);
+        controller.SetTrigger(eventCollectionData[idState].NameTrigger);
     }
     public override void OnInputDash()
     {

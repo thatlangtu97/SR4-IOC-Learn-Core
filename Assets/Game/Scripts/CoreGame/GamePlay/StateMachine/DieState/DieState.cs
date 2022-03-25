@@ -7,7 +7,7 @@ public class DieState : State
         base.EnterState();
         if(controller.componentManager.BehaviorTree)
             controller.componentManager.BehaviorTree.DisableBehavior();
-        controller.animator.SetTrigger(eventCollectionData[idState].NameTrigger);
+        controller.SetTrigger(eventCollectionData[idState].NameTrigger);
     }
     public override void UpdateState()
     {

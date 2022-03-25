@@ -114,6 +114,12 @@ public class ComponentManager : MonoBehaviour
 //            component.AddComponent(ref entity);
 //            ComponentManagerUtils.AddComponent(this);
 //        }
+        var components = GetComponentsInChildren<IAutoAdd<GameEntity>>();
+        foreach (var component in components)
+        {
+            if(AutoAdds.Contains(component)) continue;
+            AutoAdds.Add(component);
+        }
         foreach (var component in AutoAdds)
         {
             component.AddComponent(ref entity);
