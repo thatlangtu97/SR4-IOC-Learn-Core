@@ -57,8 +57,8 @@ public class ComponentManager : MonoBehaviour
     [ShowInInspector]
     public List<Immune> currentImunes= new List<Immune>();
     
-    [FoldoutGroup("PROPERTIES")]
-    public int heal=100;
+//    [FoldoutGroup("PROPERTIES")]
+//    public int heal=100;
     [FoldoutGroup("PROPERTIES")]
     public List<Immune> baseImmunes = new List<Immune>();
     [FoldoutGroup("PROPERTIES")]
@@ -125,6 +125,7 @@ public class ComponentManager : MonoBehaviour
     }
     public void OnInputChangeFacing()
     {
+        if(enemy)
         if (enemy.transform.position.x < transform.position.x)
         {
             transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);

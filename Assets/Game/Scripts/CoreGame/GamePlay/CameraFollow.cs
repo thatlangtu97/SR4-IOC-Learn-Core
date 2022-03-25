@@ -76,20 +76,23 @@ public class CameraFollow : MonoBehaviour
         {
             if (chasing)
             {
-                Vector3 startPos = transform.position;
-                right = player.transform.right.normalized * scaleOffset;
-                Vector3 endPos = player.transform.position + right;
-                
-                endPos.x += posOffset.x;
-                endPos.y += posOffset.y;
-                endPos.z = offSetZ;
+                if (player)
+                {
+                    Vector3 startPos = transform.position;
+                    right = player.transform.right.normalized * scaleOffset;
+                    Vector3 endPos = player.transform.position + right;
 
-                transform.position = Vector3.SmoothDamp(startPos, endPos, ref velocity, timeOffset);
-                transform.position = new Vector3(
-                    Mathf.Clamp(transform.position.x, leftLimit, rightLimit),
-                    Mathf.Clamp(transform.position.y, bottomLimit, topLimit),
-                    transform.position.z
+                    endPos.x += posOffset.x;
+                    endPos.y += posOffset.y;
+                    endPos.z = offSetZ;
+
+                    transform.position = Vector3.SmoothDamp(startPos, endPos, ref velocity, timeOffset);
+                    transform.position = new Vector3(
+                        Mathf.Clamp(transform.position.x, leftLimit, rightLimit),
+                        Mathf.Clamp(transform.position.y, bottomLimit, topLimit),
+                        transform.position.z
                     );
+                }
             }
         }        
     }

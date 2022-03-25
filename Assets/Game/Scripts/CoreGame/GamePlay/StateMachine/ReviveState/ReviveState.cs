@@ -19,7 +19,7 @@ public class ReviveState : State
         }
         else
         {
-            controller.componentManager.heal = 100;
+            entity.health.health = entity.health.maxHealth;
             if (controller.componentManager.checkGround() == true)
             {
                 if (controller.componentManager.speedMove != 0)
