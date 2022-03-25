@@ -467,7 +467,6 @@ public class ColliderEvent : IComboEvent
                                 }
                                 DamageInfoSend damageInfoSend = new DamageInfoSend(damageInfoEventTemp,damageProperties,Action);
                                 DealDmgManager.DealDamage(col, entity,damageInfoSend);
-                                Debug.Log("damage by Event");
                             }
                         }
                     }

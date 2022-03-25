@@ -1801,13 +1801,7 @@
                 </e>
                 <e p="Component" t="Include">
                   <e p="AddComponentEntity.cs" t="Include" />
-                  <e p="DamageTextComponent.cs" t="Include" />
-                  <e p="HealthComponent.cs" t="Include" />
-                  <e p="PlayerFlagComponent.cs" t="Include" />
-                  <e p="PowerComponent.cs" t="Include" />
-                  <e p="ProjectileContainerComponent.cs" t="Include" />
-                  <e p="StateMachineContainerComponent.cs" t="Include" />
-                  <e p="TakeDamageComponent.cs" t="Include" />
+                  <e p="EntitasComponent.cs" t="Include" />
                 </e>
                 <e p="system" t="Include">
                   <e p="DamageTextSystem.cs" t="Include" />
