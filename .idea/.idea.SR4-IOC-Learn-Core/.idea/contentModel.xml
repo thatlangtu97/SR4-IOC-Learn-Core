@@ -1802,7 +1802,9 @@
                 <e p="Component" t="Include">
                   <e p="AddComponentEntity.cs" t="Include" />
                   <e p="DamageTextComponent.cs" t="Include" />
+                  <e p="HealthComponent.cs" t="Include" />
                   <e p="PlayerFlagComponent.cs" t="Include" />
+                  <e p="PowerComponent.cs" t="Include" />
                   <e p="ProjectileContainerComponent.cs" t="Include" />
                   <e p="StateMachineContainerComponent.cs" t="Include" />
                   <e p="TakeDamageComponent.cs" t="Include" />
@@ -2167,6 +2169,7 @@
             <e p="Dissolve_Destroyer.shader" t="Include" />
             <e p="E1_Shadero.shader" t="Include" />
             <e p="GradientAlphaShader.shader" t="Include" />
+            <e p="GrassShader.shader" t="Include" />
             <e p="GrayShader.shader" t="Include" />
             <e p="OpenChestShader.shader" t="Include" />
           </e>
@@ -2211,7 +2214,9 @@
           <e p="Game" t="Include">
             <e p="Components" t="Include">
               <e p="GameDamageTextComponent.cs" t="Include" />
+              <e p="GameHealthComponent.cs" t="Include" />
               <e p="GamePlayerFlagComponent.cs" t="Include" />
+              <e p="GamePowerComponent.cs" t="Include" />
               <e p="GameProjectileContainerComponent.cs" t="Include" />
               <e p="GameStateMachineContainerComponent.cs" t="Include" />
               <e p="GameTakeDamageComponent.cs" t="Include" />
