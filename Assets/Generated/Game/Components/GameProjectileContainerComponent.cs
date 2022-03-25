@@ -11,17 +11,17 @@ public partial class GameEntity {
     public ProjectileContainerComponent projectileContainer { get { return (ProjectileContainerComponent)GetComponent(GameComponentsLookup.ProjectileContainer); } }
     public bool hasProjectileContainer { get { return HasComponent(GameComponentsLookup.ProjectileContainer); } }
 
-    public void AddProjectileContainer(ProjectileComponent newProjectileComponent) {
+    public void AddProjectileContainer(ProjectileComponent newValue) {
         var index = GameComponentsLookup.ProjectileContainer;
         var component = (ProjectileContainerComponent)CreateComponent(index, typeof(ProjectileContainerComponent));
-        component.projectileComponent = newProjectileComponent;
+        component.value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceProjectileContainer(ProjectileComponent newProjectileComponent) {
+    public void ReplaceProjectileContainer(ProjectileComponent newValue) {
         var index = GameComponentsLookup.ProjectileContainer;
         var component = (ProjectileContainerComponent)CreateComponent(index, typeof(ProjectileContainerComponent));
-        component.projectileComponent = newProjectileComponent;
+        component.value = newValue;
         ReplaceComponent(index, component);
     }
 

@@ -39,7 +39,7 @@ namespace CoreBT
                 }
                 if (Contexts.sharedInstance.game.playerFlagEntity != null)
                 {
-                    componentManager.Value.enemy = Contexts.sharedInstance.game.playerFlagEntity.stateMachineContainer.stateMachine.transform;
+                    componentManager.Value.enemy = Contexts.sharedInstance.game.playerFlagEntity.stateMachineContainer.value.transform;
                     return TaskStatus.Success;
                 }
                 else

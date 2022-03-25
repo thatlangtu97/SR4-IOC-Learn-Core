@@ -7,6 +7,6 @@ public class BehaviourTreeAutoAdd : MonoBehaviour , IAutoAdd<GameEntity>
     public BehaviourTreeComponent behaviourTreeComponent;
     public void AddComponent(ref GameEntity e)
     {
-        e.AddBehaviourTree(behaviourTreeComponent.behaviorTree);
+        e.AddBehaviourTree(behaviourTreeComponent.value);
     }
 }

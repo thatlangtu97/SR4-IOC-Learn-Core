@@ -7,7 +7,7 @@ public class DieState : State
         base.EnterState();
         if (entity.hasBehaviourTree)
         {
-            entity.behaviourTree.behaviorTree.DisableBehavior();
+            entity.behaviourTree.value.DisableBehavior();
         }
         controller.SetTrigger(eventCollectionData[idState].NameTrigger);
     }

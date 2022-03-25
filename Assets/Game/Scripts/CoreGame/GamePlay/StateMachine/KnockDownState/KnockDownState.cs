@@ -10,7 +10,7 @@ public class KnockDownState : State
         base.EnterState();
         if (entity.hasBehaviourTree)
         {
-            entity.behaviourTree.behaviorTree.DisableBehavior();
+            entity.behaviourTree.value.DisableBehavior();
         }
         controller.componentManager.rgbody2D.velocity = new Vector2 (0f, 0f);
         controller.SetTrigger(eventCollectionData[idState].NameTrigger);

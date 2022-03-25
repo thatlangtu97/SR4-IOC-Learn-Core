@@ -11,17 +11,17 @@ public partial class GameEntity {
     public StateMachineContainerComponent stateMachineContainer { get { return (StateMachineContainerComponent)GetComponent(GameComponentsLookup.StateMachineContainer); } }
     public bool hasStateMachineContainer { get { return HasComponent(GameComponentsLookup.StateMachineContainer); } }
 
-    public void AddStateMachineContainer(StateMachineController newStateMachine) {
+    public void AddStateMachineContainer(StateMachineController newValue) {
         var index = GameComponentsLookup.StateMachineContainer;
         var component = (StateMachineContainerComponent)CreateComponent(index, typeof(StateMachineContainerComponent));
-        component.stateMachine = newStateMachine;
+        component.value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceStateMachineContainer(StateMachineController newStateMachine) {
+    public void ReplaceStateMachineContainer(StateMachineController newValue) {
         var index = GameComponentsLookup.StateMachineContainer;
         var component = (StateMachineContainerComponent)CreateComponent(index, typeof(StateMachineContainerComponent));
-        component.stateMachine = newStateMachine;
+        component.value = newValue;
         ReplaceComponent(index, component);
     }
 

@@ -25,7 +25,7 @@ public class StateMachineUpdateSystem : IExecuteSystem
                 continue;
             }
 
-            e.stateMachineContainer.stateMachine.UpdateState();
+            e.stateMachineContainer.value.UpdateState();
             //e.stateMachineContainer.stateMachine.componentManager.UpdateMecanim();
         }
         //updateMecanimJobSystem.Execute();

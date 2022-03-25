@@ -8,6 +8,6 @@ public class PowerAutoAdd : MonoBehaviour , IAutoAdd<GameEntity>
     public PowerComponent powerComponent;
     public void AddComponent(ref GameEntity e)
     {
-        e.AddPower(powerComponent.power);
+        e.AddPower(powerComponent.value);
     }
 }

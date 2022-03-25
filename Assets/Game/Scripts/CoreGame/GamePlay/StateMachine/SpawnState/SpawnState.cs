@@ -10,7 +10,7 @@ public class SpawnState : State
         controller.SetTrigger(eventCollectionData[idState].NameTrigger);
         if (entity.hasBehaviourTree)
         {
-            entity.behaviourTree.behaviorTree.DisableBehavior();
+            entity.behaviourTree.value.DisableBehavior();
         }
     }
     public override void UpdateState()
@@ -38,7 +38,7 @@ public class SpawnState : State
         base.ExitState();
         if (entity.hasBehaviourTree)
         {
-            entity.behaviourTree.behaviorTree.EnableBehavior();
+            entity.behaviourTree.value.EnableBehavior();
         }
     }
 }

@@ -30,7 +30,7 @@ public class TakeDamageSystem : ReactiveSystem<GameEntity>
                 //targetEnemy.Destroy();
                 return;
             }
-            StateMachineController stateMachine = targetEnemy.stateMachineContainer.stateMachine;
+            StateMachineController stateMachine = targetEnemy.stateMachineContainer.value;
             if (!stateMachine)
             {
                 myEntity.Destroy(); 

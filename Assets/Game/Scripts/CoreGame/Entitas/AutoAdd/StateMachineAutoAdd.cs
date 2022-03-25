@@ -7,8 +7,8 @@ public class StateMachineAutoAdd : MonoBehaviour, IAutoAdd<GameEntity>
     public StateMachineContainerComponent stateMachineContainerComponent;
     public void AddComponent(ref GameEntity e)
     {
-        e.AddStateMachineContainer(stateMachineContainerComponent.stateMachine);
-        stateMachineContainerComponent.stateMachine.InitStateMachine();
+        e.AddStateMachineContainer(stateMachineContainerComponent.value);
+        stateMachineContainerComponent.value.InitStateMachine();
         //Destroy(this);
     }
 

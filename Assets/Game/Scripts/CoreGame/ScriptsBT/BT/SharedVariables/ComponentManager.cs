@@ -108,7 +108,7 @@ public class ComponentManager : MonoBehaviour
         }
         if (entity.hasBehaviourTree)
         {
-            entity.behaviourTree.behaviorTree.DisableBehavior();
+            entity.behaviourTree.value.DisableBehavior();
             if (meshRenderer)
                 meshRenderer.enabled = false;
         }
@@ -119,7 +119,7 @@ public class ComponentManager : MonoBehaviour
     {
         if (entity.hasBehaviourTree)
         {
-            entity.behaviourTree.behaviorTree.DisableBehavior();
+            entity.behaviourTree.value.DisableBehavior();
         }
         DestroyEntity();
     }

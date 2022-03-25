@@ -11,17 +11,17 @@ public partial class GameEntity {
     public PowerComponent power { get { return (PowerComponent)GetComponent(GameComponentsLookup.Power); } }
     public bool hasPower { get { return HasComponent(GameComponentsLookup.Power); } }
 
-    public void AddPower(int newPower) {
+    public void AddPower(int newValue) {
         var index = GameComponentsLookup.Power;
         var component = (PowerComponent)CreateComponent(index, typeof(PowerComponent));
-        component.power = newPower;
+        component.value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplacePower(int newPower) {
+    public void ReplacePower(int newValue) {
         var index = GameComponentsLookup.Power;
         var component = (PowerComponent)CreateComponent(index, typeof(PowerComponent));
-        component.power = newPower;
+        component.value = newValue;
         ReplaceComponent(index, component);
     }
 

@@ -17,7 +17,7 @@ public class ProjectileMoveBezierSystem : IExecuteSystem
     {
         foreach (var e in entities.GetEntities())
         {
-            e.projectileContainer.projectileComponent.projectileMovement.UpdatePosition();
+            e.projectileContainer.value.projectileMovement.UpdatePosition();
         }
         updateMoveBezierJob.Execute();
     }
@@ -30,7 +30,7 @@ public class ProjectileMoveBezierSystem : IExecuteSystem
 
         protected override void Execute(GameEntity entity)
         {
-            entity.projectileContainer.projectileComponent.projectileMovement.CaculatePosition();
+            entity.projectileContainer.value.projectileMovement.CaculatePosition();
         }
 
     }

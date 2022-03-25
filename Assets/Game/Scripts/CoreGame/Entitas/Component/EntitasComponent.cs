@@ -13,14 +13,14 @@ public class PlayerFlagComponent : IComponent
 [System.Serializable]
 public class ProjectileContainerComponent : IComponent
 {
-    public ProjectileComponent projectileComponent;
+    public ProjectileComponent value;
 }
     
 [Game]
 [System.Serializable]
 public class StateMachineContainerComponent : IComponent
 {
-    public StateMachineController stateMachine;
+    public StateMachineController value;
 }
     
 [Game]
@@ -49,7 +49,7 @@ public class HealthComponent : IComponent
 [System.Serializable]
 public class PowerComponent : IComponent
 {
-    public int power;
+    public int value;
 }
 [Game]
 [System.Serializable]
@@ -70,7 +70,7 @@ public class TakeDamageComponent : IComponent
 [System.Serializable]
 public class BehaviourTreeComponent : IComponent
 {
-    public BehaviorTree behaviorTree;
+    public BehaviorTree value;
 }
 public partial class GameContext
 {

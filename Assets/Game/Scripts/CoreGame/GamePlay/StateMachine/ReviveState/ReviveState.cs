@@ -38,7 +38,7 @@ public class ReviveState : State
         base.ExitState();
         if (entity.hasBehaviourTree)
         {
-            entity.behaviourTree.behaviorTree.EnableBehavior();
+            entity.behaviourTree.value.EnableBehavior();
         }
     }
 }

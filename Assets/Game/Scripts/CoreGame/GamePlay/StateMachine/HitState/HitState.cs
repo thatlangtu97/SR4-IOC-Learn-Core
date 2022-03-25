@@ -9,7 +9,7 @@ public class HitState : State
         base.EnterState();
         if (entity.hasBehaviourTree)
         {
-            entity.behaviourTree.behaviorTree.DisableBehavior();
+            entity.behaviourTree.value.DisableBehavior();
         }
         if (eventCollectionData.Count!=0)
         idState = (idState + 1) % eventCollectionData.Count;
@@ -40,7 +40,7 @@ public class HitState : State
         base.ExitState();
         if (entity.hasBehaviourTree)
         {
-            entity.behaviourTree.behaviorTree.EnableBehavior();
+            entity.behaviourTree.value.EnableBehavior();
         }
     }
     public override void OnHit()

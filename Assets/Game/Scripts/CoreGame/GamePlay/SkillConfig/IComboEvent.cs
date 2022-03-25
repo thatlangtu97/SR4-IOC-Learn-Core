@@ -61,8 +61,8 @@ public class CastAddForce : IComboEvent
     private GameObject prefabSpawned;
     public void OnEventTrigger(GameEntity entity)
     {
-        Rigidbody2D baseRigidbody = entity.stateMachineContainer.stateMachine.componentManager.rgbody2D;
-        Transform baseTransform = entity.stateMachineContainer.stateMachine.transform;
+        Rigidbody2D baseRigidbody = entity.stateMachineContainer.value.componentManager.rgbody2D;
+        Transform baseTransform = entity.stateMachineContainer.value.transform;
         
         Vector3 CalculateForce = new Vector3(force.x * (baseTransform.localScale.x < 0 ? -1f : 1f),
             force.y,
@@ -119,7 +119,7 @@ public class CastVfxEvent : IComboEvent
         if (Prefab)
         {
             prefabSpawned = ObjectPool.Spawn(Prefab);
-            Transform baseTransform = entity.stateMachineContainer.stateMachine.transform;
+            Transform baseTransform = entity.stateMachineContainer.value.transform;
             
             prefabSpawned.transform.parent = baseTransform;
             prefabSpawned.transform.localPosition = new Vector3(Localosition.x , Localosition.y , Localosition.z );
@@ -183,7 +183,7 @@ public class EnableComponent : IComboEvent
         switch (Component)
         {
             case TypeComponent.MeshRenderer:
-                MeshRenderer meshRenderer  = entity.stateMachineContainer.stateMachine.componentManager.meshRenderer ;
+                MeshRenderer meshRenderer  = entity.stateMachineContainer.value.componentManager.meshRenderer ;
                 if (meshRenderer != null) meshRenderer.enabled = enable;
                 break;
         }
@@ -235,7 +235,7 @@ public class SpawnGameObject : IComboEvent
     {
         if (Prefab)
         {
-            Transform baseTransform = entity.stateMachineContainer.stateMachine.transform;
+            Transform baseTransform = entity.stateMachineContainer.value.transform;
             switch (typeSpawn)
             {
                 case TypeSpawn.Transform:
@@ -411,7 +411,7 @@ public class ColliderEvent : IComboEvent
     public void OnEventTrigger(GameEntity entity)
     {   
         Collider2D[] cols = null;
-        Transform transform = entity.stateMachineContainer.stateMachine.transform;
+        Transform transform = entity.stateMachineContainer.value.transform;
         Vector3 point = Vector3.zero;
         
         switch (typeCast)
@@ -440,7 +440,7 @@ public class ColliderEvent : IComboEvent
                     countDuration = 0;
                     col = ObjectPool.Spawn(prefab);
                     damageCollider = col.GetComponent<DamageCollider>();
-                    damageCollider.SetCollider(typeCast, sizeBox, entity.power.power, damageInfoEvent, entity);
+                    damageCollider.SetCollider(typeCast, sizeBox, entity.power.value, damageInfoEvent, entity);
                     col.transform.position = point;
                     if (setParen)
                     {
@@ -458,7 +458,7 @@ public class ColliderEvent : IComboEvent
                             {
                                 
                                 Vector2 direction = (col.transform.position - transform.position).normalized;
-                                int damageProperties = entity.power.power;
+                                int damageProperties = entity.power.value;
                                 DamageInfoEvent damageInfoEventTemp = new DamageInfoEvent(damageInfoEvent);
                                 damageInfoEventTemp.forcePower = damageInfoEvent.forcePower * direction;
                                 void Action()
@@ -484,7 +484,7 @@ public class ColliderEvent : IComboEvent
                     countDuration = 0;
                     col = ObjectPool.Spawn(prefab);
                     damageCollider = col.GetComponent<DamageCollider>();
-                    int damageProperties = entity.power.power;
+                    int damageProperties = entity.power.value;
                     damageCollider.SetCollider(typeCast, radius, damageProperties, damageInfoEvent, entity);
                     col.transform.position = point;
                     if (setParen)
@@ -502,7 +502,7 @@ public class ColliderEvent : IComboEvent
                             if (col != null)
                             {
                                 Vector2 direction = (col.transform.position - transform.position).normalized;
-                                int damageProperties = entity.power.power;
+                                int damageProperties = entity.power.value;
                                 DamageInfoEvent damageInfoEventTemp = new DamageInfoEvent(damageInfoEvent);
                                 damageInfoEventTemp.forcePower = damageInfoEvent.forcePower * direction;
                                 Action action = delegate
@@ -626,7 +626,7 @@ public class CastProjectile : IComboEvent
         
         if (Prefab)
         {
-            Transform baseTransform = entity.stateMachineContainer.stateMachine.transform;
+            Transform baseTransform = entity.stateMachineContainer.value.transform;
             switch (typeSpawn)
             {
                 case TypeSpawn.Transform:
@@ -688,7 +688,7 @@ public class CastProjectile : IComboEvent
                 if (state.componentManager.entity != null)
                 {
                     state.componentManager. damageInfoEvent = new DamageInfoEvent(damageInfoEvent);
-                    state.componentManager.entity.power.power = entity.power.power;
+                    state.componentManager.entity.power.value = entity.power.value;
                     //state.componentManager.damageProperties = new DamageProperties(entity.stateMachineContainer.stateMachine.componentManager.damageProperties);
                 }
             }
@@ -696,7 +696,7 @@ public class CastProjectile : IComboEvent
             {
                 if (prj.component.entity != null)
                 {
-                    prj.damageProperties = entity.power.power; 
+                    prj.damageProperties = entity.power.value; 
                     prj.damageInfoEvent =  new DamageInfoEvent(damageInfoEvent);
                 }
 
