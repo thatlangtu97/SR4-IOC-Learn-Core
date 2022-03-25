@@ -70,7 +70,7 @@ public class TakeDamageComponent : IComponent
 [System.Serializable]
 public class BehaviourTreeComponent : IComponent
 {
-    public BehaviorManager.BehaviorTree behaviorTree;
+    public BehaviorTree behaviorTree;
 }
 public partial class GameContext
 {

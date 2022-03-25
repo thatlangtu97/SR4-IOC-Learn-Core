@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly PlayerFlagComponent playerFlagComponent = new PlayerFlagComponent();
+    public PlayerFlagComponent playerFlag { get { return (PlayerFlagComponent)GetComponent(GameComponentsLookup.PlayerFlag); } }
+    public bool hasPlayerFlag { get { return HasComponent(GameComponentsLookup.PlayerFlag); } }
 
-    public bool isPlayerFlag {
-        get { return HasComponent(GameComponentsLookup.PlayerFlag); }
-        set {
-            if (value != isPlayerFlag) {
-                var index = GameComponentsLookup.PlayerFlag;
-                if (value) {
-                    var componentPool = GetComponentPool(index);
-                    var component = componentPool.Count > 0
-                            ? componentPool.Pop()
-                            : playerFlagComponent;
+    public void AddPlayerFlag(bool newIsPlayer) {
+        var index = GameComponentsLookup.PlayerFlag;
+        var component = (PlayerFlagComponent)CreateComponent(index, typeof(PlayerFlagComponent));
+        component.isPlayer = newIsPlayer;
+        AddComponent(index, component);
+    }
 
-                    AddComponent(index, component);
-                } else {
-                    RemoveComponent(index);
-                }
-            }
-        }
+    public void ReplacePlayerFlag(bool newIsPlayer) {
+        var index = GameComponentsLookup.PlayerFlag;
+        var component = (PlayerFlagComponent)CreateComponent(index, typeof(PlayerFlagComponent));
+        component.isPlayer = newIsPlayer;
+        ReplaceComponent(index, component);
+    }
+
+    public void RemovePlayerFlag() {
+        RemoveComponent(GameComponentsLookup.PlayerFlag);
     }
 }
 

@@ -5,10 +5,6 @@ using UnityEngine;
 public class KnockUpState : State
 {
     float timeCount = 0;
-    public override void InitState(StateMachineController controller)
-    {
-        base.InitState(controller);
-    }
     public override void EnterState()
     {
         base.EnterState();

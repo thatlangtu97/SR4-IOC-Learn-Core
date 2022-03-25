@@ -1794,6 +1794,7 @@
             <e p="CoreGame" t="Include">
               <e p="Entitas" t="Include">
                 <e p="AutoAdd" t="Include">
+                  <e p="BehaviourTreeAutoAdd.cs" t="Include" />
                   <e p="HealthAutoAdd.cs" t="Include" />
                   <e p="IAutoAdd.cs" t="Include" />
                   <e p="PlayerFlagAutoAdd.cs" t="Include" />
@@ -2209,6 +2210,7 @@
           <e p="Feature.cs" t="Include" />
           <e p="Game" t="Include">
             <e p="Components" t="Include">
+              <e p="GameBehaviourTreeComponent.cs" t="Include" />
               <e p="GameDamageTextComponent.cs" t="Include" />
               <e p="GameHealthComponent.cs" t="Include" />
               <e p="GamePlayerFlagComponent.cs" t="Include" />

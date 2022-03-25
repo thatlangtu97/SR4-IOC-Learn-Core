@@ -4,10 +4,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "ReviveState", menuName = "CoreGame/State/ReviveState")]
 public class ReviveState : State
 {
-    public override void InitState(StateMachineController controller)
-    {
-        base.InitState(controller);
-    }
     public override void EnterState()
     {
         base.EnterState();

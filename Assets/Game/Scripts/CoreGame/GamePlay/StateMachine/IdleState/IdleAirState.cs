@@ -4,10 +4,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "IdleAirState", menuName = "CoreGame/State/IdleAirState")]
 public class IdleAirState : State
 {
-    public override void InitState(StateMachineController controller)
-    {
-        base.InitState(controller);
-    }
     public override void EnterState()
     {
         base.EnterState();

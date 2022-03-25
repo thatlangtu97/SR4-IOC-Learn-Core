@@ -5,10 +5,6 @@ using UnityEngine;
 public class KnockDownState : State
 {
     bool isFailing = false;
-    public override void InitState(StateMachineController controller)
-    {
-        base.InitState(controller);
-    }
     public override void EnterState()
     {
         base.EnterState();

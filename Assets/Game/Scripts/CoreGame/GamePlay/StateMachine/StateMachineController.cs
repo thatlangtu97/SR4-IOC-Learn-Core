@@ -25,6 +25,14 @@ public class StateMachineController : MonoBehaviour
     }
     public ComponentManager componentManager;
     public Animator animator;
+
+    public void SetAnim(string name)
+    {
+        if (animator)
+        {
+            animator.SetTrigger(name);
+        }
+    }
     public virtual void InitStateMachine()
     {
         SetupState();
@@ -53,7 +61,7 @@ public class StateMachineController : MonoBehaviour
     protected void CreateStateFactory(StateClone stateClone)
     {
         State state = Instantiate(stateClone.StateToClone);
-        state.InitState(this);
+        state.InitState(this, componentManager);
         if (!dictionaryStateMachine.ContainsKey(stateClone.NameState))
         {
             dictionaryStateMachine.Add(stateClone.NameState, state);

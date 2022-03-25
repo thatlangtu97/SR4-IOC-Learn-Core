@@ -5,10 +5,6 @@ using UnityEngine;
 public class IdleState : State
 {
     bool isFailing = false;
-    public override void InitState(StateMachineController controller)
-    {
-        base.InitState(controller);
-    }
     public override void EnterState()
     {
         base.EnterState();

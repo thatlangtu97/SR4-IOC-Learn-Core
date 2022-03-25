@@ -11,10 +11,11 @@ public class State : SerializedScriptableObject
     public List<Immune> Immunes = new List<Immune>();
     
     public List<EventCollection> eventCollectionData;
-
-    public virtual void InitState(StateMachineController controller)
+    private GameEntity entity;
+    public virtual void InitState(StateMachineController controller, ComponentManager componentManager)
     {
         this.controller = controller;
+        entity = componentManager.entity;
     }
     public virtual void EnterState()
     {
