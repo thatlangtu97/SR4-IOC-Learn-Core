@@ -12,6 +12,14 @@ public class State : SerializedScriptableObject
     
     public List<EventCollection> eventCollectionData;
     protected GameEntity entity;
+    protected bool bufferJump,bufferAttack,bufferDash;
+
+    protected virtual void ResetBuffer()
+    {
+        bufferJump = false;
+        bufferAttack = false;
+        bufferDash = false;
+    }
     public virtual void InitState(StateMachineController controller, ComponentManager componentManager)
     {
         this.controller = controller;
@@ -34,7 +42,7 @@ public class State : SerializedScriptableObject
         timeTrigger = 0f;
         idEventTrigged = new Dictionary<int, IComboEvent>();
         controller.componentManager.AddImunes(Immunes);
-        
+        ResetBuffer();
     }
     public virtual void ResetTrigger()
     {
@@ -105,12 +113,18 @@ public class State : SerializedScriptableObject
     }
     public virtual void OnInputJump()
     {
+        ResetBuffer();
+        bufferJump = true;
     }
     public virtual void OnInputAttack()
     {
+        ResetBuffer();
+        bufferAttack = true;
     }
     public virtual void OnInputDash()
     {
+        ResetBuffer();
+        bufferDash = true;
     }
     public virtual void OnInputSkill(int idSkill)
     {

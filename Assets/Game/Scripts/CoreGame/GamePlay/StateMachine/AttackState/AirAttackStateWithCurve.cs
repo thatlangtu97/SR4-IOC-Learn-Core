@@ -18,24 +18,12 @@ public class AirAttackStateWithCurve : State
         base.UpdateState();
         if (timeTrigger < eventCollectionData[idState].durationAnimation)
         {
-            if (controller.componentManager.checkGround() == false)
-            {
-                controller.componentManager.Rotate();
-                //controller.componentManager.rgbody2D.velocity = new Vector2(controller.componentManager.speedMove, controller.componentManager.rgbody2D.velocity.y);
-                
+            controller.componentManager.Rotate();
                 Vector2 velocityAttack = new Vector2(eventCollectionData[idState].curveX.Evaluate(timeTrigger), eventCollectionData[idState].curveY.Evaluate(timeTrigger));
                 Vector2 velocityFinal = new Vector2(velocityAttack.x * controller.componentManager.speedMove,
-                    velocityAttack.y); /** Time.deltaTime;*/
+                    velocityAttack.y);
                 controller.componentManager.rgbody2D.velocity=velocityFinal;
-    
-                //controller.componentManager.rgbody2D.position += velocityFinal;
-                
-//                Vector2 velocityAttack = new Vector2( controller.componentManager.speedMove * eventCollectionData[idState].curveX.Evaluate(timeTrigger),
-//                    eventCollectionData[idState].curveY.Evaluate(timeTrigger));
-//
-//                controller.componentManager.rgbody2D.velocity = velocityAttack;
-            }
-            if (timeTrigger >= eventCollectionData[idState].durationAnimation)
+                if (timeTrigger >= eventCollectionData[idState].durationAnimation)
             {
                 controller.ChangeState(NameState.FallingState);
             }
@@ -91,7 +79,6 @@ public class AirAttackStateWithCurve : State
         controller.componentManager.Rotate();
         controller.SetTrigger(eventCollectionData[idState].NameTrigger,eventCollectionData[idState].typeAnim,eventCollectionData[idState].timeStart);
         controller.SetSpeed( eventCollectionData[idState].curveSpeedAnimation.Evaluate(timeTrigger));
-        //controller.componentManager.rgbody2D.velocity = new Vector2(controller.componentManager.rgbody2D.velocity.x, eventCollectionData[idState].curveY.Evaluate(0));
     }
     public override void OnInputDash()
     {

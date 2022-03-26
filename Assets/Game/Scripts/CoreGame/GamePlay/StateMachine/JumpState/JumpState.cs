@@ -6,7 +6,6 @@ public class JumpState : State
 {
     float countTimeBufferJump = 0;
     public float timeBuffer = 0.15f;
-    bool bufferJump = false;
 
     public override void EnterState()
     {
@@ -57,6 +56,12 @@ public class JumpState : State
                 }
             }
         }
+
+        if (bufferAttack)
+        {
+            if (controller.componentManager.CanAttackAir)
+                controller.ChangeState(NameState.AirAttackState);
+        }
         countTimeBufferJump -= Time.deltaTime;
     }
     public override void ExitState()
@@ -72,13 +77,11 @@ public class JumpState : State
     public override void OnInputJump()
     {
         base.OnInputJump();
-        bufferJump = true;
     }
     public override void OnInputAttack()
     {
         base.OnInputAttack();
-        if (controller.componentManager.CanAttackAir)
-            controller.ChangeState(NameState.AirAttackState);
+
     }
     public override void OnInputSkill(int idSkill)
     {

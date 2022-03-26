@@ -18,16 +18,12 @@ public class AirAttackState : State
         base.UpdateState();
         if (timeTrigger < eventCollectionData[idState].durationAnimation)
         {
-            if (controller.componentManager.checkGround() == false)
-            {
-                controller.componentManager.Rotate();
+            controller.componentManager.Rotate();
                 controller.componentManager.rgbody2D.velocity = new Vector2(controller.componentManager.speedMove, controller.componentManager.rgbody2D.velocity.y);
                 
 //                Vector2 velocityAttack = new Vector2( controller.componentManager.speedMove * eventCollectionData[idState].curveX.Evaluate(timeTrigger),
 //                    eventCollectionData[idState].curveY.Evaluate(timeTrigger));
 //
-//                controller.componentManager.rgbody2D.velocity = velocityAttack;
-            }
             if (timeTrigger >= eventCollectionData[idState].durationAnimation)
             {
                 controller.ChangeState(NameState.FallingState);
@@ -49,7 +45,6 @@ public class AirAttackState : State
                     }
                 }
             }
-            
         }
         else
         {
