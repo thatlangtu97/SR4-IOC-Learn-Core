@@ -13,7 +13,7 @@ public class KnockDownState : State
             entity.behaviourTree.value.DisableBehavior();
         }
         controller.componentManager.rgbody2D.velocity = new Vector2 (0f, 0f);
-        controller.SetTrigger(eventCollectionData[idState].NameTrigger);
+        controller.SetTrigger(eventCollectionData[idState].NameTrigger,eventCollectionData[idState].typeAnim,eventCollectionData[idState].timeStart);
     }
     public override void UpdateState()
     {

@@ -11,7 +11,7 @@ public class JumpState : State
     public override void EnterState()
     {
         base.EnterState();
-        controller.SetTrigger(eventCollectionData[idState].NameTrigger);
+        controller.SetTrigger(eventCollectionData[idState].NameTrigger,eventCollectionData[idState].typeAnim,eventCollectionData[idState].timeStart);
         controller.componentManager.Rotate();
         countTimeBufferJump = eventCollectionData[idState].durationAnimation;
         controller.componentManager.jumpCount += 1;

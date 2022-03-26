@@ -14,6 +14,20 @@ public class StateMachineController : MonoBehaviour
     public NameState previousNameState;
     [LabelText("STATE TO CLONE")]
     public List<StateClone> States;
+
+    public List<string> nameTrigger;
+
+    private void Awake()
+    {
+        foreach (AnimatorControllerParameter p in animator.parameters)
+        {
+            if (p.type == AnimatorControllerParameterType.Trigger)
+            {
+                nameTrigger.Add(p.name);
+            }
+        }
+    }
+
     public void SetupState()
     {
         dictionaryStateMachine = new Dictionary<NameState, State>();
@@ -26,11 +40,20 @@ public class StateMachineController : MonoBehaviour
     public ComponentManager componentManager;
     public Animator animator;
 
-    public void SetTrigger(string name)
+    public void SetTrigger(string name, AnimationTypeState type , float timestart)
     {
         if (animator)
         {
-            animator.SetTrigger(name);
+            switch (type)
+            {
+                case AnimationTypeState.Trigger:
+                    animator.SetTrigger(name);
+                    break;
+                case AnimationTypeState.PlayAnim:
+                    animator.Play(name,0,timestart);
+                    break;
+            }
+            
         }
     }
     public void SetSpeed(float speed)

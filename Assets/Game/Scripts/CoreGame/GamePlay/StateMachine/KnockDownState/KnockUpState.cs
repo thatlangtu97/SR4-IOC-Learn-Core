@@ -9,7 +9,7 @@ public class KnockUpState : State
     {
         base.EnterState();
         timeCount = 0;
-        controller.SetTrigger(eventCollectionData[idState].NameTrigger);
+        controller.SetTrigger(eventCollectionData[idState].NameTrigger,eventCollectionData[idState].typeAnim,eventCollectionData[idState].timeStart);
         if (entity.hasBehaviourTree)
         {
             entity.behaviourTree.value.DisableBehavior();

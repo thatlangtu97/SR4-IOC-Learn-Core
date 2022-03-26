@@ -9,7 +9,7 @@ public class DieState : State
         {
             entity.behaviourTree.value.DisableBehavior();
         }
-        controller.SetTrigger(eventCollectionData[idState].NameTrigger);
+        controller.SetTrigger(eventCollectionData[idState].NameTrigger,eventCollectionData[idState].typeAnim,eventCollectionData[idState].timeStart);
     }
     public override void UpdateState()
     {

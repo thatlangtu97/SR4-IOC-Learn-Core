@@ -13,7 +13,7 @@ public class HitState : State
         }
         if (eventCollectionData.Count!=0)
         idState = (idState + 1) % eventCollectionData.Count;
-        controller.SetTrigger(eventCollectionData[idState].NameTrigger);
+        controller.SetTrigger(eventCollectionData[idState].NameTrigger,eventCollectionData[idState].typeAnim,eventCollectionData[idState].timeStart);
     }
     public override void UpdateState()
     {

@@ -9,7 +9,7 @@ public class MoveAirState : State
     public override void EnterState()
     {
         base.EnterState();
-        controller.SetTrigger(eventCollectionData[idState].NameTrigger);
+        controller.SetTrigger(eventCollectionData[idState].NameTrigger,eventCollectionData[idState].typeAnim,eventCollectionData[idState].timeStart);
     }
 
     public override void UpdateState()

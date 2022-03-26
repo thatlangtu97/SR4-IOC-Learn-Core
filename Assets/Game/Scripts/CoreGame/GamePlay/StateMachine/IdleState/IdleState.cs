@@ -10,7 +10,7 @@ public class IdleState : State
         base.EnterState();
         //controller.animator.SetTrigger(AnimationTriger.IDLE);
         controller.componentManager.rgbody2D.velocity = Vector2.zero;
-        controller.SetTrigger(eventCollectionData[idState].NameTrigger);
+        controller.SetTrigger(eventCollectionData[idState].NameTrigger,eventCollectionData[idState].typeAnim,eventCollectionData[idState].timeStart);
         isFailing = false;
         controller.componentManager.ResetJumpCount();
         controller.componentManager.ResetDashCount();

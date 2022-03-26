@@ -12,7 +12,7 @@ public class MoveStepByStepState : State
     public override void EnterState()
     {
         base.EnterState();
-        controller.SetTrigger(eventCollectionData[idState].NameTrigger);
+        controller.SetTrigger(eventCollectionData[idState].NameTrigger,eventCollectionData[idState].typeAnim,eventCollectionData[idState].timeStart);
         isFailing = false;
         controller.componentManager.ResetJumpCount();
         controller.componentManager.ResetDashCount();

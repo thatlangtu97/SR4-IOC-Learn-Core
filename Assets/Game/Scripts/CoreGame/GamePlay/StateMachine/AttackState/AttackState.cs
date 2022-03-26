@@ -139,7 +139,7 @@ public class AttackState : State
 //        if(useCheckEnemyForwark)
 //            isEnemyForwark = controller.componentManager.checkEnemyForwark();
         controller.componentManager.Rotate();
-        controller.SetTrigger(eventCollectionData[idState].NameTrigger);
+        controller.SetTrigger(eventCollectionData[idState].NameTrigger,eventCollectionData[idState].typeAnim,eventCollectionData[idState].timeStart);
         controller.SetSpeed(eventCollectionData[idState].curveSpeedAnimation.Evaluate(timeTrigger));
         controller.componentManager.rgbody2D.velocity = Vector2.zero;
         controller.componentManager.isBufferAttack = false;

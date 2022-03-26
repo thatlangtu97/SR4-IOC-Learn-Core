@@ -5,7 +5,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "EventState", menuName = "CoreGame/EventState")]
 public class EventCollection : SerializedScriptableObject
 {
+    public AnimationTypeState typeAnim;
     public string NameTrigger;
+    public float timeStart;
     public float durationAnimation;
     public AnimationCurve curveX, curveY;
     public AnimationCurve curveSpeedAnimation= new AnimationCurve(new Keyframe(0,1f));
@@ -40,4 +42,11 @@ public class EventCollection : SerializedScriptableObject
             EventCombo = new List<IComboEvent>();
         }
     }
+}
+
+public enum AnimationTypeState
+{
+    Trigger,
+    PlayAnim,
+    
 }

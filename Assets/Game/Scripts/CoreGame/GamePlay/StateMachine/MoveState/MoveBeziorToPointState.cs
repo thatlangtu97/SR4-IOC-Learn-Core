@@ -15,7 +15,7 @@ public class MoveBeziorToPointState : State
     public override void EnterState()
     {
         base.EnterState();
-        controller.SetTrigger(eventCollectionData[idState].NameTrigger);
+        controller.SetTrigger(eventCollectionData[idState].NameTrigger,eventCollectionData[idState].typeAnim,eventCollectionData[idState].timeStart);
         startPosition = controller.transform.position;
         FindEndPosition();
         startMove = true;

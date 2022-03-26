@@ -58,7 +58,7 @@ public class FlySkillState : State
     {
         ResetEvent();
         controller.componentManager.Rotate();
-        controller.SetTrigger(eventCollectionData[idState].NameTrigger);
+        controller.SetTrigger(eventCollectionData[idState].NameTrigger,eventCollectionData[idState].typeAnim,eventCollectionData[idState].timeStart);
     }
     public override void OnInputDash()
     {

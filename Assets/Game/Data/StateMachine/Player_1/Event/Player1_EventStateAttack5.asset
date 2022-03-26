@@ -239,7 +239,9 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+  typeAnim: 1
   NameTrigger: airattack2
+  timeStart: 0
   durationAnimation: 1
   curveX:
     serializedVersion: 2

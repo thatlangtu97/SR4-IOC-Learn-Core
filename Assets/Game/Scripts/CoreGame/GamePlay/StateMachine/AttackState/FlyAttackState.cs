@@ -46,8 +46,7 @@ public class FlyAttackState : State
     {
         ResetEvent();
         controller.componentManager.Rotate();
-        controller.SetTrigger(eventCollectionData[idState].NameTrigger);
-        //controller.componentManager.rgbody2D.velocity = new Vector2(controller.componentManager.rgbody2D.velocity.x, eventCollectionData[idState].curveY.Evaluate(0));
+        controller.SetTrigger(eventCollectionData[idState].NameTrigger,eventCollectionData[idState].typeAnim,eventCollectionData[idState].timeStart);
         controller.componentManager.rgbody2D.velocity = Vector2.zero;
     }
     public override void OnInputDash()

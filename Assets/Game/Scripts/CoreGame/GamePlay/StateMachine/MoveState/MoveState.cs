@@ -14,15 +14,15 @@ public class MoveState : State
             case NameState.FallingState:
             case NameState.JumpState:
             case NameState.AirAttackState:
-                controller.SetTrigger("jumptomove");
+                controller.SetTrigger("jumptomove",AnimationTypeState.Trigger,0);
                 break;
             case NameState.DashState:
             case NameState.DashAttackState:
-                controller.SetTrigger("dashtomove");
+                controller.SetTrigger("dashtomove",AnimationTypeState.Trigger,0);
                 break;
 
             default: 
-                controller.SetTrigger(eventCollectionData[idState].NameTrigger);
+                controller.SetTrigger(eventCollectionData[idState].NameTrigger,eventCollectionData[idState].typeAnim,eventCollectionData[idState].timeStart);
                 break;
         }
         
@@ -35,7 +35,7 @@ public class MoveState : State
     public override void UpdateState()
     {
         if(timeTrigger>timeTransition)
-            controller.SetTrigger(eventCollectionData[idState].NameTrigger);
+            controller.SetTrigger(eventCollectionData[idState].NameTrigger,eventCollectionData[idState].typeAnim,eventCollectionData[idState].timeStart);
         base.UpdateState();
         controller.componentManager.rgbody2D.velocity = new Vector2(controller.componentManager.speedMove * eventCollectionData[idState].curveX.Evaluate(timeTrigger), controller.componentManager.rgbody2D.velocity.y);
         controller.componentManager.Rotate();

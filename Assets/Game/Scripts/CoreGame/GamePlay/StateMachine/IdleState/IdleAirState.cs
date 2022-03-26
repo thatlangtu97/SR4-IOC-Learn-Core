@@ -10,7 +10,7 @@ public class IdleAirState : State
         controller.componentManager.rgbody2D.velocity = Vector2.zero;
         controller.componentManager.vectorSpeed = Vector2.zero;
         controller.componentManager.speedMove = 0f;
-        controller.SetTrigger(eventCollectionData[idState].NameTrigger);
+        controller.SetTrigger(eventCollectionData[idState].NameTrigger,eventCollectionData[idState].typeAnim,eventCollectionData[idState].timeStart);
     }
     public override void UpdateState()
     {
