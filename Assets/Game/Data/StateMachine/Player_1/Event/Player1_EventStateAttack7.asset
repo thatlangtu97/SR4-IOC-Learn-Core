@@ -337,7 +337,7 @@ MonoBehaviour:
       Entry: 8
       Data: 
   NameTrigger: skill1air
-  durationAnimation: 0.78
+  durationAnimation: 1
   curveX:
     serializedVersion: 2
     m_Curve:
@@ -435,13 +435,22 @@ MonoBehaviour:
       inWeight: 1
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.8705071
-      value: 1
-      inSlope: -3.9333553
-      outSlope: -3.9333553
+      time: 0.78927004
+      value: 0.2987455
+      inSlope: -6.9956303
+      outSlope: -6.9956303
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.846333
+      value: 0.9943879
+      inSlope: Infinity
+      outSlope: Infinity
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2

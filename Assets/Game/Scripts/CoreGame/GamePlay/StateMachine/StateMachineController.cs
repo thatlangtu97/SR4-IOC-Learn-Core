@@ -30,7 +30,8 @@ public class StateMachineController : MonoBehaviour
     {
         if (animator)
         {
-            animator.SetTrigger(name);
+            //animator.SetTrigger(name);
+            animator.PlayInFixedTime(name);
         }
     }
     public void SetSpeed(float speed)

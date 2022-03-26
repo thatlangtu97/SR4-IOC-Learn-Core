@@ -19,28 +19,27 @@ public class State : SerializedScriptableObject
     }
     public virtual void EnterState()
     {
-        foreach (AnimatorControllerParameter p in controller.animator.parameters)
-        {
-            if (p.type == AnimatorControllerParameterType.Trigger)
-            {
-                controller.animator.ResetTrigger(p.name);
-            }
-        }
+//        foreach (AnimatorControllerParameter p in controller.animator.parameters)
+//        {
+//            if (p.type == AnimatorControllerParameterType.Trigger)
+//            {
+//                controller.animator.ResetTrigger(p.name);
+//            }
+//        }
         timeTrigger = 0f;
         idEventTrigged = new Dictionary<int, IComboEvent>();
         controller.componentManager.AddImunes(Immunes);
-        
+        controller.SetSpeed( eventCollectionData[idState].curveSpeedAnimation.Evaluate(timeTrigger));
     }
     public virtual void ResetTrigger()
     {
-        foreach (AnimatorControllerParameter p in controller.animator.parameters)
-        {
-            if (p.type == AnimatorControllerParameterType.Trigger)
-            {
-                controller.animator.ResetTrigger(p.name);
-            }
-        }
-            
+//        foreach (AnimatorControllerParameter p in controller.animator.parameters)
+//        {
+//            if (p.type == AnimatorControllerParameterType.Trigger)
+//            {
+//                controller.animator.ResetTrigger(p.name);
+//            }
+//        }
     }
     public virtual void ResetEvent()
     {
