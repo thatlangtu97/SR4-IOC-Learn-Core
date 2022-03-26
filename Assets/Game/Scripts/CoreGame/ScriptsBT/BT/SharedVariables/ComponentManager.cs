@@ -69,15 +69,6 @@ public class ComponentManager : MonoBehaviour
     public int maxJump,maxDash, maxAttackAirCount;
     [ShowInInspector]
     public List<IAutoAdd<GameEntity>> AutoAdds = new List<IAutoAdd<GameEntity>>();
-    
-    private void Awake()
-    {
-        // var components = GetComponentsInChildren<IAutoAdd<GameEntity>>();
-        //foreach (var component in components)
-        //{
-        //    component.AddComponent(ref entity);
-        //}
-    }
 
     [Button("ACCEPT MODIFY", ButtonSizes.Gigantic), GUIColor(0.4f, 0.8f, 1),]
     void FindComponentEntitas()
@@ -99,7 +90,7 @@ public class ComponentManager : MonoBehaviour
         foreach (var component in components)
         {
             if(AutoAdds.Contains(component)) continue;
-            AutoAdds.Add(component);
+                AutoAdds.Add(component);
         }
         foreach (var component in AutoAdds)
         {
@@ -112,7 +103,6 @@ public class ComponentManager : MonoBehaviour
             if (meshRenderer)
                 meshRenderer.enabled = false;
         }
-        
     }
     
     private void OnDisable()
@@ -136,11 +126,6 @@ public class ComponentManager : MonoBehaviour
             transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
             speedMove = maxSpeedMove;
         }
-    }
-
-    public void SetTriggerAnim(string nameTrigger)
-    {
-        
     }
     public void ResetJumpCount()
     {
@@ -174,7 +159,6 @@ public class ComponentManager : MonoBehaviour
     
     public bool checkGround()
     {
-        //RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, distanceCheckGround, layerMaskGround);
         RaycastHit2D hit = Physics2D.BoxCast((Vector2)transform.position , originBoxCheckGround2d,0, Vector2.down,0f, layerMaskGround);
         if (hit.collider != null)
         {
@@ -188,19 +172,19 @@ public class ComponentManager : MonoBehaviour
         }
     }
 
-    public bool CheckGroundFlatform()
-    {
-
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, distanceCheckGround, layerPlatForm);
-            if (hit.collider != null)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-    }
+//    public bool CheckGroundFlatform()
+//    {
+//
+//            RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, distanceCheckGround, layerPlatForm);
+//            if (hit.collider != null)
+//            {
+//                return true;
+//            }
+//            else
+//            {
+//                return false;
+//            }
+//    }
     
 //    public bool checkGroundBoxCast
 //    {
@@ -291,17 +275,17 @@ public class ComponentManager : MonoBehaviour
     /// Skeleton.cs
     /// SkeletonGraphic.cs
     /// </summary>
-    public Spine.Unity.SkeletonMecanim mecanim;
-    [Header("Update Skeleton")]
-    public bool UpdateWorldTransform;
-    public void UpdateMecanim()
-    {
-        if (UpdateWorldTransform)/* return;*/
-        {
-            mecanim.skeleton.UpdateCache();
-            mecanim.skeleton.UpdateWorldTransform();
-        }
-    }
+//    public Spine.Unity.SkeletonMecanim mecanim;
+//    [Header("Update Skeleton")]
+//    public bool UpdateWorldTransform;
+//    public void UpdateMecanim()
+//    {
+//        if (UpdateWorldTransform)/* return;*/
+//        {
+//            mecanim.skeleton.UpdateCache();
+//            mecanim.skeleton.UpdateWorldTransform();
+//        }
+//    }
 
     public void AddImunes(List<Immune> immunesAdd)
     {

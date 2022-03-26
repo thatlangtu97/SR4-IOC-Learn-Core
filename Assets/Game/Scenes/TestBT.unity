@@ -608,7 +608,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d7068cb784a65447a43411845199694, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  component: {fileID: 40049888}
+  component:
+    value: {fileID: 0}
 --- !u!114 &40049890
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -894,7 +895,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d7068cb784a65447a43411845199694, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  component: {fileID: 63286512}
+  component:
+    value: {fileID: 0}
 --- !u!1 &83148527
 GameObject:
   m_ObjectHideFlags: 0
@@ -1265,7 +1267,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d7068cb784a65447a43411845199694, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  component: {fileID: 104479896}
+  component:
+    value: {fileID: 0}
 --- !u!114 &104479898
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4001,7 +4004,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d7068cb784a65447a43411845199694, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  component: {fileID: 116585515}
+  component:
+    value: {fileID: 0}
 --- !u!114 &116585517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4125,8 +4129,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77e0333c9605d43d9bfceb332c275006, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateMachineContainerComponent:
-    stateMachine: {fileID: 0}
+  StateMachine:
+    value: {fileID: 0}
 --- !u!50 &123914739
 Rigidbody2D:
   serializedVersion: 4
@@ -4303,7 +4307,6 @@ MonoBehaviour:
   speedMove: 0
   originBoxCheckGround2d: {x: 0.4, y: 0.1}
   currentImunes: 
-  heal: 100
   baseImmunes: 
   jumpCount: 0
   dashCount: 0
@@ -4311,8 +4314,6 @@ MonoBehaviour:
   maxJump: 0
   maxDash: 0
   maxAttackAirCount: 0
-  mecanim: {fileID: 0}
-  UpdateWorldTransform: 0
 --- !u!4 &123914743
 Transform:
   m_ObjectHideFlags: 0
@@ -4461,8 +4462,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77e0333c9605d43d9bfceb332c275006, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateMachineContainerComponent:
-    stateMachine: {fileID: 0}
+  StateMachine:
+    value: {fileID: 0}
 --- !u!50 &164031658
 Rigidbody2D:
   serializedVersion: 4
@@ -4625,7 +4626,6 @@ MonoBehaviour:
   speedMove: 0
   originBoxCheckGround2d: {x: 0, y: 0}
   currentImunes: 
-  heal: 100
   baseImmunes: 
   jumpCount: 0
   dashCount: 0
@@ -4633,8 +4633,6 @@ MonoBehaviour:
   maxJump: 0
   maxDash: 0
   maxAttackAirCount: 0
-  mecanim: {fileID: 0}
-  UpdateWorldTransform: 0
 --- !u!4 &164031662
 Transform:
   m_ObjectHideFlags: 0
@@ -5149,7 +5147,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d7068cb784a65447a43411845199694, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  component: {fileID: 248063180}
+  component:
+    value: {fileID: 0}
 --- !u!114 &248063182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5402,7 +5401,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &380558429
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5477,8 +5476,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77e0333c9605d43d9bfceb332c275006, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateMachineContainerComponent:
-    stateMachine: {fileID: 380558429}
+  StateMachine:
+    value: {fileID: 380558429}
 --- !u!50 &380558432
 Rigidbody2D:
   serializedVersion: 4
@@ -5611,7 +5610,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   powerComponent:
-    power: 30
+    value: 10
 --- !u!114 &380558436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5656,7 +5655,6 @@ MonoBehaviour:
   speedMove: 0
   originBoxCheckGround2d: {x: 0.4, y: 0.1}
   currentImunes: 
-  heal: 100
   baseImmunes: 
   jumpCount: 0
   dashCount: 0
@@ -5664,8 +5662,6 @@ MonoBehaviour:
   maxJump: 0
   maxDash: 0
   maxAttackAirCount: 0
-  mecanim: {fileID: 1440613848}
-  UpdateWorldTransform: 0
 --- !u!4 &380558437
 Transform:
   m_ObjectHideFlags: 0
@@ -5710,7 +5706,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   behaviourTreeComponent:
-    behaviorTree: {fileID: 380558433}
+    value: {fileID: 380558433}
 --- !u!1 &393448081
 GameObject:
   m_ObjectHideFlags: 0
@@ -8585,8 +8581,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77e0333c9605d43d9bfceb332c275006, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateMachineContainerComponent:
-    stateMachine: {fileID: 447276978}
+  StateMachine:
+    value: {fileID: 447276978}
 --- !u!114 &447276981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8600,7 +8596,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   powerComponent:
-    power: 20
+    value: 5
 --- !u!50 &447276982
 Rigidbody2D:
   serializedVersion: 4
@@ -8805,7 +8801,6 @@ MonoBehaviour:
   speedMove: 0
   originBoxCheckGround2d: {x: 0.4, y: 0.1}
   currentImunes: 
-  heal: 1
   baseImmunes: 
   jumpCount: 0
   dashCount: 0
@@ -8813,8 +8808,6 @@ MonoBehaviour:
   maxJump: 0
   maxDash: 0
   maxAttackAirCount: 0
-  mecanim: {fileID: 1337739901}
-  UpdateWorldTransform: 0
 --- !u!4 &447276986
 Transform:
   m_ObjectHideFlags: 0
@@ -8844,7 +8837,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   behaviourTreeComponent:
-    behaviorTree: {fileID: 447276983}
+    value: {fileID: 447276983}
 --- !u!1 &447989787
 GameObject:
   m_ObjectHideFlags: 0
@@ -9070,7 +9063,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d7068cb784a65447a43411845199694, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  component: {fileID: 447989793}
+  component:
+    value: {fileID: 0}
 --- !u!114 &447989795
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12440,7 +12434,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d7068cb784a65447a43411845199694, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  component: {fileID: 597903488}
+  component:
+    value: {fileID: 0}
 --- !u!1 &598530245
 GameObject:
   m_ObjectHideFlags: 0
@@ -12653,7 +12648,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d7068cb784a65447a43411845199694, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  component: {fileID: 598530250}
+  component:
+    value: {fileID: 0}
 --- !u!114 &598530252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12892,7 +12888,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d7068cb784a65447a43411845199694, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  component: {fileID: 620082095}
+  component:
+    value: {fileID: 0}
 --- !u!114 &620082097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13269,7 +13266,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d7068cb784a65447a43411845199694, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  component: {fileID: 682880782}
+  component:
+    value: {fileID: 0}
 --- !u!114 &682880784
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13588,7 +13586,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d7068cb784a65447a43411845199694, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  component: {fileID: 782806251}
+  component:
+    value: {fileID: 0}
 --- !u!114 &782806253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14415,7 +14414,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d7068cb784a65447a43411845199694, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  component: {fileID: 927732705}
+  component:
+    value: {fileID: 0}
 --- !u!114 &927732707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14755,7 +14755,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d7068cb784a65447a43411845199694, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  component: {fileID: 969829065}
+  component:
+    value: {fileID: 0}
 --- !u!1 &969970321
 GameObject:
   m_ObjectHideFlags: 0
@@ -19895,7 +19896,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d7068cb784a65447a43411845199694, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  component: {fileID: 1078341616}
+  component:
+    value: {fileID: 0}
 --- !u!1 &1101127575
 GameObject:
   m_ObjectHideFlags: 0
@@ -20893,7 +20895,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d7068cb784a65447a43411845199694, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  component: {fileID: 1271660777}
+  component:
+    value: {fileID: 0}
 --- !u!114 &1271660779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21410,7 +21413,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08cecbac18c3a7c4f9662146b3000e7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerFlagComponent:
+  value:
     isPlayer: 1
 --- !u!114 &1364293104
 MonoBehaviour:
@@ -21424,8 +21427,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77e0333c9605d43d9bfceb332c275006, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateMachineContainerComponent:
-    stateMachine: {fileID: 0}
+  StateMachine:
+    value: {fileID: 0}
 --- !u!114 &1364293105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21522,7 +21525,6 @@ MonoBehaviour:
   speedMove: 0
   originBoxCheckGround2d: {x: 0.4, y: 0.1}
   currentImunes: 
-  heal: 100000
   baseImmunes: 
   jumpCount: 0
   dashCount: 0
@@ -21530,8 +21532,6 @@ MonoBehaviour:
   maxJump: 2
   maxDash: 1
   maxAttackAirCount: 1
-  mecanim: {fileID: 921437485}
-  UpdateWorldTransform: 0
 --- !u!50 &1364293107
 Rigidbody2D:
   serializedVersion: 4
@@ -22212,7 +22212,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d7068cb784a65447a43411845199694, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  component: {fileID: 1476106631}
+  component:
+    value: {fileID: 0}
 --- !u!114 &1476106633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22330,8 +22331,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77e0333c9605d43d9bfceb332c275006, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateMachineContainerComponent:
-    stateMachine: {fileID: 0}
+  StateMachine:
+    value: {fileID: 0}
 --- !u!50 &1526201462
 Rigidbody2D:
   serializedVersion: 4
@@ -22593,7 +22594,6 @@ MonoBehaviour:
   speedMove: 0
   originBoxCheckGround2d: {x: 0.4, y: 0.1}
   currentImunes: 
-  heal: 300
   baseImmunes: 0000000001000000
   jumpCount: 0
   dashCount: 0
@@ -22601,8 +22601,6 @@ MonoBehaviour:
   maxJump: 0
   maxDash: 0
   maxAttackAirCount: 0
-  mecanim: {fileID: 1367761819}
-  UpdateWorldTransform: 0
 --- !u!4 &1526201466
 Transform:
   m_ObjectHideFlags: 0
@@ -23036,7 +23034,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d7068cb784a65447a43411845199694, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  component: {fileID: 1594628745}
+  component:
+    value: {fileID: 0}
 --- !u!1 &1597534327
 GameObject:
   m_ObjectHideFlags: 0
@@ -26355,8 +26354,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77e0333c9605d43d9bfceb332c275006, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateMachineContainerComponent:
-    stateMachine: {fileID: 0}
+  StateMachine:
+    value: {fileID: 0}
 --- !u!114 &1786180273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26647,7 +26646,6 @@ MonoBehaviour:
   speedMove: 0
   originBoxCheckGround2d: {x: 0.4, y: 0.1}
   currentImunes: 
-  heal: 30
   baseImmunes: 0000000001000000
   jumpCount: 0
   dashCount: 0
@@ -26655,8 +26653,6 @@ MonoBehaviour:
   maxJump: 0
   maxDash: 0
   maxAttackAirCount: 0
-  mecanim: {fileID: 0}
-  UpdateWorldTransform: 0
 --- !u!4 &1786180278
 Transform:
   m_ObjectHideFlags: 0
@@ -26767,8 +26763,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77e0333c9605d43d9bfceb332c275006, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateMachineContainerComponent:
-    stateMachine: {fileID: 0}
+  StateMachine:
+    value: {fileID: 0}
 --- !u!50 &1832217149
 Rigidbody2D:
   serializedVersion: 4
@@ -26906,7 +26902,6 @@ MonoBehaviour:
   speedMove: 0
   originBoxCheckGround2d: {x: 0.4, y: 0.1}
   currentImunes: 
-  heal: 100
   baseImmunes: 
   jumpCount: 0
   dashCount: 0
@@ -26914,8 +26909,6 @@ MonoBehaviour:
   maxJump: 0
   maxDash: 0
   maxAttackAirCount: 0
-  mecanim: {fileID: 1174291959}
-  UpdateWorldTransform: 0
 --- !u!4 &1832217152
 Transform:
   m_ObjectHideFlags: 0
@@ -27036,8 +27029,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77e0333c9605d43d9bfceb332c275006, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateMachineContainerComponent:
-    stateMachine: {fileID: 0}
+  StateMachine:
+    value: {fileID: 0}
 --- !u!50 &1892798799
 Rigidbody2D:
   serializedVersion: 4
@@ -27214,7 +27207,6 @@ MonoBehaviour:
   speedMove: 0
   originBoxCheckGround2d: {x: 0.4, y: 0.1}
   currentImunes: 
-  heal: 100
   baseImmunes: 
   jumpCount: 0
   dashCount: 0
@@ -27222,8 +27214,6 @@ MonoBehaviour:
   maxJump: 0
   maxDash: 0
   maxAttackAirCount: 0
-  mecanim: {fileID: 491539656}
-  UpdateWorldTransform: 0
 --- !u!4 &1892798803
 Transform:
   m_ObjectHideFlags: 0
@@ -27454,7 +27444,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d7068cb784a65447a43411845199694, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  component: {fileID: 1901077573}
+  component:
+    value: {fileID: 0}
 --- !u!1 &1915414524
 GameObject:
   m_ObjectHideFlags: 0
@@ -27533,7 +27524,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08cecbac18c3a7c4f9662146b3000e7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerFlagComponent:
+  value:
     isPlayer: 1
 --- !u!114 &1915414528
 MonoBehaviour:
@@ -27547,8 +27538,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77e0333c9605d43d9bfceb332c275006, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateMachineContainerComponent:
-    stateMachine: {fileID: 1915414529}
+  StateMachine:
+    value: {fileID: 1915414529}
 --- !u!114 &1915414529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27645,7 +27636,6 @@ MonoBehaviour:
   speedMove: 0
   originBoxCheckGround2d: {x: 0.4, y: 0.1}
   currentImunes: 
-  heal: 100000
   baseImmunes: 
   jumpCount: 0
   dashCount: 0
@@ -27653,8 +27643,6 @@ MonoBehaviour:
   maxJump: 2
   maxDash: 1
   maxAttackAirCount: 1
-  mecanim: {fileID: 1120853459}
-  UpdateWorldTransform: 0
 --- !u!50 &1915414532
 Rigidbody2D:
   serializedVersion: 4
@@ -27720,7 +27708,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   powerComponent:
-    power: 10
+    value: 30
 --- !u!1 &1973251308
 GameObject:
   m_ObjectHideFlags: 0

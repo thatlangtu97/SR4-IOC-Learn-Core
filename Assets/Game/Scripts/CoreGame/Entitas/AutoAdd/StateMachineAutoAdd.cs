@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class StateMachineAutoAdd : MonoBehaviour, IAutoAdd<GameEntity>
 {
-    public StateMachineContainerComponent stateMachineContainerComponent;
+    public ConvertToStateMachineContainer StateMachine;
     public void AddComponent(ref GameEntity e)
     {
-        e.AddStateMachineContainer(stateMachineContainerComponent.value);
-        stateMachineContainerComponent.value.InitStateMachine();
-        //Destroy(this);
+        e.AddStateMachineContainer(StateMachine.value);
+        StateMachine.value.InitStateMachine();
     }
 
     

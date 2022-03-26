@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class ProjectileComponentAutoAdd : MonoBehaviour, IAutoAdd<GameEntity>
 {
-    public ProjectileComponent component;
+    public ConvertToProjectileContainer component;
     public void AddComponent(ref GameEntity e)
     {
-        e.AddProjectileContainer(component);
-        //Destroy(this);
+        e.AddProjectileContainer(component.value);
     }
 }

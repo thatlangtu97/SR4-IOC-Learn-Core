@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PowerAutoAdd : MonoBehaviour , IAutoAdd<GameEntity>
 {
-    public PowerComponent powerComponent;
+    public ConvertToPower powerComponent;
     public void AddComponent(ref GameEntity e)
     {
         e.AddPower(powerComponent.value);

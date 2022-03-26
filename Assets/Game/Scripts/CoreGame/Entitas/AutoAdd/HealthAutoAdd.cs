@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class HealthAutoAdd : MonoBehaviour, IAutoAdd<GameEntity>
 {
-    public HealthComponent healthComponent;
+    public ConvertToHealth healthComponent;
     public void AddComponent(ref GameEntity e)
     {
         e.AddHealth(healthComponent.health,healthComponent.maxHealth);

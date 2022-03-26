@@ -16,7 +16,7 @@ MonoBehaviour:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
-    - {fileID: 100010, guid: 87698b9d467306440a17655d9c528f3a, type: 3}
+    - {fileID: 6583951663788181906, guid: 0331d21cfd4d4934c99c976841391283, type: 3}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -52,13 +52,13 @@ MonoBehaviour:
       Data: 2|SpawnGameObject, Assembly-CSharp
     - Name: idEvent
       Entry: 3
-      Data: 100
+      Data: 200
     - Name: timeTriggerEvent
       Entry: 4
       Data: 0
     - Name: duration
       Entry: 4
-      Data: 2
+      Data: 3
     - Name: Prefab
       Entry: 10
       Data: 0

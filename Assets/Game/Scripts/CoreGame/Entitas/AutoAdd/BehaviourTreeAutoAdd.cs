@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BehaviourTreeAutoAdd : MonoBehaviour , IAutoAdd<GameEntity>
 {
-    public BehaviourTreeComponent behaviourTreeComponent;
+    public ConvertToBehaviourTree behaviourTreeComponent;
     public void AddComponent(ref GameEntity e)
     {
         e.AddBehaviourTree(behaviourTreeComponent.value);
