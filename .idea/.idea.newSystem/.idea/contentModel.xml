@@ -1917,6 +1917,11 @@
                   <e p="StateMachineSingle.cs" t="Include" />
                 </e>
               </e>
+              <e p="Passive" t="Include">
+                <e p="BasePassive.cs" t="Include" />
+                <e p="IGamePassiveCondition.cs" t="Include" />
+                <e p="PassiveCollection.cs" t="Include" />
+              </e>
               <e p="ScriptsBT" t="Include">
                 <e p="AnimationName.cs" t="Include" />
                 <e p="BT" t="Include">
