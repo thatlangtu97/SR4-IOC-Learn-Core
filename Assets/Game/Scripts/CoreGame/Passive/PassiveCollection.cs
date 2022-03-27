@@ -7,6 +7,6 @@ using UnityEngine;
 public class PassiveCollection : SerializedScriptableObject
 {
     [ListDrawerSettingsAttribute(ListElementLabelName = "name", ShowIndexLabels =false,ShowPaging = false,DraggableItems = false)]
-    [HideReferenceObjectPicker]
+    
     public List<BasePassive> Passives;
 }

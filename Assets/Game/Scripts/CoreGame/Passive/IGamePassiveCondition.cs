@@ -4,27 +4,28 @@ using UnityEngine;
 
 public interface IGamePassiveCondition
 {
+    GameEntity parentEntity { get; set; }
     void OnStart(GameEntity entity);
-    void OnUpdate();
-    void OnExit();
-    
+    bool PassCondition();
+    void Reset();
     string GetName();
 }
 
 public class ApplyOnStart : IGamePassiveCondition
 {
+    public GameEntity parentEntity { get; set; }
 
     public void OnStart(GameEntity entity)
     {
-        throw new System.NotImplementedException();
+        parentEntity = entity;
     }
-
-    public void OnUpdate()
+    
+    public bool PassCondition()
     {
-        throw new System.NotImplementedException();
+        return true;
     }
 
-    public void OnExit()
+    public void Reset()
     {
         throw new System.NotImplementedException();
     }

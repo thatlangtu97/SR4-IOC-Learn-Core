@@ -1,13 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
 public interface BasePassive 
 {
     string name{ get; set; }
-
-    //public BaseSkillType type;
-    [ListDrawerSettings(ListElementLabelName = "GetName")]
+    
     List<IGamePassiveCondition> conditions { get; set; }
 
     void OnStart();
@@ -15,23 +14,23 @@ public interface BasePassive
     void OnUpdate();
 
     void OnExit();
-//    public BasePassive( List<IGamePassiveCondition> conditions)
-//    {
-//        this.conditions = new List<IGamePassiveCondition>(conditions);
-//    }
+
+    bool PassCondition();
 }
 
 public class IncreaseStat : BasePassive
 {
+    [ShowInInspector]
+    string _name;
+    [ListDrawerSettings(ListElementLabelName = "GetName")]
+    [HideReferenceObjectPicker]
+    [ShowInInspector]
+    List<IGamePassiveCondition> _conditions;
 
-    public string _name;
     public string name {
         get { return _name; }
         set { _name = value; } 
     }
-    [HideReferenceObjectPicker]
-    public List<IGamePassiveCondition> _conditions;
-    
     public List<IGamePassiveCondition> conditions
 
     {
@@ -52,6 +51,18 @@ public class IncreaseStat : BasePassive
     public void OnExit()
     {
         throw new System.NotImplementedException();
+    }
+
+    public bool PassCondition()
+    {
+        foreach (var VARIABLE in conditions)
+        {
+            if (!VARIABLE.PassCondition())
+            {
+                return false;
+            }
+        }
+        return true;
     }
 }
 
