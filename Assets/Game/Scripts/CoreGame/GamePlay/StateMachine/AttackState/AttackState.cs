@@ -58,8 +58,7 @@ public class AttackState : State
                 else
                 {
                     Vector2 velocityAttack = new Vector2(eventCollectionData[idState].curveX.Evaluate(timeTrigger), eventCollectionData[idState].curveY.Evaluate(timeTrigger));
-                    Vector2 velocityFinal = new Vector2(velocityAttack.x * controller.transform.localScale.x,
-                        velocityAttack.y * controller.transform.localScale.y);
+                    Vector2 velocityFinal = new Vector2(velocityAttack.x * controller.transform.localScale.x,velocityAttack.y * controller.transform.localScale.y);
                     controller.componentManager.rgbody2D.velocity = velocityFinal;
                 }
                     //controller.componentManager.rgbody2D.velocity = Vector2.zero;

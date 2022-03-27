@@ -22,8 +22,17 @@ public class HitState : State
         {
             if (controller.componentManager.checkGround())
             {
-                controller.ChangeState(NameState.IdleState);
+                if (controller.componentManager.speedMove != 0)
+                {
+                    controller.ChangeState(NameState.MoveState);
+                }
+                else
+                {
+                    controller.ChangeState(NameState.IdleState);
+                }
+                //controller.ChangeState(NameState.IdleState);
             }
+            
 //            else
 //            {
 //                controller.ChangeState(NameState.FallingState);

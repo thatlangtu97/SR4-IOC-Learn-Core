@@ -7,6 +7,7 @@ public class EventCollection : SerializedScriptableObject
 {
     public AnimationTypeState typeAnim;
     public string NameTrigger;
+    [ShowIf("typeAnim",AnimationTypeState.PlayAnim)]
     public float timeStart;
     public float durationAnimation;
     public AnimationCurve curveX, curveY;

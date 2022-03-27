@@ -34,17 +34,61 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+  typeAnim: 0
   NameTrigger: knockup
+  timeStart: 0
   durationAnimation: 1
   curveX:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: -9.747655
+      outSlope: -9.747655
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.022490432
+    - serializedVersion: 3
+      time: 0.5069275
+      value: -2.9904785
+      inSlope: -0.28872618
+      outSlope: -0.28872618
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.16885144
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.51455635
+      value: 0.010662424
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
   curveY:
     serializedVersion: 2
     m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  curveSpeedAnimation:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
