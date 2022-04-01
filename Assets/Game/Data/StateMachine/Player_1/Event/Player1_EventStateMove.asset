@@ -15,7 +15,8 @@ MonoBehaviour:
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects: []
+    ReferencedUnityObjects:
+    - {fileID: 8300000, guid: f314670e37cc47e4d966d63f916d1904, type: 3}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -27,14 +28,43 @@ MonoBehaviour:
         mscorlib
     - Name: 
       Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 1|PlaySound, Assembly-CSharp
+    - Name: idEvent
+      Entry: 3
       Data: 0
+    - Name: timeTriggerEvent
+      Entry: 4
+      Data: 0
+    - Name: clip
+      Entry: 10
+      Data: 0
+    - Name: volume
+      Entry: 4
+      Data: 1
+    - Name: loop
+      Entry: 5
+      Data: true
+    - Name: pitch
+      Entry: 4
+      Data: 1.1
+    - Name: useStop
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: 
       Entry: 13
       Data: 
     - Name: 
       Entry: 8
       Data: 
+  typeAnim: 0
   NameTrigger: move
+  timeStart: 0
   durationAnimation: 1
   curveX:
     serializedVersion: 2

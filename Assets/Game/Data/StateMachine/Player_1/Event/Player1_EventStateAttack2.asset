@@ -17,6 +17,7 @@ MonoBehaviour:
     SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 6511985301000678627, guid: 6dc5891bc26822848890f6bd738ca147, type: 3}
+    - {fileID: 8300000, guid: f0c7ad84a01b49f47ab1f7fa8f91a0b0, type: 3}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -28,7 +29,7 @@ MonoBehaviour:
         mscorlib
     - Name: 
       Entry: 12
-      Data: 2
+      Data: 3
     - Name: 
       Entry: 7
       Data: 1|SpawnGameObject, Assembly-CSharp
@@ -230,6 +231,33 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 4|PlaySound, Assembly-CSharp
+    - Name: idEvent
+      Entry: 3
+      Data: 200
+    - Name: timeTriggerEvent
+      Entry: 4
+      Data: 0
+    - Name: clip
+      Entry: 10
+      Data: 1
+    - Name: volume
+      Entry: 4
+      Data: 1
+    - Name: loop
+      Entry: 5
+      Data: false
+    - Name: pitch
+      Entry: 4
+      Data: 1
+    - Name: useStop
+      Entry: 5
+      Data: false
     - Name: 
       Entry: 8
       Data: 

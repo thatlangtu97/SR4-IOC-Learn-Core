@@ -1919,8 +1919,6 @@
               </e>
               <e p="Passive" t="Include">
                 <e p="BasePassive.cs" t="Include" />
-                <e p="IGamePassiveCondition.cs" t="Include" />
-                <e p="PassiveCollection.cs" t="Include" />
               </e>
               <e p="ScriptsBT" t="Include">
                 <e p="AnimationName.cs" t="Include" />
@@ -2152,6 +2150,9 @@
               <e p="GachaConfigCollection.cs" t="Include" />
               <e p="HeroConfigCollection.cs" t="Include" />
               <e p="ScriptableObjectData.cs" t="Include" />
+            </e>
+            <e p="SoundManager" t="Include">
+              <e p="SoundManager.cs" t="Include" />
             </e>
             <e p="TestUtils.cs" t="Include" />
             <e p="ToolBarScript" t="Include">

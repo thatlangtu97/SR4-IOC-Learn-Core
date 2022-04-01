@@ -738,3 +738,82 @@ public class CastProjectile : IComboEvent
     }
 }
 #endregion
+
+#region SOUND
+public class PlaySound : IComboEvent
+{
+    [FoldoutGroup("SOUND")]
+    [ReadOnly]
+    public int idEvent;
+
+    [FoldoutGroup("SOUND")] 
+    public float timeTriggerEvent;
+    
+    [FoldoutGroup("SOUND")] 
+    public AudioClip clip;
+    
+    [FoldoutGroup("SOUND")] 
+    [Range(0,1f)]
+    public float volume;
+    
+    [FoldoutGroup("SOUND")] 
+    public bool loop;
+    
+    [FoldoutGroup("SOUND")] 
+    [Range(0,2f)]
+    public float pitch;
+    
+    [FoldoutGroup("SOUND")]
+    public bool useStop;
+    
+    [FoldoutGroup("SOUND")]
+    public bool useCurveVolume;
+    
+    [FoldoutGroup("SOUND")]
+    public bool useDuration;
+    
+    [FoldoutGroup("SOUND")]
+    [ShowIf("useDuration")]
+    public float duration;
+    
+    [FoldoutGroup("SOUND")] 
+    [ShowIf("useCurveVolume")]
+    public AnimationCurve curveVolume = new AnimationCurve(new Keyframe(0f,1f));
+    
+    public int id { get { return idEvent; } set { idEvent = value; } }
+    public float timeTrigger { get { return timeTriggerEvent; } }
+
+    private float timecount;
+    private AudioSource source;
+    public void OnEventTrigger(GameEntity entity)
+    {
+        source = SoundManager.instance.playSound(clip,false,volume,loop,pitch);
+        timecount = 0;
+    }
+    public void Recycle()
+    {
+        if (useStop)
+        {
+            SoundManager.instance.StopSound(clip);
+        }
+    }
+
+    public void OnUpdateTrigger()
+    {
+        timecount += Time.deltaTime;
+        if (source)
+        {
+            if(useCurveVolume)
+                source.volume = volume * curveVolume.Evaluate(timecount);
+            if (useDuration)
+            {
+                if (timecount >= duration)
+                {
+                    SoundManager.instance.StopSound(clip);
+                    source = null;
+                }
+            }
+        }
+    }
+}
+#endregion

@@ -31,6 +31,12 @@ MonoBehaviour:
     - Name: 
       Entry: 7
       Data: 1|IncreaseStat, Assembly-CSharp
+    - Name: typeStat
+      Entry: 3
+      Data: 0
+    - Name: value
+      Entry: 4
+      Data: 0.5
     - Name: 
       Entry: 8
       Data: 
