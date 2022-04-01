@@ -17,6 +17,7 @@ public class ProjectileMoveBezierSystem : IExecuteSystem
     {
         foreach (var e in entities.GetEntities())
         {
+            e.projectileContainer.value.projectileCollider.UpdateCollider();
             e.projectileContainer.value.projectileMovement.UpdatePosition();
         }
         updateMoveBezierJob.Execute();

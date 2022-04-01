@@ -8,9 +8,32 @@ using UnityEngine.Serialization;
 public class ProjectileCollider : MonoBehaviour
 {
     public DamageInfoEvent damageInfoEvent;
-    [ReadOnly]
-    public int damageProperties;
     public ProjectileComponent component;
+    public Collider2D colliderProjectile;
+    public float delayEnableCollider;
+
+    private float timeTrigger = 0;
+    public virtual void Awake()
+    {
+        if(!component)
+            component = GetComponent<ProjectileComponent>();
+        colliderProjectile = GetComponent<Collider2D>();
+    }
+    
+    public void OnEnable()
+    {
+        timeTrigger = 0;
+        colliderProjectile.enabled = false;
+    }
+
+    public void UpdateCollider()
+    {
+        timeTrigger += Time.deltaTime;
+        if (timeTrigger > delayEnableCollider)
+        {
+            colliderProjectile.enabled = true;
+        }
+    }
     public virtual void OnTriggerEnter2D(Collider2D other)
     {
         void Action()
@@ -20,7 +43,7 @@ public class ProjectileCollider : MonoBehaviour
 
         Vector2 direction = (other.transform.position - transform.position).normalized;
         
-        DamageInfoSend damageInfoSend = new DamageInfoSend(damageInfoEvent, damageProperties, Action);
+        DamageInfoSend damageInfoSend = new DamageInfoSend(damageInfoEvent, component.entity.power.value, Action);
         DealDmgManager.DealDamage(other, component.entity, damageInfoSend);
         ObjectPool.Recycle(this.gameObject);
     }

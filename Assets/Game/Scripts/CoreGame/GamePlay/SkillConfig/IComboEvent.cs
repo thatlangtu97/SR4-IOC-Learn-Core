@@ -682,22 +682,22 @@ public class CastProjectile : IComboEvent
             }
             
             StateMachineController state = prefabSpawned.GetComponent<StateMachineController>();
-            ProjectileCollider prj = prefabSpawned.GetComponent<ProjectileCollider>();
+            ProjectileComponent prj = prefabSpawned.GetComponent<ProjectileComponent>();
             if (state != null)
             {
                 if (state.componentManager.entity != null)
                 {
                     state.componentManager. damageInfoEvent = new DamageInfoEvent(damageInfoEvent);
                     state.componentManager.entity.power.value = entity.power.value;
-                    //state.componentManager.damageProperties = new DamageProperties(entity.stateMachineContainer.stateMachine.componentManager.damageProperties);
+                    
                 }
             }
             if (prj != null)
             {
-                if (prj.component.entity != null)
+                if (prj.entity != null)
                 {
-                    prj.damageProperties = entity.power.value; 
-                    prj.damageInfoEvent =  new DamageInfoEvent(damageInfoEvent);
+                    prj.entity.power.value = entity.power.value; 
+                    prj.projectileCollider.damageInfoEvent = new DamageInfoEvent(damageInfoEvent);
                 }
 
             }
@@ -814,6 +814,83 @@ public class PlaySound : IComboEvent
                 }
             }
         }
+    }
+}
+#endregion
+
+#region CAMERA TARGET
+public class CameraTarget : IComboEvent
+{
+    [FoldoutGroup("CAMERA TARGET")]
+    [ReadOnly]
+    public int idEvent;
+
+    [FoldoutGroup("CAMERA TARGET")] 
+    public float timeTriggerEvent;
+    
+    [FoldoutGroup("CAMERA TARGET")] 
+    public Vector2 offset;
+
+    [FoldoutGroup("CAMERA TARGET")]
+    public bool mainTarget;
+
+    
+    public int id { get { return idEvent; } set { idEvent = value; } }
+    public float timeTrigger { get { return timeTriggerEvent; } }
+    
+    public void OnEventTrigger(GameEntity entity)
+    {
+        Transform baseTransform = entity.stateMachineContainer.value.transform;
+        CameraController.instance.AddTarget(baseTransform);
+        CameraController.instance.FollowTarget(baseTransform,offset);
+        if(mainTarget)
+            CameraController.instance.SetMainTarget(baseTransform,offset);
+    }
+    public void Recycle()
+    {
+        CameraController.instance.RestoneMainTarget();
+    }
+
+    public void OnUpdateTrigger()
+    {
+        
+    }
+}
+#endregion
+
+#region SHAKE CAMERA
+public class ShakeCamera : IComboEvent
+{
+    [FoldoutGroup("SHAKE CAMERA")]
+    [ReadOnly]
+    public int idEvent;
+
+    [FoldoutGroup("SHAKE CAMERA")] 
+    public float timeTriggerEvent;
+    
+    [FoldoutGroup("SHAKE CAMERA")] 
+    public Vector2 strength;
+    
+    [FoldoutGroup("SHAKE CAMERA")]
+    public float duration;
+    
+
+    
+    public int id { get { return idEvent; } set { idEvent = value; } }
+    public float timeTrigger { get { return timeTriggerEvent; } }
+    
+    public void OnEventTrigger(GameEntity entity)
+    {
+        CameraController.instance.ShakeCamera(strength,duration);
+    }
+    public void Recycle()
+    {
+
+    }
+
+    public void OnUpdateTrigger()
+    {
+        
     }
 }
 #endregion

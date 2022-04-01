@@ -43,7 +43,7 @@ MonoBehaviour:
       Data: 0
     - Name: volume
       Entry: 4
-      Data: 1
+      Data: 0.195
     - Name: loop
       Entry: 5
       Data: true
@@ -53,6 +53,18 @@ MonoBehaviour:
     - Name: useStop
       Entry: 5
       Data: true
+    - Name: useCurveVolume
+      Entry: 5
+      Data: false
+    - Name: useDuration
+      Entry: 5
+      Data: false
+    - Name: duration
+      Entry: 4
+      Data: 0
+    - Name: curveVolume
+      Entry: 6
+      Data: 
     - Name: 
       Entry: 8
       Data: 

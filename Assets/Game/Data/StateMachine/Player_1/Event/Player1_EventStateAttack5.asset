@@ -29,7 +29,7 @@ MonoBehaviour:
         mscorlib
     - Name: 
       Entry: 12
-      Data: 3
+      Data: 4
     - Name: 
       Entry: 7
       Data: 1|SpawnGameObject, Assembly-CSharp
@@ -258,6 +258,45 @@ MonoBehaviour:
     - Name: useStop
       Entry: 5
       Data: false
+    - Name: useCurveVolume
+      Entry: 5
+      Data: false
+    - Name: useDuration
+      Entry: 5
+      Data: false
+    - Name: duration
+      Entry: 4
+      Data: 0
+    - Name: curveVolume
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 5|ShakeCamera, Assembly-CSharp
+    - Name: idEvent
+      Entry: 3
+      Data: 300
+    - Name: timeTriggerEvent
+      Entry: 4
+      Data: 0.5
+    - Name: strength
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 5
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: duration
+      Entry: 4
+      Data: 0.2
     - Name: 
       Entry: 8
       Data: 
