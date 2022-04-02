@@ -1,6 +1,8 @@
-﻿using BehaviorDesigner.Runtime;
+﻿using System.Collections.Generic;
+using BehaviorDesigner.Runtime;
 using UnityEngine;
 using Entitas;
+using UnityEngine.UI;
 
 #region PlayerFlag
 [Game]    
@@ -161,6 +163,19 @@ public class ConvertToBehaviourTree : ConvertToComponent
     }
 }
 #endregion
+
+#region HealthBarUI
+[Game]
+public class HealthBarUIComponent : IComponent
+{
+    public HPBarUI hpBarUI;
+}
+#endregion
+
+
+
+
+
 
 public partial class GameContext
 {

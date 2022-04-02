@@ -10,18 +10,20 @@ public static class GameComponentsLookup {
 
     public const int BehaviourTree = 0;
     public const int DamageText = 1;
-    public const int Health = 2;
-    public const int PlayerFlag = 3;
-    public const int Power = 4;
-    public const int ProjectileContainer = 5;
-    public const int StateMachineContainer = 6;
-    public const int TakeDamage = 7;
+    public const int HealthBarUI = 2;
+    public const int Health = 3;
+    public const int PlayerFlag = 4;
+    public const int Power = 5;
+    public const int ProjectileContainer = 6;
+    public const int StateMachineContainer = 7;
+    public const int TakeDamage = 8;
 
-    public const int TotalComponents = 8;
+    public const int TotalComponents = 9;
 
     public static readonly string[] componentNames = {
         "BehaviourTree",
         "DamageText",
+        "HealthBarUI",
         "Health",
         "PlayerFlag",
         "Power",
@@ -33,6 +35,7 @@ public static class GameComponentsLookup {
     public static readonly System.Type[] componentTypes = {
         typeof(BehaviourTreeComponent),
         typeof(DamageTextComponent),
+        typeof(HealthBarUIComponent),
         typeof(HealthComponent),
         typeof(PlayerFlagComponent),
         typeof(PowerComponent),

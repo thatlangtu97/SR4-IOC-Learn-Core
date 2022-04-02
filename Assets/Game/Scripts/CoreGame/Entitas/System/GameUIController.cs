@@ -1,4 +1,5 @@
-﻿using Sirenix.OdinInspector;
+﻿using System;
+using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,7 @@ using UnityEngine.InputSystem;
 
 public class GameUIController : MonoBehaviour
 {
+    public static GameUIController instance;
     public Joystick Joystick;
     public CameraFollow cameraFollow;
 
@@ -16,34 +18,49 @@ public class GameUIController : MonoBehaviour
     public LayerMask maskToolTest;
 
     public PlayerInput playerInput;
+
+    public Transform HpBarLeft;
+
+    public Transform HpBarRight;
     
     private bool useRayCastTest;
-    //public Button btnJump, btnDash, btnAttack, btnSkill1, btnSkill2;
-    //public EventTrigger EJump, EDash, EAttack, ESkill1, ESkill2;
+
+    
+    public HPBarUI SpawnHPBar(HPBarUI hpBarUi,bool left)
+    {
+        if (left)
+        {
+            while (HpBarLeft.childCount>0)
+            {
+                Destroy(HpBarLeft.GetChild(0));
+            }
+            return Instantiate(hpBarUi, HpBarLeft);
+        }
+        else
+        {
+            while (HpBarRight.childCount>0)
+            {
+                Destroy(HpBarRight.GetChild(0));
+            }
+            return Instantiate(hpBarUi, HpBarRight);
+        }
+    }
+    
     [Button("MODIFY", ButtonSizes.Gigantic), GUIColor(0.4f, 0.8f, 1),]
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
 
     void MODIFY()
     {
         
         Joystick.componentManager = stateMachine.componentManager;
-//        if (stateMachine.componentManager.BehaviorTree)
-//        {
-//            stateMachine.componentManager.BehaviorTree.enabled = false;
-//        }
         if(cameraFollow)
             cameraFollow.player = stateMachine.gameObject;
-        //btnJump.onClick.RemoveAllListeners();
-        //btnDash.onClick.RemoveAllListeners();
-        //btnAttack.onClick.RemoveAllListeners();
-        //btnSkill1.onClick.RemoveAllListeners();
-        //btnSkill2.onClick.RemoveAllListeners();
-        //btnJump.onClick.AddListener(Jump);
-        //btnDash.onClick.AddListener(Dash);
-        //btnAttack.onClick.AddListener(Attack);
-        //btnSkill1.onClick.AddListener(Skill1);
-        //btnSkill2.onClick.AddListener(Skill2);
-
-        //EJump.OnPointerDown()
     }
     [Button("RAYCAST TEST", ButtonSizes.Gigantic), GUIColor(0.4f, 0.8f, 1),]
     void RAYCASTTEST()
@@ -80,14 +97,6 @@ public class GameUIController : MonoBehaviour
             Skill2();
         }
         
-        //if (Input.GetKeyDown(KeyCode.E))
-        //{
-        //    OnInputSkill(2);
-        //}
-        //if (Input.GetKeyDown(KeyCode.R))
-        //{
-        //    OnInputSkill(3);
-        //}
         if (gamePad!=null)
         {
 

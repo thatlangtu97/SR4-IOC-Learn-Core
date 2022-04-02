@@ -52,6 +52,7 @@ public class TakeDamageSystem : ReactiveSystem<GameEntity>
             if (targetEnemy.health.health <= 0)
             {
                 stateMachine.ChangeState(NameState.DieState);
+                targetEnemy.health.health = 0;
             }
             else
             {

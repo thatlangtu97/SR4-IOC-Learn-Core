@@ -23,6 +23,7 @@ public class GameController : MonoBehaviour
             .Add(new TakeDamageSystem(contexts))
             .Add(new ProjectileMoveBezierSystem(contexts))
             .Add(new DamageTextSystem(contexts))
+            .Add(new HealthBarUpdateSystem(contexts))
             ;
         GameSystem.Initialize();
         //DontDestroyOnLoad(this);
