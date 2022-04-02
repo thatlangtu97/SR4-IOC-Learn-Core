@@ -34,8 +34,10 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+  typeAnim: 1
   NameTrigger: die
-  durationAnimation: 2
+  timeStart: 0
+  durationAnimation: 3
   curveX:
     serializedVersion: 2
     m_Curve: []

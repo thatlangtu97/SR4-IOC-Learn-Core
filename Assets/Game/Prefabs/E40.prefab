@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 6471316227819945576}
   - component: {fileID: 6471316227819945591}
   - component: {fileID: 6471316227819945590}
+  - component: {fileID: 2095664645}
+  - component: {fileID: 2095664644}
   m_Layer: 12
   m_Name: E40
   m_TagString: Untagged
@@ -82,7 +84,6 @@ MonoBehaviour:
   speedMove: 0
   originBoxCheckGround2d: {x: 0.4, y: 0.1}
   currentImunes: 
-  heal: 1
   baseImmunes: 
   jumpCount: 0
   dashCount: 0
@@ -90,8 +91,6 @@ MonoBehaviour:
   maxJump: 0
   maxDash: 0
   maxAttackAirCount: 0
-  mecanim: {fileID: 6471316228301277989}
-  UpdateWorldTransform: 0
 --- !u!114 &6471316227819945578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,8 +196,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77e0333c9605d43d9bfceb332c275006, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateMachineContainerComponent:
-    stateMachine: {fileID: 0}
+  StateMachine:
+    value: {fileID: 6471316227819945590}
 --- !u!61 &6471316227819945591
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -257,8 +256,38 @@ MonoBehaviour:
     StateToClone: {fileID: 11400000, guid: b605edbaf7f6959458bf3971a04efb06, type: 2}
   - NameState: 19
     StateToClone: {fileID: 11400000, guid: e5fb2d1f899029e46b41ea7de491e5ed, type: 2}
+  nameTrigger: []
   componentManager: {fileID: 6471316227819945579}
   animator: {fileID: 6471316228301277988}
+--- !u!114 &2095664645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6471316227819945589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 844c2e9915e3dd54da7a3cf2dd8b0299, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthComponent:
+    health: 10
+    maxHealth: 10
+--- !u!114 &2095664644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6471316227819945589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1ef77160bb4e3947a21998ab4a822de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerComponent:
+    value: 10
 --- !u!1 &6471316228301277987
 GameObject:
   m_ObjectHideFlags: 0

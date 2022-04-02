@@ -60,7 +60,6 @@ public class SoundManager : MonoBehaviour
             if (audioSource.clip == soundClip && audioSource.isPlaying)
                 return true;
         }
-
         return false;
     }
 //    private bool IsReachLimit(AudioClip clip)
