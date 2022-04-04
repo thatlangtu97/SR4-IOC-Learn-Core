@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using BehaviorDesigner.Runtime;
 using UnityEngine;
 using Entitas;
@@ -175,7 +176,13 @@ public class HealthBarUIComponent : IComponent
 
 
 
-
+#region GameInput
+[Game]
+public class GameInput : IComponent
+{
+    public Action action;
+}
+#endregion
 
 public partial class GameContext
 {

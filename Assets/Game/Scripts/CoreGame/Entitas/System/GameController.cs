@@ -4,6 +4,7 @@ using UnityEngine;
 //using UnityEngine.Experimental.PlayerLoop;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using Sirenix.OdinInspector;
 
 public class GameController : MonoBehaviour
 {
@@ -17,13 +18,28 @@ public class GameController : MonoBehaviour
             instance = this;
         }
         Application.targetFrameRate = -1;
+//        var contexts = Contexts.sharedInstance;
+//        GameSystem = new Feature("Game System")
+//            .Add(new StateMachineUpdateSystem(contexts))
+//            .Add(new TakeDamageSystem(contexts))
+//            .Add(new ProjectileMoveBezierSystem(contexts))
+//            .Add(new DamageTextSystem(contexts))
+//            .Add(new HealthBarUpdateSystem(contexts))
+//            ;
+//        GameSystem.Initialize();
+        SetupSystem();
+    }
+    [Button("SetupSystem", ButtonSizes.Gigantic), GUIColor(0.4f, 0.8f, 1),]
+
+    public void SetupSystem()
+    {
         var contexts = Contexts.sharedInstance;
         GameSystem = new Feature("Game System")
-            .Add(new StateMachineUpdateSystem(contexts))
-            .Add(new TakeDamageSystem(contexts))
-            .Add(new ProjectileMoveBezierSystem(contexts))
-            .Add(new DamageTextSystem(contexts))
-            .Add(new HealthBarUpdateSystem(contexts))
+                .Add(new StateMachineUpdateSystem(contexts))
+                .Add(new TakeDamageSystem(contexts))
+                .Add(new ProjectileMoveBezierSystem(contexts))
+                .Add(new DamageTextSystem(contexts))
+                .Add(new HealthBarUpdateSystem(contexts))
             ;
         GameSystem.Initialize();
     }
@@ -40,11 +56,14 @@ public class GameController : MonoBehaviour
     }
     void Update()
     {
-        GameSystem.Execute();              
+        if(GameSystem!=null)
+            GameSystem.Execute();  
+        //GameSystem.Cleanup();
     }
     private void LateUpdate()
     {
-        GameSystem.Cleanup();
+        if(GameSystem!=null)
+            GameSystem.Cleanup();  
     }
     public void ReloadScene()
     {

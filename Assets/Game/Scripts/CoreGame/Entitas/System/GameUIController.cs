@@ -25,7 +25,7 @@ public class GameUIController : MonoBehaviour
     
     private bool useRayCastTest;
 
-    
+    public GameEntity EntityController;
     public HPBarUI SpawnHPBar(HPBarUI hpBarUi,bool left)
     {
         if (left)
@@ -46,7 +46,7 @@ public class GameUIController : MonoBehaviour
         }
     }
     
-    [Button("MODIFY", ButtonSizes.Gigantic), GUIColor(0.4f, 0.8f, 1),]
+    
     private void Awake()
     {
         if (instance == null)
@@ -54,10 +54,10 @@ public class GameUIController : MonoBehaviour
             instance = this;
         }
     }
-
-    void MODIFY()
+    [Button("MODIFY", ButtonSizes.Gigantic), GUIColor(0.4f, 0.8f, 1),]
+    public void MODIFY()
     {
-        
+        if (!stateMachine) return;
         Joystick.componentManager = stateMachine.componentManager;
         if(cameraFollow)
             cameraFollow.player = stateMachine.gameObject;
@@ -72,6 +72,8 @@ public class GameUIController : MonoBehaviour
     public Vector2 VectorMove;
     private void Update()
     {
+
+
         if (Input.GetKeyDown(KeyCode.D))
         {
             Dash();
