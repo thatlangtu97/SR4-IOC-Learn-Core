@@ -16,7 +16,7 @@ public class GameController : MonoBehaviour
         {
             instance = this;
         }
-        Application.targetFrameRate = 70;
+        Application.targetFrameRate = -1;
         var contexts = Contexts.sharedInstance;
         GameSystem = new Feature("Game System")
             .Add(new StateMachineUpdateSystem(contexts))

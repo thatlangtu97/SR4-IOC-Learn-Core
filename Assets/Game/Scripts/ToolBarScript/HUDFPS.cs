@@ -25,7 +25,7 @@ public class HUDFPS : MonoBehaviour
 	
     private void Awake()
     {
-        Application.targetFrameRate = 62;
+        //Application.targetFrameRate = 62;
     }
     void Start()
 	{
