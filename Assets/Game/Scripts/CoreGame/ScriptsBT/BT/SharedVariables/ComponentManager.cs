@@ -85,7 +85,7 @@ public class ComponentManager : MonoBehaviour
         currentImunes = baseImmunes.Clone();
         entity = Contexts.sharedInstance.game.CreateEntity();
         link = gameObject.Link(entity);
-        
+        AutoAdds = new List<IAutoAdd<GameEntity>>();
         var components = GetComponentsInChildren<IAutoAdd<GameEntity>>();
         foreach (var component in components)
         {

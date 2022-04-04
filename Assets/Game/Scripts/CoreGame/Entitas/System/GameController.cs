@@ -26,7 +26,6 @@ public class GameController : MonoBehaviour
             .Add(new HealthBarUpdateSystem(contexts))
             ;
         GameSystem.Initialize();
-        //DontDestroyOnLoad(this);
     }
     void Start()
     {

@@ -17,7 +17,9 @@ MonoBehaviour:
     SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 6511985301000678627, guid: aaceef303bd41fd47add417c82d20de7, type: 3}
-    - {fileID: 8300000, guid: 86518d5969ed7414fa88be993fdaadf2, type: 3}
+    - {fileID: 8300000, guid: f3762c3b0b1a1a846a2f68dea7021624, type: 3}
+    - {fileID: 8300000, guid: 9ed6710e61bd0224e907e2f84632fe3b, type: 3}
+    - {fileID: 8300000, guid: e33de0bdf7f569d46a22590e136eb0cb, type: 3}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -29,7 +31,7 @@ MonoBehaviour:
         mscorlib
     - Name: 
       Entry: 12
-      Data: 4
+      Data: 7
     - Name: 
       Entry: 7
       Data: 1|SpawnGameObject, Assembly-CSharp
@@ -242,7 +244,7 @@ MonoBehaviour:
       Data: 200
     - Name: timeTriggerEvent
       Entry: 4
-      Data: 0
+      Data: 3.27
     - Name: clip
       Entry: 10
       Data: 1
@@ -254,7 +256,7 @@ MonoBehaviour:
       Data: false
     - Name: pitch
       Entry: 4
-      Data: 0.772
+      Data: 1.583
     - Name: useStop
       Entry: 5
       Data: false
@@ -275,10 +277,127 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 5|ShakeCamera, Assembly-CSharp
+      Data: 5|PlaySound, Assembly-CSharp
     - Name: idEvent
       Entry: 3
       Data: 300
+    - Name: timeTriggerEvent
+      Entry: 4
+      Data: 0.4
+    - Name: clip
+      Entry: 10
+      Data: 2
+    - Name: volume
+      Entry: 4
+      Data: 0.758
+    - Name: loop
+      Entry: 5
+      Data: false
+    - Name: pitch
+      Entry: 4
+      Data: 1
+    - Name: useStop
+      Entry: 5
+      Data: false
+    - Name: useCurveVolume
+      Entry: 5
+      Data: false
+    - Name: useDuration
+      Entry: 5
+      Data: false
+    - Name: duration
+      Entry: 4
+      Data: 0
+    - Name: curveVolume
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 6|PlaySound, Assembly-CSharp
+    - Name: idEvent
+      Entry: 3
+      Data: 400
+    - Name: timeTriggerEvent
+      Entry: 4
+      Data: 0
+    - Name: clip
+      Entry: 10
+      Data: 3
+    - Name: volume
+      Entry: 4
+      Data: 0.758
+    - Name: loop
+      Entry: 5
+      Data: false
+    - Name: pitch
+      Entry: 4
+      Data: 1
+    - Name: useStop
+      Entry: 5
+      Data: false
+    - Name: useCurveVolume
+      Entry: 5
+      Data: false
+    - Name: useDuration
+      Entry: 5
+      Data: false
+    - Name: duration
+      Entry: 4
+      Data: 0
+    - Name: curveVolume
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 7|PlaySound, Assembly-CSharp
+    - Name: idEvent
+      Entry: 3
+      Data: 500
+    - Name: timeTriggerEvent
+      Entry: 4
+      Data: 0.1
+    - Name: clip
+      Entry: 10
+      Data: 3
+    - Name: volume
+      Entry: 4
+      Data: 0.758
+    - Name: loop
+      Entry: 5
+      Data: false
+    - Name: pitch
+      Entry: 4
+      Data: 1.309
+    - Name: useStop
+      Entry: 5
+      Data: false
+    - Name: useCurveVolume
+      Entry: 5
+      Data: false
+    - Name: useDuration
+      Entry: 5
+      Data: false
+    - Name: duration
+      Entry: 4
+      Data: 0
+    - Name: curveVolume
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 8|ShakeCamera, Assembly-CSharp
+    - Name: idEvent
+      Entry: 3
+      Data: 600
     - Name: timeTriggerEvent
       Entry: 4
       Data: 0.5
@@ -296,7 +415,7 @@ MonoBehaviour:
       Data: 
     - Name: duration
       Entry: 4
-      Data: 0.2
+      Data: 0.15
     - Name: 
       Entry: 8
       Data: 

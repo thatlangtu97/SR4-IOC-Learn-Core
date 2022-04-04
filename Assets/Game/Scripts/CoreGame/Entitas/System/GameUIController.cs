@@ -30,17 +30,17 @@ public class GameUIController : MonoBehaviour
     {
         if (left)
         {
-            while (HpBarLeft.childCount>0)
+            for(int i = HpBarLeft.childCount-1;i>=0;i--)
             {
-                Destroy(HpBarLeft.GetChild(0));
+                Destroy(HpBarLeft.GetChild(i).gameObject);
             }
             return Instantiate(hpBarUi, HpBarLeft);
         }
         else
         {
-            while (HpBarRight.childCount>0)
+            for(int i = HpBarRight.childCount-1;i>=0;i--)
             {
-                Destroy(HpBarRight.GetChild(0));
+                Destroy(HpBarRight.GetChild(i).gameObject);
             }
             return Instantiate(hpBarUi, HpBarRight);
         }

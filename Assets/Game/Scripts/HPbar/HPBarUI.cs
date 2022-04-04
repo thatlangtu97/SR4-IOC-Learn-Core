@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class HPBarUI : MonoBehaviour
@@ -12,28 +13,48 @@ public class HPBarUI : MonoBehaviour
 
     public float timelerp;
     public AnimationCurve curveLerp;
-
-    public void Setvalue(float value, float maxvalue)
+    public Animator animator;
+    public string nameAnimShow,nameAnimHide;
+    public Transform parentObject;
+    public void Setvalue(GameEntity e ,float value, float maxvalue)
     {
+        parentObject = e.stateMachineContainer.value.transform;
         slider.fillAmount = value / maxvalue;
         textValue.text = $"{(int) value} / {(int) maxvalue}";
+        if (value <= 0 && animator)
+        {
+            animator.Play(nameAnimHide);
+        }
     }
     
-    public void Setvalue(int value, int maxvalue)
+    public void Setvalue(GameEntity e ,int value, int maxvalue)
     {
+        parentObject = e.stateMachineContainer.value.transform;
         slider.fillAmount = (float)value / (float)maxvalue;
         textValue.text = $"{value} / {maxvalue}";
+        if (value <= 0 && animator)
+        {
+            if(animator)
+                animator.Play(nameAnimHide);
+        }
     }
 
     private void OnEnable()
     {
-        slider.fillAmount = 1f;
-        sliderAfter.fillAmount = 1f;
+//        slider.fillAmount = 1f;
+//        sliderAfter.fillAmount = 1f;
+        if(animator)
+            animator.Play(nameAnimShow);
     }
 
     public void Update()
     {
-
+        if (parentObject == null || parentObject.gameObject.activeInHierarchy == false)
+        {
+            if(animator)
+                animator.Play(nameAnimHide);
+            return;
+        }
         if (sliderAfter.fillAmount > slider.fillAmount)
         {
             timelerp = Mathf.Clamp(timelerp +Time.deltaTime, 0f, 1f);
@@ -44,10 +65,5 @@ public class HPBarUI : MonoBehaviour
             timelerp = 0;
             sliderAfter.fillAmount = slider.fillAmount;
         }
-
-//        if (slider.fillAmount > sliderAfter.fillAmount)
-//        {
-//            
-//        }
     }
 }

@@ -17,7 +17,7 @@ MonoBehaviour:
     SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 6511985301000678627, guid: 6dc5891bc26822848890f6bd738ca147, type: 3}
-    - {fileID: 8300000, guid: f0c7ad84a01b49f47ab1f7fa8f91a0b0, type: 3}
+    - {fileID: 8300000, guid: 4877857ca4dc6cc4b8d60ebbc40abe92, type: 3}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -258,6 +258,18 @@ MonoBehaviour:
     - Name: useStop
       Entry: 5
       Data: false
+    - Name: useCurveVolume
+      Entry: 5
+      Data: false
+    - Name: useDuration
+      Entry: 5
+      Data: false
+    - Name: duration
+      Entry: 4
+      Data: 0
+    - Name: curveVolume
+      Entry: 6
+      Data: 
     - Name: 
       Entry: 8
       Data: 
