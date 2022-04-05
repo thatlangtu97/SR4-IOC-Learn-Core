@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using BehaviorDesigner.Runtime.Tasks.Unity.UnityGameObject;
 using DG.Tweening;
 using UnityEngine;
 using Entitas;
@@ -10,11 +11,12 @@ public class DamageTextSystem : ReactiveSystem<GameEntity>
 {
     readonly GameContext _gameContext;
     GameEntity targetEnemy;
-    private GameObject textprefab;
+    private DamageTextView textprefab;
+    
     public DamageTextSystem(Contexts contexts) : base(contexts.game)
     {
         _gameContext = contexts.game;
-        textprefab = Resources.Load<GameObject>("DamageTextPrefab");
+        textprefab = Resources.Load<DamageTextView>("DamageTextPrefab");
     }
     protected override bool Filter(GameEntity entity)
     {
@@ -26,17 +28,16 @@ public class DamageTextSystem : ReactiveSystem<GameEntity>
     }
     protected override void Execute(List<GameEntity> entities)
     {
+        Debug.Log("entity damage text "+entities.Count);
         foreach (GameEntity myEntity in entities)
         {
-            GameObject text = ObjectPool.Spawn(textprefab);
-            TextMeshPro textmesh = text.GetComponent<TextMeshPro>();
-            textmesh.text = myEntity.damageText.value;
-            textmesh.color = DamageTextManager.GetColor(myEntity.damageText.damageTextType);
-            text.transform.position = myEntity.damageText.position;
-            text.transform.DOMove(text.transform.position + new Vector3(0f,.3f,0f),.4f);
-            ObjectPool.instance.Recycle(text.gameObject,.5f);
-            myEntity.RemoveAllComponents();
-            myEntity.Destroy();
+            DamageTextView damageTextView = ObjectPool.Spawn(textprefab);
+            damageTextView.text = myEntity.damageText.value;
+            damageTextView.color = DamageTextManager.GetColor(myEntity.damageText.damageTextType);
+            damageTextView.transform.position = myEntity.damageText.position;
+            damageTextView.transform.DOMove(damageTextView.transform.position + new Vector3(0f,.3f,0f),.4f);
+            ObjectPool.instance.Recycle(damageTextView.gameObject,.5f);
+            ObjectPool.instance.RecycleEntity(myEntity);
         }
     }
 

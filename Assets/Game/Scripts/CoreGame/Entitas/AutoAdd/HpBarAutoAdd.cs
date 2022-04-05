@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HpBarAutoAdd : MonoBehaviour, IAutoAdd<GameEntity>
+public class HpBarAutoAdd : AutoAddComponent
 {
     public HPBarUI prefab;
     public bool left;
-    public void AddComponent(ref GameEntity e)
+    public override void AddComponent(ref GameEntity e)
     {
         HPBarUI temp = GameUIController.instance.SpawnHPBar(prefab, left);
         e.AddHealthBarUI(temp);

@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-public class HealthAutoAdd : MonoBehaviour, IAutoAdd<GameEntity>
+public class HealthAutoAdd : AutoAddComponent
 {
     public ConvertToHealth healthComponent;
-    public void AddComponent(ref GameEntity e)
+    public override void AddComponent(ref GameEntity e)
     {
         e.AddHealth(healthComponent.health,healthComponent.maxHealth);
     }

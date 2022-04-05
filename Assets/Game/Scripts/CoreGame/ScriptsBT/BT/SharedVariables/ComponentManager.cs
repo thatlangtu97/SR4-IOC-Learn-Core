@@ -68,12 +68,13 @@ public class ComponentManager : MonoBehaviour
     [FoldoutGroup("PROPERTIES")] 
     public int maxJump,maxDash, maxAttackAirCount;
     [ShowInInspector]
-    public List<IAutoAdd<GameEntity>> AutoAdds = new List<IAutoAdd<GameEntity>>();
-
-    [Button("ACCEPT MODIFY", ButtonSizes.Gigantic), GUIColor(0.4f, 0.8f, 1),]
+    //public List<IAutoAdd<GameEntity>> AutoAdds = new List<IAutoAdd<GameEntity>>();
+    public List<AutoAddComponent> AutoAdds = new List<AutoAddComponent>();
+    
+    [Button("FIND AUTO ADD COMPONENT", ButtonSizes.Gigantic), GUIColor(0.4f, 0.8f, 1),]
     void FindComponentEntitas()
     { 
-        var components = GetComponentsInChildren<IAutoAdd<GameEntity>>();
+        var components = GetComponentsInChildren<AutoAddComponent>();
         foreach (var component in components)
         {
             if(AutoAdds.Contains(component)) continue;
@@ -83,26 +84,27 @@ public class ComponentManager : MonoBehaviour
     public void OnEnable()
     {
         currentImunes = baseImmunes.Clone();
-        entity = Contexts.sharedInstance.game.CreateEntity();
+        //entity = Contexts.sharedInstance.game.CreateEntity();
+        entity = ObjectPool.instance.SpawnEntity();
         link = gameObject.Link(entity);
-        AutoAdds = new List<IAutoAdd<GameEntity>>();
-        var components = GetComponentsInChildren<IAutoAdd<GameEntity>>();
-        foreach (var component in components)
-        {
-            if(AutoAdds.Contains(component)) continue;
-                AutoAdds.Add(component);
-        }
+//        AutoAdds = new List<IAutoAdd<GameEntity>>();
+//        var components = GetComponentsInChildren<IAutoAdd<GameEntity>>();
         foreach (var component in AutoAdds)
         {
             component.AddComponent(ref entity);
-            ComponentManagerUtils.AddComponent(this);
         }
+//        foreach (var component in components)
+//        {
+//            component.AddComponent(ref entity);
+//            
+//        }
         if (entity.hasBehaviourTree)
         {
             entity.behaviourTree.value.DisableBehavior();
             if (meshRenderer)
                 meshRenderer.enabled = false;
         }
+        ComponentManagerUtils.AddComponent(this);
     }
     
     private void OnDisable()
@@ -250,8 +252,9 @@ public class ComponentManager : MonoBehaviour
         if (entity != null)
         {
             gameObject.Unlink();
-            entity.RemoveAllComponents();
-            entity.Destroy();
+//            entity.RemoveAllComponents();
+//            entity.Destroy();
+            ObjectPool.instance.RecycleEntity(entity);
             entity = null;
             link = null;
         }

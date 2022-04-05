@@ -26,11 +26,79 @@ public sealed class ObjectPool : MonoBehaviour
     Dictionary<GameObject, List<GameObject>> pooledObjects = new Dictionary<GameObject, List<GameObject>>();
     Dictionary<GameObject, GameObject> spawnedObjects = new Dictionary<GameObject, GameObject>();
     static Dictionary<string, GameObject> pathToGameObjectDict = new Dictionary<string, GameObject>();
-
+    
     public StartupPoolMode startupPoolMode;
     public StartupPool[] startupPools;
     bool startupPoolsCreated;
+    private List<GameEntity> entites= new List<GameEntity>();
 
+    public void CreatePoolEntity(Contexts context, int size)
+    {
+        
+        int count = 0;
+        while (count<size)
+        {
+            GameEntity temp = context.game.CreateEntity(); 
+            entites.Add(temp);
+            count += 1;
+        }
+    }
+
+    public GameEntity SpawnEntity()
+    {
+        if (entites.Count == 0)
+        {
+            CreatePoolEntity(Contexts.sharedInstance, 30);
+        }
+        int indexE = entites.Count - 1;
+        GameEntity temp = entites[indexE];
+        entites.RemoveAt(indexE);
+        return temp;
+    }
+
+    public void RecycleEntity(GameEntity entity)
+    {
+        entity.RemoveAllComponents();
+        entites.Add(entity);
+    }
+
+//    public List<DamageTextView> tempListDamageTextView = new List<DamageTextView>();
+//
+//    public List<DamageTextView> spawnedDamageTextView = new List<DamageTextView>();
+//    public void PoolDamageText(DamageTextView prefab, int size)
+//    {
+//        Transform parent = transform;
+//        int count = 0;
+//        while (count<size)
+//        {
+//            DamageTextView temp = Instantiate(prefab, parent, true);
+//            temp.gameObject.SetActive(false);
+//            tempListDamageTextView.Add(temp);
+//            count += 1;
+//        }
+//    }
+//
+//    public DamageTextView SpawnDamageText()
+//    {
+//        DamageTextView temp = tempListDamageTextView[0];
+//        tempListDamageTextView.RemoveAt(0);
+//        spawnedDamageTextView.Add(temp);
+//        temp.gameObject.SetActive(true);
+//        return temp;
+//    }
+
+//    public void RecycleDamageText(DamageTextView damageTextView,float time)
+//    {
+//        Action delayRecycleDamageText = delegate
+//        {
+//            tempListDamageTextView.Add(damageTextView);
+//            spawnedDamageTextView.Remove(damageTextView);
+//            damageTextView.gameObject.SetActive(true);
+//        };
+//        StartCoroutine(delay(delayRecycleDamageText, time));
+//    }
+    
+    
     public static T Spawn<T>(T prefab, Transform parent, Vector3 position, Quaternion rotation) where T : Component
     {
         return Spawn(prefab.gameObject, parent, position, rotation).GetComponent<T>();
@@ -140,7 +208,6 @@ public sealed class ObjectPool : MonoBehaviour
         {
             instance.startupPoolsCreated = true;
             var pools = instance.startupPools;
-            //Debug.Log(pools.Length);
             if (pools != null && pools.Length > 0)
                 for (int i = 0; i < pools.Length; ++i)
                     CreatePool(pools[i].prefab, pools[i].size);

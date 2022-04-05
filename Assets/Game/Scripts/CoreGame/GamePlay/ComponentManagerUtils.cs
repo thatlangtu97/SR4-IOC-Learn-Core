@@ -32,4 +32,5 @@ public static class ComponentManagerUtils
         componentManagers.Clear();
         projectileComponents.Clear();
     }
+    
 }

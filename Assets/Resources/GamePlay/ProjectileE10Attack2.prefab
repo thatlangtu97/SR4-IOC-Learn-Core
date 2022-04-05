@@ -66,6 +66,9 @@ MonoBehaviour:
   link: {fileID: 0}
   projectileMovement: {fileID: 2227275122985040861}
   projectileCollider: {fileID: 0}
+  AutoAdds:
+  - {fileID: 2149371864225604892}
+  - {fileID: -383249281400593786}
 --- !u!114 &2149371864225604894
 MonoBehaviour:
   m_ObjectHideFlags: 0

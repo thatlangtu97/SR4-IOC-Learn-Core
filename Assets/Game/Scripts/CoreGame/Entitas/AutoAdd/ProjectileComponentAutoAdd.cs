@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProjectileComponentAutoAdd : MonoBehaviour, IAutoAdd<GameEntity>
+public class ProjectileComponentAutoAdd : AutoAddComponent
 {
     public ConvertToProjectileContainer component;
-    public void AddComponent(ref GameEntity e)
+    public override void AddComponent(ref GameEntity e)
     {
         e.AddProjectileContainer(component.value);
     }

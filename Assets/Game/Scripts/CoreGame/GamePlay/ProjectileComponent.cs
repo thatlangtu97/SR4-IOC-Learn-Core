@@ -12,8 +12,17 @@ public class ProjectileComponent : MonoBehaviour
     public ProjectileMovement projectileMovement;
     public ProjectileCollider projectileCollider;
     [ShowInInspector]
-    public List<IAutoAdd<GameEntity>> AutoAdds = new List<IAutoAdd<GameEntity>>();
-    
+    public List<AutoAddComponent> AutoAdds = new List<AutoAddComponent>();
+    [Button("FIND AUTO ADD COMPONENT", ButtonSizes.Gigantic), GUIColor(0.4f, 0.8f, 1),]
+    void FindComponentEntitas()
+    { 
+        var components = GetComponentsInChildren<AutoAddComponent>();
+        foreach (var component in components)
+        {
+            if(AutoAdds.Contains(component)) continue;
+            AutoAdds.Add(component);
+        }
+    }
     private void Awake()
     {
         projectileMovement = GetComponent<ProjectileMovement>();
@@ -24,20 +33,26 @@ public class ProjectileComponent : MonoBehaviour
     {
         if (entity == null)
         {
-            entity = Contexts.sharedInstance.game.CreateEntity();
+//            entity = Contexts.sharedInstance.game.CreateEntity();
+            entity = ObjectPool.instance.SpawnEntity();
             link = gameObject.Link(entity);
-            ComponentManagerUtils.AddComponent(this);
-            var components = GetComponentsInChildren<IAutoAdd<GameEntity>>();
-            foreach (var component in components)
-            {
-                if(AutoAdds.Contains(component)) continue;
-                AutoAdds.Add(component);
-            }
             foreach (var component in AutoAdds)
             {
                 component.AddComponent(ref entity);
-                ComponentManagerUtils.AddComponent(this);
             }
+            ComponentManagerUtils.AddComponent(this);
+//            var components = GetComponentsInChildren<IAutoAdd<GameEntity>>();
+//            foreach (var component in components)
+//            {
+//                if(AutoAdds.Contains(component)) continue;
+//                AutoAdds.Add(component);
+//            }
+//            foreach (var component in AutoAdds)
+//            {
+//                component.AddComponent(ref entity);
+//                ComponentManagerUtils.AddComponent(this);
+//            }
+
         }
     }
 

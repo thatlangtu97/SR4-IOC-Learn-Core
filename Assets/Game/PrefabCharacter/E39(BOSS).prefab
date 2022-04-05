@@ -24,7 +24,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5014112573117211707
 Transform:
   m_ObjectHideFlags: 0
@@ -138,6 +138,11 @@ MonoBehaviour:
   maxJump: 0
   maxDash: 0
   maxAttackAirCount: 0
+  AutoAdds:
+  - {fileID: 5014112573117211700}
+  - {fileID: 5014112573117211709}
+  - {fileID: 5014112573117211706}
+  - {fileID: 5014112573117211705}
 --- !u!114 &5014112573117211702
 MonoBehaviour:
   m_ObjectHideFlags: 0

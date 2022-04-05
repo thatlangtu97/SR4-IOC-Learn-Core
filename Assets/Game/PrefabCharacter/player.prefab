@@ -25,7 +25,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &428360683092188374
 Transform:
   m_ObjectHideFlags: 0
@@ -193,6 +193,12 @@ MonoBehaviour:
   maxJump: 2
   maxDash: 1
   maxAttackAirCount: 1
+  AutoAdds:
+  - {fileID: 428360683092188371}
+  - {fileID: 428360683092188373}
+  - {fileID: 428360683092185900}
+  - {fileID: 428360683092188372}
+  - {fileID: 428360683092188369}
 --- !u!114 &428360683092185901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -235,8 +241,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthComponent:
-    health: 100
-    maxHealth: 100
+    health: 10000
+    maxHealth: 10000
 --- !u!114 &428360683092185900
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-public class PowerAutoAdd : MonoBehaviour , IAutoAdd<GameEntity>
+public class PowerAutoAdd : AutoAddComponent
 {
     public ConvertToPower powerComponent;
-    public void AddComponent(ref GameEntity e)
+    public override void AddComponent(ref GameEntity e)
     {
         e.AddPower(powerComponent.value);
     }

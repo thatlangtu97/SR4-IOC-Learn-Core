@@ -143,9 +143,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d790fa82fee00e4c84916e94ca85e03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colliderProjectile: {fileID: 7950874950095868510}
   link: {fileID: 0}
   projectileMovement: {fileID: 324274899}
+  projectileCollider: {fileID: 0}
+  AutoAdds:
+  - {fileID: 8137836140472550329}
 --- !u!114 &8137836140472550331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,8 +164,9 @@ MonoBehaviour:
     damageScale: 0
     powerCollider: 0
     forcePower: {x: 0, y: 0}
-  damageProperties: 0
   component: {fileID: 8137836140472550330}
+  colliderProjectile: {fileID: 0}
+  delayEnableCollider: 0
 --- !u!58 &7950874950095868510
 CircleCollider2D:
   m_ObjectHideFlags: 0

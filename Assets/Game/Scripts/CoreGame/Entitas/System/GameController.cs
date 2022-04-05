@@ -1,4 +1,5 @@
-﻿using Entitas;
+﻿using System;
+using Entitas;
 using BehaviorDesigner.Runtime;
 using UnityEngine;
 //using UnityEngine.Experimental.PlayerLoop;
@@ -27,6 +28,7 @@ public class GameController : MonoBehaviour
 //            .Add(new HealthBarUpdateSystem(contexts))
 //            ;
 //        GameSystem.Initialize();
+        
         SetupSystem();
     }
     [Button("SetupSystem", ButtonSizes.Gigantic), GUIColor(0.4f, 0.8f, 1),]
@@ -41,6 +43,9 @@ public class GameController : MonoBehaviour
                 .Add(new DamageTextSystem(contexts))
                 .Add(new HealthBarUpdateSystem(contexts))
             ;
+        DealDmgManager.context = contexts;
+        DamageTextManager.context = contexts;
+        ObjectPool.instance.CreatePoolEntity(contexts,100);
         GameSystem.Initialize();
     }
     void Start()
@@ -56,10 +61,16 @@ public class GameController : MonoBehaviour
     }
     void Update()
     {
-        if(GameSystem!=null)
-            GameSystem.Execute();  
+        
         //GameSystem.Cleanup();
     }
+
+    private void FixedUpdate()
+    {
+        if(GameSystem!=null)
+            GameSystem.Execute();  
+    }
+
     private void LateUpdate()
     {
         if(GameSystem!=null)

@@ -27,6 +27,7 @@ public class GizmoDrawerTool : MonoBehaviour
             skeleton = this;
         }
     }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = colorGimoz;
@@ -40,7 +41,6 @@ public class GizmoDrawerTool : MonoBehaviour
                     {
                         case colliderType.Box:
                             Gizmos.DrawWireCube(listCollider[i].position, listCollider[i].size);
-                            //Gizmos.DrawWireMesh(mesh, listCollider[i].position, Quaternion.Euler(0, 0, listCollider[i].angle),listCollider[i].size);
                             break;
                         case colliderType.Circle:
                             Gizmos.DrawWireSphere(listCollider[i].position, listCollider[i].size.x);
@@ -54,7 +54,9 @@ public class GizmoDrawerTool : MonoBehaviour
                 }
             }
         }
+
     }
+
     public void draw(Vector3 position, Vector3 sizeBox, colliderType colliderType,float angle )
     {
         if (listCollider == null) listCollider = new List<colliderGizmo>();
@@ -82,5 +84,4 @@ public class GizmoDrawerTool : MonoBehaviour
         Box,
         Circle,
     }
-
 }

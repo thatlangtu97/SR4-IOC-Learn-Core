@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StateMachineAutoAdd : MonoBehaviour, IAutoAdd<GameEntity>
+public class StateMachineAutoAdd : AutoAddComponent
 {
     public ConvertToStateMachineContainer StateMachine;
-    public void AddComponent(ref GameEntity e)
+    public override void AddComponent(ref GameEntity e)
     {
         e.AddStateMachineContainer(StateMachine.value);
         StateMachine.value.InitStateMachine();

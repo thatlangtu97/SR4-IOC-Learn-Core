@@ -1973,7 +1973,9 @@
             <e p="CoreGame" t="Include">
               <e p="Entitas" t="Include">
                 <e p="AutoAdd" t="Include">
+                  <e p="AutoAddComponent.cs" t="Include" />
                   <e p="BehaviourTreeAutoAdd.cs" t="Include" />
+                  <e p="GameInputAutoAdd.cs" t="Include" />
                   <e p="HealthAutoAdd.cs" t="Include" />
                   <e p="HpBarAutoAdd.cs" t="Include" />
                   <e p="IAutoAdd.cs" t="Include" />
@@ -1986,9 +1988,13 @@
                   <e p="AddComponentEntity.cs" t="Include" />
                   <e p="EntitasComponent.cs" t="Include" />
                 </e>
+                <e p="Input" t="Include">
+                  <e p="GameActionInput.cs" t="Include" />
+                </e>
                 <e p="system" t="Include">
                   <e p="DamageTextSystem.cs" t="Include" />
                   <e p="GameController.cs" t="Include" />
+                  <e p="GameInputUpdateSystem.cs" t="Include" />
                   <e p="GameUIController.cs" t="Include" />
                   <e p="HealthBarUpdateSystem.cs" t="Include" />
                   <e p="ProjectileMoveBezierSystem.cs" t="Include" />
@@ -2009,6 +2015,9 @@
                   <e p="ProjectileCollider.cs" t="Include" />
                 </e>
                 <e p="ComponentManagerUtils.cs" t="Include" />
+                <e p="DamageText" t="Include">
+                  <e p="DamageTextView.cs" t="Include" />
+                </e>
                 <e p="EnemyScripts" t="Include">
                   <e p="EnemyStateMachine.cs" t="Include" />
                 </e>
@@ -2429,6 +2438,7 @@
             <e p="Components" t="Include">
               <e p="GameBehaviourTreeComponent.cs" t="Include" />
               <e p="GameDamageTextComponent.cs" t="Include" />
+              <e p="GameGameInputComponent.cs" t="Include" />
               <e p="GameHealthBarUIComponent.cs" t="Include" />
               <e p="GameHealthComponent.cs" t="Include" />
               <e p="GamePlayerFlagComponent.cs" t="Include" />

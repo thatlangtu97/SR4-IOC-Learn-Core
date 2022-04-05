@@ -461,12 +461,16 @@ public class ColliderEvent : IComboEvent
                                 int damageProperties = entity.power.value;
                                 DamageInfoEvent damageInfoEventTemp = new DamageInfoEvent(damageInfoEvent);
                                 damageInfoEventTemp.forcePower = damageInfoEvent.forcePower * direction;
+                                ComponentManager componentManager = col.GetComponent<ComponentManager>();
                                 void Action()
                                 {
-                                    col.GetComponent<Rigidbody2D>().AddForceAtPosition(damageInfoEventTemp.forcePower, col.transform.position);
+                                    componentManager.rgbody2D.AddForceAtPosition(damageInfoEventTemp.forcePower, col.transform.position);
+                                    //col.GetComponent<Rigidbody2D>().AddForceAtPosition(damageInfoEventTemp.forcePower, col.transform.position);
                                 }
                                 DamageInfoSend damageInfoSend = new DamageInfoSend(damageInfoEventTemp,damageProperties,Action);
-                                DealDmgManager.DealDamage(col, entity,damageInfoSend);
+                                //DealDmgManager.DealDamage(col, entity,damageInfoSend);
+                                DealDmgManager.DealDamage(componentManager.entity, entity,damageInfoSend);
+                                
                             }
                         }
                     }
@@ -505,14 +509,15 @@ public class ColliderEvent : IComboEvent
                                 int damageProperties = entity.power.value;
                                 DamageInfoEvent damageInfoEventTemp = new DamageInfoEvent(damageInfoEvent);
                                 damageInfoEventTemp.forcePower = damageInfoEvent.forcePower * direction;
+                                ComponentManager componentManager = col.GetComponent<ComponentManager>();
                                 Action action = delegate
                                 {
-                                    col.GetComponent<Rigidbody2D>()
-                                        .AddForceAtPosition(damageInfoEventTemp.forcePower, col.transform.position);
+                                    componentManager.rgbody2D.AddForceAtPosition(damageInfoEventTemp.forcePower, col.transform.position);
+                                    //col.GetComponent<Rigidbody2D>().AddForceAtPosition(damageInfoEventTemp.forcePower, col.transform.position);
                                 };
-                                DamageInfoSend damageInfoSend =
-                                    new DamageInfoSend(damageInfoEventTemp, damageProperties, action);
-                                DealDmgManager.DealDamage(col, entity, damageInfoSend);
+                                DamageInfoSend damageInfoSend =new DamageInfoSend(damageInfoEventTemp, damageProperties, action);
+                                //DealDmgManager.DealDamage(col, entity, damageInfoSend);
+                                DealDmgManager.DealDamage(componentManager.entity, entity, damageInfoSend);
                             }
                         }
                     }

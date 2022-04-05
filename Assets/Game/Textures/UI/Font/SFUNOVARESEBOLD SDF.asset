@@ -19,6 +19,8 @@ Texture2D:
   m_TextureFormat: 1
   m_MipCount: 1
   m_IsReadable: 1
+  m_IgnoreMasterTextureLimit: 0
+  m_IsPreProcessed: 0
   m_StreamingMipmaps: 0
   m_StreamingMipmapsPriority: 0
   m_AlphaIsTransparency: 0
@@ -48,7 +50,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: SFUNOVARESEBOLD SDF Material
-  m_Shader: {fileID: 4800000, guid: fe393ace9b354375a9cb14cdbbc28be4, type: 3}
+  m_Shader: {fileID: 4800000, guid: 1e3b057af24249748ff873be7fafee47, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -68,11 +70,15 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _FaceTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: -7665823534154181386}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: -7665823534154181386}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MaskTex:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OutlineTex:
@@ -89,8 +95,10 @@ Material:
     - _BumpFace: 0
     - _BumpOutline: 0
     - _ColorMask: 15
+    - _CullMode: 0
     - _Diffuse: 0.5
-    - _FaceDilate: 0
+    - _DiffusePower: 1
+    - _FaceDilate: 1
     - _FaceUVSpeedX: 0
     - _FaceUVSpeedY: 0
     - _GlowInner: 0
@@ -99,17 +107,21 @@ Material:
     - _GlowPower: 1
     - _GradientScale: 3
     - _LightAngle: 3.1416
+    - _MaskEdgeSoftness: 0.01
+    - _MaskInverse: 0
     - _MaskSoftnessX: 0
     - _MaskSoftnessY: 0
+    - _MaskWipeControl: 0.5
     - _OutlineSoftness: 0
     - _OutlineUVSpeedX: 0
     - _OutlineUVSpeedY: 0
     - _OutlineWidth: 0
+    - _Padding: 0
     - _PerspectiveFilter: 0.875
     - _Reflectivity: 10
-    - _ScaleRatioA: 0.6666667
+    - _ScaleRatioA: 0.53333336
     - _ScaleRatioB: 0.5
-    - _ScaleRatioC: 0.3846154
+    - _ScaleRatioC: 0
     - _ScaleX: 1
     - _ScaleY: 1
     - _ShaderFlags: 0
@@ -126,16 +138,19 @@ Material:
     - _UnderlayOffsetX: 0.49
     - _UnderlayOffsetY: 0.3
     - _UnderlaySoftness: 0.58
+    - _UseUIAlphaClip: 0
     - _VertexOffsetX: 0
     - _VertexOffsetY: 0
     - _WeightBold: 1
     - _WeightNormal: 0
     m_Colors:
     - _ClipRect: {r: -32767, g: -32767, b: 32767, a: 32767}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EnvMatrixRotation: {r: 0, g: 0, b: 0, a: 0}
     - _FaceColor: {r: 1, g: 1, b: 1, a: 1}
     - _GlowColor: {r: 1, g: 1, b: 1, a: 1}
     - _MaskCoord: {r: 0, g: 0, b: 32767, a: 32767}
+    - _MaskEdgeColor: {r: 1, g: 1, b: 1, a: 1}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _ReflectFaceColor: {r: 0, g: 0, b: 0, a: 1}
     - _ReflectOutlineColor: {r: 0, g: 0, b: 0, a: 1}
@@ -155,7 +170,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hashCode: -33718525
   material: {fileID: -658074086034903585}
-  materialHashCode: 1375636904
+  materialHashCode: 1362568899
   m_Version: 1.1.0
   m_SourceFontFileGUID: 2d1ecce97c70be44bbedfb86f037e366
   m_SourceFontFile_EditorRef: {fileID: 12800000, guid: 2d1ecce97c70be44bbedfb86f037e366,
@@ -1915,6 +1930,7 @@ MonoBehaviour:
   m_AtlasTextures:
   - {fileID: -7665823534154181386}
   m_AtlasTextureIndex: 0
+  m_IsMultiAtlasTexturesEnabled: 0
   m_UsedGlyphRects:
   - m_X: 0
     m_Y: 0
