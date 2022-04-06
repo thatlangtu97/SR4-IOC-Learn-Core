@@ -223,7 +223,8 @@ public sealed class ObjectPool : MonoBehaviour
     }
     void Awake()
     {
-        _instance = this;
+        if(instance==null)
+            _instance = this;
         _disposable = new CompositeDisposable();
         if (startupPoolMode == StartupPoolMode.Awake)
             CreateStartupPools();

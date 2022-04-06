@@ -28,7 +28,6 @@ public class DamageTextSystem : ReactiveSystem<GameEntity>
     }
     protected override void Execute(List<GameEntity> entities)
     {
-        Debug.Log("entity damage text "+entities.Count);
         foreach (GameEntity myEntity in entities)
         {
             //DamageTextView damageTextView = ObjectPool.Spawn(textprefab);

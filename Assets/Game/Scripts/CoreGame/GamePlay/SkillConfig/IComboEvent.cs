@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using Sirenix.OdinInspector;
 using System;
+using System.Collections.Generic;
 
 public enum PowerCollider
 {
@@ -408,6 +409,7 @@ public class ColliderEvent : IComboEvent
     public int id { get { return idEvent; } set { idEvent = value; } }
     public float timeTrigger { get { return timeTriggerEvent; } }
 
+    
     public void OnEventTrigger(GameEntity entity)
     {   
         Collider2D[] cols = null;
@@ -450,15 +452,13 @@ public class ColliderEvent : IComboEvent
                 else
                 {
                     cols = Physics2D.OverlapBoxAll(point, sizeBox, angle, layerMaskEnemy);
-                    
                     if (cols != null)
                     {
-                        Debug.Log("size collider "+cols.Length);
+                        
                         foreach (var col in cols)
                         {
                             if (col != null)
                             {
-                                
                                 Vector2 direction = (col.transform.position - transform.position).normalized;
                                 int damageProperties = entity.power.value;
                                 DamageInfoEvent damageInfoEventTemp = new DamageInfoEvent(damageInfoEvent);
@@ -466,6 +466,7 @@ public class ColliderEvent : IComboEvent
                                 ComponentManager componentManager = col.GetComponent<ComponentManager>();
                                 void Action()
                                 {
+                                    componentManager.rgbody2D.velocity = new Vector2(0,componentManager.rgbody2D.velocity.y);
                                     componentManager.rgbody2D.AddForceAtPosition(damageInfoEventTemp.forcePower, col.transform.position);
                                     //col.GetComponent<Rigidbody2D>().AddForceAtPosition(damageInfoEventTemp.forcePower, col.transform.position);
                                 }
@@ -514,6 +515,7 @@ public class ColliderEvent : IComboEvent
                                 ComponentManager componentManager = col.GetComponent<ComponentManager>();
                                 Action action = delegate
                                 {
+                                    componentManager.rgbody2D.velocity = new Vector2(0,componentManager.rgbody2D.velocity.y);
                                     componentManager.rgbody2D.AddForceAtPosition(damageInfoEventTemp.forcePower, col.transform.position);
                                     //col.GetComponent<Rigidbody2D>().AddForceAtPosition(damageInfoEventTemp.forcePower, col.transform.position);
                                 };

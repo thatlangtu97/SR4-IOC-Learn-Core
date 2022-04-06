@@ -29,7 +29,7 @@ public class GameController : MonoBehaviour
 //            ;
 //        GameSystem.Initialize();
         
-        SetupSystem();
+       
     }
     [Button("SetupSystem", ButtonSizes.Gigantic), GUIColor(0.4f, 0.8f, 1),]
 
@@ -55,6 +55,7 @@ public class GameController : MonoBehaviour
         {
             PlayFlashScene.instance.HideLoading();
         }
+        SetupSystem();
     }
     private void OnDestroy()
     {

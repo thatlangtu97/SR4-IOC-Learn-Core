@@ -40,4 +40,19 @@ public class TestSpawnCharacter : MonoBehaviour
         } 
         
     }
+
+    private int fps = -1;
+    public void SetFps()
+    {
+        if (fps == -1)
+        {
+            Application.targetFrameRate = 70;
+            fps = 70;
+        }
+        else
+        {
+            Application.targetFrameRate = -1;
+            fps = -1;
+        }
+    }
 }
