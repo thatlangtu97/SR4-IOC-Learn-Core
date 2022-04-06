@@ -46,6 +46,7 @@ public class GameController : MonoBehaviour
         DealDmgManager.context = contexts;
         DamageTextManager.context = contexts;
         ObjectPool.instance.CreatePoolEntity(contexts,100);
+        ObjectPool.instance.CreatePoolDamageTextView();
         GameSystem.Initialize();
     }
     void Start()
@@ -61,15 +62,16 @@ public class GameController : MonoBehaviour
     }
     void Update()
     {
-        
+        if(GameSystem!=null)
+            GameSystem.Execute();  
         //GameSystem.Cleanup();
     }
 
-    private void FixedUpdate()
-    {
-        if(GameSystem!=null)
-            GameSystem.Execute();  
-    }
+//    private void FixedUpdate()
+//    {
+//        if(GameSystem!=null)
+//            GameSystem.Execute();  
+//    }
 
     private void LateUpdate()
     {

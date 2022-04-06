@@ -31,12 +31,15 @@ public class DamageTextSystem : ReactiveSystem<GameEntity>
         Debug.Log("entity damage text "+entities.Count);
         foreach (GameEntity myEntity in entities)
         {
-            DamageTextView damageTextView = ObjectPool.Spawn(textprefab);
+            //DamageTextView damageTextView = ObjectPool.Spawn(textprefab);
+            DamageTextView damageTextView = ObjectPool.instance.SpawnDamageText();
             damageTextView.text = myEntity.damageText.value;
             damageTextView.color = DamageTextManager.GetColor(myEntity.damageText.damageTextType);
             damageTextView.transform.position = myEntity.damageText.position;
             damageTextView.transform.DOMove(damageTextView.transform.position + new Vector3(0f,.3f,0f),.4f);
-            ObjectPool.instance.Recycle(damageTextView.gameObject,.5f);
+            damageTextView.PlayAnim();
+            //ObjectPool.instance.RecycleDamageText(damageTextView,.5f);
+            ObjectPool.instance.RecycleDamageText(damageTextView);
             ObjectPool.instance.RecycleEntity(myEntity);
         }
     }

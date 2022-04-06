@@ -54,7 +54,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textMesh: {fileID: 3898598560583893927}
   anim: {fileID: 713091236}
-  nameAnim: 
+  nameAnim: DamageTextFly
 --- !u!23 &2040041160747076989
 MeshRenderer:
   m_ObjectHideFlags: 0

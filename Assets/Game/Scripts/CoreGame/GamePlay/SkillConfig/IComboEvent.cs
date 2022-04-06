@@ -450,8 +450,10 @@ public class ColliderEvent : IComboEvent
                 else
                 {
                     cols = Physics2D.OverlapBoxAll(point, sizeBox, angle, layerMaskEnemy);
+                    
                     if (cols != null)
                     {
+                        Debug.Log("size collider "+cols.Length);
                         foreach (var col in cols)
                         {
                             if (col != null)

@@ -2,6 +2,9 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using UniRx;
+using Unity.Mathematics;
 using Object = UnityEngine.Object;
 
 public sealed class ObjectPool : MonoBehaviour
@@ -30,8 +33,43 @@ public sealed class ObjectPool : MonoBehaviour
     public StartupPoolMode startupPoolMode;
     public StartupPool[] startupPools;
     bool startupPoolsCreated;
-    private List<GameEntity> entites= new List<GameEntity>();
 
+    public StartupPool damageTextPool;
+    
+    private List<GameEntity> entites= new List<GameEntity>();
+    private static CompositeDisposable _disposable;
+    
+    public List<DamageTextView> pooledDamageTextView = new List<DamageTextView>();
+    public List<DamageTextView> spawnedDamageTextView = new List<DamageTextView>();
+
+    public void CreatePoolDamageTextView()
+    {
+        while (pooledDamageTextView.Count < damageTextPool.size)
+        {
+            DamageTextView obj = Instantiate(damageTextPool.prefab,new Vector3(10000f,0f,0f),quaternion.identity).GetComponent<DamageTextView>();
+            pooledDamageTextView.Add(obj);
+        }
+    }
+
+    public DamageTextView SpawnDamageText()
+    {
+        DamageTextView temp = pooledDamageTextView[0];
+        pooledDamageTextView.RemoveAt(0);
+        spawnedDamageTextView.Add(temp);
+        return temp;
+    }
+
+    public void RecycleDamageText(DamageTextView damageTextView)
+    {
+        spawnedDamageTextView.Remove(damageTextView);
+        pooledDamageTextView.Add(damageTextView);
+        
+    }
+
+    public void RecycleDamageText(DamageTextView damageTextView, float delay)
+    {
+        Observable.Timer(TimeSpan.FromSeconds(delay)).Subscribe(l => {  RecycleDamageText(damageTextView); }).AddTo(_disposable);
+    }
     public void CreatePoolEntity(Contexts context, int size)
     {
         
@@ -186,6 +224,7 @@ public sealed class ObjectPool : MonoBehaviour
     void Awake()
     {
         _instance = this;
+        _disposable = new CompositeDisposable();
         if (startupPoolMode == StartupPoolMode.Awake)
             CreateStartupPools();
     }
@@ -196,11 +235,11 @@ public sealed class ObjectPool : MonoBehaviour
             CreateStartupPools();
     }
     
-    IEnumerator delay( Action action, float time)
-    {
-        yield return new WaitForSeconds(time);
-        action.Invoke();
-    }
+//    IEnumerator delay( Action action, float time)
+//    {
+//        yield return new WaitForSeconds(time);
+//        action.Invoke();
+//    }
     
     public static void CreateStartupPools()
     {
@@ -224,11 +263,11 @@ public sealed class ObjectPool : MonoBehaviour
             {
                 bool active = prefab.activeSelf;
                 prefab.SetActive(false);
-                Transform parent = instance.transform;
+                //Transform parent = instance.transform;
                 while (list.Count < initialPoolSize)
                 {
-                    var obj = (GameObject)Object.Instantiate(prefab, parent, true);
-                    obj.transform.SetParent(parent);
+                    var obj = (GameObject)Object.Instantiate(prefab, null, true);
+                    //obj.transform.SetParent(parent);
                     list.Add(obj);
                 }
                 
@@ -270,14 +309,16 @@ public sealed class ObjectPool : MonoBehaviour
         if (instance.spawnedObjects.TryGetValue(gameObject, out GameObject prefab))
         {
             gameObject.SetActive(false);
-            gameObject.transform.parent = null;
+            //gameObject.transform.parent = null;
             instance.pooledObjects[prefab].Add(gameObject);
             instance.spawnedObjects.Remove(gameObject);
         }
     }
     public void Recycle(GameObject gameObject,float Time)
     {
-       StartCoroutine( delay(() => { Recycle(gameObject); }, Time));
+       //StartCoroutine( delay(() => { Recycle(gameObject); }, Time));
+       
+       Observable.Timer(TimeSpan.FromSeconds(Time)).Subscribe(l => {  Recycle(gameObject); }).AddTo(_disposable);
     }
     
     public static GameObject Spawn(GameObject prefab, Transform parent, Vector3 position, Quaternion rotation)
