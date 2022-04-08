@@ -8430,6 +8430,8 @@ MonoBehaviour:
   - size: 7
     prefab: {fileID: 2149371864225604891, guid: 02ebd0007e99d47cba133a06d7288dab,
       type: 3}
+  - size: 1
+    prefab: {fileID: 428360683092185903, guid: 4e28c0a2e9fa201479002a4fe7982700, type: 3}
   damageTextPool:
     size: 100
     prefab: {fileID: 1108357139014931327, guid: b0ff441957a6c074cb6dc3149bd41bcf,
@@ -23806,7 +23808,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SetPlayer: 0
-  count: 1
+  count: 20
 --- !u!114 &2145990312
 MonoBehaviour:
   m_ObjectHideFlags: 0

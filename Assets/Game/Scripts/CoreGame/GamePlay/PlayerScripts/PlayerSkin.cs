@@ -11,6 +11,7 @@ public class PlayerSkin : MonoBehaviour
     public string skinWeaponName;
     public string skinOufitName;
     public SkeletonMecanim skeletonMecanim;
+    
 
     [Button("MOFIFY", ButtonSizes.Gigantic), GUIColor(0.4f, 0.8f, 1),]
     public void Modify()
