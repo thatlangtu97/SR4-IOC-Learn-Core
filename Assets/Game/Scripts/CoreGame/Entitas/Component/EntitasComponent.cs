@@ -173,7 +173,13 @@ public class HealthBarUIComponent : IComponent
 }
 #endregion
 
-
+#region SkeletonMecanim
+[Game]
+public class SkeletonMecanimComponent : IComponent
+{
+    public Spine.Unity.SkeletonMecanim macanim;
+}
+#endregion
 
 
 #region GameInput
