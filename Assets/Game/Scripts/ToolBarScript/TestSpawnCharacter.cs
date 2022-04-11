@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class TestSpawnCharacter : MonoBehaviour
 {
@@ -40,7 +42,24 @@ public class TestSpawnCharacter : MonoBehaviour
         } 
         
     }
-
+    
+    public void SpawnEnemy(GameObject prefab)
+    {
+        int countSpawn = 0;
+        float timeDelay = 1f;
+        while (countSpawn< count )
+        {
+            Vector3 randomPos = new Vector3(Random.Range(-13f,5f),0f,0f);
+            Action action = delegate 
+            {
+                StateMachineController temp = ObjectPool.Spawn(prefab,null,randomPos).GetComponent<StateMachineController>();
+                temp.gameObject.SetActive(true);  
+            };
+            ActionBufferManager.Instance.ActionDelayTime(action,timeDelay*countSpawn);
+            //timeDelay *= countSpawn;
+            countSpawn += 1;
+        }
+    }
     private int fps = -1;
     public void SetFps()
     {

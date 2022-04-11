@@ -25,6 +25,6 @@ public class PlayerSkin : MonoBehaviour
 
     private void Start()
     {
-        Modify();
+        //Modify();
     }
 }

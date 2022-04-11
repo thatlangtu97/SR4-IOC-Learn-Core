@@ -34,6 +34,7 @@ public sealed class ObjectPool : MonoBehaviour
     public StartupPool[] startupPools;
     bool startupPoolsCreated;
 
+    public StartupPool[] startupPoolsNotDeactive;
     public StartupPool damageTextPool;
     
     private List<GameEntity> entites= new List<GameEntity>();
@@ -42,6 +43,8 @@ public sealed class ObjectPool : MonoBehaviour
     public List<DamageTextView> pooledDamageTextView = new List<DamageTextView>();
     public List<DamageTextView> spawnedDamageTextView = new List<DamageTextView>();
 
+    Dictionary<GameObject, List<GameObject>> pooledObjectsNotDeactive = new Dictionary<GameObject, List<GameObject>>();
+    Dictionary<GameObject, GameObject> spawnedObjectsNotDeactive = new Dictionary<GameObject, GameObject>();
     public void CreatePoolDamageTextView()
     {
         while (pooledDamageTextView.Count < damageTextPool.size)
@@ -166,6 +169,36 @@ public sealed class ObjectPool : MonoBehaviour
     {
         return Spawn(prefab.gameObject, null, Vector3.zero, Quaternion.identity).GetComponent<T>();
     }
+    //
+    public static T SpawnNotDeactive<T>(T prefab, Transform parent, Vector3 position, Quaternion rotation) where T : Component
+    {
+        return SpawnNotDeactive(prefab.gameObject, parent, position, rotation).GetComponent<T>();
+    }
+
+    public static T SpawnNotDeactive<T>(T prefab, Vector3 position, Quaternion rotation) where T : Component
+    {
+        return SpawnNotDeactive(prefab.gameObject, null, position, rotation).GetComponent<T>();
+    }
+
+    public static T SpawnNotDeactive<T>(T prefab, Transform parent, Vector3 position) where T : Component
+    {
+        return SpawnNotDeactive(prefab.gameObject, parent, position, Quaternion.identity).GetComponent<T>();
+    }
+
+    public static T SpawnNotDeactive<T>(T prefab, Vector3 position) where T : Component
+    {
+        return SpawnNotDeactive(prefab.gameObject, null, position, Quaternion.identity).GetComponent<T>();
+    }
+
+    public static T SpawnNotDeactive<T>(T prefab, Transform parent) where T : Component
+    {
+        return SpawnNotDeactive(prefab.gameObject, parent, Vector3.zero, Quaternion.identity).GetComponent<T>();
+    }
+
+    public static T SpawnNotDeactive<T>(T prefab) where T : Component
+    {
+        return SpawnNotDeactive(prefab.gameObject, null, Vector3.zero, Quaternion.identity).GetComponent<T>();
+    }
     
     public static void Recycle<T>(T obj) where T : Component
     {
@@ -234,6 +267,7 @@ public sealed class ObjectPool : MonoBehaviour
     {
         if (startupPoolMode == StartupPoolMode.Start)
             CreateStartupPools();
+        CreateStartupPoolsNotDeactive();
     }
     
 //    IEnumerator delay( Action action, float time)
@@ -254,6 +288,15 @@ public sealed class ObjectPool : MonoBehaviour
         }
     }
     
+    public static void CreateStartupPoolsNotDeactive()
+    {
+
+            var pools = instance.startupPoolsNotDeactive;
+            if (pools != null && pools.Length > 0)
+                for (int i = 0; i < pools.Length; ++i)
+                    CreatePoolNotDeactive(pools[i].prefab, pools[i].size);
+
+    }
     public static void CreatePool(GameObject prefab, int initialPoolSize)
     {
         if (prefab != null && !instance.pooledObjects.ContainsKey(prefab))
@@ -273,6 +316,25 @@ public sealed class ObjectPool : MonoBehaviour
                 }
                 
                 prefab.SetActive(active);
+            }
+        }
+    }
+    public static void CreatePoolNotDeactive(GameObject prefab, int initialPoolSize)
+    {
+        if (prefab != null && !instance.pooledObjectsNotDeactive.ContainsKey(prefab))
+        {
+            var list = new List<GameObject>();
+            instance.pooledObjectsNotDeactive.Add(prefab, list);
+            if (initialPoolSize > 0)
+            {
+                
+                prefab.SetActive(true);
+                while (list.Count < initialPoolSize)
+                {
+                    var obj = (GameObject)Object.Instantiate(prefab, null, true);
+                    obj.transform.position = new Vector3(10000f,0,0f);
+                    list.Add(obj);
+                }
             }
         }
     }
@@ -317,11 +379,21 @@ public sealed class ObjectPool : MonoBehaviour
     }
     public void Recycle(GameObject gameObject,float Time)
     {
-       //StartCoroutine( delay(() => { Recycle(gameObject); }, Time));
-       
-       Observable.Timer(TimeSpan.FromSeconds(Time)).Subscribe(l => {  Recycle(gameObject); }).AddTo(_disposable);
+        Observable.Timer(TimeSpan.FromSeconds(Time)).Subscribe(l => {  Recycle(gameObject); }).AddTo(_disposable);
     }
-    
+    public static void RecycleNotDeactive(GameObject gameObject)
+    {   
+        if (instance.spawnedObjectsNotDeactive.TryGetValue(gameObject, out GameObject prefab))
+        {
+            instance.pooledObjectsNotDeactive[prefab].Add(gameObject);
+            instance.spawnedObjectsNotDeactive.Remove(gameObject);
+            gameObject.transform.position= new Vector3(10000f,0f,0f);
+        }
+    }
+    public void RecycleNotDeactive(GameObject gameObject,float Time)
+    {
+        Observable.Timer(TimeSpan.FromSeconds(Time)).Subscribe(l => {  RecycleNotDeactive(gameObject); }).AddTo(_disposable);
+    }
     public static GameObject Spawn(GameObject prefab, Transform parent, Vector3 position, Quaternion rotation)
     {
         if (instance.pooledObjects.TryGetValue(prefab, out List<GameObject> list))
@@ -453,6 +525,136 @@ public sealed class ObjectPool : MonoBehaviour
     }
 
     
+    public static GameObject SpawnNotDeactive(GameObject prefab, Transform parent, Vector3 position, Quaternion rotation)
+    {
+        if (instance.pooledObjectsNotDeactive.TryGetValue(prefab, out List<GameObject> list))
+        {
+            GameObject obj = null;
+            Transform transform;
+            if (list.Count > 0)
+            {
+                while (obj == null && list.Count > 0)
+                {
+                    obj = list[0];
+                    list.RemoveAt(0);
+                    break;
+                }
+                if (obj != null)
+                {
+                    transform = obj.transform;
+                    transform.parent = parent;
+                    transform.localPosition = position;
+                    transform.localRotation = rotation;
+                    transform.localScale = prefab.transform.localScale;
+                    obj.SetActive(true);
+                    instance.spawnedObjectsNotDeactive.Add(obj, prefab);
+                    return obj;
+                }
+            }
+            obj = (GameObject)Object.Instantiate(prefab);
+            transform = obj.transform;
+            transform.parent = parent;
+            transform.localPosition = position;
+            transform.localRotation = rotation;
+            transform.localScale = prefab.transform.localScale;
+            instance.spawnedObjectsNotDeactive.Add(obj, prefab);
+            return obj;
+        }
+        else
+        {
+            CreatePoolNotDeactive(prefab, 1);
+            return SpawnNotDeactive(prefab, parent, position, rotation);
+        }
+    }
+    
+    
+    
+    public static GameObject SpawnNotDeactive(GameObject prefab, Transform parent, Vector3 localPosition, Quaternion localRotation , Vector3 localScale)
+    {
+        if (instance.pooledObjectsNotDeactive.TryGetValue(prefab, out List<GameObject> list))
+        {
+            GameObject obj = null;
+            Transform transform;
+            if (list.Count > 0)
+            {
+                while (obj == null && list.Count > 0)
+                {
+                    obj = list[0];
+                    list.RemoveAt(0);
+                    break;
+                }
+                if (obj != null)
+                {
+                    transform = obj.transform;
+                    transform.parent = parent;
+                    transform.localPosition = localPosition;
+                    transform.localRotation = localRotation;
+                    transform.localScale = localScale;
+                    obj.SetActive(true);
+                    instance.spawnedObjectsNotDeactive.Add(obj, prefab);
+                    return obj;
+                }
+            }
+            obj = (GameObject)Object.Instantiate(prefab);
+            transform = obj.transform;
+            transform.parent = parent;
+            transform.localPosition = localPosition;
+            transform.localRotation = localRotation;
+            transform.localScale = localScale;
+            obj.SetActive(true);
+            instance.spawnedObjectsNotDeactive.Add(obj, prefab);
+            return obj;
+        }
+        else
+        {
+            CreatePoolNotDeactive(prefab, 1);
+            return SpawnNotDeactive(prefab, parent, localPosition, localRotation, localScale);
+        }
+    }
+    
+    public static GameObject SpawnNotDeactive(GameObject prefab, Transform parent, Vector3 localPosition, Vector3 rightTransform , Vector3 localScale)
+    {
+        if (instance.pooledObjects.TryGetValue(prefab, out List<GameObject> list))
+        {
+            GameObject obj = null;
+            Transform transform;
+            if (list.Count > 0)
+            {
+                while (obj == null && list.Count > 0)
+                {
+                    obj = list[0];
+                    list.RemoveAt(0);
+                    break;
+                }
+                if (obj != null)
+                {
+                    transform = obj.transform;
+                    transform.parent = parent;
+                    transform.localPosition = localPosition;
+                    transform.right = rightTransform;
+                    transform.localScale = localScale;
+                    obj.SetActive(true);
+                    instance.spawnedObjectsNotDeactive.Add(obj, prefab);
+                    return obj;
+                }
+            }
+            obj = (GameObject)Object.Instantiate(prefab);
+            transform = obj.transform;
+            transform.parent = parent;
+            transform.localPosition = localPosition;
+            transform.right = rightTransform;
+            transform.localScale = localScale;
+            obj.SetActive(true);
+            instance.spawnedObjectsNotDeactive.Add(obj, prefab);
+            return obj;
+        }
+        else
+        {
+            CreatePoolNotDeactive(prefab, 1);
+            return SpawnNotDeactive(prefab, parent, localPosition, rightTransform, localScale);
+        }
+    }
+
     
     
     
@@ -463,63 +665,6 @@ public sealed class ObjectPool : MonoBehaviour
     
     
     
-    
-    
-//    public static GameObject GetObjectBeforeSpawn(GameObject prefab)
-//    {
-//        List<GameObject> list;
-//        Transform trans;
-//        GameObject obj;
-//        if (instance.pooledObjects.TryGetValue(prefab, out list))
-//        {
-//            obj = null;
-//            if (list.Count > 0)
-//            {
-//                while (obj == null && list.Count > 0)
-//                {
-//                    obj = list[0];
-//                    list.RemoveAt(0);
-//                    break;
-//                }
-//
-//                if (obj != null)
-//                {
-////                    trans = obj.transform;
-////                    //trans.parent = parent;
-////                    trans.SetParent(parent);
-////                    trans.localPosition = position;
-////                    trans.localRotation = rotation;
-////                    trans.localScale = prefab.transform.localScale;
-////                    obj.SetActive(true);
-//                    instance.spawnedObjects.Add(obj, prefab);
-//                    
-//                    return obj;
-//                }
-//            }
-//            prefab.SetActive(false);
-//            obj = (GameObject)Object.Instantiate(prefab);
-////            trans = obj.transform;
-////            //trans.parent = parent;
-////            trans.SetParent(parent);
-////            trans.localPosition = position;
-////            trans.localRotation = rotation;
-////            trans.localScale = prefab.transform.localScale;
-//            
-//            obj.SetActive(false);
-//            instance.spawnedObjects.Add(obj, prefab);
-//            prefab.SetActive(true);
-//            return obj;
-//        }
-//        else
-//        {
-//            //CreatePool(prefab, 1);
-//
-//            return CreateBeforePool(prefab, 1);
-//
-//
-//        }
-//        
-//    }
 
     public static GameObject Spawn(GameObject prefab, Transform parent, Vector3 position)
     {

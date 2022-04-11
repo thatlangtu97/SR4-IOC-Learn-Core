@@ -39,6 +39,8 @@ public class TakeDamageSystem : ReactiveSystem<GameEntity>
         //NativeArray<GameEntityData> datas = new NativeArray<GameEntityData>(entities.Count,Allocator.TempJob);
         float timedelay = 0;
         int indexAction = 0;
+        int maxAction = 5;
+        Dictionary<int, List<Action> >actions = new Dictionary<int, List<Action>>();
         foreach (GameEntity myEntity in entities)
         { 
             targetEnemy = myEntity.takeDamage.targetEnemy;
@@ -84,25 +86,73 @@ public class TakeDamageSystem : ReactiveSystem<GameEntity>
                 }
 
                 Vector3 randomPos = RandomVector[countRandom];
-                Observable.Timer(TimeSpan.FromSeconds(timedelay)).Subscribe(l => {  DamageTextManager.AddReactiveComponent(DamageTextType.Normal,damageTake.ToString(),position + randomPos); }).AddTo(_disposable);
-                timedelay += 0.01f;
-                
-                //Observable.TimerFrame(1,FrameCountType.Update).Subscribe(l => {  DamageTextManager.AddReactiveComponent(DamageTextType.Normal,damageTake.ToString(),position + randomPos); }).AddTo(_disposable);
+                //DamageTextManager.AddReactiveComponent(DamageTextType.Normal,damageTake.ToString(),position + randomPos);
+                //Observable.Timer(TimeSpan.FromSeconds(timedelay)).Subscribe(l => {  DamageTextManager.AddReactiveComponent(DamageTextType.Normal,damageTake.ToString(),position + randomPos); }).AddTo(_disposable);
+                Action temp = delegate
+                    {
+                        DamageTextManager.AddReactiveComponent(DamageTextType.Normal, damageTake.ToString(),
+                            position + randomPos);
+                    };
+                addAction(actions, temp, maxAction);
             }
             else
             {
                 Vector3 randomPos = RandomVector[countRandom];
-                Observable.Timer(TimeSpan.FromSeconds(timedelay)).Subscribe(l => {  DamageTextManager.AddReactiveComponent(DamageTextType.Normal,"Block",position + randomPos); }).AddTo(_disposable);
-                timedelay += 0.01f;
-                
-                //Observable.TimerFrame(1,FrameCountType.FixedUpdate).Subscribe(l => {  DamageTextManager.AddReactiveComponent(DamageTextType.Normal,"Block",position + randomPos); }).AddTo(_disposable);
-                
+                //DamageTextManager.AddReactiveComponent(DamageTextType.Normal,"Block",position + randomPos);
+                //Observable.Timer(TimeSpan.FromSeconds(timedelay)).Subscribe(l => {  DamageTextManager.AddReactiveComponent(DamageTextType.Normal,"Block",position + randomPos); }).AddTo(_disposable);
+                Action temp = delegate
+                {
+                    DamageTextManager.AddReactiveComponent(DamageTextType.Normal,"Block",position + randomPos);
+                };
+                addAction(actions, temp, maxAction);
             }
             countRandom = (countRandom+1) % (RandomVector.Count);
             ObjectPool.instance.RecycleEntity(myEntity);
         }
-    } 
-    
+
+        invokeAction(actions);
+
+    }
+
+    void addAction(Dictionary<int, List<Action>> dic, Action action, int maxCapacity)
+    {
+        int key = dic.Keys.Count;
+        if (key==0)
+        {
+            dic.Add(1,new List<Action>{action});
+        }
+        else
+        {
+            if (dic[key].Count >= maxCapacity)
+            {
+                dic.Add(key+1 ,new List<Action>{action});
+            }
+            else
+            {
+                dic[key].Add(action);
+            }
+        }
+    }
+
+    void invokeAction(Dictionary<int, List<Action>> dic)
+    {
+        float timedelay = 0f;
+        int timerFrame = 0;
+        foreach (var key in dic.Keys)
+        {
+            Observable.TimerFrame(timerFrame,FrameCountType.Update).Subscribe(l => {
+            //Observable.Timer(TimeSpan.FromSeconds(timedelay)).Subscribe(l => { 
+                foreach (var action in dic[key])
+                {
+                    action.Invoke();
+                } 
+            }).AddTo(_disposable);
+            timedelay += 0.05f;
+            timerFrame += 1;
+
+        }
+        
+    }
     public void RandomListPosition()
     {
         RandomVector = new List<Vector3>();

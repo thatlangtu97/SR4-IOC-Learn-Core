@@ -16,9 +16,23 @@ public class StateMachineController : MonoBehaviour
     public List<StateClone> States;
 
     public List<string> nameTrigger;
-
+    public ComponentManager componentManager;
+    public Animator animator;
     private void Awake()
     {
+//        foreach (AnimatorControllerParameter p in animator.parameters)
+//        {
+//            if (p.type == AnimatorControllerParameterType.Trigger)
+//            {
+//                nameTrigger.Add(p.name);
+//            }
+//        }
+        SetupAnim(animator);
+    }
+
+    public void SetupAnim(Animator animator)
+    {
+        if(! animator) return;
         foreach (AnimatorControllerParameter p in animator.parameters)
         {
             if (p.type == AnimatorControllerParameterType.Trigger)
@@ -37,8 +51,7 @@ public class StateMachineController : MonoBehaviour
             CreateStateFactory(tempState);
         }
     }
-    public ComponentManager componentManager;
-    public Animator animator;
+
 
     public void SetTrigger(string name, AnimationTypeState type , float timestart)
     {

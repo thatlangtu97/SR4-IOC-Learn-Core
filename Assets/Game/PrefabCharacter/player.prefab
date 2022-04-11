@@ -228,6 +228,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StateMachine:
     value: {fileID: 428360683092188370}
+  prefabMecanim: {fileID: 0}
 --- !u!114 &428360683092188373
 MonoBehaviour:
   m_ObjectHideFlags: 0

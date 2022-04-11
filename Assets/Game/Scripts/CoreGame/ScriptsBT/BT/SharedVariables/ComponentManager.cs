@@ -84,29 +84,52 @@ public class ComponentManager : MonoBehaviour
     public void OnEnable()
     {
         currentImunes = baseImmunes.Clone();
-        //entity = Contexts.sharedInstance.game.CreateEntity();
         entity = ObjectPool.instance.SpawnEntity();
         link = gameObject.Link(entity);
-//        AutoAdds = new List<IAutoAdd<GameEntity>>();
-//        var components = GetComponentsInChildren<IAutoAdd<GameEntity>>();
+//        currentImunes = baseImmunes.Clone();
+//        //entity = Contexts.sharedInstance.game.CreateEntity();
+//        entity = ObjectPool.instance.SpawnEntity();
+//        link = gameObject.Link(entity);
+////        AutoAdds = new List<IAutoAdd<GameEntity>>();
+////        var components = GetComponentsInChildren<IAutoAdd<GameEntity>>();
+//        foreach (var component in AutoAdds)
+//        {
+//            component.AddComponent(ref entity);
+//        }
+////        foreach (var component in components)
+////        {
+////            component.AddComponent(ref entity);
+////            
+////        }
+//        if (entity.hasBehaviourTree)
+//        {
+//            entity.behaviourTree.value.DisableBehavior();
+//            if (meshRenderer)
+//                meshRenderer.enabled = false;
+//        }
+//        ComponentManagerUtils.AddComponent(this);
+//        
+//        
+        SetupEntity();
+        //ActionBufferManager.Instance.ActionDelayTime( ()=>SetupEntity(),.5f );
+    }
+
+    public void SetupEntity()
+    {
+//        currentImunes = baseImmunes.Clone();
+//        entity = ObjectPool.instance.SpawnEntity();
+//        link = gameObject.Link(entity);
         foreach (var component in AutoAdds)
         {
             component.AddComponent(ref entity);
         }
-//        foreach (var component in components)
-//        {
-//            component.AddComponent(ref entity);
-//            
-//        }
         if (entity.hasBehaviourTree)
         {
             entity.behaviourTree.value.DisableBehavior();
-            if (meshRenderer)
-                meshRenderer.enabled = false;
         }
+        
         ComponentManagerUtils.AddComponent(this);
     }
-    
     private void OnDisable()
     {
         if (entity.hasBehaviourTree)
