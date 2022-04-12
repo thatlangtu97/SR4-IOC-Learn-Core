@@ -60,6 +60,11 @@ public class TestSpawnCharacter : MonoBehaviour
             countSpawn += 1;
         }
     }
+    public void SpawnEffect(PoolItem prefab)
+    {
+        PoolItem temp = PoolManager.Spawn(prefab);
+        PoolManager.Recycle(temp,1f);
+    }
     private int fps = -1;
     public void SetFps()
     {

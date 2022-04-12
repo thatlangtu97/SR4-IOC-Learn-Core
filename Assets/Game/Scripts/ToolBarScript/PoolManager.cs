@@ -103,7 +103,8 @@ public class PoolManager : MonoBehaviour
                 if (obj != null)
                 {
                     transform = obj.transform;
-                    transform.parent = parent;
+                    if(transform.parent != null)
+                        transform.parent = parent;
                     transform.localPosition = position;
                     transform.localRotation = rotation;
                     transform.localScale = prefab.transform.localScale;
@@ -112,10 +113,11 @@ public class PoolManager : MonoBehaviour
                     return obj;
                 }
             }
-            Debug.Log("khong co prefab");
+            
             obj = Object.Instantiate(prefab).GetComponent<PoolItem>();
             transform = obj.transform;
-            transform.parent = parent;
+             if(transform.parent != null)
+                transform.parent = parent;
             transform.localPosition = position;
             transform.localRotation = rotation;
             transform.localScale = prefab.transform.localScale;

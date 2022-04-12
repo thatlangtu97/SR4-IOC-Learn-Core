@@ -39,7 +39,7 @@ public class DamageTextSystem : ReactiveSystem<GameEntity>
             //damageTextView.transform.position = entity.damageText.position;
             damageTextView.transform.DOMove(damageTextView.transform.position + new Vector3(0f,.3f,0f),.4f);
             damageTextView.PlayAnim();
-            PoolManager.Recycle(damageTextView.GetComponent<PoolItem>());
+            PoolManager.Recycle(damageTextView.GetComponent<PoolItem>(),.5f);
             //ObjectPool.instance.RecycleDamageText(damageTextView);
             PoolManager.RecycleEntity(entity);
         }
