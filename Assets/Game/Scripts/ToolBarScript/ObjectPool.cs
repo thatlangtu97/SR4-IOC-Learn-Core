@@ -259,39 +259,32 @@ public sealed class ObjectPool : MonoBehaviour
         if(instance==null)
             _instance = this;
         _disposable = new CompositeDisposable();
-        if (startupPoolMode == StartupPoolMode.Awake)
-            CreateStartupPools();
+        
     }
 
     void Start()
     {
-        if (startupPoolMode == StartupPoolMode.Start)
-            CreateStartupPools();
+        CreateStartupPools();
         CreateStartupPoolsNotDeactive();
+        CreatePoolDamageTextView();
+        CreatePoolEntity(Contexts.sharedInstance, 100);
     }
-    
-//    IEnumerator delay( Action action, float time)
-//    {
-//        yield return new WaitForSeconds(time);
-//        action.Invoke();
-//    }
     
     public static void CreateStartupPools()
     {
-        if (!instance.startupPoolsCreated)
-        {
-            instance.startupPoolsCreated = true;
+//        if (!instance.startupPoolsCreated)
+//        {
+//            instance.startupPoolsCreated = true;
             var pools = instance.startupPools;
-            if (pools != null && pools.Length > 0)
-                for (int i = 0; i < pools.Length; ++i)
-                    CreatePool(pools[i].prefab, pools[i].size);
-        }
+                if (pools != null && pools.Length > 0)
+                    for (int i = 0; i < pools.Length; ++i)
+                        CreatePool(pools[i].prefab, pools[i].size);
+//        }
     }
     
     public static void CreateStartupPoolsNotDeactive()
     {
-
-            var pools = instance.startupPoolsNotDeactive;
+        var pools = instance.startupPoolsNotDeactive;
             if (pools != null && pools.Length > 0)
                 for (int i = 0; i < pools.Length; ++i)
                     CreatePoolNotDeactive(pools[i].prefab, pools[i].size);

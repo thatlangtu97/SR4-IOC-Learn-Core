@@ -84,8 +84,8 @@ public class ComponentManager : MonoBehaviour
     public void OnEnable()
     {
         currentImunes = baseImmunes.Clone();
-        //entity = ObjectPool.instance.SpawnEntity();
-        entity =PoolManager.SpawnEntity();
+        entity = ObjectPool.instance.SpawnEntity();
+        //entity =PoolManager.SpawnEntity();
         link = gameObject.Link(entity);
         SetupEntity();
     }

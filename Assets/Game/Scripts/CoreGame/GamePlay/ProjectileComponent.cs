@@ -33,27 +33,14 @@ public class ProjectileComponent : MonoBehaviour
     {
         if (entity == null)
         {
-//            entity = Contexts.sharedInstance.game.CreateEntity();
-            //entity = ObjectPool.instance.SpawnEntity();
-            entity = PoolManager.SpawnEntity();
+            entity = ObjectPool.instance.SpawnEntity();
+            //entity = PoolManager.SpawnEntity();
             link = gameObject.Link(entity);
             foreach (var component in AutoAdds)
             {
                 component.AddComponent(ref entity);
             }
             ComponentManagerUtils.AddComponent(this);
-//            var components = GetComponentsInChildren<IAutoAdd<GameEntity>>();
-//            foreach (var component in components)
-//            {
-//                if(AutoAdds.Contains(component)) continue;
-//                AutoAdds.Add(component);
-//            }
-//            foreach (var component in AutoAdds)
-//            {
-//                component.AddComponent(ref entity);
-//                ComponentManagerUtils.AddComponent(this);
-//            }
-
         }
     }
 

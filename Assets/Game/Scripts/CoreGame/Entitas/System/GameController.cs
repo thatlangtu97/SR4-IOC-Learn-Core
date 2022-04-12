@@ -45,10 +45,6 @@ public class GameController : MonoBehaviour
             ;
         DealDmgManager.context = contexts;
         DamageTextManager.context = contexts;
-        //ObjectPool.instance.CreatePoolEntity(contexts,100);
-        //ObjectPool.instance.CreatePoolDamageTextView();
-
-        
         GameSystem.Initialize();
     }
     void Start()
