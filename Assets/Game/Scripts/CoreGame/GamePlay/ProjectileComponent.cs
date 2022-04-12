@@ -34,7 +34,8 @@ public class ProjectileComponent : MonoBehaviour
         if (entity == null)
         {
 //            entity = Contexts.sharedInstance.game.CreateEntity();
-            entity = ObjectPool.instance.SpawnEntity();
+            //entity = ObjectPool.instance.SpawnEntity();
+            entity = PoolManager.SpawnEntity();
             link = gameObject.Link(entity);
             foreach (var component in AutoAdds)
             {

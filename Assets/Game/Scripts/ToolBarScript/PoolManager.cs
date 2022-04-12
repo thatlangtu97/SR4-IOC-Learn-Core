@@ -33,6 +33,10 @@ public class PoolManager : MonoBehaviour
     public ObjectPool[] PoolNotDeactive;
     #endregion
     
+    #region POOL ENTITY
+    private static List<GameEntity> entites= new List<GameEntity>();
+    #endregion
+    
     #region INSTANCE
     static CompositeDisposable _disposable;
     static PoolManager _instance;
@@ -323,10 +327,27 @@ public class PoolManager : MonoBehaviour
         if(instance==null)
             _instance = this;
         _disposable = new CompositeDisposable();
+
+    }
+
+    private void Start()
+    {
         CreateStartupPools();
         CreateStartupPoolsNotDeactive();
-        
+        CreatePoolEntity(Contexts.sharedInstance, 100);
     }
+
+    public static void CreatePoolEntity(Contexts context, int size)
+    {
+        int count = 0;
+        while (count<size)
+        {
+            GameEntity temp = context.game.CreateEntity(); 
+            entites.Add(temp);
+            count += 1;
+        }
+    }
+    
     public static void CreateStartupPools()
     {
         var pools = instance.PoolDefault;
@@ -334,7 +355,22 @@ public class PoolManager : MonoBehaviour
             for (int i = 0; i < pools.Length; ++i) 
                 CreatePool(pools[i].prefab, pools[i].size);
     }
-    
+    public static GameEntity SpawnEntity()
+    {
+        if (entites.Count == 0)
+        {
+            CreatePoolEntity(Contexts.sharedInstance, 30);
+        }
+        int indexE = entites.Count - 1;
+        GameEntity temp = entites[indexE];
+        entites.RemoveAt(indexE);
+        return temp;
+    }
+    public static void RecycleEntity(GameEntity entity)
+    {
+        entity.RemoveAllComponents();
+        entites.Add(entity);
+    }
     public static void CreateStartupPoolsNotDeactive()
     {
         var pools = instance.PoolNotDeactive;

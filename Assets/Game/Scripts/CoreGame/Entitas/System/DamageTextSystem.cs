@@ -29,18 +29,19 @@ public class DamageTextSystem : ReactiveSystem<GameEntity>
     protected override void Execute(List<GameEntity> entities)
     {
         Debug.Log(entities.Count);
-        foreach (GameEntity myEntity in entities)
+        foreach (GameEntity entity in entities)
         {
-            DamageTextView damageTextView = ObjectPool.instance.SpawnDamageText();
+            //DamageTextView damageTextView = ObjectPool.instance.SpawnDamageText();
             //DamageTextView damageTextView = ObjectPool.SpawnNotDeactive(textprefab);
-            //DamageTextView damageTextView = PoolManager.Spawn(textprefab,null,PoolManager.TypeSpawn.NotDeactive);
-            damageTextView.text = myEntity.damageText.value;
-            damageTextView.color = DamageTextManager.GetColor(myEntity.damageText.damageTextType);
-            damageTextView.transform.position = myEntity.damageText.position;
+            DamageTextView damageTextView = PoolManager.Spawn(textprefab,null,PoolManager.TypeSpawn.NotDeactive);
+            damageTextView.text = entity.damageText.value;
+            damageTextView.color = DamageTextManager.GetColor(entity.damageText.damageTextType);
+            damageTextView.transform.position = entity.damageText.position;
             damageTextView.transform.DOMove(damageTextView.transform.position + new Vector3(0f,.3f,0f),.4f);
             damageTextView.PlayAnim();
-            ObjectPool.instance.RecycleDamageText(damageTextView);
-            ObjectPool.instance.RecycleEntity(myEntity);
+            //ObjectPool.instance.RecycleNotDeactive(damageTextView.gameObject, .5f);
+            PoolManager.Recycle(damageTextView.gameObject,.5f,PoolManager.TypeSpawn.NotDeactive);
+            PoolManager.RecycleEntity(entity);
         }
     }
 

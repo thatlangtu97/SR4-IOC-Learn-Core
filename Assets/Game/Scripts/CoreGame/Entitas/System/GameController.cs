@@ -28,7 +28,7 @@ public class GameController : MonoBehaviour
 //            .Add(new HealthBarUpdateSystem(contexts))
 //            ;
 //        GameSystem.Initialize();
-        
+        SetupSystem();
        
     }
     [Button("SetupSystem", ButtonSizes.Gigantic), GUIColor(0.4f, 0.8f, 1),]
@@ -36,7 +36,7 @@ public class GameController : MonoBehaviour
     public void SetupSystem()
     {
         var contexts = Contexts.sharedInstance;
-        GameSystem = new Feature("Game System")
+        GameSystem = new Feature("GameSystem")
                 .Add(new StateMachineUpdateSystem(contexts))
                 .Add(new TakeDamageSystem(contexts))
                 .Add(new ProjectileMoveBezierSystem(contexts))
@@ -45,8 +45,10 @@ public class GameController : MonoBehaviour
             ;
         DealDmgManager.context = contexts;
         DamageTextManager.context = contexts;
-        ObjectPool.instance.CreatePoolEntity(contexts,100);
-        ObjectPool.instance.CreatePoolDamageTextView();
+        //ObjectPool.instance.CreatePoolEntity(contexts,100);
+        //ObjectPool.instance.CreatePoolDamageTextView();
+
+        
         GameSystem.Initialize();
     }
     void Start()
@@ -55,7 +57,7 @@ public class GameController : MonoBehaviour
         {
             PlayFlashScene.instance.HideLoading();
         }
-        SetupSystem();
+        
     }
     private void OnDestroy()
     {

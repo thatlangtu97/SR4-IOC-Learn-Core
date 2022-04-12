@@ -41,11 +41,11 @@ public class TakeDamageSystem : ReactiveSystem<GameEntity>
         int indexAction = 0;
         int maxAction = 5;
         Dictionary<int, List<Action> >actions = new Dictionary<int, List<Action>>();
-        foreach (GameEntity myEntity in entities)
+        foreach (GameEntity entity in entities)
         { 
-            targetEnemy = myEntity.takeDamage.targetEnemy;
+            targetEnemy = entity.takeDamage.targetEnemy;
             stateMachine = targetEnemy.stateMachineContainer.value;
-            damageInfoSend = myEntity.takeDamage.damageInfoSend;
+            damageInfoSend = entity.takeDamage.damageInfoSend;
             Vector3 position = stateMachine.transform.position;
             if (targetEnemy == null)
             {
@@ -86,8 +86,6 @@ public class TakeDamageSystem : ReactiveSystem<GameEntity>
                 }
 
                 Vector3 randomPos = RandomVector[countRandom];
-                //DamageTextManager.AddReactiveComponent(DamageTextType.Normal,damageTake.ToString(),position + randomPos);
-                //Observable.Timer(TimeSpan.FromSeconds(timedelay)).Subscribe(l => {  DamageTextManager.AddReactiveComponent(DamageTextType.Normal,damageTake.ToString(),position + randomPos); }).AddTo(_disposable);
                 Action temp = delegate
                     {
                         DamageTextManager.AddReactiveComponent(DamageTextType.Normal, damageTake.ToString(),
@@ -98,8 +96,6 @@ public class TakeDamageSystem : ReactiveSystem<GameEntity>
             else
             {
                 Vector3 randomPos = RandomVector[countRandom];
-                //DamageTextManager.AddReactiveComponent(DamageTextType.Normal,"Block",position + randomPos);
-                //Observable.Timer(TimeSpan.FromSeconds(timedelay)).Subscribe(l => {  DamageTextManager.AddReactiveComponent(DamageTextType.Normal,"Block",position + randomPos); }).AddTo(_disposable);
                 Action temp = delegate
                 {
                     DamageTextManager.AddReactiveComponent(DamageTextType.Normal,"Block",position + randomPos);
@@ -107,7 +103,8 @@ public class TakeDamageSystem : ReactiveSystem<GameEntity>
                 addAction(actions, temp, maxAction);
             }
             countRandom = (countRandom+1) % (RandomVector.Count);
-            ObjectPool.instance.RecycleEntity(myEntity);
+            //ObjectPool.instance.RecycleEntity(myEntity);
+            PoolManager.RecycleEntity(entity);
         }
 
         invokeAction(actions);
@@ -136,20 +133,16 @@ public class TakeDamageSystem : ReactiveSystem<GameEntity>
 
     void invokeAction(Dictionary<int, List<Action>> dic)
     {
-        float timedelay = 0f;
         int timerFrame = 0;
         foreach (var key in dic.Keys)
         {
             Observable.TimerFrame(timerFrame,FrameCountType.Update).Subscribe(l => {
-            //Observable.Timer(TimeSpan.FromSeconds(timedelay)).Subscribe(l => { 
                 foreach (var action in dic[key])
                 {
                     action.Invoke();
                 } 
             }).AddTo(_disposable);
-            timedelay += 0.05f;
             timerFrame += 1;
-
         }
         
     }

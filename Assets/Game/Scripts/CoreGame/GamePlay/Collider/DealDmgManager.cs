@@ -20,9 +20,9 @@ public class DealDmgManager
     }
     static void AddReactiveComponent( GameEntity myEntity, GameEntity targetEntity, DamageInfoSend damageInfoSend)
     {
-        //GameEntity takeDamageComponent = context.game.CreateEntity();
-        GameEntity takeDamageComponent = ObjectPool.instance.SpawnEntity();
-        takeDamageComponent.AddTakeDamage(myEntity, targetEntity, damageInfoSend);
+        //GameEntity entity = ObjectPool.instance.SpawnEntity();
+        GameEntity entity = PoolManager.SpawnEntity();
+        entity.AddTakeDamage(myEntity, targetEntity, damageInfoSend);
     }
 
 }
@@ -34,9 +34,9 @@ public class DamageTextManager
     public static List<GameEntity> listEntity;
     public static void AddReactiveComponent( DamageTextType newDamageTextType,string newValue, Vector3 newPosition)
     {
-        //GameEntity damageText = context.game.CreateEntity();
-        GameEntity damageText = ObjectPool.instance.SpawnEntity();
-        damageText.AddDamageText(newDamageTextType, newValue, newPosition);
+        //GameEntity entity = ObjectPool.instance.SpawnEntity();
+        GameEntity entity = PoolManager.SpawnEntity();
+        entity.AddDamageText(newDamageTextType, newValue, newPosition);
     }
 
     public static Color GetColor(DamageTextType newDamageTextType)
