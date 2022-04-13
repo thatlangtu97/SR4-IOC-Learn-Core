@@ -18,18 +18,24 @@ public class StateMachineController : MonoBehaviour
     public List<string> nameTrigger;
     public ComponentManager componentManager;
     public Animator animator;
-    private void Awake()
+//    private void Awake()
+//    {
+////        foreach (AnimatorControllerParameter p in animator.parameters)
+////        {
+////            if (p.type == AnimatorControllerParameterType.Trigger)
+////            {
+////                nameTrigger.Add(p.name);
+////            }
+////        }
+//        //SetupAnim(animator);
+//    }
+    
+    [Button("SETUP CONTROLL UI", ButtonSizes.Gigantic), GUIColor(0.4f, 0.8f, 1),]
+    public void SetupEntity()
     {
-//        foreach (AnimatorControllerParameter p in animator.parameters)
-//        {
-//            if (p.type == AnimatorControllerParameterType.Trigger)
-//            {
-//                nameTrigger.Add(p.name);
-//            }
-//        }
-        SetupAnim(animator);
+        GameUIController.instance.stateMachine = this;
+        GameUIController.instance.MODIFY();
     }
-
     public void SetupAnim(Animator animator)
     {
         if(! animator) return;
@@ -44,12 +50,14 @@ public class StateMachineController : MonoBehaviour
 
     public void SetupState()
     {
+        SetupAnim(animator);
         dictionaryStateMachine = new Dictionary<NameState, State>();
         currentState = null;
         currentNameState = NameState.UnknowState;
         foreach (StateClone tempState in States) {
             CreateStateFactory(tempState);
         }
+        
     }
 
 

@@ -81,17 +81,21 @@ public class ComponentManager : MonoBehaviour
             AutoAdds.Add(component);
         }
     }
-    public void OnEnable()
+//    public void OnEnable()
+//    {
+////        currentImunes = baseImmunes.Clone();
+////        //entity = ObjectPool.instance.SpawnEntity();
+////        entity = PoolManager.SpawnEntity();
+////        link = gameObject.Link(entity);
+//        //SetupEntity();
+//    }
+    [Button("SETUP ENTITY", ButtonSizes.Gigantic), GUIColor(0.4f, 0.8f, 1),]
+    public void SetupEntity()
     {
         currentImunes = baseImmunes.Clone();
         //entity = ObjectPool.instance.SpawnEntity();
         entity = PoolManager.SpawnEntity();
         link = gameObject.Link(entity);
-        SetupEntity();
-    }
-
-    public void SetupEntity()
-    {
         foreach (var component in AutoAdds)
         {
             component.AddComponent(ref entity);
@@ -104,6 +108,10 @@ public class ComponentManager : MonoBehaviour
     }
     private void OnDisable()
     {
+        if (entity == null)
+        {
+            return;
+        }
         if (entity.hasBehaviourTree)
         {
             entity.behaviourTree.value.DisableBehavior();
@@ -259,11 +267,12 @@ public class ComponentManager : MonoBehaviour
         DestroyEntity();
     }
 
-    private void Reset()
-    {
-        DestroyEntity();
-        OnEnable();
-    }
+//    private void Reset()
+//    {
+//        Debug.Log("Reset");
+//        DestroyEntity();
+//        SetupEntity();
+//    }
 
     /// <summary>
     /// UpdateWorldTransform() in Script 

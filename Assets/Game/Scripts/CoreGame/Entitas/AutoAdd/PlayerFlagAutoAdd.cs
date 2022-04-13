@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerFlagAutoAdd : AutoAddComponent
 {
     public ConvertToPlayerFlag value;
+    public bool isPlayer;
     public override void AddComponent(ref GameEntity e)
     {
         e.AddPlayerFlag(value.isPlayer);

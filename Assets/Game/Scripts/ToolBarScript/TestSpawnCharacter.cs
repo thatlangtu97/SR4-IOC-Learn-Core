@@ -15,6 +15,11 @@ public class TestSpawnCharacter : MonoBehaviour
         {
             //temp = ObjectPool.Spawn(prefab).GetComponent<StateMachineController>();
             temp = PoolManager.Spawn(prefab.GetComponent<PoolItem>()).GetComponent<StateMachineController>();
+            //temp.GetComponent<ComponentManager>().SetupEntity();
+            
+            
+            ActionBufferManager.Instance.ActionDelayTime(() => { temp.GetComponent<ComponentManager>().SetupEntity();}, 2f);
+            
             //temp.gameObject.SetActive(true);
             index += 1;
         } 
@@ -22,8 +27,13 @@ public class TestSpawnCharacter : MonoBehaviour
         
         if (SetPlayer)
         {
-            GameUIController.instance.stateMachine = temp;
-            GameUIController.instance.MODIFY();
+            ActionBufferManager.Instance.ActionDelayTime(() =>
+            {
+                GameUIController.instance.stateMachine = temp;
+                GameUIController.instance.MODIFY();
+                
+            }, 2.1f);
+            
         }
     }
 

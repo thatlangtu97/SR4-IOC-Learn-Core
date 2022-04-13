@@ -256,7 +256,7 @@ public class SpawnGameObject : IComboEvent
                     break;
                 case TypeSpawn.RigidBody2D:
                     //prefabSpawned = ObjectPool.Spawn(Prefab, baseTransform, localPosition,Quaternion.Euler(LocalRotation), LocalScale);
-                    prefabSpawned = PoolManager.Spawn(Prefab, baseTransform, localPosition,Quaternion.Euler(LocalRotation), LocalScale);
+                    prefabSpawned = PoolManager.Spawn(Prefab.GetComponent<PoolItem>(), baseTransform, localPosition,Quaternion.Euler(LocalRotation), LocalScale);
                     
                     if (!setParent)
                     {
