@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 5413193598402265839}
   - component: {fileID: 5413193598402265838}
   - component: {fileID: 5413193598402265835}
+  - component: {fileID: -3800790139667890673}
   m_Layer: 12
   m_Name: E72
   m_TagString: Untagged
@@ -286,6 +287,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StateMachine:
     value: {fileID: 5413193598402265846}
+  prefabMecanim: {fileID: 0}
 --- !u!114 &5413193598402265839
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -329,6 +331,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   powerComponent:
     value: 10
+--- !u!114 &-3800790139667890673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5413193598402265841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89d9befa8a257144db233035db8d0911, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5413193598729592703
 GameObject:
   m_ObjectHideFlags: 0

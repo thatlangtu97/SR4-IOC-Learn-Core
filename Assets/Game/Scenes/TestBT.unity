@@ -24306,15 +24306,59 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PoolDefault:
-  - size: 0
+  - size: 100
     prefab: {fileID: -5527340204523048409, guid: b0ff441957a6c074cb6dc3149bd41bcf,
       type: 3}
   - size: 2
-    prefab: {fileID: 4597597815748723817, guid: 78ee0cd3b63f1bd45a38ed97e1099e1f,
+    prefab: {fileID: 3445363950264527461, guid: 7be97970b895d1c4fb3164527361e539,
       type: 3}
   - size: 2
-    prefab: {fileID: 8102162446433478177, guid: 6dc5891bc26822848890f6bd738ca147,
+    prefab: {fileID: -3672555517770443492, guid: 40be303f4c3fe304097825f2ecd987cb,
       type: 3}
+  - size: 5
+    prefab: {fileID: -4101014265909928606, guid: ba6e5970cef1f8248bbac8ebc424b63f,
+      type: 3}
+  - size: 7
+    prefab: {fileID: -8166272923192564146, guid: 02ebd0007e99d47cba133a06d7288dab,
+      type: 3}
+  - size: 1
+    prefab: {fileID: -7453943506206032504, guid: 6f230328331304e43acefd494218c59c,
+      type: 3}
+  poolLists:
+  - name: Player
+    ListPrefab:
+    - size: 2
+      prefab: {fileID: 4597597815748723817, guid: 78ee0cd3b63f1bd45a38ed97e1099e1f,
+        type: 3}
+    - size: 2
+      prefab: {fileID: 8102162446433478177, guid: 6dc5891bc26822848890f6bd738ca147,
+        type: 3}
+    - size: 1
+      prefab: {fileID: 5224863356935284476, guid: aaceef303bd41fd47add417c82d20de7,
+        type: 3}
+    - size: 2
+      prefab: {fileID: 3445363950264527461, guid: 7be97970b895d1c4fb3164527361e539,
+        type: 3}
+    - size: 1
+      prefab: {fileID: 7599950458680830312, guid: 799ba3095ff225146bea02318a149f87,
+        type: 3}
+    - size: 1
+      prefab: {fileID: 7761605413422248075, guid: 50680389458c8294dbb0a7414c28be1a,
+        type: 3}
+    - size: 1
+      prefab: {fileID: 3987228054478500386, guid: 1ededa2e5f5650d48978cca088b4e47b,
+        type: 3}
+    - size: 1
+      prefab: {fileID: 597557285838517369, guid: abd091860eb762c4185f982c9ec6717c,
+        type: 3}
+    - size: 3
+      prefab: {fileID: 4370782183701342121, guid: c4e5fe0bd711d8348b06d061e8db1551,
+        type: 3}
+  - name: E1
+    ListPrefab:
+    - size: 1
+      prefab: {fileID: 5284923481547528749, guid: 0331d21cfd4d4934c99c976841391283,
+        type: 3}
 --- !u!4 &2082627698
 Transform:
   m_ObjectHideFlags: 0

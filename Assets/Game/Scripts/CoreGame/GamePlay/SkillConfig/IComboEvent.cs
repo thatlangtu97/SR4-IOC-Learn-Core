@@ -2,6 +2,7 @@
 using Sirenix.OdinInspector;
 using System;
 using System.Collections.Generic;
+using Spine;
 
 public enum PowerCollider
 {
@@ -114,15 +115,15 @@ public class CastVfxEvent : IComboEvent
     
     public int id { get { return idEvent; } set { idEvent = value; } }
     public float timeTrigger { get { return timeTriggerEvent; } }
-    private GameObject prefabSpawned;
+    private PoolItem prefabSpawned;
     public void OnEventTrigger(GameEntity entity)
     {
         if (Prefab)
         {
-            prefabSpawned = ObjectPool.Spawn(Prefab);
+            //prefabSpawned = ObjectPool.Spawn(Prefab);
             Transform baseTransform = entity.stateMachineContainer.value.transform;
-            
-            prefabSpawned.transform.parent = baseTransform;
+            prefabSpawned = PoolManager.Spawn(Prefab.GetComponent<PoolItem>(),baseTransform);
+            //prefabSpawned.transform.parent = baseTransform;
             prefabSpawned.transform.localPosition = new Vector3(Localosition.x , Localosition.y , Localosition.z );
             prefabSpawned.transform.localRotation = Quaternion.Euler(LocalRotation);
             prefabSpawned.transform.localScale = LocalScale;
@@ -130,7 +131,9 @@ public class CastVfxEvent : IComboEvent
             {
                 prefabSpawned.transform.parent = null;
             }
-            ObjectPool.instance.Recycle(prefabSpawned, duration);
+            PoolManager.Recycle(prefabSpawned,duration);
+            //ObjectPool.instance.Recycle(prefabSpawned, duration);
+            
         }
     }
     public void Recycle()
@@ -138,7 +141,10 @@ public class CastVfxEvent : IComboEvent
         if (recycleWhenFinishDuration)
         {
             if (prefabSpawned)
-                ObjectPool.Recycle(prefabSpawned);
+            {
+                //ObjectPool.Recycle(prefabSpawned);
+                PoolManager.Recycle(prefabSpawned,duration);
+            }
         }
         else
         {
@@ -231,7 +237,7 @@ public class SpawnGameObject : IComboEvent
     [FoldoutGroup("SPAWN GAMEOBJECT")]     public LayerMask LayerMask ;
     public int id { get { return idEvent; } set { idEvent = value; } }
     public float timeTrigger { get { return timeTriggerEvent; } }
-    private GameObject prefabSpawned;
+    private PoolItem prefabSpawned;
     public void OnEventTrigger(GameEntity entity)
     {
         if (Prefab)
@@ -240,8 +246,8 @@ public class SpawnGameObject : IComboEvent
             switch (typeSpawn)
             {
                 case TypeSpawn.Transform:
-                    prefabSpawned = ObjectPool.Spawn(Prefab, baseTransform, localPosition,Quaternion.Euler(LocalRotation), LocalScale);
-                    
+                    //prefabSpawned = ObjectPool.Spawn(Prefab, baseTransform, localPosition,Quaternion.Euler(LocalRotation), LocalScale);
+                    prefabSpawned = PoolManager.Spawn(Prefab.GetComponent<PoolItem>(), baseTransform, localPosition ,Quaternion.Euler(LocalRotation), LocalScale);
                     if (!setParent)
                     {
                         prefabSpawned.transform.parent = null;
@@ -249,7 +255,8 @@ public class SpawnGameObject : IComboEvent
                     UseRayCast(baseTransform.position, new Vector2(1,0)* baseTransform.localScale.x, Mathf.Abs(localPosition.x), LayerMask,prefabSpawned.transform,baseTransform);
                     break;
                 case TypeSpawn.RigidBody2D:
-                    prefabSpawned = ObjectPool.Spawn(Prefab, baseTransform, localPosition,Quaternion.Euler(LocalRotation), LocalScale);
+                    //prefabSpawned = ObjectPool.Spawn(Prefab, baseTransform, localPosition,Quaternion.Euler(LocalRotation), LocalScale);
+                    prefabSpawned = PoolManager.Spawn(Prefab, baseTransform, localPosition,Quaternion.Euler(LocalRotation), LocalScale);
                     
                     if (!setParent)
                     {
@@ -278,7 +285,8 @@ public class SpawnGameObject : IComboEvent
                             {
                                 Vector3 direction = col.transform.position - baseTransform.position;
                                 Vector3 rightTransform = direction.normalized  * baseTransform.localScale.x ;
-                                prefabSpawned = ObjectPool.Spawn(Prefab, baseTransform, localPosition, rightTransform, localScaleCalculate);
+                                //prefabSpawned = ObjectPool.Spawn(Prefab, baseTransform, localPosition, rightTransform, localScaleCalculate);
+                                prefabSpawned = PoolManager.Spawn(Prefab.GetComponent<PoolItem>(), baseTransform, localPosition, rightTransform, localScaleCalculate);
                                 break;
                             }
                         }
@@ -287,12 +295,17 @@ public class SpawnGameObject : IComboEvent
                     {
                         prefabSpawned.transform.parent = null;
                     }
-                    ObjectPool.instance.Recycle(prefabSpawned, duration);
+                    //ObjectPool.instance.Recycle(prefabSpawned, duration);
+                    PoolManager.Recycle(prefabSpawned, duration);
                     
                     break;
             }
-            if(UseDuration)
-                ObjectPool.instance.Recycle(prefabSpawned, duration);
+
+            if (UseDuration)
+            {
+                //ObjectPool.instance.Recycle(prefabSpawned, duration);
+                PoolManager.Recycle(prefabSpawned, duration);
+            }
         }
     }
     public void Recycle()
@@ -302,7 +315,10 @@ public class SpawnGameObject : IComboEvent
             if (forceWhenFinishEvent)
             {
                 if (prefabSpawned)
-                    ObjectPool.Recycle(prefabSpawned);
+                {
+                    //ObjectPool.Recycle(prefabSpawned);
+                    PoolManager.Recycle(prefabSpawned);
+                }
             }
             else
             {
@@ -401,7 +417,7 @@ public class ColliderEvent : IComboEvent
     [FoldoutGroup("COLLIDER EVENT")] 
     public DamageInfoEvent damageInfoEvent;
     
-    private GameObject col;
+    private PoolItem col;
     private int countCast;
     private float countDuration;
     private DamageCollider damageCollider;
@@ -440,7 +456,8 @@ public class ColliderEvent : IComboEvent
                 if (useColliderComponent)
                 {
                     countDuration = 0;
-                    col = ObjectPool.Spawn(prefab);
+                    //col = ObjectPool.Spawn(prefab);
+                    col = PoolManager.Spawn(prefab.GetComponent<PoolItem>());
                     damageCollider = col.GetComponent<DamageCollider>();
                     damageCollider.SetCollider(typeCast, sizeBox, entity.power.value, damageInfoEvent, entity);
                     col.transform.position = point;
@@ -489,7 +506,9 @@ public class ColliderEvent : IComboEvent
                 if (useColliderComponent)
                 {
                     countDuration = 0;
-                    col = ObjectPool.Spawn(prefab);
+                    //col = ObjectPool.Spawn(prefab);
+                    col = PoolManager.Spawn(prefab.GetComponent<PoolItem>());
+                    
                     damageCollider = col.GetComponent<DamageCollider>();
                     int damageProperties = entity.power.value;
                     damageCollider.SetCollider(typeCast, radius, damageProperties, damageInfoEvent, entity);
@@ -553,7 +572,8 @@ public class ColliderEvent : IComboEvent
                 if (col)
                 {
                     damageCollider.Recycle();
-                    ObjectPool.Recycle(col);
+                    //ObjectPool.Recycle(col);
+                    PoolManager.Recycle(col);
                 }
                     
             }
@@ -572,7 +592,8 @@ public class ColliderEvent : IComboEvent
         if (col)
         {
             damageCollider.Recycle();
-            ObjectPool.Recycle(col);
+            //ObjectPool.Recycle(col);
+            PoolManager.Recycle(col);
         }
     }
 }
@@ -629,7 +650,7 @@ public class CastProjectile : IComboEvent
     public LayerMask LayerMaskLimitPosition ;
     public int id { get { return idEvent; } set { idEvent = value; } }
     public float timeTrigger { get { return timeTriggerEvent; } }
-    private GameObject prefabSpawned;
+    private PoolItem prefabSpawned;
     public void OnEventTrigger(GameEntity entity)
     {
         
@@ -639,7 +660,8 @@ public class CastProjectile : IComboEvent
             switch (typeSpawn)
             {
                 case TypeSpawn.Transform:
-                    prefabSpawned = ObjectPool.Spawn(Prefab,baseTransform,localPosition,Quaternion.Euler(LocalRotation),LocalScale);
+                    //prefabSpawned = ObjectPool.Spawn(Prefab,baseTransform,localPosition,Quaternion.Euler(LocalRotation),LocalScale);
+                    prefabSpawned = PoolManager.Spawn(Prefab.GetComponent<PoolItem>(), baseTransform, localPosition ,Quaternion.Euler(LocalRotation), LocalScale);
                     if (!setParent)
                     {
                         prefabSpawned.transform.parent = null;
@@ -648,7 +670,8 @@ public class CastProjectile : IComboEvent
                     break;
                 
                 case TypeSpawn.RigidBody2D:
-                    prefabSpawned = ObjectPool.Spawn(Prefab,baseTransform,localPosition,Quaternion.Euler(LocalRotation),LocalScale);
+                    //prefabSpawned = ObjectPool.Spawn(Prefab,baseTransform,localPosition,Quaternion.Euler(LocalRotation),LocalScale);
+                    prefabSpawned = PoolManager.Spawn(Prefab.GetComponent<PoolItem>(), baseTransform, localPosition ,Quaternion.Euler(LocalRotation), LocalScale);
                     if (!setParent)
                     {
                         prefabSpawned.transform.parent = null;
@@ -675,7 +698,8 @@ public class CastProjectile : IComboEvent
                             {
                                 Vector3 direction = col.transform.position - baseTransform.position;
                                 Vector3 rightTransform = direction.normalized  * baseTransform.localScale.x ;
-                                prefabSpawned = ObjectPool.Spawn(Prefab, baseTransform, localPosition, rightTransform, LocalScale);
+                                //prefabSpawned = ObjectPool.Spawn(Prefab, baseTransform, localPosition, rightTransform, LocalScale);
+                                prefabSpawned = PoolManager.Spawn(Prefab.GetComponent<PoolItem>(), baseTransform, localPosition ,rightTransform, LocalScale);
                                 break;
                             }
                         }
@@ -684,8 +708,13 @@ public class CastProjectile : IComboEvent
                     {
                         prefabSpawned.transform.parent = null;
                     }
-                    if(useDuration)
-                    ObjectPool.instance.Recycle(prefabSpawned, duration);
+
+                    if (useDuration)
+                    {
+                        //ObjectPool.instance.Recycle(prefabSpawned, duration);
+                        PoolManager.Recycle(prefabSpawned, duration);
+                    }
+
                     break;
                 
             }
@@ -710,8 +739,12 @@ public class CastProjectile : IComboEvent
                 }
 
             }
-            if(useDuration)
-                ObjectPool.instance.Recycle(prefabSpawned, duration);
+
+            if (useDuration)
+            {
+                //ObjectPool.instance.Recycle(prefabSpawned, duration);
+                PoolManager.Recycle(prefabSpawned, duration);
+            }
         }
     }
     public void Recycle()
@@ -721,7 +754,10 @@ public class CastProjectile : IComboEvent
             if (forceWhenFinishEvent)
             {
                 if (prefabSpawned)
-                    ObjectPool.Recycle(prefabSpawned);
+                {
+                    //ObjectPool.Recycle(prefabSpawned);
+                    PoolManager.Recycle(prefabSpawned);
+                }
             }
             else
             {

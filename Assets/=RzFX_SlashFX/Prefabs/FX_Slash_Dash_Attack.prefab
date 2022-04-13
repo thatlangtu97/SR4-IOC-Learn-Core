@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 616000078589791972}
   - component: {fileID: 739417092975410032}
   - component: {fileID: 739012692164822676}
+  - component: {fileID: 7761605413422248075}
   m_Layer: 0
   m_Name: FX_Slash_Dash_Attack
   m_TagString: Untagged
@@ -4794,3 +4795,16 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &7761605413422248075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 613982098668468512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cd75fbedbf37b245ad215b25e1c0216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particle: {fileID: 739417092975410032}

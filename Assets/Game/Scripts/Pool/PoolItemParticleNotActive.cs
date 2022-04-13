@@ -8,6 +8,7 @@ public class PoolItemParticleNotActive : PoolItem
     public override void Create()
     {
         particle.Stop(true);
+        transform.localScale = Vector3.zero;
     }
 
     public override void Spawn()

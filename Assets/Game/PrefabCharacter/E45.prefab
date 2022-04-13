@@ -184,6 +184,7 @@ GameObject:
   - component: {fileID: 2240184189791456155}
   - component: {fileID: 2240184189791456154}
   - component: {fileID: 2240184189791456151}
+  - component: {fileID: -3555042023877760853}
   m_Layer: 12
   m_Name: E45
   m_TagString: Untagged
@@ -458,6 +459,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StateMachine:
     value: {fileID: 2240184189791456146}
+  prefabMecanim: {fileID: 0}
 --- !u!114 &2240184189791456155
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -501,3 +503,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   behaviourTreeComponent:
     value: {fileID: 2240184189791456150}
+--- !u!114 &-3555042023877760853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2240184189791456141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89d9befa8a257144db233035db8d0911, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

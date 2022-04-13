@@ -61,7 +61,7 @@ public class EGA_Laser : MonoBehaviour
     private IEnumerator Destroylazer() {
         yield return new WaitForSeconds(timeLive);
         DisablePrepare();
-        ObjectPool.Recycle(this.gameObject);
+        //ObjectPool.Recycle(this.gameObject);
     }
 
     void Update()

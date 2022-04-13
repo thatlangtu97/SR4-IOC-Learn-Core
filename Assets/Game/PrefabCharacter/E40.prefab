@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 6471316227819945590}
   - component: {fileID: 2095664645}
   - component: {fileID: 2095664644}
+  - component: {fileID: 4611551787971203826}
   m_Layer: 12
   m_Name: E40
   m_TagString: Untagged
@@ -202,6 +203,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StateMachine:
     value: {fileID: 6471316227819945590}
+  prefabMecanim: {fileID: 0}
 --- !u!61 &6471316227819945591
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -292,6 +294,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   powerComponent:
     value: 10
+--- !u!114 &4611551787971203826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6471316227819945589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89d9befa8a257144db233035db8d0911, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6471316228301277987
 GameObject:
   m_ObjectHideFlags: 0

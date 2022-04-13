@@ -13,8 +13,9 @@ public class TestSpawnCharacter : MonoBehaviour
         int index = 0;
         while (index<count)
         {
-            temp = ObjectPool.Spawn(prefab).GetComponent<StateMachineController>();
-            temp.gameObject.SetActive(true);
+            //temp = ObjectPool.Spawn(prefab).GetComponent<StateMachineController>();
+            temp = PoolManager.Spawn(prefab.GetComponent<PoolItem>()).GetComponent<StateMachineController>();
+            //temp.gameObject.SetActive(true);
             index += 1;
         } 
         
@@ -28,7 +29,8 @@ public class TestSpawnCharacter : MonoBehaviour
 
     public void SpawnMap(GameObject prefab)
     {
-        ObjectPool.Spawn(prefab);
+       // ObjectPool.Spawn(prefab);
+        
     }
 
     public int count;

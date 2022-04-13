@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6583951663788181911}
   - component: {fileID: 6583951663788181908}
   - component: {fileID: 6583951663788181909}
+  - component: {fileID: 5284923481547528749}
   m_Layer: 0
   m_Name: SoulDeathEffect
   m_TagString: Untagged
@@ -4830,3 +4831,16 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &5284923481547528749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6583951663788181906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cd75fbedbf37b245ad215b25e1c0216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particle: {fileID: 6583951663788181908}

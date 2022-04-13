@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
+using Sirenix.OdinInspector;
 using UniRx;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
@@ -15,11 +16,22 @@ public class PoolManager : MonoBehaviour
         public int size;
         public PoolItem prefab;
     }
+    [System.Serializable]
+    public class PoolList
+    {
+        [FoldoutGroup("$name", expanded: true)]
+        public string name;
+        [FoldoutGroup("$name", expanded: true)]
+        public ObjectPool[] ListPrefab;
+    }
+
     
     #region POOL DEFAULT
+    
     Dictionary<GameObject, List<PoolItem>> pooledObjects = new Dictionary<GameObject, List<PoolItem>>();
     Dictionary<PoolItem, GameObject> spawnedObjects = new Dictionary<PoolItem, GameObject>();
     public ObjectPool[] PoolDefault;
+    public PoolList[] poolLists;
     #endregion
 
     #region POOL ENTITY
@@ -56,6 +68,15 @@ public class PoolManager : MonoBehaviour
     #endregion
     
     #region PUBLIC STATIC METHOD
+    public static T Spawn<T>(T prefab, Transform parent, Vector3 position, Vector3 rotation,Vector3 localScale) where T : Component
+    {
+        return Spawn(prefab.gameObject, parent, position, rotation, localScale).GetComponent<T>();
+    }
+    public static T Spawn<T>(T prefab, Transform parent, Vector3 position, Quaternion rotation,Vector3 localScale) where T : Component
+    {
+        return Spawn(prefab.gameObject, parent, position, rotation, localScale).GetComponent<T>();
+    }
+    
     public static T Spawn<T>(T prefab, Transform parent, Vector3 position, Quaternion rotation) where T : Component
     {
         return Spawn(prefab.gameObject, parent, position, rotation).GetComponent<T>();
@@ -105,6 +126,10 @@ public class PoolManager : MonoBehaviour
                     transform = obj.transform;
                     if(transform.parent != null)
                         transform.parent = parent;
+                    if (parent != null)
+                    {
+                        transform.parent = parent;
+                    }
                     transform.localPosition = position;
                     transform.localRotation = rotation;
                     transform.localScale = prefab.transform.localScale;
@@ -115,9 +140,14 @@ public class PoolManager : MonoBehaviour
             }
             
             obj = Object.Instantiate(prefab).GetComponent<PoolItem>();
+            obj.Create();
             transform = obj.transform;
              if(transform.parent != null)
                 transform.parent = parent;
+             if (parent != null)
+             {
+                 transform.parent = parent;
+             }
             transform.localPosition = position;
             transform.localRotation = rotation;
             transform.localScale = prefab.transform.localScale;
@@ -131,7 +161,116 @@ public class PoolManager : MonoBehaviour
             return Spawn(prefab, parent, position, rotation);
         }
     }
+    public static PoolItem Spawn(GameObject prefab, Transform parent, Vector3 position, Quaternion rotation, Vector3 localScale)
+    {
+        if (instance.pooledObjects.TryGetValue(prefab, out List<PoolItem> list))
+        {
+            PoolItem obj = null;
+            Transform transform;
+            if (list.Count > 0)
+            {
+                while (obj == null && list.Count > 0)
+                {
+                    obj = list[0];
+                    list.RemoveAt(0);
+                    break;
+                }
+                if (obj != null)
+                {
+                    transform = obj.transform;
+                    if(transform.parent != null)
+                        transform.parent = parent;
+                    if (parent != null)
+                    {
+                        transform.parent = parent;
+                    }
+                    transform.localPosition = position;
+                    transform.localRotation = rotation;
+                    transform.localScale = localScale;
+                    obj.Spawn();
+                    instance.spawnedObjects.Add(obj, prefab);
+                    return obj;
+                }
+            }
+            
+            obj = Object.Instantiate(prefab).GetComponent<PoolItem>();
+            obj.Create();
+            transform = obj.transform;
+            if(transform.parent != null)
+                transform.parent = parent;
+            if (parent != null)
+            {
+                transform.parent = parent;
+            }
+            transform.localPosition = position;
+            transform.localRotation = rotation;
+            transform.localScale = localScale;
+            obj.Spawn();
+            instance.spawnedObjects.Add(obj, prefab);
+            return obj;
+        }
+        else
+        {
+            CreatePool(prefab, 1);
+            return Spawn(prefab, parent, position, rotation);
+        }
+    }
     
+    public static PoolItem Spawn(GameObject prefab, Transform parent, Vector3 localPosition, Vector3 rightTransform , Vector3 localScale)
+    {
+        if (instance.pooledObjects.TryGetValue(prefab, out List<PoolItem> list))
+        {
+            PoolItem obj = null;
+            Transform transform;
+            if (list.Count > 0)
+            {
+                while (obj == null && list.Count > 0)
+                {
+                    obj = list[0];
+                    list.RemoveAt(0);
+                    break;
+                }
+                if (obj != null)
+                {
+                    transform = obj.transform;
+                    //transform.parent = parent;
+                    if(transform.parent != null)
+                        transform.parent = parent;
+                    if (parent != null)
+                    {
+                        transform.parent = parent;
+                    }
+                    transform.localPosition = localPosition;
+                    transform.right = rightTransform;
+                    transform.localScale = localScale;
+                    obj.Spawn();
+                    instance.spawnedObjects.Add(obj, prefab);
+                    return obj;
+                }
+            }
+            obj = Object.Instantiate(prefab).GetComponent<PoolItem>();;
+            obj.Create();
+            transform = obj.transform;
+            //transform.parent = parent;
+            if(transform.parent != null)
+                transform.parent = parent;
+            if (parent != null)
+            {
+                transform.parent = parent;
+            }
+            transform.localPosition = localPosition;
+            transform.right = rightTransform;
+            transform.localScale = localScale;
+            obj.Spawn();
+            instance.spawnedObjects.Add(obj, prefab);
+            return obj;
+        }
+        else
+        {
+            CreatePool(prefab, 1);
+            return Spawn(prefab, parent, localPosition, rightTransform, localScale);
+        }
+    }
     public static void CreatePool(GameObject prefab, int initialPoolSize)
     {
         if (prefab != null && !instance.pooledObjects.ContainsKey(prefab))
@@ -170,6 +309,20 @@ public class PoolManager : MonoBehaviour
         Observable.Timer(TimeSpan.FromSeconds(time)).Subscribe(l => {  Recycle(gameObject); }).AddTo(_disposable);
     }
 
+    
+    public static void CreatePoolsList()
+    {
+        var pools = instance.poolLists;
+        if (pools != null && pools.Length > 0)
+
+            foreach (var VARIABLE in pools)
+            {
+                for (int i = 0; i < VARIABLE.ListPrefab.Length; ++i) 
+                    CreatePool(VARIABLE.ListPrefab[i].prefab.gameObject, VARIABLE.ListPrefab[i].size);
+            }
+            
+    }
+    
     public static void CreateStartupPools()
     {
         var pools = instance.PoolDefault;
@@ -219,6 +372,7 @@ public class PoolManager : MonoBehaviour
 
     private void Start()
     {
+        CreatePoolsList();
         CreateStartupPools();
         CreatePoolEntity(Contexts.sharedInstance, 100);
     }

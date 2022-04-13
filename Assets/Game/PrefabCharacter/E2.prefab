@@ -75,6 +75,7 @@ GameObject:
   - component: {fileID: 3163179114169523070}
   - component: {fileID: 3163179114169523069}
   - component: {fileID: 3163179114169523056}
+  - component: {fileID: 5227811735866132471}
   m_Layer: 12
   m_Name: E2
   m_TagString: Untagged
@@ -376,6 +377,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StateMachine:
     value: {fileID: 3163179114169523063}
+  prefabMecanim: {fileID: 0}
 --- !u!114 &3163179114169523070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -419,6 +421,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   powerComponent:
     value: 5
+--- !u!114 &5227811735866132471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3163179114169523060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89d9befa8a257144db233035db8d0911, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3163179115429164734
 GameObject:
   m_ObjectHideFlags: 0

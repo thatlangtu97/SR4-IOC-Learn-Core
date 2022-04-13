@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 8137836140472550331}
   - component: {fileID: 7950874950095868510}
   - component: {fileID: 324274899}
+  - component: {fileID: 255296956980449413}
   m_Layer: 0
   m_Name: ProjectileE50
   m_TagString: Untagged
@@ -221,3 +222,15 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &255296956980449413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8137836140472550334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89d9befa8a257144db233035db8d0911, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

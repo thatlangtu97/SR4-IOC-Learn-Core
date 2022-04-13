@@ -134,27 +134,33 @@ public class GameUIController : MonoBehaviour
     }
     public void Jump()
     {
-        stateMachine.OnInputJump();
+        if(stateMachine)
+            stateMachine.OnInputJump();
     }
     public void Dash()
     {
-        stateMachine.OnInputDash();
+        if(stateMachine)
+            stateMachine.OnInputDash();
     }
     public void Attack()
     {
-        stateMachine.OnInputAttack();
+        if(stateMachine)
+            stateMachine.OnInputAttack();
     }
     public void Skill1()
     {
-        stateMachine.OnInputSkill(0);
+        if(stateMachine)
+            stateMachine.OnInputSkill(0);
     }
     public void Skill2()
     {
-        stateMachine.OnInputSkill(1);
+        if(stateMachine)
+            stateMachine.OnInputSkill(1);
     }
     public void Skill(int idSkill)
     {
-        stateMachine.OnInputSkill(idSkill);
+        if(stateMachine)
+            stateMachine.OnInputSkill(idSkill);
     }
 
     public void RayCastChangeObject()
