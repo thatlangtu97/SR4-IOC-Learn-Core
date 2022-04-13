@@ -9308,7 +9308,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SetPlayer: 1
+  TimeDelay: 0.1
   count: 1
+  actions: []
 --- !u!1 &799890987
 GameObject:
   m_ObjectHideFlags: 0
@@ -14599,7 +14601,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SetPlayer: 0
+  TimeDelay: 0
   count: 1
+  actions: []
 --- !u!1 &1137572383
 GameObject:
   m_ObjectHideFlags: 0
@@ -15050,7 +15054,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SetPlayer: 0
+  TimeDelay: 0
   count: 20
+  actions: []
 --- !u!114 &1270618665
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15383,7 +15389,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SetPlayer: 0
+  TimeDelay: 0
   count: 1
+  actions: []
 --- !u!114 &1423831251
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18951,7 +18959,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SetPlayer: 0
+  TimeDelay: 0
   count: 1
+  actions: []
 --- !u!114 &2001720931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21518,7 +21528,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SetPlayer: 0
+  TimeDelay: 0
   count: 0
+  actions: []
 --- !u!114 &2037632282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24099,6 +24111,15 @@ MonoBehaviour:
   - size: 1
     prefab: {fileID: -7453943506206032504, guid: 6f230328331304e43acefd494218c59c,
       type: 3}
+  - size: 1
+    prefab: {fileID: -4756461288321622192, guid: 4e28c0a2e9fa201479002a4fe7982700,
+      type: 3}
+  - size: 1
+    prefab: {fileID: -3125851275597675025, guid: bcfa223b4ab6c674db3d97bd0994d7ff,
+      type: 3}
+  - size: 20
+    prefab: {fileID: 8206845486186549087, guid: f65df9cfb93d38145bf3f5de7e337094,
+      type: 3}
   poolLists:
   - name: Player
     ListPrefab:
@@ -24412,7 +24433,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SetPlayer: 0
+  TimeDelay: 0.1
   count: 20
+  actions: []
 --- !u!114 &2145990312
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 5561927636742713000}
   - component: {fileID: 5561927636742713005}
   - component: {fileID: -160685596527863785}
+  - component: {fileID: 8712098503285361961}
   m_Layer: 12
   m_Name: E1
   m_TagString: Untagged
@@ -350,6 +351,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89d9befa8a257144db233035db8d0911, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8712098503285361961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5561927636742712978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ad10eb566bf7df40b75e38dedceea50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mecanimPrefab: {fileID: 3125456495278316684, guid: f65df9cfb93d38145bf3f5de7e337094,
+    type: 3}
+  controller: {fileID: 5561927636742712979}
+  componentManager: {fileID: 5561927636742713002}
+  localScale: {x: -1, y: 1, z: 1}
 --- !u!1 &5561927637034877132
 GameObject:
   m_ObjectHideFlags: 0
@@ -426,7 +444,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967294
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5561927637792388885
 Transform:
   m_ObjectHideFlags: 0
