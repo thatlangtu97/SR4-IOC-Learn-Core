@@ -50,16 +50,14 @@ public class StateMachineController : MonoBehaviour
 
     public void SetupState()
     {
-        SetupAnim(animator);
+        //SetupAnim(animator);
         dictionaryStateMachine = new Dictionary<NameState, State>();
         currentState = null;
         currentNameState = NameState.UnknowState;
         foreach (StateClone tempState in States) {
             CreateStateFactory(tempState);
         }
-        
     }
-
 
     public void SetTrigger(string name, AnimationTypeState type , float timestart)
     {
@@ -74,9 +72,9 @@ public class StateMachineController : MonoBehaviour
                     animator.Play(name,0,timestart);
                     break;
             }
-            
         }
     }
+    
     public void SetSpeed(float speed)
     {
         if (animator)
