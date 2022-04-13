@@ -72,9 +72,9 @@ public class TestSpawnCharacter : MonoBehaviour
     
     public void SpawnEnemy(GameObject prefab)
     {
-        int countSpawn = 0;
+        int countSpawn = 1;
         float timeDelay = 1f;
-        while (countSpawn< count )
+        while (countSpawn< count+1 )
         {
 //            Vector3 randomPos = new Vector3(Random.Range(-13f,5f),0f,0f);
 //            Action action = delegate 
@@ -84,9 +84,14 @@ public class TestSpawnCharacter : MonoBehaviour
 //            };
 //            ActionBufferManager.Instance.ActionDelayTime(action,timeDelay*countSpawn);
 //            
-            StateMachineController temp = PoolManager.Spawn(prefab.GetComponent<PoolItem>()).GetComponent<StateMachineController>();
-            Action tempAction = delegate {  temp.GetComponent<ComponentManager>().SetupEntity(); };
-            setActionDelay(tempAction, timeDelay);
+            Vector3 randomPos = new Vector3(Random.Range(-13f,5f),0f,0f);
+            
+            Action tempAction = delegate
+            {
+                StateMachineController temp = PoolManager.Spawn(prefab.GetComponent<PoolItem>(),null,randomPos).GetComponent<StateMachineController>();
+                temp.GetComponent<ComponentManager>().SetupEntity();
+            };
+            setActionDelay(tempAction, timeDelay*countSpawn);
             //timeDelay *= countSpawn;
             countSpawn += 1;
         }
