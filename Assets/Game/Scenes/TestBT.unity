@@ -9302,7 +9302,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SetPlayer: 1
-  TimeDelay: 0.1
+  TimeDelay: 0
   count: 1
   actions: []
 --- !u!1 &799890987
@@ -24430,7 +24430,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SetPlayer: 0
-  TimeDelay: 0.5
+  TimeDelay: 0
   count: 1
   actions: []
 --- !u!114 &2145990312

@@ -244,7 +244,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthComponent:
-    health: 10000
+    health: 10
     maxHealth: 10000
 --- !u!114 &428360683092185900
 MonoBehaviour:

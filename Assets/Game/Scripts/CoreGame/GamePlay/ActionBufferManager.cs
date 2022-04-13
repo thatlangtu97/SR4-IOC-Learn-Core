@@ -18,6 +18,4 @@ public class ActionBufferManager : MonoBehaviour
     {
         Observable.Timer(TimeSpan.FromSeconds(timedelay)).Subscribe(l => { action.Invoke(); }).AddTo(_disposable);
     }
-    
-
 }

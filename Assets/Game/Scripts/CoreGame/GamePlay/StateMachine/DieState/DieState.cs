@@ -22,7 +22,8 @@ public class DieState : State
     public override void ExitState()
     {
         base.ExitState();
-        Destroy(controller.gameObject);
+        //Destroy(controller.gameObject);
+        PoolManager.Recycle(controller.GetComponent<PoolItem>());
 //        controller.componentManager.DestroyEntity();
 //        
 //        controller.gameObject.SetActive(false);
