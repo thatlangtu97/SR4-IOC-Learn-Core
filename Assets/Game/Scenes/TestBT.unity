@@ -24106,7 +24106,7 @@ MonoBehaviour:
     prefab: {fileID: -7453943506206032504, guid: 6f230328331304e43acefd494218c59c,
       type: 3}
   - size: 1
-    prefab: {fileID: -4756461288321622192, guid: 4e28c0a2e9fa201479002a4fe7982700,
+    prefab: {fileID: -5987359361696396885, guid: 4e28c0a2e9fa201479002a4fe7982700,
       type: 3}
   - size: 1
     prefab: {fileID: -3125851275597675025, guid: bcfa223b4ab6c674db3d97bd0994d7ff,
@@ -24114,8 +24114,13 @@ MonoBehaviour:
   - size: 20
     prefab: {fileID: 8206845486186549087, guid: f65df9cfb93d38145bf3f5de7e337094,
       type: 3}
-  - size: 40
-    prefab: {fileID: -160685596527863785, guid: 6c8e2f60bcf90d8488487028fe28372b,
+  - size: 1
+    prefab: {fileID: 5314317156340808085, guid: 6c8e2f60bcf90d8488487028fe28372b,
+      type: 3}
+  - size: 1
+    prefab: {fileID: 366081758016351783, guid: 547bab9a685b10141ae02ee86fa73f2e, type: 3}
+  - size: 1
+    prefab: {fileID: 1534423402273378040, guid: 75e1fcc8419c4744c952cdbc526432cf,
       type: 3}
   poolLists:
   - name: Player

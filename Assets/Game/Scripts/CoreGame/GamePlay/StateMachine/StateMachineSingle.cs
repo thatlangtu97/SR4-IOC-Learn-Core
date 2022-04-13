@@ -7,6 +7,7 @@ public class StateMachineSingle : StateMachineController
     public NameState nameStateAction;
     public override void InitStateMachine()
     {
+        if(dictionaryStateMachine.Count==0)
         SetupState();
         base.InitStateMachine();
 //        ChangeState(States[0].NameState);

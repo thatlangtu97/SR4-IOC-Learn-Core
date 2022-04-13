@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -19,5 +20,11 @@ public class PoolItemParticleNotActive : PoolItem
     public override void Recycle()
     {
         particle.Stop(true);
+        transform.localScale = Vector3.zero;
+    }
+
+    public void OnDisable()
+    {
+        PoolManager.Recycle(this);
     }
 }

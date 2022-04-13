@@ -188,6 +188,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   nameAnimShow: 
   nameAnimHide: 
+  parentObject: {fileID: 0}
 --- !u!1 &2359772369424154578
 GameObject:
   m_ObjectHideFlags: 0
@@ -530,6 +531,7 @@ GameObject:
   - component: {fileID: 5916223606554132932}
   - component: {fileID: 4421094754697988860}
   - component: {fileID: 1783717316825736397}
+  - component: {fileID: 366081758016351783}
   m_Layer: 5
   m_Name: HealthBarUI
   m_TagString: Untagged
@@ -656,6 +658,7 @@ MonoBehaviour:
   animator: {fileID: 1783717316825736397}
   nameAnimShow: HealthBarShowLeft
   nameAnimHide: HealthBarHideLeft
+  parentObject: {fileID: 0}
 --- !u!225 &4421094754697988860
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -687,6 +690,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &366081758016351783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5916223606554132933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89d9befa8a257144db233035db8d0911, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5916223606613284629
 GameObject:
   m_ObjectHideFlags: 0

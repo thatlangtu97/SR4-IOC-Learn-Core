@@ -47,6 +47,11 @@ public class HPBarUI : MonoBehaviour
             animator.Play(nameAnimShow);
     }
 
+    public void Show()
+    {
+        if(animator)
+            animator.Play(nameAnimShow);
+    }
     public void Update()
     {
         if (parentObject == null || parentObject.gameObject.activeInHierarchy == false)

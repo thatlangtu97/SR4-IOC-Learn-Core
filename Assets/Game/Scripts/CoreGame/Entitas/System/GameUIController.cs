@@ -32,17 +32,26 @@ public class GameUIController : MonoBehaviour
         {
             for(int i = HpBarLeft.childCount-1;i>=0;i--)
             {
-                Destroy(HpBarLeft.GetChild(i).gameObject);
+                //Destroy(HpBarLeft.GetChild(i).gameObject);
+                PoolManager.Recycle(HpBarLeft.GetChild(i).GetComponent<PoolItem>());
             }
-            return Instantiate(hpBarUi, HpBarLeft);
+
+            HPBarUI temp = PoolManager.Spawn(hpBarUi, HpBarLeft);
+            temp.Show();
+            return temp;
+            // return Instantiate(hpBarUi, HpBarLeft);
         }
         else
         {
             for(int i = HpBarRight.childCount-1;i>=0;i--)
             {
                 Destroy(HpBarRight.GetChild(i).gameObject);
+                PoolManager.Recycle(HpBarRight.GetChild(i).GetComponent<PoolItem>());
             }
-            return Instantiate(hpBarUi, HpBarRight);
+            HPBarUI temp = PoolManager.Spawn(hpBarUi, HpBarRight);
+            temp.Show();
+            return temp;
+            //return Instantiate(hpBarUi, HpBarRight);
         }
     }
     
@@ -74,30 +83,30 @@ public class GameUIController : MonoBehaviour
     {
 
 
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            Dash();
-        }
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            Attack();
-        }
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Jump();
-        }
-        if (Input.GetKeyDown(KeyCode.End))
-        {
-            stateMachine.ChangeState(NameState.ReviveState, true);
-        }
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            Skill1();
-        }
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            Skill2();
-        }
+//        if (Input.GetKeyDown(KeyCode.D))
+//        {
+//            Dash();
+//        }
+//        if (Input.GetKeyDown(KeyCode.A))
+//        {
+//            Attack();
+//        }
+//        if (Input.GetKeyDown(KeyCode.Space))
+//        {
+//            Jump();
+//        }
+//        if (Input.GetKeyDown(KeyCode.End))
+//        {
+//            stateMachine.ChangeState(NameState.ReviveState, true);
+//        }
+//        if (Input.GetKeyDown(KeyCode.Q))
+//        {
+//            Skill1();
+//        }
+//        if (Input.GetKeyDown(KeyCode.W))
+//        {
+//            Skill2();
+//        }
         
         if (gamePad!=null)
         {
@@ -117,6 +126,7 @@ public class GameUIController : MonoBehaviour
         else
         {
             gamePad = Gamepad.current;
+            Joystick.MoveHorizontal(Input.GetAxisRaw("Horizontal"));
         }
 
         if(Input.GetMouseButtonDown(0) && useRayCastTest )

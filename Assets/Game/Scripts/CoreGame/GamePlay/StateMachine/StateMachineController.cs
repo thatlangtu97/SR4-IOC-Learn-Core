@@ -84,7 +84,8 @@ public class StateMachineController : MonoBehaviour
     }
     public virtual void InitStateMachine()
     {
-        SetupState();
+//        if(dictionaryStateMachine.Count==0)
+            SetupState();
         if (dictionaryStateMachine.ContainsKey(NameState.SpawnState))
         {
             ChangeState(NameState.SpawnState, 0, true);
@@ -119,6 +120,18 @@ public class StateMachineController : MonoBehaviour
         {
             dictionaryStateMachine[stateClone.NameState] = state;
         }
+        
+//        if (!dictionaryStateMachine.ContainsKey(stateClone.NameState))
+//        {
+//            State state = Instantiate(stateClone.StateToClone);
+//            state.InitState(this, componentManager);
+//            dictionaryStateMachine.Add(stateClone.NameState, state);
+//        }
+//        else
+//        {
+//            dictionaryStateMachine[stateClone.NameState].InitState(this, componentManager);
+//        }
+//        
     }
     public virtual void ChangeState(NameState nameState, bool forceChange = false)
     {
