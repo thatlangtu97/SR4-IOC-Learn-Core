@@ -64,10 +64,16 @@ public class ComponentManager : MonoBehaviour
         //entity = ObjectPool.instance.SpawnEntity();
         entity = PoolManager.SpawnEntity();
         link = gameObject.Link(entity);
-        foreach (var component in AutoAdds)
+
+        for (int i = 0; i < AutoAdds.Count; i++)
         {
-            component.AddComponent(ref entity);
+            AutoAdds[i].AddComponent(ref entity);
         }
+        
+//        foreach (var component in AutoAdds)
+//        {
+//            component.AddComponent(ref entity);
+//        }
         if (entity.hasBehaviourTree)
         {
             entity.behaviourTree.value.DisableBehavior();
@@ -272,25 +278,42 @@ public class ComponentManager : MonoBehaviour
     public void AddImunes(List<Immune> immunesAdd)
     {
         List<Immune> tempImmune = baseImmunes.Clone();
-        foreach (Immune immuneItem in immunesAdd)
+
+        for (int i = 0; i < immunesAdd.Count; i++)
         {
+            Immune immuneItem = immunesAdd[i];
             if(baseImmunes.Contains(immuneItem))
                 continue;
             tempImmune.Add(immuneItem);
         }
+        
+//        foreach (Immune immuneItem in immunesAdd)
+//        {
+//            if(baseImmunes.Contains(immuneItem))
+//                continue;
+//            tempImmune.Add(immuneItem);
+//        }
 
         currentImunes = tempImmune;
     }
 
     public void RemoveImmunes(List<Immune> immunesRemove)
     {
-        foreach (Immune immuneItem in immunesRemove)
+        for (int i = 0; i < immunesRemove.Count; i++)
         {
+            Immune immuneItem = immunesRemove[i];
             if(baseImmunes.Contains(immuneItem))
                 continue;
             if(currentImunes.Contains(immuneItem))
                 currentImunes.Remove(immuneItem);
         }
+//        foreach (Immune immuneItem in immunesRemove)
+//        {
+//            if(baseImmunes.Contains(immuneItem))
+//                continue;
+//            if(currentImunes.Contains(immuneItem))
+//                currentImunes.Remove(immuneItem);
+//        }
     }
 
     public bool HasImmune(Immune immune)

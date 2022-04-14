@@ -43,13 +43,20 @@ public class StateMachineController : MonoBehaviour
     public void SetupAnim(Animator animator)
     {
         if(! animator) return;
-        foreach (AnimatorControllerParameter p in animator.parameters)
+        for (int i = 0; i < animator.parameters.Length; i++)
         {
-            if (p.type == AnimatorControllerParameterType.Trigger)
+            if (animator.parameters[i].type == AnimatorControllerParameterType.Trigger)
             {
-                nameTrigger.Add(p.name);
+                nameTrigger.Add(animator.parameters[i].name);
             }
         }
+//        foreach (AnimatorControllerParameter p in animator.parameters)
+//        {
+//            if (p.type == AnimatorControllerParameterType.Trigger)
+//            {
+//                nameTrigger.Add(p.name);
+//            }
+//        }
     }
 
     public void SetupState()
@@ -152,6 +159,7 @@ public class StateMachineController : MonoBehaviour
 
     protected void InitAllState()
     {
+        
         foreach (var VARIABLE in dictionaryStateMachine.Values)
         {
             VARIABLE.InitState(this, componentManager);

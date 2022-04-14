@@ -9,9 +9,14 @@ public class StateMachineCollection : ScriptableObject
 
     public void Create()
     {
-        foreach (StateClone tempState in States) {
+        for (int i = 0; i < States.Count; i++)
+        {
+            StateClone tempState = States[i];
             CreateStateFactory(tempState);
         }
+//        foreach (StateClone tempState in States) {
+//            CreateStateFactory(tempState);
+//        }
     }
     protected void CreateStateFactory(StateClone stateClone)
     {

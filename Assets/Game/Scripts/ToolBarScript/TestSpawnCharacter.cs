@@ -126,26 +126,47 @@ public class TestSpawnCharacter : MonoBehaviour
     {
         if (actions.Count > 0)
         {
-            foreach (var action in actions)
+            for (int i = 0; i < actions.Count; i++)
             {
-                if (action.CanInvoke)
+                if (actions[i].CanInvoke)
                 {
-                    action.Invoke();
+                    actions[i].Invoke();
                 }
                 else
                 {
-                    action.DownTime(Time.deltaTime);
+                    actions[i].DownTime(Time.deltaTime);
                 }
             }
-
-            foreach (var action in actions)
+            
+            for (int i = 0; i < actions.Count; i++)
             {
-                if (action.CanRemove)
+                if (actions[i].CanRemove)
                 {
-                    actions.Remove(action);
+                    actions.Remove(actions[i]);
                     break;
                 }
             }
+//            
+//            foreach (var action in actions)
+//            {
+//                if (action.CanInvoke)
+//                {
+//                    action.Invoke();
+//                }
+//                else
+//                {
+//                    action.DownTime(Time.deltaTime);
+//                }
+//            }
+//
+//            foreach (var action in actions)
+//            {
+//                if (action.CanRemove)
+//                {
+//                    actions.Remove(action);
+//                    break;
+//                }
+//            }
         }
     }
 
