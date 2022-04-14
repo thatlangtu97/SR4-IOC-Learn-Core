@@ -2,6 +2,7 @@
 [CreateAssetMenu(fileName = "DieState", menuName = "CoreGame/State/DieState")]
 public class DieState : State
 {
+    public bool canRevive;
     public override void EnterState()
     {
         base.EnterState();
@@ -23,7 +24,13 @@ public class DieState : State
     {
         base.ExitState();
         //Destroy(controller.gameObject);
-        PoolManager.Recycle(controller.GetComponent<PoolItem>());
+        if (!canRevive)
+        {
+            controller.componentManager.DestroyEntity();
+            controller.Recycle();
+            PoolManager.Recycle(controller.GetComponent<PoolItem>());
+        }
+
 //        controller.componentManager.DestroyEntity();
 //        
 //        controller.gameObject.SetActive(false);

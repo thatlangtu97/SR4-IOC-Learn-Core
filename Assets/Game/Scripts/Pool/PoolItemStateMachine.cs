@@ -7,17 +7,19 @@ public class PoolItemStateMachine : PoolItem
     //public StateMachineController stateMachine;
     public override void Create()
     {
-        //stateMachine.SetupState();
-        gameObject.SetActive(false);
+        transform.position = Vector3.left * 10000f;
+        gameObject.SetActive(true);
+        GetComponent<Rigidbody2D>().isKinematic = true;
     }
 
     public override void Spawn()
     {
-        gameObject.SetActive(true);
+        GetComponent<Rigidbody2D>().isKinematic = false;
     }
 
     public override void Recycle()
     {
-        gameObject.SetActive(false);
+        transform.position = Vector3.left * 10000f;
+        GetComponent<Rigidbody2D>().isKinematic = true;
     }
 }

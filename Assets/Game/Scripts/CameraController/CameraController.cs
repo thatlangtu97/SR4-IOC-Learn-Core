@@ -60,7 +60,18 @@ public class CameraController : MonoBehaviour
         }
         proCamera2D.AddCameraTarget(transform, 1f, 1f);
     }
-
+    public void RemoveTarget(Transform transform)
+    {
+        
+        foreach (var VARIABLE in proCamera2D.CameraTargets)
+        {
+            if (VARIABLE.TargetTransform == transform)
+            {
+                proCamera2D.CameraTargets.Remove(VARIABLE);
+                return;
+            }
+        }
+    }
     public void SetMainTarget(Transform transform,Vector2 offset)
     {
         mainTarget = transform;

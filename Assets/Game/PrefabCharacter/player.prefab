@@ -196,11 +196,11 @@ MonoBehaviour:
   maxDash: 1
   maxAttackAirCount: 1
   AutoAdds:
-  - {fileID: 428360683092188371}
   - {fileID: 428360683092188373}
   - {fileID: 428360683092185900}
   - {fileID: 428360683092188372}
   - {fileID: 428360683092188369}
+  - {fileID: 428360683092188371}
 --- !u!114 &428360683092185901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -318,7 +318,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad86720286f4fdb4592925c9bf221831, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateMachine: {fileID: 428360683092188370}
 --- !u!1 &428360684405696829
 GameObject:
   m_ObjectHideFlags: 0

@@ -903,6 +903,42 @@ public class CameraTarget : IComboEvent
 }
 #endregion
 
+#region REMOVE CAMERA TARGET
+public class RemoveCameraTarget : IComboEvent
+{
+    [FoldoutGroup("CAMERA TARGET")]
+    [ReadOnly]
+    public int idEvent;
+
+    [FoldoutGroup("CAMERA TARGET")] 
+    public float timeTriggerEvent;
+    
+//    [FoldoutGroup("CAMERA TARGET")] 
+//    public Vector2 offset;
+//
+//    [FoldoutGroup("CAMERA TARGET")]
+//    public bool mainTarget;
+
+    
+    public int id { get { return idEvent; } set { idEvent = value; } }
+    public float timeTrigger { get { return timeTriggerEvent; } }
+    
+    public void OnEventTrigger(GameEntity entity)
+    {
+        Transform baseTransform = entity.stateMachineContainer.value.transform;
+        CameraController.instance.RemoveTarget(baseTransform);
+    }
+    public void Recycle()
+    {
+    }
+
+    public void OnUpdateTrigger()
+    {
+        
+    }
+}
+#endregion
+
 #region SHAKE CAMERA
 public class ShakeCamera : IComboEvent
 {

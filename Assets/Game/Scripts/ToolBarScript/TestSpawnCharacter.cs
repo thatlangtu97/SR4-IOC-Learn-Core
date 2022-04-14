@@ -52,6 +52,11 @@ public class TestSpawnCharacter : MonoBehaviour
         }
     }
 
+    public void ReviveState()
+    {
+        if (Contexts.sharedInstance.game.playerFlagEntity != null)
+            Contexts.sharedInstance.game.playerFlagEntity.stateMachineContainer.value.OnInputRevive();
+    }
     public void SpawnMap(GameObject prefab)
     {
        // ObjectPool.Spawn(prefab);

@@ -167,7 +167,7 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  typeAnim: 0
+  typeAnim: 1
   NameTrigger: idle
   timeStart: 0
   durationAnimation: 2

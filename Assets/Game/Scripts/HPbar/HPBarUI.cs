@@ -30,6 +30,16 @@ public class HPBarUI : MonoBehaviour
     public void Setvalue(GameEntity e ,int value, int maxvalue)
     {
         parentObject = e.stateMachineContainer.value.transform;
+        if (slider.fillAmount <= 0f)
+        {
+            if (value > 0 && animator)
+            {
+                animator.Play(nameAnimShow);
+                slider.fillAmount = (float)value / (float)maxvalue;
+                textValue.text = $"{value} / {maxvalue}";
+                return;
+            }
+        }
         slider.fillAmount = (float)value / (float)maxvalue;
         textValue.text = $"{value} / {maxvalue}";
         if (value <= 0 && animator)
@@ -37,6 +47,8 @@ public class HPBarUI : MonoBehaviour
             if(animator)
                 animator.Play(nameAnimHide);
         }
+
+        
     }
 
     private void OnEnable()

@@ -35,10 +35,12 @@ public class State : SerializedScriptableObject
 //            }
 //        }
 
-        foreach (var VARIABLE in controller.nameTrigger)
-        {
-             controller.animator.ResetTrigger(VARIABLE);
-        }
+
+            foreach (var VARIABLE in controller.nameTrigger)
+            {
+                
+                 controller.animator.ResetTrigger(VARIABLE);
+            }
         timeTrigger = 0f;
         idEventTrigged = new Dictionary<int, IComboEvent>();
         controller.componentManager.AddImunes(Immunes);
