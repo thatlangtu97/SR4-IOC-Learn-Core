@@ -141,6 +141,7 @@ MonoBehaviour:
     StateToClone: {fileID: 11400000, guid: 91d29fe1a77004049b05e7c1dc0d48a9, type: 2}
   - NameState: 20
     StateToClone: {fileID: 11400000, guid: fdb82a0be4835f8498cfe9732dc5d794, type: 2}
+  collection: {fileID: 11400000, guid: 3065b45f052a86a4a9d7ec5e10c7c905, type: 2}
   nameTrigger: []
   componentManager: {fileID: 428360683092188368}
   animator: {fileID: 0}
@@ -318,7 +319,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad86720286f4fdb4592925c9bf221831, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateMachine: {fileID: 428360683092188370}
 --- !u!1 &428360684405696829
 GameObject:
   m_ObjectHideFlags: 0

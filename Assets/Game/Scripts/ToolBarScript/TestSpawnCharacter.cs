@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Object = UnityEngine.Object;
 using Random = UnityEngine.Random;
 
 public class TestSpawnCharacter : MonoBehaviour
@@ -76,14 +77,6 @@ public class TestSpawnCharacter : MonoBehaviour
         float timeDelay = 1f;
         while (countSpawn < count+1 )
         {
-//            Vector3 randomPos = new Vector3(Random.Range(-13f,5f),0f,0f);
-//            Action action = delegate 
-//            {
-//                StateMachineController temp = ObjectPool.Spawn(prefab,null,randomPos).GetComponent<StateMachineController>();
-//                temp.gameObject.SetActive(true);  
-//            };
-//            ActionBufferManager.Instance.ActionDelayTime(action,timeDelay*countSpawn);
-//            
             Vector3 randomPos = new Vector3(Random.Range(-13f,5f),0f,0f);
             StateMachineController temp = PoolManager.Spawn(prefab.GetComponent<PoolItem>(),null,randomPos).GetComponent<StateMachineController>();
             Action tempAction = delegate
@@ -91,7 +84,21 @@ public class TestSpawnCharacter : MonoBehaviour
                 temp.GetComponent<ComponentManager>().SetupEntity();
             };
             setActionDelay(tempAction, timeDelay*countSpawn);
-            //timeDelay *= countSpawn;
+            countSpawn += 1;
+        }
+    }
+    
+    public void SpawnStateMachine(Object prefab)
+    {
+        int countSpawn = 1;
+        while (countSpawn < count + 1)
+        {
+            Object temp = Instantiate(prefab);
+            if (temp.GetType() == typeof(StateMachineCollection))
+            {
+                StateMachineCollection convert = temp as StateMachineCollection;
+                convert.Create();
+            }
             countSpawn += 1;
         }
     }

@@ -164,17 +164,22 @@ public class ComponentManager : MonoBehaviour
     
     public bool checkGround()
     {
-        RaycastHit2D hit = Physics2D.BoxCast((Vector2)transform.position , originBoxCheckGround2d,0, Vector2.down,0f, layerMaskGround);
-        if (hit.collider != null)
-        {
-            isOnGround = true;
-            return true;
-        }
-        else
-        {
-            isOnGround = false;
-            return false;
-        }
+        int t = Physics2D.BoxCastNonAlloc((Vector2) transform.position, originBoxCheckGround2d, 0, Vector2.down,
+            new RaycastHit2D[1], 0f, layerMaskGround);
+        return Convert.ToBoolean(t);
+        
+//        
+//        RaycastHit2D hit = Physics2D.BoxCast((Vector2)transform.position , originBoxCheckGround2d,0, Vector2.down,0f, layerMaskGround);
+//        if (hit.collider != null)
+//        {
+//            isOnGround = true;
+//            return true;
+//        }
+//        else
+//        {
+//            isOnGround = false;
+//            return false;
+//        }
     }
 
 //    public bool CheckGroundFlatform()
@@ -217,27 +222,37 @@ public class ComponentManager : MonoBehaviour
 //    }
     public bool checkWall()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, new Vector2(1,0)* transform.localScale.x, distanceCheckWall, layerMaskWall);
-        if (hit.collider != null)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        int t = Physics2D.RaycastNonAlloc(transform.position, new Vector2(1,0)* transform.localScale.x,new RaycastHit2D[1], distanceCheckWall, layerMaskWall);
+        return Convert.ToBoolean(t);
+        
+//        
+//        RaycastHit2D hit = Physics2D.Raycast(transform.position, new Vector2(1,0)* transform.localScale.x, distanceCheckWall, layerMaskWall);
+//        if (hit.collider != null)
+//        {
+//            return true;
+//        }
+//        else
+//        {
+//            return false;
+//        }
     }
     public bool checkEnemyForwark()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, new Vector2(1, 0) * transform.localScale.x, distanceChecEnemy, layerEnemy);
-        if (hit.collider != null)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        int t = Physics2D.RaycastNonAlloc(transform.position, new Vector2(1, 0) * transform.localScale.x, new RaycastHit2D[1], distanceChecEnemy, layerEnemy);
+        return Convert.ToBoolean(t);
+        
+//        
+//        RaycastHit2D hit = Physics2D.Raycast(transform.position, new Vector2(1, 0) * transform.localScale.x, distanceChecEnemy, layerEnemy);
+//        if (hit.collider != null)
+//        {
+//            return true;
+//        }
+//        else
+//        {
+//            return false;
+//        }
+        
+        
     }
     public void Rotate()
     {

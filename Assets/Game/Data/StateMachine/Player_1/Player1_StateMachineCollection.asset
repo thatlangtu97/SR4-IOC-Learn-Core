@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4b710f6a5802dd49a733fa18041ffb6, type: 3}
+  m_Name: Player1_StateMachineCollection
+  m_EditorClassIdentifier: 
+  States:
+  - NameState: 1
+    StateToClone: {fileID: 11400000, guid: 3e27fdd4391b07847b5f077a425a8611, type: 2}
+  - NameState: 2
+    StateToClone: {fileID: 11400000, guid: 9114d16b73d29bd498ad1537f2070ff7, type: 2}
+  - NameState: 3
+    StateToClone: {fileID: 11400000, guid: 57eb6a497553fd341a8b9d61c4cc9aac, type: 2}
+  - NameState: 4
+    StateToClone: {fileID: 11400000, guid: f1e3971ca30696d40966b97908a3db43, type: 2}
+  - NameState: 5
+    StateToClone: {fileID: 11400000, guid: 1d24faa66fc698b4bb6066b4eaf718ed, type: 2}
+  - NameState: 6
+    StateToClone: {fileID: 11400000, guid: 37a473b73c3137145bb2840c38e9b42e, type: 2}
+  - NameState: 7
+    StateToClone: {fileID: 11400000, guid: 89df74a5cecf98b4395d4788866be1bf, type: 2}
+  - NameState: 8
+    StateToClone: {fileID: 11400000, guid: 6cdf6024a75441444aa5eb13295db76c, type: 2}
+  - NameState: 9
+    StateToClone: {fileID: 11400000, guid: 1d93410633f6c694e952b26b8ab61de4, type: 2}
+  - NameState: 10
+    StateToClone: {fileID: 11400000, guid: aaaef473f45593f458855bb42d0c04fd, type: 2}
+  - NameState: 11
+    StateToClone: {fileID: 11400000, guid: 866e9660dbdb06d409d953099a05b66a, type: 2}
+  - NameState: 17
+    StateToClone: {fileID: 11400000, guid: 3070fc6bc00b0304086587b3943b9a8a, type: 2}
+  - NameState: 18
+    StateToClone: {fileID: 11400000, guid: 5dc0a46a979811e4ab952c2b4d1adb75, type: 2}
+  - NameState: 13
+    StateToClone: {fileID: 11400000, guid: 0c3a88b4190d92d4db840649864be41f, type: 2}
+  - NameState: 12
+    StateToClone: {fileID: 11400000, guid: 16a6881674df7b4488929e2432e0f9ea, type: 2}
+  - NameState: 19
+    StateToClone: {fileID: 11400000, guid: 91d29fe1a77004049b05e7c1dc0d48a9, type: 2}
+  - NameState: 20
+    StateToClone: {fileID: 11400000, guid: fdb82a0be4835f8498cfe9732dc5d794, type: 2}

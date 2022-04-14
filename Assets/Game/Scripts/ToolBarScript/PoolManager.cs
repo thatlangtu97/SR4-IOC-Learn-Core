@@ -24,7 +24,16 @@ public class PoolManager : MonoBehaviour
         [FoldoutGroup("$name", expanded: true)]
         public ObjectPool[] ListPrefab;
     }
-
+    [System.Serializable]
+    public class PoolListObject
+    {
+        [FoldoutGroup("$name", expanded: true)]
+        public string name;
+        [FoldoutGroup("$name", expanded: true)]
+        public int size;
+        [FoldoutGroup("$name", expanded: true)]
+        public Object prefab;
+    }
     
     #region POOL DEFAULT
     
@@ -32,6 +41,12 @@ public class PoolManager : MonoBehaviour
     Dictionary<PoolItem, GameObject> spawnedObjects = new Dictionary<PoolItem, GameObject>();
     public ObjectPool[] PoolDefault;
     public PoolList[] poolLists;
+    #endregion
+    
+    #region POOL OBJECT
+    Dictionary<Object,List<Object>> otherPooled = new Dictionary<Object, List<Object>>();
+    Dictionary<Object, Object> otherSpawned = new Dictionary<Object, Object>();
+    public PoolListObject[] listObject;
     #endregion
 
     #region POOL ENTITY
@@ -271,6 +286,43 @@ public class PoolManager : MonoBehaviour
             return SpawnPoolItem(prefab, parent, localPosition, rightTransform, localScale);
         }
     }
+
+    public static Object SpawnPoolOrther(Object prefab)
+    {
+        if (instance.otherPooled.TryGetValue(prefab, out List<Object> list))
+        {
+            Object obj = null;
+            if (list.Count > 0)
+            {
+                while (obj == null && list.Count > 0)
+                {
+                    obj = list[0];
+                    list.RemoveAt(0);
+                    break;
+                }
+                if (obj != null)
+                {
+                    instance.otherSpawned.Add(obj, prefab);
+                    Debug.Log("spawn StateMachineCollection");
+                    return obj;
+                }
+            }
+            obj = Object.Instantiate(prefab);
+            if (obj.GetType() == typeof(StateMachineCollection))
+            {
+                StateMachineCollection convert = obj as StateMachineCollection;
+                convert.Create();
+            }
+            instance.otherSpawned.Add(obj, prefab);
+            return obj;
+        }
+        else
+        {
+            Debug.Log("Create lai StateMachineCollection");
+            CreatePoolOrther(prefab, 1);
+            return SpawnPoolOrther(prefab);
+        }
+    }
     public static void CreatePool(GameObject prefab, int initialPoolSize)
     {
         if (prefab != null && !instance.pooledObjects.ContainsKey(prefab))
@@ -285,6 +337,36 @@ public class PoolManager : MonoBehaviour
                     var obj = Object.Instantiate(prefab).GetComponent<PoolItem>();
                     obj.Create();
                     //obj.transform.SetParent(instance.transform);
+                    list.Add(obj);
+                }
+            }
+        }
+    }
+    public static void CreatePoolOrther( Object prefab, int initialPoolSize  )
+    {
+        if (prefab != null && !instance.otherPooled.ContainsKey(prefab))
+        {
+            var list = new List<Object>();
+            instance.otherPooled.Add(prefab, list);
+            if (initialPoolSize > 0)
+            {
+                while (list.Count < initialPoolSize)
+                {
+                    var obj = Object.Instantiate(prefab);
+                    if (obj.GetType() == typeof(StateMachineCollection))
+                    {
+                        StateMachineCollection convert = obj as StateMachineCollection;
+                        convert.Create();
+                        Debug.Log("create StateMachineCollection");
+                    }
+//                    switch (obj.GetType())
+//                    {
+//                         case StateMachineCollection:
+//                             StateMachineCollection convert = obj as StateMachineCollection;
+//                             convert.Create();
+//                             break;
+//                             
+//                    }
                     list.Add(obj);
                 }
             }
@@ -309,6 +391,26 @@ public class PoolManager : MonoBehaviour
         Observable.Timer(TimeSpan.FromSeconds(time)).Subscribe(l => {  Recycle(gameObject); }).AddTo(_disposable);
     }
 
+    public static void RecycleOther(Object objectpooled)
+    {
+        if (instance.otherSpawned.TryGetValue(objectpooled, out Object prefabSpawnedObjects))
+        {
+            instance.otherPooled[prefabSpawnedObjects].Add(objectpooled);
+            instance.otherSpawned.Remove(objectpooled);
+        }
+    }
+    
+    public static void CreatePoolsObjects()
+    {
+        var pools = instance.listObject;
+        if (pools != null && pools.Length > 0)
+
+            foreach (var VARIABLE in pools)
+            {
+                CreatePoolOrther( VARIABLE.prefab, VARIABLE.size);
+            }
+            
+    }
     
     public static void CreatePoolsList()
     {
@@ -374,6 +476,7 @@ public class PoolManager : MonoBehaviour
     {
         CreatePoolsList();
         CreateStartupPools();
+        CreatePoolsObjects();
         CreatePoolEntity(Contexts.sharedInstance, 100);
     }
     #endregion

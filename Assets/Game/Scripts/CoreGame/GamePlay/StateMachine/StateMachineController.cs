@@ -15,9 +15,13 @@ public class StateMachineController : MonoBehaviour
     [LabelText("STATE TO CLONE")]
     public List<StateClone> States;
 
+    public StateMachineCollection collection;
+    
     public List<string> nameTrigger;
     public ComponentManager componentManager;
     public Animator animator;
+
+    private StateMachineCollection _collectionSpawned;
 //    private void Awake()
 //    {
 ////        foreach (AnimatorControllerParameter p in animator.parameters)
@@ -51,12 +55,24 @@ public class StateMachineController : MonoBehaviour
     public void SetupState()
     {
         //SetupAnim(animator);
-        dictionaryStateMachine = new Dictionary<NameState, State>();
+        _collectionSpawned = PoolManager.SpawnPoolOrther(collection) as StateMachineCollection;
+        dictionaryStateMachine = _collectionSpawned.dictionaryState;
+
         currentState = null;
         currentNameState = NameState.UnknowState;
-        foreach (StateClone tempState in States) {
-            CreateStateFactory(tempState);
-        }
+        InitAllState();
+        
+//        dictionaryStateMachine = new Dictionary<NameState, State>();
+//        currentState = null;
+//        currentNameState = NameState.UnknowState;
+//        foreach (StateClone tempState in States) {
+//            CreateStateFactory(tempState);
+//        }
+    }
+
+    public void Recycle()
+    {
+        PoolManager.RecycleOther(_collectionSpawned);
     }
 
     public void SetTrigger(string name, AnimationTypeState type , float timestart)
@@ -132,6 +148,14 @@ public class StateMachineController : MonoBehaviour
 //            dictionaryStateMachine[stateClone.NameState].InitState(this, componentManager);
 //        }
 //        
+    }
+
+    protected void InitAllState()
+    {
+        foreach (var VARIABLE in dictionaryStateMachine.Values)
+        {
+            VARIABLE.InitState(this, componentManager);
+        }
     }
     public virtual void ChangeState(NameState nameState, bool forceChange = false)
     {
