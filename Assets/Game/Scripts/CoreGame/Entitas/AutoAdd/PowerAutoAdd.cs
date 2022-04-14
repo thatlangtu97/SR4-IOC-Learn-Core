@@ -5,9 +5,10 @@ using UnityEngine;
 
 public class PowerAutoAdd : AutoAddComponent
 {
-    public ConvertToPower powerComponent;
+    //public ConvertToPower powerComponent;
+    public int value;
     public override void AddComponent(ref GameEntity e)
     {
-        e.AddPower(powerComponent.value);
+        e.AddPower(value);
     }
 }

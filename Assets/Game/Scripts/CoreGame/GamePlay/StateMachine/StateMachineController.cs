@@ -33,7 +33,15 @@ public class StateMachineController : MonoBehaviour
 ////        }
 //        //SetupAnim(animator);
 //    }
-    
+    public void DisableRigibody()
+    {
+        componentManager.rgbody2D.isKinematic = true;
+    }
+
+    public void EnableRigibody()
+    {
+        componentManager.rgbody2D.isKinematic = false;
+    }
     [Button("SETUP CONTROLL UI", ButtonSizes.Gigantic), GUIColor(0.4f, 0.8f, 1),]
     public void SetupEntity()
     {

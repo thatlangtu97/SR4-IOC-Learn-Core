@@ -12,11 +12,13 @@ public class DealDmgManager
         
         ComponentManager enemyComponent = target.GetComponent<ComponentManager>();      
         GameEntity targetEntity = enemyComponent.entity;
-        AddReactiveComponent(myEntity, targetEntity, damageInfoSend);
+        if(targetEntity!=null)
+            AddReactiveComponent(myEntity, targetEntity, damageInfoSend);
     }
     public static void DealDamage(GameEntity targetEntity, GameEntity myEntity, DamageInfoSend damageInfoSend)
     {
-        AddReactiveComponent(myEntity, targetEntity, damageInfoSend);
+        if(targetEntity!=null)
+            AddReactiveComponent(myEntity, targetEntity, damageInfoSend);
     }
     static void AddReactiveComponent( GameEntity myEntity, GameEntity targetEntity, DamageInfoSend damageInfoSend)
     {

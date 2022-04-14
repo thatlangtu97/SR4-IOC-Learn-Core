@@ -24341,7 +24341,7 @@ MonoBehaviour:
   - size: 20
     prefab: {fileID: 8206845486186549087, guid: f65df9cfb93d38145bf3f5de7e337094,
       type: 3}
-  - size: 1
+  - size: 40
     prefab: {fileID: 5314317156340808085, guid: 6c8e2f60bcf90d8488487028fe28372b,
       type: 3}
   - size: 1
