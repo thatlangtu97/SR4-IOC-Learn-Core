@@ -73,9 +73,9 @@ public class TestSpawnCharacter : MonoBehaviour
     
     public void SpawnEnemy(GameObject prefab)
     {
-        int countSpawn = 1;
+        int countSpawn = 0;
         float timeDelay = 1f;
-        while (countSpawn < count+1 )
+        while (countSpawn < count )
         {
             Vector3 randomPos = new Vector3(Random.Range(-13f,5f),0f,0f);
             StateMachineController temp = PoolManager.Spawn(prefab.GetComponent<PoolItem>(),null,randomPos).GetComponent<StateMachineController>();

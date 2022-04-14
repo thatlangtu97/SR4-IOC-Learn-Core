@@ -24716,7 +24716,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2145990311}
-        m_MethodName: Spawn
+        m_MethodName: SpawnEnemy
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 5561927636742712978, guid: 6c8e2f60bcf90d8488487028fe28372b,

@@ -19,32 +19,78 @@ public class StateMachineUpdateSystem : IExecuteSystem
     }
     public void Execute()
     {
+        
+//        int sizeEntity = entities.GetEntities().Length;
+//        
+//        if(sizeEntity<=0) return;
+        
+        
+        
+//        NativeArray<DataCastGround> datas = new NativeArray<DataCastGround>(sizeEntity, Allocator.TempJob);
+//        NativeArray<int> results = new NativeArray<int>(sizeEntity, Allocator.TempJob);    
+        
+        int count = 0;
         foreach (var e in entities.GetEntities())
         {
-            if (!e.hasStateMachineContainer)
-            {
-                e.RemoveAllComponents();
-                e.Destroy();
-                continue;
-            }
+//            if (!e.hasStateMachineContainer)
+//            {
+//                e.RemoveAllComponents();
+//                e.Destroy();
+//                continue;
+//            }
 
             e.stateMachineContainer.value.UpdateState();
+//            datas[count] = e.stateMachineContainer.value.componentManager.GetDataCastGround;
+//            results[count] = e.stateMachineContainer.value.componentManager.intCheckGround;
             //e.stateMachineContainer.stateMachine.componentManager.UpdateMecanim();
         }
-//        NativeArray<float2> position = new NativeArray<float2>(1,Allocator.TempJob);
-//        var job = new jobupdate(){position = position};
-//        JobHandle jobHandle = job.Schedule(1, 1);
+
+//        var job = new JobUpdateGround()
+//        {
+//            datas = datas,
+//            results = results,
+//        };
+//        JobHandle jobHandle = job.Schedule(sizeEntity, 1);
 //        jobHandle.Complete();
-//        position.Dispose();
+//        int count2 = 0;
+//        foreach (var e in entities.GetEntities())
+//        {
+//
+//            e.stateMachineContainer.value.componentManager.intCheckGround = results[count2];
+//            count2++;
+//        }
+//
+//        datas.Dispose();
+//        results.Dispose();
     }
     
-//    public struct jobupdate : IJobParallelFor
+//    public struct JobUpdateGround : IJobParallelFor
 //    {
-//        public NativeArray<float2> position;
+//        public NativeArray<DataCastGround> datas;
+//        public NativeArray<int> results;
 //        public void Execute(int index)
 //        {
-//            position[index] += new float2(1f,1f);
-//            UnityEngine.Debug.Log(position[index]);
+//            int t = Physics2D.BoxCastNonAlloc(datas[index].origin, datas[index].size, datas[index].angle, datas[index].direction,
+//                datas[index].results, datas[index].distance, datas[index].layerMask);
+//            results[index] = t;
 //        }
+//    }
+//    public struct DataCastWall
+//    {
+//        public Vector2 origin;
+//        public Vector2 direction;
+//        public RaycastHit2D[] results;
+//        public float distance;
+//        public int layerMask;
+//    }
+//    public struct DataCastGround
+//    {
+//        public Vector2 origin;
+//        public Vector2 size;
+//        public float angle;
+//        public Vector2 direction;
+//        public RaycastHit2D[] results;
+//        public float distance;
+//        public int layerMask;
 //    }
 }
