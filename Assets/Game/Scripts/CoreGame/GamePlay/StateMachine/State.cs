@@ -3,14 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 public class State : SerializedScriptableObject
 {
+    [SerializeField]
     protected StateMachineController controller;
     protected Dictionary<int, IComboEvent> idEventTrigged = new Dictionary<int, IComboEvent>();
+    [SerializeField]
     protected float timeTrigger;
     [ReadOnly]
     public int idState;
     public List<Immune> Immunes = new List<Immune>();
     
     public List<EventCollection> eventCollectionData;
+    [SerializeField]
     protected GameEntity entity;
     protected bool bufferJump,bufferAttack,bufferDash;
 

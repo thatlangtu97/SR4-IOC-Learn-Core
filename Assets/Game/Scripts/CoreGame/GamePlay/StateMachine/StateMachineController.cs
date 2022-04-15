@@ -18,6 +18,7 @@ public class StateMachineController : MonoBehaviour
     public List<string> nameTrigger;
     public ComponentManager componentManager;
     public Animator animator;
+    public List<State> testState= new List<State>();
     private void Awake()
     {
 //        foreach (AnimatorControllerParameter p in animator.parameters)
@@ -28,7 +29,8 @@ public class StateMachineController : MonoBehaviour
 //            }
 //        }
         //SetupAnim(animator);
-        //SpawnState();
+        SpawnState();
+        InitState();
     }
 
     public void Recycle()
@@ -61,6 +63,7 @@ public class StateMachineController : MonoBehaviour
         dictionaryStateMachine = new Dictionary<NameState, State>();
         foreach (StateClone tempState in States) {
             State state = Instantiate(tempState.StateToClone);
+            testState.Add(state);
             if (!dictionaryStateMachine.ContainsKey(tempState.NameState))
             {
                 dictionaryStateMachine.Add(tempState.NameState, state);
@@ -85,16 +88,17 @@ public class StateMachineController : MonoBehaviour
         //dictionaryStateMachine = new Dictionary<NameState, State>();
         currentState = null;
         currentNameState = NameState.UnknowState;
-        if (dictionaryStateMachine.Count == 0)
-        {
-            dictionaryStateMachine = new Dictionary<NameState, State>();
-            foreach (StateClone tempState in States)
-            {
-                CreateStateFactory(tempState);
-            }
-        }
+        InitState();
+//        if (dictionaryStateMachine.Count == 0)
+//        {
+//            dictionaryStateMachine = new Dictionary<NameState, State>();
+//            foreach (StateClone tempState in States)
+//            {
+//                CreateStateFactory(tempState);
+//            }
+//        }
 
-        //InitState();
+        InitState();
     }
 
     public void SetTrigger(string name, AnimationTypeState type , float timestart)

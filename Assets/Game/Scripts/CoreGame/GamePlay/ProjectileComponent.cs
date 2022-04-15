@@ -40,7 +40,7 @@ public class ProjectileComponent : MonoBehaviour
             {
                 component.AddComponent(ref entity);
             }
-            ComponentManagerUtils.AddComponent(this);
+            //ComponentManagerUtils.AddComponent(this);
         }
     }
 
