@@ -295,15 +295,33 @@ public class ComponentManager : MonoBehaviour
 
     public void AddImunes(List<Immune> immunesAdd)
     {
-        List<Immune> tempImmune = baseImmunes.Clone();
-        foreach (Immune immuneItem in immunesAdd)
+        
+//        List<Immune> tempImmune = baseImmunes.Clone();
+//        foreach (Immune immuneItem in immunesAdd)
+//        {
+//            if(baseImmunes.Contains(immuneItem))
+//                continue;
+//            tempImmune.Add(immuneItem);
+//        }
+//
+//        currentImunes = tempImmune;
+
+        
+        List<Immune> tempImmune = new List<Immune>();
+        foreach (var immuneItem in baseImmunes)
         {
-            if(baseImmunes.Contains(immuneItem))
-                continue;
             tempImmune.Add(immuneItem);
         }
-
+        foreach (var immuneItem in immunesAdd)
+        {
+            if (baseImmunes.Contains(immuneItem)) ;
+            {
+                continue;
+            }
+            tempImmune.Add(immuneItem);
+        }
         currentImunes = tempImmune;
+        //new addimune 
     }
 
     public void RemoveImmunes(List<Immune> immunesRemove)

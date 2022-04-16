@@ -25,7 +25,9 @@ namespace EntrySystem
             commandBinder.Bind<ShowEquipmentDetailSignal>().To<ShowEquipmentDetailCmd>();
             commandBinder.Bind<CraftEquipmentSignal>().To<CraftEquipmentCmd>();
             commandBinder.Bind<ShowPopupCraftSignal>().To<ShowPopupCraftCmd>();
-            commandBinder.Bind<ShowPopupGachaInfoSignal>().To<ShowPopupGachaInfoCmd>(); 
+            commandBinder.Bind<ShowPopupGachaInfoSignal>().To<ShowPopupGachaInfoCmd>();
+            commandBinder.Bind<ShowRevivePopupSignal>().To<ShowRevivePopupCmd>();
+            commandBinder.Bind<ShowRewardGamePlayPopupSignal>().To<ShowRewardGamePlayPopupCmd>();
             //NOTIFICATION
             commandBinder.Bind<NotificationPanelHeroSignal>().To<NotificationPanelHeroCmd>();
             commandBinder.Bind<NotificationPanelCraftSignal>().To<NotificationPanelCraftCmd>();

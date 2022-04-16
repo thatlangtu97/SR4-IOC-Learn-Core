@@ -376,6 +376,15 @@ public class PoolManager : MonoBehaviour
         CreateStartupPools();
         CreatePoolEntity(Contexts.sharedInstance, 100);
     }
+
+    private void OnDestroy()
+    {
+        foreach (var VARIABLE in entites)
+        {
+            VARIABLE.Destroy();
+        }
+    }
+
     #endregion
    
 }

@@ -21,13 +21,12 @@ public class StateMachineUpdateSystem : IExecuteSystem
     {
         foreach (var e in entities.GetEntities())
         {
-            if (!e.hasStateMachineContainer)
-            {
-                e.RemoveAllComponents();
-                e.Destroy();
-                continue;
-            }
-
+//            if (!e.hasStateMachineContainer)
+//            {
+//                e.RemoveAllComponents();
+//                e.Destroy();
+//                continue;
+//            }
             e.stateMachineContainer.value.UpdateState();
             //e.stateMachineContainer.stateMachine.componentManager.UpdateMecanim();
         }

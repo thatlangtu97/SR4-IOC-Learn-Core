@@ -2,46 +2,67 @@
 using Entitas;
 using BehaviorDesigner.Runtime;
 using UnityEngine;
-//using UnityEngine.Experimental.PlayerLoop;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using EntrySystem;
 using Sirenix.OdinInspector;
+using strange.extensions.mediation.impl;
 
-public class GameController : MonoBehaviour
+public class GameController : View
 {
-    Systems CharacterSystems;
-    Systems GameSystem;
     public static GameController instance;
+
+    public bool isPlaying = true;
+    //Systems CharacterSystems;
+    private Systems GameSystem;
+    private StateMachineUpdateSystem stateMachineUpdateSystem;
+    private TakeDamageSystem takeDamageSystem;
+    private ProjectileMoveBezierSystem projectileMoveBezierSystem;
+    private DamageTextSystem damageTextSystem;
+    private HealthBarUpdateSystem healthBarUpdateSystem;
+    private Contexts contexts;
+
+
+    public bool testloadFlashScene = false;
     private void Awake()
     {
+        EntryContextView.Instance.loadFlashScene=testloadFlashScene;
         if (instance == null)
         {
             instance = this;
         }
+        
         Application.targetFrameRate = -1;
-//        var contexts = Contexts.sharedInstance;
-//        GameSystem = new Feature("Game System")
-//            .Add(new StateMachineUpdateSystem(contexts))
-//            .Add(new TakeDamageSystem(contexts))
-//            .Add(new ProjectileMoveBezierSystem(contexts))
-//            .Add(new DamageTextSystem(contexts))
-//            .Add(new HealthBarUpdateSystem(contexts))
-//            ;
-//        GameSystem.Initialize();
-        SetupSystem();
-       
-    }
-    [Button("SetupSystem", ButtonSizes.Gigantic), GUIColor(0.4f, 0.8f, 1),]
 
+    }
+
+    public void InitUI()
+    {
+        GameObject UI1 = Resources.Load<GameObject>(GameResourcePath.UI1);
+        GameObject UI2 = Resources.Load<GameObject>(GameResourcePath.UI2);
+        Instantiate(UI1);
+        Instantiate(UI2);
+    }
+    public void CreateSystem()
+    {
+        contexts = Contexts.sharedInstance;
+        stateMachineUpdateSystem = new StateMachineUpdateSystem(contexts);
+        takeDamageSystem = new TakeDamageSystem(contexts);
+        projectileMoveBezierSystem = new ProjectileMoveBezierSystem(contexts);
+        damageTextSystem = new DamageTextSystem(contexts);
+        healthBarUpdateSystem = new HealthBarUpdateSystem(contexts);
+    }
+    
+    [Button("SetupSystem", ButtonSizes.Gigantic), GUIColor(0.4f, 0.8f, 1),]
     public void SetupSystem()
     {
-        var contexts = Contexts.sharedInstance;
+
         GameSystem = new Feature("GameSystem")
-                .Add(new StateMachineUpdateSystem(contexts))
-                .Add(new TakeDamageSystem(contexts))
-                .Add(new ProjectileMoveBezierSystem(contexts))
-                .Add(new DamageTextSystem(contexts))
-                .Add(new HealthBarUpdateSystem(contexts))
+                .Add(stateMachineUpdateSystem)
+                .Add(takeDamageSystem)
+                .Add(projectileMoveBezierSystem)
+                .Add(damageTextSystem)
+                .Add(healthBarUpdateSystem)
             ;
         DealDmgManager.context = contexts;
         DamageTextManager.context = contexts;
@@ -53,7 +74,11 @@ public class GameController : MonoBehaviour
         {
             PlayFlashScene.instance.HideLoading();
         }
-        
+        CreateSystem();
+        SetupSystem();
+        InitUI();
+        Debug.Log("start game controller");
+
     }
     private void OnDestroy()
     {
@@ -61,8 +86,9 @@ public class GameController : MonoBehaviour
     }
     void Update()
     {
-        if(GameSystem!=null)
-            GameSystem.Execute();  
+        if(isPlaying)
+            if(GameSystem!=null)
+                GameSystem.Execute();
         //GameSystem.Cleanup();
     }
 
@@ -74,8 +100,9 @@ public class GameController : MonoBehaviour
 
     private void LateUpdate()
     {
-        if(GameSystem!=null)
-            GameSystem.Cleanup();  
+        if(isPlaying)
+            if(GameSystem!=null)
+                GameSystem.Cleanup();  
     }
     public void ReloadScene()
     {

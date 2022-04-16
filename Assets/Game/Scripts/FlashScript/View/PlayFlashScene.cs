@@ -6,20 +6,35 @@ using UnityEngine.UI;
 
 public class PlayFlashScene : View
 {
-    public static PlayFlashScene instance;
+    public static PlayFlashScene _instance;
     [Inject] public PopupManager popupManager { get; set; }
     public string nameScene;
     public Button StartGameBtn;
     public Animator animator;
     public GameObject parent;
+    public static PlayFlashScene instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                GameObject prefab = Resources.Load<GameObject>("UI/LoadingFlashScene");
+                PlayFlashScene flashScene = Instantiate(prefab).GetComponent<PlayFlashScene>();
+                _instance = flashScene;
+                DontDestroyOnLoad(flashScene);
+            }
+            return _instance;
+        }
+    }
     protected override void Start()
     {
         base.Start();
-        if (instance == null)
+        if (_instance == null)
         {
-            instance = this;
+            _instance = this;
+            DontDestroyOnLoad(this);
         }
-        DontDestroyOnLoad(parent);
+        StartGameBtn.onClick.AddListener(StartGameClick);
     }
     
     public void StartGameClick()

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PanelHomeView : AbsPanelView
@@ -15,6 +16,8 @@ public class PanelHomeView : AbsPanelView
     public Button ShopBtn;
     public Button HeroBtn;
     public Button CraftBtn;
+
+    public Button StartGameBtn;
     //public Button ShopGoldBtn, ShopGemBtn;
     public Doozy.Engine.UI.UIButton UIBtnShop, UIBtnHero , UIBtnCraft;
     protected override void Start()
@@ -24,6 +27,7 @@ public class PanelHomeView : AbsPanelView
         CraftBtn.onClick.AddListener(ShowPanelCraft);
 
         ShopBtn.onClick.AddListener(ShowPanelShopGold);
+        StartGameBtn.onClick.AddListener(StartGame);
         /*
         StaminaBtn.onClick.AddListener( ()=>{ showPopupStaminaSignal.Dispatch(); });
         ShopGoldBtn.onClick.AddListener(() => { showPanelShopSignal.Dispatch(); });
@@ -35,7 +39,7 @@ public class PanelHomeView : AbsPanelView
 //        UIBtnHero.OnClick.OnTrigger.Event.AddListener(ShowPanelHero);
 //        UIBtnShop.OnClick.OnTrigger.Event.AddListener(ShowPanelShopGold);
 //        UIBtnCraft.OnClick.OnTrigger.Event.AddListener(ShowPanelCraft);
-    
+
     }
 
     public override void ShowPanelByCmd()
@@ -59,6 +63,16 @@ public class PanelHomeView : AbsPanelView
     }
     public void LoadScene(string name)
     {
-        PlayFlashScene.instance.Loading(name, 1.2f);
+        if (PlayFlashScene.instance)
+            PlayFlashScene.instance.Loading(name, 1.2f);
+        else
+            SceneManager.LoadScene(name);
+    }
+
+    public void StartGame()
+    {
+
+        //SceneManager.LoadScene("TestBt");
+        LoadScene("TestBt");
     }
 }

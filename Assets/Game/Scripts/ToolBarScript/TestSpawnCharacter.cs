@@ -1,13 +1,29 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using strange.extensions.mediation.impl;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class TestSpawnCharacter : MonoBehaviour
+public class TestSpawnCharacter : View
 {
+    [Inject] public ShowRevivePopupSignal showRevivePopupSignal { get; set; }
+    [Inject] public ShowRewardGamePlayPopupSignal showRewardGamePlayPopupSignal { get; set; }
     public bool SetPlayer;
     public float TimeDelay;
+    protected override void Awake()
+    {
+        base.Awake();
+        
+    }
+
+    protected override void Start()
+    {
+        base.Start();
+    }
+    
+    
+
     public void Spawn(GameObject prefab)
     {
         StateMachineController temp = null;
@@ -54,8 +70,14 @@ public class TestSpawnCharacter : MonoBehaviour
 
     public void ReviveState()
     {
-        if (Contexts.sharedInstance.game.playerFlagEntity != null)
-            Contexts.sharedInstance.game.playerFlagEntity.stateMachineContainer.value.OnInputRevive();
+//        if (Contexts.sharedInstance.game.playerFlagEntity != null)
+//            Contexts.sharedInstance.game.playerFlagEntity.stateMachineContainer.value.OnInputRevive();
+        showRevivePopupSignal.Dispatch();
+    }
+
+    public void EndGame()
+    {
+        showRewardGamePlayPopupSignal.Dispatch();   
     }
     public void SpawnMap(GameObject prefab)
     {

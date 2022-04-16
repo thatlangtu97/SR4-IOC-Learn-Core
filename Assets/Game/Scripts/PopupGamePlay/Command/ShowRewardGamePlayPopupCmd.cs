@@ -1,0 +1,19 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class ShowRewardGamePlayPopupCmd : AbsShowPopupCmd
+{
+    public override void Execute()
+    {
+        base.Execute();
+        popupKey = PopupKey.RewardGameplayPopup;
+        RewardGameplayPopup popup = GetInstance<RewardGameplayPopup>();
+        popup.ShowPopupByCmd();
+    }
+
+    public override string GetResourcePath()
+    {
+        return GameResourcePath.POPUP_REWARD_GAMEPLAY;
+    }
+}

@@ -17,6 +17,7 @@ public class UIBasePanel : View
     {
         base.Start();
         popupManager.AddUILayer(uiLayer, transform);
+        Debug.Log("StartUIBase");
     }
 
 }

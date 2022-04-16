@@ -226,6 +226,8 @@ public enum PopupKey
     GachaPopup =9,
     CraftPopup =10,
     GachaInfoPopup =11,
+    RevivePopup = 12,
+    RewardGameplayPopup = 13,
 }
 public enum UILayer
 {

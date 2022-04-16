@@ -10,7 +10,12 @@ public class ActionBufferManager : MonoBehaviour
     CompositeDisposable _disposable;
     private void Awake()
     {
-        Instance = this;
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(this);
+        }
+
         _disposable = new CompositeDisposable();
     }
 

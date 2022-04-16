@@ -193,6 +193,7 @@ public class GameInput : IComponent
 public partial class GameContext
 {
     public GameEntity playerFlagEntity { get { return GetGroup(GameMatcher.PlayerFlag).GetSingleEntity(); } }
+    public GameEntity[] allPlayerFlagEntity { get { return GetGroup(GameMatcher.PlayerFlag).GetEntities(); } }
 }
 
 public abstract class ConvertToComponent

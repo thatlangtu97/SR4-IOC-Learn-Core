@@ -16,5 +16,11 @@ public static class GameResourcePath
 	public static readonly string POPUP_GACHA = "UI/Home/PopupGacha";
 	public static readonly string POPUP_CRAFT = "UI/Home/PopupCraft";
 	public static readonly string POPUP_INFO_GACHA = "UI/Home/PopupInfoGacha";
+	public static readonly string POPUP_REVIVE = "UI/GamePlay/PopupRevive";
+	public static readonly string POPUP_REWARD_GAMEPLAY = "UI/GamePlay/RewardGameplayPopup";
+	#endregion
+	#region UI
+	public static readonly string UI1 = "UI/UI1";
+	public static readonly string UI2 = "UI/UI2";
 	#endregion
 }
