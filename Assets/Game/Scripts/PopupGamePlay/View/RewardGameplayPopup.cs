@@ -20,10 +20,11 @@ public class RewardGameplayPopup : AbsPopupView
 
     public void BackToHome()
     {
+        ComponentManagerUtils.ResetAll();
+        PoolManager.DestroyAllEntity();
         Contexts.sharedInstance.game.DestroyAllEntities();
-        //PoolManager.DestroyAllEntity();
         Contexts.sharedInstance.Reset();
-        //Contexts.sharedInstance = new Contexts();
+        
         Action action = delegate
         {
             PlayFlashScene.instance.Loading("HomeScene",1.2f,null);
@@ -36,12 +37,8 @@ public class RewardGameplayPopup : AbsPopupView
         ComponentManagerUtils.ResetAll();
         PoolManager.DestroyAllEntity();
         Contexts.sharedInstance.game.DestroyAllEntities();
-        
-        
         Scene scene = SceneManager.GetActiveScene();
-        //Contexts.sharedInstance.Reset();
         
-//        SceneManager.LoadScene(scene.name);
         Action action = delegate
         {
             PlayFlashScene.instance.Loading(scene.name,1.2f,null);

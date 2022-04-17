@@ -26,7 +26,10 @@ public class GameController : View
     public bool testloadFlashScene = false;
     private void Awake()
     {
-        EntryContextView.Instance.loadFlashScene=testloadFlashScene;
+        //Debug.Log("entry context "+EntryContextView.Instance);
+#if UNITY_EDITOR
+        EntryContextView.Instance.loadFlashScene = testloadFlashScene;
+#endif
         if (instance == null)
         {
             instance = this;
