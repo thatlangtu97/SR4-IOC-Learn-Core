@@ -34,19 +34,79 @@ public class ZoneData : SerializedScriptableObject
 //
 //    //public List<Tape> dialogueSequenceList;
     public List<GameObject> enemyList;
-    [Button("SetupEnemy", ButtonSizes.Gigantic), GUIColor(0.4f, 0.8f, 1),]
-    void FindEnemyPrefab()
+    public List<PoolSizeData> poolSizeData;
+    
+    [Button("FindEnemyPrefab", ButtonSizes.Gigantic), GUIColor(0.4f, 0.8f, 1),]
+    public void FindEnemyPrefab()
     {
+        // FindPrefab
         enemyList = new List<GameObject>();
-        foreach (var VARIABLE in waveList)
+        foreach (var tempWave in waveList)
         {
-            GameObject prefab = Resources.Load<GameObject>("PrefabCharacter/" + VARIABLE.EnemyID);
+            GameObject prefab = Resources.Load<GameObject>("PrefabCharacter/" + tempWave.EnemyID);
             if (!enemyList.Contains(prefab))
             {
                 enemyList.Add(prefab);
             }
         }
+        // Find Size
+        poolSizeData = new List<PoolSizeData>();
+        foreach (var tempEnemy in enemyList)
+        {
+            PoolSizeData currentPool= new PoolSizeData();
+            string idEnemy = tempEnemy.name;
+            int size = 0;
+            
+            foreach (var tempWave in waveList)
+            {
+                if (tempWave.EnemyID == idEnemy && tempWave.Amount > size)
+                {
+                    size = tempWave.Amount;
+                }
+            }
+            
+            currentPool.name = idEnemy;
+            currentPool.size = size;
+            poolSizeData.Add(currentPool);
+        }
     }
+
+    public PoolManager poolManager;
+    [Button("SetupPool", ButtonSizes.Gigantic), GUIColor(0.4f, 0.8f, 1),]
+    public void SetupPool()
+    {
+//        List<PoolManager.PoolList> poolSizeZone = poolManager.poolSizeZone;
+//        PoolManager.PoolList[] poolLists = poolManager.poolLists;
+//
+//        foreach (var poolSizeItem in poolSizeData)
+//        {
+//            foreach (var poolItem in poolLists)
+//            {
+//                if (poolItem.name == poolSizeItem.name)
+//                {
+//                    PoolManager.PoolList temp = new PoolManager.PoolList(poolItem);
+//                    
+//                    //temp.name = poolSizeItem.name;
+//                    //temp.ListPrefab = poolItem.ListPrefab;
+//                    foreach (var tempPrefab in temp.ListPrefab)
+//                    {
+//                        string name = tempPrefab.prefab.name;
+//                        tempPrefab.prefab = Resources.Load<GameObject>("PrefabCharacter" + tempPrefab.prefab.name).GetComponent<PoolItem>();
+//                        tempPrefab.size = poolSizeItem.size * tempPrefab.size;
+//                    }
+//                    poolSizeZone.Add(temp);
+//                    
+//                }
+//            }
+//        }
+
+    }
+}
+[Serializable]
+public class PoolSizeData
+{
+    public string name;
+    public int size;
 }
 
 [Serializable]

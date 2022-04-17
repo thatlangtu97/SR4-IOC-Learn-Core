@@ -15,6 +15,16 @@ public class PoolManager : MonoBehaviour
     {
         public int size;
         public PoolItem prefab;
+
+        public ObjectPool()
+        {
+            
+        }
+        public ObjectPool(ObjectPool clone)
+        {
+            size = clone.size;
+            prefab = clone.prefab;
+        }
     }
     [System.Serializable]
     public class PoolList
@@ -23,6 +33,23 @@ public class PoolManager : MonoBehaviour
         public string name;
         [FoldoutGroup("$name", expanded: true)]
         public ObjectPool[] ListPrefab;
+
+        public PoolList()
+        {
+            
+        }
+
+        public PoolList(PoolList clone)
+        {
+            name = clone.name;
+            ListPrefab = new ObjectPool[clone.ListPrefab.Length];
+            int count = 0;
+            foreach (var poolListItem in clone.ListPrefab)
+            {
+                ListPrefab[count] = new ObjectPool(poolListItem);
+                count += 1;
+            }
+        }
     }
 
     
@@ -32,6 +59,7 @@ public class PoolManager : MonoBehaviour
     Dictionary<PoolItem, GameObject> spawnedObjects = new Dictionary<PoolItem, GameObject>();
     public ObjectPool[] PoolDefault;
     public PoolList[] poolLists;
+    public List<PoolList> poolSizeZone;
     #endregion
 
     #region POOL ENTITY

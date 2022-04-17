@@ -24,10 +24,14 @@ MonoBehaviour:
   waveList:
   - WaveID: 1
     EnemyID: E1
-    Amount: 1
+    Amount: 3
     Time: 0
     TimeSpawnMin: 0
     TimeSpawnMax: 0
   levelList: []
   enemyList:
   - {fileID: 5561927636742712978, guid: 6c8e2f60bcf90d8488487028fe28372b, type: 3}
+  poolSizeData:
+  - name: E1
+    size: 3
+  poolManager: {fileID: 0}
