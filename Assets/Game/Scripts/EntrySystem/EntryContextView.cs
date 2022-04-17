@@ -30,7 +30,11 @@ namespace EntrySystem {
 			context = new EntryContext(this, true);
 			context.Start();
 			Debug.Log("Awake entry");
-
+#if UNITY_EDITOR
+			Application.targetFrameRate = -1;
+#else
+			Application.targetFrameRate = 70;
+#endif
 		}
 
 		void Start()

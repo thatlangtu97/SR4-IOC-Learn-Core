@@ -35,34 +35,36 @@ public class PoolManager : MonoBehaviour
     #endregion
 
     #region POOL ENTITY
+    [ShowInInspector]
     private static List<GameEntity> entites= new List<GameEntity>();
     #endregion
     
     #region INSTANCE
-    static CompositeDisposable _disposable;
+    //static CompositeDisposable _disposable;
     static PoolManager _instance;
     public static PoolManager instance
     {
         get
         {
-            if (_disposable == null)
-            {
-                _disposable= new CompositeDisposable();
-            }
-            
-            if (_instance != null)
-                return _instance;
-
-            _instance = Object.FindObjectOfType<PoolManager>();
-            if (_instance != null)
-                return _instance;
-
-            var obj = new GameObject("PoolManager");
-            obj.transform.localPosition = Vector3.zero;
-            obj.transform.localRotation = Quaternion.identity;
-            obj.transform.localScale = Vector3.one;
-            _instance = obj.AddComponent<PoolManager>();
+//            if (_disposable == null)
+//            {
+//                _disposable= new CompositeDisposable();
+//            }
             return _instance;
+//            if (_instance != null)
+//                return _instance;
+//
+//            _instance = Object.FindObjectOfType<PoolManager>();
+//            if (_instance != null)
+//                return _instance;
+//
+//            var obj = new GameObject("PoolManager");
+//            obj.transform.localPosition = Vector3.zero;
+//            obj.transform.localRotation = Quaternion.identity;
+//            obj.transform.localScale = Vector3.one;
+//            _instance = obj.AddComponent<PoolManager>();
+//            Debug.Log("create instance");
+//            return _instance;
         }
     }
     #endregion
@@ -306,7 +308,10 @@ public class PoolManager : MonoBehaviour
 
     public static void Recycle(PoolItem gameObject,float time)
     {
-        Observable.Timer(TimeSpan.FromSeconds(time)).Subscribe(l => {  Recycle(gameObject); }).AddTo(_disposable);
+        //Observable.Timer(TimeSpan.FromSeconds(time)).Subscribe(l => {  Recycle(gameObject); }).AddTo(_disposable);
+        Action tempAction = delegate { Recycle(gameObject);};
+        
+        ActionBufferManager.Instance.ActionDelayTime(tempAction,time);
     }
 
     
@@ -348,7 +353,6 @@ public class PoolManager : MonoBehaviour
         {
             CreatePoolEntity(Contexts.sharedInstance, 30);
         }
-        //int indexE = entites.Count - 1;
         GameEntity temp = entites[0];
         entites.RemoveAt(0);
         return temp;
@@ -359,6 +363,32 @@ public class PoolManager : MonoBehaviour
         entity.RemoveAllComponents();
         entites.Add(entity);
     }
+    public static void DestroyAllEntity()
+    {
+        while (entites.Count > 0)
+        {
+            GameEntity temp = entites[0];
+            try
+            {
+                if(temp!=null)
+                    temp.Destroy();
+            }
+            catch (Exception e)
+            {
+            }
+
+            entites.RemoveAt(0);
+        }
+    }
+    public static void RecycleAllEntity()
+    {
+        while (entites.Count > 0)
+        {
+            GameEntity temp = entites[0];
+            temp.Destroy();
+            entites.RemoveAt(0);
+        }
+    }
     #endregion
 
     #region UNITY METHOD
@@ -366,7 +396,7 @@ public class PoolManager : MonoBehaviour
     {
         if(instance==null)
             _instance = this;
-        _disposable = new CompositeDisposable();
+        //_disposable = new CompositeDisposable();
 
     }
 
@@ -375,14 +405,7 @@ public class PoolManager : MonoBehaviour
         CreatePoolsList();
         CreateStartupPools();
         CreatePoolEntity(Contexts.sharedInstance, 100);
-    }
-
-    private void OnDestroy()
-    {
-        foreach (var VARIABLE in entites)
-        {
-            VARIABLE.Destroy();
-        }
+        Debug.Log("Start pool");
     }
 
     #endregion

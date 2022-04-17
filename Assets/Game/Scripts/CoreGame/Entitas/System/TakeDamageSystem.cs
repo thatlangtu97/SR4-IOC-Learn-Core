@@ -144,6 +144,8 @@ public class TakeDamageSystem : ReactiveSystem<GameEntity>
         int timerFrame = 0;
         foreach (var key in dic.Keys)
         {
+            Action temp = delegate {  };
+            
             Observable.TimerFrame(timerFrame,FrameCountType.Update).Subscribe(l => {
                 foreach (var action in dic[key])
                 {

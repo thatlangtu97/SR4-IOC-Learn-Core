@@ -139,7 +139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &17509189
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15060,49 +15060,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1377487896}
   m_CullTransparentMesh: 0
---- !u!1 &1389607659
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1389607661}
-  - component: {fileID: 1389607660}
-  m_Layer: 0
-  m_Name: ActionBufferManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1389607660
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1389607659}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee3866f41d909014db53f58805122bfc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &1389607661
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1389607659}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.8023357, y: 1.3097706, z: -1.3613281}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1552321421
 GameObject:
   m_ObjectHideFlags: 0
@@ -23706,7 +23663,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PoolDefault:
-  - size: 100
+  - size: 1
     prefab: {fileID: -5527340204523048409, guid: b0ff441957a6c074cb6dc3149bd41bcf,
       type: 3}
   poolLists:
@@ -23771,7 +23728,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2124903794
 GameObject:
@@ -23872,7 +23829,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2138351009
 RectTransform:
   m_ObjectHideFlags: 0
@@ -24038,7 +23995,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SetPlayer: 0
   TimeDelay: 0
-  count: 1
+  count: 20
   actions: []
 --- !u!114 &2145990312
 MonoBehaviour:

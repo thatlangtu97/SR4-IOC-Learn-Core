@@ -6,13 +6,28 @@ using UnityEngine;
 
 public class ActionBufferManager : MonoBehaviour
 {
-    public static ActionBufferManager Instance;
+    public static ActionBufferManager Instance
+    {            
+        get
+        {
+            if(instance == null)
+            {
+                GameObject temp = new GameObject("ActionBufferManager",typeof(ActionBufferManager));
+                instance = temp.GetComponent<ActionBufferManager>();
+            }
+            return instance;
+        }    
+    }
+    private static ActionBufferManager instance;
+    
+    
+    
     CompositeDisposable _disposable;
     private void Awake()
     {
-        if (Instance == null)
+        if (instance == null)
         {
-            Instance = this;
+            instance = this;
             DontDestroyOnLoad(this);
         }
 
@@ -22,5 +37,10 @@ public class ActionBufferManager : MonoBehaviour
     public void ActionDelayTime(Action action ,float timedelay)
     {
         Observable.Timer(TimeSpan.FromSeconds(timedelay)).Subscribe(l => { action.Invoke(); }).AddTo(_disposable);
+    }
+
+    public void ActionDelayFrame(Action action, int frameDelay)
+    {
+        Observable.TimerFrame(frameDelay,FrameCountType.Update).Subscribe(l => { action.Invoke(); }).AddTo(_disposable);
     }
 }

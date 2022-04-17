@@ -63,7 +63,7 @@ public class PlayFlashScene : View
             Debug.LogError(e);
         }
         yield return new WaitForSeconds(timeDelay);        
-        SceneManager.LoadSceneAsync(namescene);
+        SceneManager.LoadScene(namescene);
     }
     public void HideLoading()
     {

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -9,16 +10,42 @@ public class RewardGameplayPopup : AbsPopupView
     
     
     public Button backToHomeBtn;
+    public Button ReloadBtn;
     protected override void Awake()
     {
         base.Awake();
         backToHomeBtn.onClick.AddListener(BackToHome);
+        ReloadBtn.onClick.AddListener(Reload);
     }
 
     public void BackToHome()
     {
-        //SceneManager.LoadScene("HomeScene");
-        PlayFlashScene.instance.ShowLoading();
-        ActionBufferManager.Instance.ActionDelayTime(()=> SceneManager.LoadScene("HomeScene"),1.2f);
+        Contexts.sharedInstance.game.DestroyAllEntities();
+        //PoolManager.DestroyAllEntity();
+        Contexts.sharedInstance.Reset();
+        //Contexts.sharedInstance = new Contexts();
+        Action action = delegate
+        {
+            PlayFlashScene.instance.Loading("HomeScene",1.2f,null);
+        };
+        ActionBufferManager.Instance.ActionDelayFrame(action,1);
+    }
+
+    public void Reload()
+    {
+        ComponentManagerUtils.ResetAll();
+        PoolManager.DestroyAllEntity();
+        Contexts.sharedInstance.game.DestroyAllEntities();
+        
+        
+        Scene scene = SceneManager.GetActiveScene();
+        //Contexts.sharedInstance.Reset();
+        
+//        SceneManager.LoadScene(scene.name);
+        Action action = delegate
+        {
+            PlayFlashScene.instance.Loading(scene.name,1.2f,null);
+        };
+        ActionBufferManager.Instance.ActionDelayFrame(action,1);
     }
 }

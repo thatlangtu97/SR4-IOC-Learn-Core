@@ -31,11 +31,7 @@ public class GameController : View
         {
             instance = this;
         }
-        
-        Application.targetFrameRate = -1;
-
     }
-
     public void InitUI()
     {
         GameObject UI1 = Resources.Load<GameObject>(GameResourcePath.UI1);
@@ -56,7 +52,6 @@ public class GameController : View
     [Button("SetupSystem", ButtonSizes.Gigantic), GUIColor(0.4f, 0.8f, 1),]
     public void SetupSystem()
     {
-
         GameSystem = new Feature("GameSystem")
                 .Add(stateMachineUpdateSystem)
                 .Add(takeDamageSystem)
@@ -77,12 +72,6 @@ public class GameController : View
         CreateSystem();
         SetupSystem();
         InitUI();
-        Debug.Log("start game controller");
-
-    }
-    private void OnDestroy()
-    {
-        //ExitGameScene();
     }
     void Update()
     {
@@ -104,50 +93,8 @@ public class GameController : View
             if(GameSystem!=null)
                 GameSystem.Cleanup();  
     }
-    public void ReloadScene()
-    {
-        /*
-        Scene scene = SceneManager.GetActiveScene();
-        SceneManager.LoadScene(scene.name);
-        var contexts = Contexts.sharedInstance;
-        contexts.game.DestroyAllEntities();
-        contexts.Reset();       
-        Contexts.sharedInstance = new Contexts();
-        */
 
-        StartCoroutine(delayReloadScene());
-    }
-    public void ExitGameScene()
-    {
-        /*
-        GameSystem.TearDown();
-        GameSystem.DeactivateReactiveSystems();
-        GameSystem.ClearReactiveSystems();
-        var contexts = Contexts.sharedInstance;
-        contexts.game.DestroyAllEntities();        
-        contexts.Reset();
-        */
-        ComponentManagerUtils.ResetAll();
-        //Contexts.sharedInstance.Reset();
-        Contexts.sharedInstance = new Contexts();
-    }
-    public void BackToHome()
-    {
-        PlayFlashScene.instance.Loading("HomeScene", 1.2f, ExitGameScene);
-    }
-    IEnumerator delayReloadScene()
-    {
-        if(PlayFlashScene.instance!=null)
-            PlayFlashScene.instance.ShowLoading();
-        ComponentManagerUtils.ResetAll();
-        //Contexts.sharedInstance.Reset();
-        Contexts.sharedInstance = new Contexts();
-        yield return new WaitForSeconds(1.2f);
-        Scene scene = SceneManager.GetActiveScene();
-        SceneManager.LoadScene(scene.name);
 
-        
 
-    }
 }
 

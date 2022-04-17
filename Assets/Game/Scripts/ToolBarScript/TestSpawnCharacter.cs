@@ -43,8 +43,10 @@ public class TestSpawnCharacter : View
             
             
             temp = PoolManager.Spawn(prefab.GetComponent<PoolItem>()).GetComponent<StateMachineController>();
-            Action tempAction = delegate {  temp.GetComponent<ComponentManager>().SetupEntity(); };
-            setActionDelay(tempAction, TimeDelay);
+            temp.GetComponent<ComponentManager>().SetupEntity();
+            
+//            Action tempAction = delegate {  temp.GetComponent<ComponentManager>().SetupEntity(); };
+//            setActionDelay(tempAction, TimeDelay);
             
             index += 1;
         } 
