@@ -14752,7 +14752,7 @@ MonoBehaviour:
     - size: 1
       prefab: {fileID: 5284923481547528749, guid: 0331d21cfd4d4934c99c976841391283,
         type: 3}
-  poolSizeZone: []
+  zodeData: {fileID: 0}
 --- !u!4 &1075197162
 Transform:
   m_ObjectHideFlags: 0
@@ -23761,7 +23761,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PoolDefault:
-  - size: 1
+  - size: 10
     prefab: {fileID: -5527340204523048409, guid: b0ff441957a6c074cb6dc3149bd41bcf,
       type: 3}
   poolLists:
@@ -23814,18 +23814,7 @@ MonoBehaviour:
     - size: 1
       prefab: {fileID: 5284923481547528749, guid: 0331d21cfd4d4934c99c976841391283,
         type: 3}
-  poolSizeZone:
-  - name: E1
-    ListPrefab:
-    - size: 1
-      prefab: {fileID: 5314317156340808085, guid: 6c8e2f60bcf90d8488487028fe28372b,
-        type: 3}
-    - size: 1
-      prefab: {fileID: 8206845486186549087, guid: f65df9cfb93d38145bf3f5de7e337094,
-        type: 3}
-    - size: 1
-      prefab: {fileID: 5284923481547528749, guid: 0331d21cfd4d4934c99c976841391283,
-        type: 3}
+  zodeData: {fileID: 11400000, guid: 69649ec55dd497d48ba7ef5cb0658ced, type: 2}
 --- !u!4 &2082627698
 Transform:
   m_ObjectHideFlags: 0
@@ -24105,7 +24094,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SetPlayer: 0
   TimeDelay: 0
-  count: 20
+  count: 1
   actions: []
 --- !u!114 &2145990312
 MonoBehaviour:

@@ -10,6 +10,7 @@ using Object = UnityEngine.Object;
 
 public class PoolManager : MonoBehaviour
 {
+    #region MODEL
     [System.Serializable]
     public class ObjectPool
     {
@@ -51,7 +52,7 @@ public class PoolManager : MonoBehaviour
             }
         }
     }
-
+    #endregion
     
     #region POOL DEFAULT
     
@@ -59,7 +60,7 @@ public class PoolManager : MonoBehaviour
     Dictionary<PoolItem, GameObject> spawnedObjects = new Dictionary<PoolItem, GameObject>();
     public ObjectPool[] PoolDefault;
     public PoolList[] poolLists;
-    public List<PoolList> poolSizeZone;
+    public ZoneData zodeData; 
     #endregion
 
     #region POOL ENTITY
@@ -346,14 +347,43 @@ public class PoolManager : MonoBehaviour
     public static void CreatePoolsList()
     {
         var pools = instance.poolLists;
+        var zoneData = instance.zodeData;
+        List<PoolList> tempListPooled = new List<PoolList>();
         if (pools != null && pools.Length > 0)
-
+        {
             foreach (var VARIABLE in pools)
             {
-                for (int i = 0; i < VARIABLE.ListPrefab.Length; ++i) 
-                    CreatePool(VARIABLE.ListPrefab[i].prefab.gameObject, VARIABLE.ListPrefab[i].size);
+                for (int i = 0; i < VARIABLE.ListPrefab.Length; ++i)
+                {
+                    if (zoneData == null)
+                        CreatePool(VARIABLE.ListPrefab[i].prefab.gameObject, VARIABLE.ListPrefab[i].size);
+                    else
+                    {
+
+                        foreach (var zone in instance.zodeData.poolSizeData)
+                        {
+                            if (VARIABLE.ListPrefab[i].prefab.name == zone.name)
+                            {
+                                tempListPooled.Add(VARIABLE);
+                                CreatePool(VARIABLE.ListPrefab[i].prefab.gameObject,
+                                    VARIABLE.ListPrefab[i].size * zone.size);
+                            }
+                        }
+
+                    }
+                }
             }
-            
+            foreach (var VARIABLE in pools)
+            {
+                if(!tempListPooled.Contains(VARIABLE))
+                {
+                    for (int i = 0; i < VARIABLE.ListPrefab.Length; ++i) 
+                    {
+                        CreatePool(VARIABLE.ListPrefab[i].prefab.gameObject, VARIABLE.ListPrefab[i].size);
+                    }
+                }
+            }
+        }
     }
     
     public static void CreateStartupPools()
