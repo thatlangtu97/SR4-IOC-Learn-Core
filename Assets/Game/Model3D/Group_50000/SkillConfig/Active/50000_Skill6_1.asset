@@ -1,0 +1,95 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e99b05c0d3ca429c81969be69abd34fd, type: 3}
+  m_Name: 50000_Skill6_1
+  m_EditorClassIdentifier: 
+  skillClassName: DefaultSkill
+  animationName: Skill6_1
+  scaleTime: 1
+  lifetimeInSeconds: 5.1
+  channelingExitFrame: 151
+  stateExitFrame: 151
+  acceptWindowStartFrame: 0
+  acceptWindowEndFrame: 0
+  attackStateWindowStartFrame: 0
+  attackStateWindowEndFrame: 0
+  extras:
+  - 
+  - '{'
+  - '  "speed" : 1.0,'
+  - '  "speedMultiplier" : 1.0'
+  - '}'
+  events:
+  - 
+  - '['
+  - '  {'
+  - '    "events" : ['
+  - '      {'
+  - '        "enable" : true,'
+  - '        "trigger" : {'
+  - '          "__type__" : "Ssar.Combat.Skills.Events.Triggers.TimelineTrigger, Assembly-CSharp,
+    Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",'
+  - '          "__value__" : {'
+  - '            "frame" : 151.0,'
+  - '            "triggerType" : "Frame"'
+  - '          }'
+  - '        },'
+  - '        "action"  : {'
+  - '          "__type__" : "Ssar.Combat.Skills.Events.Actions.ModifierAction, Assembly-CSharp,
+    Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",'
+  - '          "__value__" : {'
+  - '            "modifierConfig" : {'
+  - '              "__type__" : "Combat.Skills.ModifierConfigs.Modifiers.InvisibleModifierConfig,
+    Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",'
+  - '              "__value__" : {'
+  - '                "durationInSeconds" : 9999.0,'
+  - '                "renderersName"     : "all_",'
+  - '                "gameObjectsName"   : "none_",'
+  - '                "invisibleStats"    : true,'
+  - '                "modifierType"      : "Invisible",'
+  - '                "successRate"       : 1.0,'
+  - '                "delayToApplyInFrames" : 0,'
+  - '                "isDependentOnParentSkill" : false,'
+  - '                "vfx"                      : ['
+  - '                ]'
+  - '              }'
+  - '            },'
+  - '            "actionType"     : "Modifier"'
+  - '          }'
+  - '        }'
+  - '      },'
+  - '      {'
+  - '        "enable" : true,'
+  - '        "trigger" : {'
+  - '          "__type__" : "Ssar.Combat.Skills.Events.Triggers.TimelineTrigger, Assembly-CSharp,
+    Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",'
+  - '          "__value__" : {'
+  - '            "frame" : 50.0,'
+  - '            "triggerType" : "Frame"'
+  - '          }'
+  - '        },'
+  - '        "action"  : {'
+  - '          "__type__" : "Ssar.Combat.Skills.Events.Actions.DashAction, Assembly-CSharp,
+    Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",'
+  - '          "__value__" : {'
+  - '            "endFrame" : 100,'
+  - '            "distance" : 35.0,'
+  - '            "uniform"  : true,'
+  - '            "blendTime" : 0.0,'
+  - '            "ignoreObstacles" : true,'
+  - '            "actionType"      : "Dash"'
+  - '          }'
+  - '        }'
+  - '      }'
+  - '    ]'
+  - '  }'
+  - ']'

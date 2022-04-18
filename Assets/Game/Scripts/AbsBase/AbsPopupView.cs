@@ -39,6 +39,11 @@ public class AbsPopupView : View
 	{
 
 	}
+
+	public virtual bool EnableBack()
+	{
+		return true;
+	}
 }
 public class ParameterPopup
 {

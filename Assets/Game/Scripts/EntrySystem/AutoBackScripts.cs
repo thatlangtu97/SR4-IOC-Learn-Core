@@ -10,6 +10,7 @@ public class AutoBackScripts : View
     protected override void Start()
     {
         base.Start();
+        DontDestroyOnLoad(this);
     }
     private void Update()
     {

@@ -23814,7 +23814,7 @@ MonoBehaviour:
     - size: 1
       prefab: {fileID: 5284923481547528749, guid: 0331d21cfd4d4934c99c976841391283,
         type: 3}
-  zodeData: {fileID: 11400000, guid: 69649ec55dd497d48ba7ef5cb0658ced, type: 2}
+  zodeData: {fileID: 0}
 --- !u!4 &2082627698
 Transform:
   m_ObjectHideFlags: 0

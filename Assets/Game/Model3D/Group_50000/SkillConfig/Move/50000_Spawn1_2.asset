@@ -1,0 +1,203 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e99b05c0d3ca429c81969be69abd34fd, type: 3}
+  m_Name: 50000_Spawn1_2
+  m_EditorClassIdentifier: 
+  skillClassName: Character50000Skill7
+  animationName: Skill7_1
+  scaleTime: 0.7
+  lifetimeInSeconds: 200
+  channelingExitFrame: 400
+  stateExitFrame: 400
+  acceptWindowStartFrame: 0
+  acceptWindowEndFrame: 0
+  attackStateWindowStartFrame: 0
+  attackStateWindowEndFrame: 0
+  extras:
+  - 
+  - '{'
+  - '  "positions" : ['
+  - '    {'
+  - '      "name" : "Left_9h",'
+  - '      "activeFrame" : 0,'
+  - '      "position"    : {'
+  - '        "x" : 0.0,'
+  - '        "y" : -2.0,'
+  - '        "z" : 30.0'
+  - '      },'
+  - '      "angle"       : 0.0,'
+  - '      "fadeinAnimation" : "Skill7_1",'
+  - '      "direction"       : "Right"'
+  - '    }'
+  - '  ],'
+  - '  "ordersToUse" : "1"'
+  - '}'
+  events:
+  - 
+  - '['
+  - '  {'
+  - '    "events" : ['
+  - '      {'
+  - '        "enable" : true,'
+  - '        "tag"    : "",'
+  - '        "trigger" : {'
+  - '          "__type__" : "Ssar.Combat.Skills.Events.Triggers.TimelineTrigger, Assembly-CSharp,
+    Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",'
+  - '          "__value__" : {'
+  - '            "frame" : 145.0,'
+  - '            "relative" : false,'
+  - '            "triggerType" : "Frame"'
+  - '          }'
+  - '        },'
+  - '        "action"  : {'
+  - '          "__type__" : "Ssar.Combat.Skills.Events.Actions.AnimationAction, Assembly-CSharp,
+    Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",'
+  - '          "__value__" : {'
+  - '            "name" : "Skill6_1",'
+  - '            "speed" : 0.699999988079071,'
+  - '            "startFrame" : 0,'
+  - '            "playMethod" : "CrossfadeQueued",'
+  - '            "crossfadeLength" : 0.10000000149011612,'
+  - '            "requirement"     : "Any",'
+  - '            "actionType"      : "Animation"'
+  - '          }'
+  - '        }'
+  - '      },'
+  - '      {'
+  - '        "enable" : true,'
+  - '        "tag"    : "",'
+  - '        "trigger" : {'
+  - '          "__type__" : "Ssar.Combat.Skills.Events.Triggers.TimelineTrigger, Assembly-CSharp,
+    Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",'
+  - '          "__value__" : {'
+  - '            "frame" : 0.0,'
+  - '            "relative" : false,'
+  - '            "triggerType" : "Frame"'
+  - '          }'
+  - '        },'
+  - '        "action"  : {'
+  - '          "__type__" : "Ssar.Combat.Skills.Events.Actions.DashAction, Assembly-CSharp,
+    Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",'
+  - '          "__value__" : {'
+  - '            "endFrame" : 150,'
+  - '            "distance" : 15.0,'
+  - '            "uniform"  : true,'
+  - '            "blendTime" : 0.0,'
+  - '            "ignoreObstacles" : false,'
+  - '            "collision"       : false,'
+  - '            "eventId"         : -1,'
+  - '            "offset"          : {'
+  - '              "x" : 0.0,'
+  - '              "y" : 0.0'
+  - '            },'
+  - '            "actionType"      : "Dash"'
+  - '          }'
+  - '        }'
+  - '      },'
+  - '      {'
+  - '        "enable" : true,'
+  - '        "tag"    : "",'
+  - '        "trigger" : {'
+  - '          "__type__" : "Ssar.Combat.Skills.Events.Triggers.TimelineTrigger, Assembly-CSharp,
+    Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",'
+  - '          "__value__" : {'
+  - '            "frame" : 150.0,'
+  - '            "relative" : false,'
+  - '            "triggerType" : "Frame"'
+  - '          }'
+  - '        },'
+  - '        "action"  : {'
+  - '          "__type__" : "Ssar.Combat.Skills.Events.Actions.DashAction, Assembly-CSharp,
+    Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",'
+  - '          "__value__" : {'
+  - '            "endFrame" : 150,'
+  - '            "distance" : 15.0,'
+  - '            "uniform"  : true,'
+  - '            "blendTime" : 0.0,'
+  - '            "ignoreObstacles" : false,'
+  - '            "collision"       : false,'
+  - '            "eventId"         : -1,'
+  - '            "offset"          : {'
+  - '              "x" : 0.0,'
+  - '              "y" : 0.0'
+  - '            },'
+  - '            "actionType"      : "Dash"'
+  - '          }'
+  - '        }'
+  - '      },'
+  - '      {'
+  - '        "enable" : true,'
+  - '        "tag"    : "",'
+  - '        "trigger" : {'
+  - '          "__type__" : "Ssar.Combat.Skills.Events.Triggers.TimelineTrigger, Assembly-CSharp,
+    Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",'
+  - '          "__value__" : {'
+  - '            "frame" : 300.0,'
+  - '            "relative" : false,'
+  - '            "triggerType" : "Frame"'
+  - '          }'
+  - '        },'
+  - '        "action"  : {'
+  - '          "__type__" : "Ssar.Combat.Skills.Events.Actions.ModifierAction, Assembly-CSharp,
+    Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",'
+  - '          "__value__" : {'
+  - '            "modifierConfig" : {'
+  - '              "__type__" : "Combat.Skills.ModifierConfigs.Modifiers.VanishModifierConfig,
+    Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",'
+  - '              "__value__" : {'
+  - '                "durationInSeconds" : 100000000376832.0,'
+  - '                "offsetPosition"    : {'
+  - '                  "x" : 0.0,'
+  - '                  "y" : 0.0'
+  - '                },'
+  - '                "translationDuration" : 0.10000000149011612,'
+  - '                "modifierType"        : "Vanish",'
+  - '                "successRate"         : 1.0,'
+  - '                "delayToApplyInFrames" : 0,'
+  - '                "isDependentOnParentSkill" : false,'
+  - '                "vfx"                      : ['
+  - '                ],'
+  - '                "ico"                      : "_NoIcon"'
+  - '              }'
+  - '            },'
+  - '            "actionType"     : "Modifier"'
+  - '          }'
+  - '        }'
+  - '      },'
+  - '      {'
+  - '        "enable" : true,'
+  - '        "tag"    : "",'
+  - '        "trigger" : {'
+  - '          "__type__" : "Ssar.Combat.Skills.Events.Triggers.TimelineTrigger, Assembly-CSharp,
+    Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",'
+  - '          "__value__" : {'
+  - '            "frame" : 1.0,'
+  - '            "relative" : false,'
+  - '            "triggerType" : "Frame"'
+  - '          }'
+  - '        },'
+  - '        "action"  : {'
+  - '          "__type__" : "Ssar.Combat.Skills.Events.Actions.DashTowardTargetAction,
+    Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",'
+  - '          "__value__" : {'
+  - '            "durationInFrames" : 2,'
+  - '            "distanceToKeep"   : -20.0,'
+  - '            "maxDistance"      : -1.0,'
+  - '            "uniform"          : false,'
+  - '            "actionType"       : "DashTowardTarget"'
+  - '          }'
+  - '        }'
+  - '      }'
+  - '    ],'
+  - '    "isRelative" : false'
+  - '  }'
+  - ']'

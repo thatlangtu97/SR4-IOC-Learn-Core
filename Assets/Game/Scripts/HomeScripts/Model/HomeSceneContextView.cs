@@ -9,11 +9,15 @@ public class HomeSceneContextView : ContextView
 {
     private void Awake()
     {
-        if (EntryContextView.Instance != null)
-        {
-            //EntryContextView.Instance.loadFlashScene = false;
-        }
-        
+//        if (EntryContextView.Instance != null)
+          //        {
+          //            //EntryContextView.Instance.loadFlashScene = false;
+          //        }
+          //        
+#if UNITY_EDITOR
+          EntryContextView.Instance.loadFlashScene = false;
+#endif
+
         InitUI();
     }
     public void InitUI()

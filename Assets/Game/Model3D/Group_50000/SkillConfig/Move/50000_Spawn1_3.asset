@@ -1,0 +1,124 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e99b05c0d3ca429c81969be69abd34fd, type: 3}
+  m_Name: 50000_Spawn1_3
+  m_EditorClassIdentifier: 
+  skillClassName: Character50000Skill7
+  animationName: Skill7_2
+  scaleTime: 0.5
+  lifetimeInSeconds: 200
+  channelingExitFrame: 200
+  stateExitFrame: 200
+  acceptWindowStartFrame: 0
+  acceptWindowEndFrame: 0
+  attackStateWindowStartFrame: 0
+  attackStateWindowEndFrame: 0
+  extras:
+  - 
+  - '{'
+  - '  "positions" : ['
+  - '    {'
+  - '      "name" : "Center_12h",'
+  - '      "activeFrame" : 0,'
+  - '      "position"    : {'
+  - '        "x" : 15.0,'
+  - '        "y" : 3.0,'
+  - '        "z" : 50.0'
+  - '      },'
+  - '      "angle"       : 90.0,'
+  - '      "fadeinAnimation" : "Skill7_2",'
+  - '      "direction"       : "Right"'
+  - '    }'
+  - '  ],'
+  - '  "ordersToUse" : "1"'
+  - '}'
+  events:
+  - 
+  - '['
+  - '  {'
+  - '    "events" : ['
+  - '      {'
+  - '        "enable" : true,'
+  - '        "trigger" : {'
+  - '          "__type__" : "Ssar.Combat.Skills.Events.Triggers.TimelineTrigger, Assembly-CSharp,
+    Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",'
+  - '          "__value__" : {'
+  - '            "frame" : 105.0,'
+  - '            "triggerType" : "Frame"'
+  - '          }'
+  - '        },'
+  - '        "action"  : {'
+  - '          "__type__" : "Ssar.Combat.Skills.Events.Actions.ModifierAction, Assembly-CSharp,
+    Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",'
+  - '          "__value__" : {'
+  - '            "modifierConfig" : {'
+  - '              "__type__" : "Combat.Skills.ModifierConfigs.Modifiers.VanishModifierConfig,
+    Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",'
+  - '              "__value__" : {'
+  - '                "durationInSeconds" : 100000000376832.0,'
+  - '                "offsetPosition"    : {'
+  - '                  "x" : 0.0,'
+  - '                  "y" : 0.0'
+  - '                },'
+  - '                "translationDuration" : 0.10000000149011612,'
+  - '                "modifierType"        : "Vanish",'
+  - '                "successRate"         : 1.0,'
+  - '                "delayToApplyInFrames" : 0,'
+  - '                "isDependentOnParentSkill" : false,'
+  - '                "vfx"                      : ['
+  - '                ]'
+  - '              }'
+  - '            },'
+  - '            "actionType"     : "Modifier"'
+  - '          }'
+  - '        }'
+  - '      },'
+  - '      {'
+  - '        "enable" : true,'
+  - '        "trigger" : {'
+  - '          "__type__" : "Ssar.Combat.Skills.Events.Triggers.TimelineTrigger, Assembly-CSharp,
+    Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",'
+  - '          "__value__" : {'
+  - '            "frame" : 0.0,'
+  - '            "triggerType" : "Frame"'
+  - '          }'
+  - '        },'
+  - '        "action"  : {'
+  - '          "__type__" : "Ssar.Combat.Skills.Events.Actions.ModifierAction, Assembly-CSharp,
+    Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",'
+  - '          "__value__" : {'
+  - '            "modifierConfig" : {'
+  - '              "__type__" : "Combat.Skills.ModifierConfigs.Modifiers.ScaleModifierConfig,
+    Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",'
+  - '              "__value__" : {'
+  - '                "duration" : 9999.0,'
+  - '                "mode"     : "Assignment",'
+  - '                "scaleValue" : {'
+  - '                  "x" : 1.5,'
+  - '                  "y" : 1.5,'
+  - '                  "z" : 1.5'
+  - '                },'
+  - '                "modifierType" : "Scale",'
+  - '                "successRate"  : 1.0,'
+  - '                "delayToApplyInFrames" : 0,'
+  - '                "isDependentOnParentSkill" : false,'
+  - '                "vfx"                      : ['
+  - '                ]'
+  - '              }'
+  - '            },'
+  - '            "actionType"     : "Modifier"'
+  - '          }'
+  - '        }'
+  - '      }'
+  - '    ]'
+  - '  }'
+  - ']'

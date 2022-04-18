@@ -1,0 +1,167 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 50000_1_Mat_Change
+  m_Shader: {fileID: 4800000, guid: ee138f50fcd5448418ebee109007666d, type: 3}
+  m_ShaderKeywords: _USEADDEDNOISEFOREMISSION_ON _USEBASECOLOR_ON _USEBASETEXTURE1_ON
+    _USEBASETEXTURE_ON _USEENVIRONMENTLIGHTCOLOR_ON
+  m_LightmapFlags: 0
+  m_EnableInstancingVariants: 1
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BaseTextureEmissiveApha:
+        m_Texture: {fileID: 2800000, guid: bc841b3ed68beab439b63bbec7541045, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Noise:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalMap:
+        m_Texture: {fileID: 2800000, guid: 23074c05b368f0c40a05919c4ad92d4f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Normalmap:
+        m_Texture: {fileID: 2800000, guid: 6edaaee7227d361409985943e0aa25b6, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _RegionMask:
+        m_Texture: {fileID: 2800000, guid: 6a14b4f1f8e9104438c24b7d75e00387, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _RegionMask1:
+        m_Texture: {fileID: 2800000, guid: b7eb3e00c8bb72b45b92c3419b25ac33, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SupportmapORM:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _A_RimIntensity: 0
+    - _B_RimIntensity: 0
+    - _BumpScale: 1
+    - _CONVERTNORMAL: 0
+    - _Cutoff: 0.5
+    - _DetailNormalMapScale: 1
+    - _DissolveThreshold: 1.092
+    - _DissolveValue: 1.5
+    - _DstBlend: 0
+    - _EmissiveLevel: 1
+    - _FlashValue: 0
+    - _G_RimIntensity: 0.099
+    - _G_RimIntensity1: 1
+    - _GlossMapScale: 1
+    - _Glossiness: 0.5
+    - _GlossyReflections: 1
+    - _HitFuntionTint: 0.203
+    - _MUseTextureSupport: 0
+    - _Metallic: 0
+    - _MetallicTextureIntensity: 0
+    - _MetallicValue: 1
+    - _Mode: 0
+    - _NormalOffset: 0
+    - _NormalStrengh: 1
+    - _OcclusionStrength: 1
+    - _Ouitlinethickness: 0.01
+    - _Parallax: 0.02
+    - _RUseTextureSupport: 0
+    - _R_RimIntensity: 0.266
+    - _RimlightIntensity: 5
+    - _Rimlight_Radius: 1
+    - _RimnoiseIntensity: 0
+    - _RoughnessContrast: 0
+    - _RougnessTextureIntensity: 0
+    - _SmoothnessTextureChannel: 0
+    - _SpecularHighlights: 1
+    - _SrcBlend: 1
+    - _TexturePower: 1
+    - _UVSec: 0
+    - _UseAddedNoiseForEmission: 1
+    - _UseBaseColor: 1
+    - _UseBasetexture: 1
+    - _UseBasetexture1: 1
+    - _UseDesaturate: 0
+    - _UseEnvironmentLightColor: 1
+    - _UseNormalMap: 0
+    - _ZWrite: 1
+    - __dirty: 0
+    - _flashValue: 0
+    m_Colors:
+    - _AColor: {r: 0.490566, g: 0.490566, b: 0.490566, a: 0}
+    - _AColor1: {r: 0.490566, g: 0.490566, b: 0.490566, a: 0}
+    - _BColor: {r: 1, g: 0.514151, b: 0.514151, a: 0}
+    - _BColor1: {r: 1, g: 0.514151, b: 0.514151, a: 0}
+    - _BaseColorMultiply: {r: 0, g: 0, b: 0, a: 0}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Disolvetiling: {r: 1, g: 1, b: 0, a: 0}
+    - _DissolveColor: {r: 1, g: 0.00000009536744, b: 0, a: 0}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _EmissiveColor: {r: 3.9533494, g: 0, b: 0.06958484, a: 0}
+    - _FlashColor: {r: 1, g: 0, b: 0, a: 0}
+    - _GColor: {r: 1, g: 0.514151, b: 0.514151, a: 0}
+    - _GColor1: {r: 1, g: 0.514151, b: 0.514151, a: 0}
+    - _HitColor: {r: 0, g: 1, b: 0.9789009, a: 0}
+    - _NoiseATiling: {r: 6, g: 6, b: 0, a: 0}
+    - _NoiseBTiling: {r: 6, g: 6, b: 0, a: 0}
+    - _OutlineColor: {r: 0, g: 0, b: 0, a: 0}
+    - _RColor: {r: 1, g: 0.514151, b: 0.514151, a: 0}
+    - _RColor1: {r: 42.224255, g: 0, b: 0, a: 0}
+    - _RimNoiseTiling: {r: 0, g: 0, b: 0, a: 0}
+    - _RimlightColor: {r: 2.270603, g: 0.07132784, b: 0, a: 0}
+    - _SpeedA: {r: 0, g: 0.3, b: 0, a: 0}
+    - _SpeedB: {r: 0, g: 0.1, b: 0, a: 0}
+    - _Vector0: {r: 0, g: 0, b: 0, a: 0}
+    - _flashColor: {r: 1, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []

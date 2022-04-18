@@ -454,6 +454,7 @@ public class PoolManager : MonoBehaviour
     {
         if(instance==null)
             _instance = this;
+        zodeData = Resources.Load<ZoneData>("ZoneData/ZoneData1");
         //_disposable = new CompositeDisposable();
 
     }
@@ -463,7 +464,6 @@ public class PoolManager : MonoBehaviour
         CreatePoolsList();
         CreateStartupPools();
         CreatePoolEntity(Contexts.sharedInstance, 100);
-        Debug.Log("Start pool");
     }
 
     #endregion

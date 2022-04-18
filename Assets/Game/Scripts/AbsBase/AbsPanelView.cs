@@ -45,4 +45,9 @@ public abstract class AbsPanelView : View
 	{
 		
 	}
+	
+	public virtual bool EnableBack()
+	{
+		return true;
+	}
 }

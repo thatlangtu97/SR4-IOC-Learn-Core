@@ -15,9 +15,10 @@ namespace EntrySystem {
 			{
 				if (instance == null)
 				{
-					GameObject Entry = new GameObject();
-					Entry.name = "EntryContext";
-					instance = Entry.AddComponent<EntryContextView>();
+
+					GameObject Entry = Instantiate( Resources.Load<GameObject>("EntryContext")); 
+					//Entry.name = "EntryContext";
+					instance = Entry.GetComponent<EntryContextView>();
 					DontDestroyOnLoad(Entry);
 				}
 				return instance;
@@ -38,7 +39,6 @@ namespace EntrySystem {
 			
 			context = new EntryContext(this, true);
 			context.Start();
-			Debug.Log("Awake entry");
 #if UNITY_EDITOR
 			Application.targetFrameRate = -1;
 #else
@@ -50,7 +50,6 @@ namespace EntrySystem {
 		{
 			if(loadFlashScene)
 				SceneManager.LoadScene("FlashScene");
-			Debug.Log("start entry");
 		}
 	}
 }
