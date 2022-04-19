@@ -22,6 +22,10 @@ public class ProjectileComponent : MonoBehaviour
             if(AutoAdds.Contains(component)) continue;
             AutoAdds.Add(component);
         }
+//        foreach (var component in components)
+//        {
+//            component.CoppyData();
+//        }
     }
     private void Awake()
     {
@@ -38,7 +42,7 @@ public class ProjectileComponent : MonoBehaviour
             link = gameObject.Link(entity);
             foreach (var component in AutoAdds)
             {
-                component.AddComponent(ref entity);
+                component.AddComponent(entity);
             }
             //ComponentManagerUtils.AddComponent(this);
         }

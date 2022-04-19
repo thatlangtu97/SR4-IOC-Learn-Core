@@ -11,7 +11,6 @@ public class CheckCanMove : Conditional
     public float timeTarget;
     public float distanceStop;
     public float distanceBreak;
-    [SerializeField]
     private float timeCountTarget;
 
     public override TaskStatus OnUpdate()

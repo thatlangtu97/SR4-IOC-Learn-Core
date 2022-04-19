@@ -112,7 +112,7 @@ public class PoolSizeData
 [Serializable]
 public class WaveData
 {
-    public string WaveID;
+    public int WaveID;
     public string EnemyID;
     public int Amount;
     public float Time;

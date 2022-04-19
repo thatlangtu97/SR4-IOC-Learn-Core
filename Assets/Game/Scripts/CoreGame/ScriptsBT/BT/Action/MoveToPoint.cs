@@ -15,9 +15,9 @@ namespace CoreBT
             base.OnStart();
             componentManager.Value.vectorSpeed = ( (Vector3)pointToMove.Value - componentManager.Value.transform.position ).normalized;
         }
-        public override void OnEnd()
-        {
-            base.OnEnd();
-        }
+//        public override void OnEnd()
+//        {
+//            base.OnEnd();
+//        }
     }
 }

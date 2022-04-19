@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class ProjectileComponentAutoAdd : AutoAddComponent
 {
-    public ConvertToProjectileContainer component;
-    public override void AddComponent(ref GameEntity e)
+    //public ConvertToProjectileContainer component;
+    public ProjectileComponent value;
+    public override bool AddComponent(GameEntity e)
     {
-        e.AddProjectileContainer(component.value);
+        e.AddProjectileContainer(value);
+        return true;
     }
 }

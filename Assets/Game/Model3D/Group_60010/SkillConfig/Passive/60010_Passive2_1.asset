@@ -1,0 +1,104 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e99b05c0d3ca429c81969be69abd34fd, type: 3}
+  m_Name: 60010_Passive2_1
+  m_EditorClassIdentifier: 
+  skillClassName: Character60010ShockPassiveSkill
+  animationName: 
+  scaleTime: 1
+  lifetimeInSeconds: 9999
+  channelingExitFrame: 0
+  stateExitFrame: 0
+  acceptWindowStartFrame: 0
+  acceptWindowEndFrame: 0
+  attackStateWindowStartFrame: 0
+  attackStateWindowEndFrame: 0
+  extras:
+  - 
+  - '{'
+  - '  "atkBonusPercentage" : 0.0'
+  - '}'
+  events:
+  - 
+  - '['
+  - '  {'
+  - '    "events" : ['
+  - '      {'
+  - '        "enable" : true,'
+  - '        "trigger" : {'
+  - '          "__type__" : "Ssar.Combat.Skills.Events.Triggers.ManualTrigger, Assembly-CSharp,
+    Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",'
+  - '          "__value__" : {'
+  - '            "cookie" : null,'
+  - '            "triggerType" : "Manual"'
+  - '          }'
+  - '        },'
+  - '        "action"  : {'
+  - '          "__type__" : "Ssar.Combat.Skills.Events.Actions.AddModifierToTargetAction,
+    Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",'
+  - '          "__value__" : {'
+  - '            "modifierConfig" : {'
+  - '              "__type__" : "Combat.Skills.ModifierConfigs.Modifiers.ShockModifierConfig,
+    Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",'
+  - '              "__value__" : {'
+  - '                "duration" : 5.0,'
+  - '                "damageScale" : 0.30000001192092896,'
+  - '                "vfxPrefabPath" : "Effect/Effect Character/60020/Shock_impact",'
+  - '                "modifierType"  : "Shock",'
+  - '                "successRate"   : 1.0,'
+  - '                "delayToApplyInFrames" : 0,'
+  - '                "isDependentOnParentSkill" : false,'
+  - '                "vfx"                      : ['
+  - '                  {'
+  - '                    "enable" : true,'
+  - '                    "frame"  : 0,'
+  - '                    "ttl"    : 5.0,'
+  - '                    "vfx"    : {'
+  - '                      "__type__" : "Ssar.Combat.Skills.Events.Actions.VfxAction+SpawnPrefabVfx,
+    Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",'
+  - '                      "__value__" : {'
+  - '                        "attachment" : {'
+  - '                          "__type__" : "Ssar.Combat.Skills.Events.Actions.VfxAction+JointAttachment,
+    Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",'
+  - '                          "__value__" : {'
+  - '                            "jointName" : "Chest_M",'
+  - '                            "rotation"  : false,'
+  - '                            "updateType" : "Update",'
+  - '                            "_2d"        : false,'
+  - '                            "jointAxis"  : {'
+  - '                              "x" : 0.0,'
+  - '                              "y" : 1.0,'
+  - '                              "z" : 0.0'
+  - '                            },'
+  - '                            "flip"       : false,'
+  - '                            "attachType" : "Joint"'
+  - '                          }'
+  - '                        },'
+  - '                        "characterState" : "Any",'
+  - '                        "vfxPath"        : "Effect/Effect Character/60020/Shock",'
+  - '                        "proxyMode"      : false,'
+  - '                        "proxyName"      : "",'
+  - '                        "vfxType"        : "SpawnPrefab"'
+  - '                      }'
+  - '                    }'
+  - '                  }'
+  - '                ]'
+  - '              }'
+  - '            },'
+  - '            "actionType"     : "AddModifierToTarget"'
+  - '          }'
+  - '        }'
+  - '      }'
+  - '    ],'
+  - '    "isRelative" : false'
+  - '  }'
+  - ']'

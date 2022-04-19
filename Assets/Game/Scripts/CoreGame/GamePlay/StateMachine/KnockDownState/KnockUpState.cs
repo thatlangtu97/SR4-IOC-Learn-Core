@@ -10,10 +10,11 @@ public class KnockUpState : State
         base.EnterState();
 //        timeCount = 0;
         controller.SetTrigger(eventCollectionData[idState].NameTrigger,eventCollectionData[idState].typeAnim,eventCollectionData[idState].timeStart);
-        if (entity.hasBehaviourTree)
-        {
-            entity.behaviourTree.value.DisableBehavior();
-        }
+//        if (entity.hasBehaviourTree)
+//        {
+//            entity.behaviourTree.value.DisableBehavior();
+//        }
+        controller.componentManager.DisableBehavior();
     }
     public override void UpdateState()
     {
@@ -38,10 +39,11 @@ public class KnockUpState : State
     public override void ExitState()
     {
         base.ExitState();
-        if (entity.hasBehaviourTree)
-        {
-            entity.behaviourTree.value.EnableBehavior();
-        }
+//        if (entity.hasBehaviourTree)
+//        {
+//            entity.behaviourTree.value.EnableBehavior();
+//        }
+        controller.componentManager.EnableBehavior();
     }
     public override void OnInputDash()
     {

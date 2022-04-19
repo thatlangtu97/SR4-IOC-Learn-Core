@@ -1,7 +1,11 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using Sirenix.OdinInspector;
 using strange.extensions.mediation.impl;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class EnemySpawnController : View
 {
@@ -21,71 +25,168 @@ public class EnemySpawnController : View
         }
     }
 
+    public static Dictionary<int, List<WaveData>> dictionaryWave = new Dictionary<int, List<WaveData>>();
+    public int level;
+    public LayerMask layerWall;
+    #region RANDOM DATA
+
+    public List<float> randomRatioIime = new List<float>();
+    public List<Vector3> randomPositionGround = new List<Vector3>();
+    private int randomIndex;
+    public void RandomListTimeRatio()
+    {
+        randomRatioIime = new List<float>();
+        int count = 0;
+        while (count<100)
+        {
+            count += 1;
+            randomRatioIime.Add(Random.Range(0f,1f));
+        }
+    }
+
+    public float GetRandomRatioTime()
+    {
+        randomIndex += 1;
+        return randomRatioIime[randomIndex % randomRatioIime.Count];
+        
+    }
+
+    public void RandomListPosition()
+    {
+        randomPositionGround = new List<Vector3>();
+        RaycastHit2D[] hitsMin = Physics2D.RaycastAll(Vector2.zero, Vector2.left, 1000f, layerWall);
+        RaycastHit2D[] hitsMax = Physics2D.RaycastAll(Vector2.zero, Vector2.right, 1000f, layerWall);
+        float minX = 0;
+        float maxX = 0;
+        foreach (var hit in hitsMin)
+        {
+            if (hit.point.x < minX)
+            {
+                minX = hit.point.x;
+            }
+        }
+        foreach (var hit in hitsMax)
+        {
+            if (hit.point.x > maxX)
+            {
+                minX = hit.point.x;
+            }
+        }
+
+        int count = 0;
+        while (count<100)
+        {
+            count += 1;
+            randomPositionGround.Add(new Vector3(Random.Range(minX,maxX),0f));
+        }
+        
+    }
+    public Vector3 GetRandomPosition()
+    {
+        randomIndex += 1;
+        return randomPositionGround[randomIndex % randomRatioIime.Count];
+        
+    }
+    #endregion
+    
+    
     protected override void Awake()
     {
         base.Awake();
+        SetupWaveData();
+        RandomListTimeRatio();
+        RandomListPosition();
     }
-//    public void SpawnEnemyInited(int currentLevel) {
-//        if (LevelMapConfigManager.instance.isInBonusLevel)
-//        {
-//            StartCoroutine(SpawnBonuEnemyInited(LevelMapConfigManager.instance.currentZone * -1));
-//            //SpawnBonusEnemyInited();
-//            return;
-//        }         
-//        if (dictionaryWave.ContainsKey(currentLevel))
-//        {
-//            List<GameObject> listEnemy = dictionaryWave[currentLevel];
-//            WaveData data = dictionaryWaveData[currentLevel];
-//
-//            //GameObject prefab;
-//            SpawnPosType postype = SpawnPosType.Random;
-//            //enemyPrefabsDict.TryGetValue(data.EnemyID, out prefab);
-//            //Debug.Log(prefab + ":" + data.EnemyID + " " + listEnemy.Count + LevelMapConfigManager.instance.currentLevel);
-//            
-//            //Debug.Log(data.Amount);
-//            LevelCreator.instance.currEnemyCount += listEnemy.Count;
-//            EnemyConfigData enemyconfigdata;
-//            enemyDataDict.TryGetValue(data.EnemyID, out enemyconfigdata);
-//            float spawnTime = 0;
-//            
-//            for(int i=0;i< listEnemy.Count; i++)
+
+    public void SetupWaveData()
+    {
+        ZoneData zoneData = LevelMapConfigManager.Instance.zoneData;
+        
+        foreach (var tempData in zoneData.waveList)
+        {
+            if (dictionaryWave.Keys.Contains(tempData.WaveID))
+            {
+                dictionaryWave[tempData.WaveID].Add(tempData);
+            }
+            else
+            {
+                dictionaryWave.Add(tempData.WaveID,new List<WaveData>(){tempData});
+            }
+        }
+        
+    }
+
+    List<string> NameEnemyPrefabList(int level)
+    {
+        List<string> temp = new List<string>();
+
+        List<WaveData> dataWave = dictionaryWave[level];
+
+        foreach (var wave in dataWave)
+        {
+//            if (!temp.Contains(wave.EnemyID))
 //            {
-//               
-//                SpawnTypeContainer spawncontain = listEnemy[i].GetComponent<SpawnTypeContainer>();
-//                postype = spawncontain.posType;
-//                Vector2 pos = randomPos(postype, enemyconfigdata.Minspawn, enemyconfigdata.Maxspawn,spawncontain.offsetX);
-//                
-//                //Debug.Log(listEnemy[i].name + " " +data.Amount + " " + listEnemy.Count);
-//
-//
-//                float timedelay = Random.Range(data.TimeSpawnMin, data.TimeSpawnMax);
-//                spawnTime += timedelay;
-//                StartCoroutine(DelaySpawnEnemyInited(spawnTime, listEnemy[i], pos));
-//
-//                GameObject fxspawn;
-//                if (postype == SpawnPosType.Air)
-//                {
-//                    //fxspawn = spawnOnAirFx;
-//                }
-//                else if (postype == SpawnPosType.Door_Air_Left)
-//                {
-//                    fxspawn = airSpawnFx;
-//                    //StartCoroutine(delaySpawnFx(spawnTime - 0.3f, prefab, /*pos*/listEnemy[i].transform.position, enemyconfigdata.Size, fxspawn));
-//                    StartCoroutine(DelaySpawnFxForEnemyInit(spawnTime - 0.3f, pos/*listEnemy[i].transform.position*/, enemyconfigdata.Size, fxspawn));
-//                }
-//                else
-//                {
-//                    fxspawn = spawnFx;
-//                    //StartCoroutine(delaySpawnFx(spawnTime - 0.3f, prefab, /*pos*/listEnemy[i].transform.position, enemyconfigdata.Size, fxspawn));
-//                    StartCoroutine(DelaySpawnFxForEnemyInit(spawnTime - 0.3f, pos/*listEnemy[i].transform.position*/, enemyconfigdata.Size, fxspawn));
-//             
-//                }
-//
-//
-//
+                temp.Add(wave.EnemyID);
 //            }
-//
-//        }
-//    }
-    
+        }
+        return temp;
+    }
+
+    GameObject GetPrefabInZoneData(string EnemyID,List< GameObject >prefabs)
+    {
+        foreach (GameObject prefab in prefabs)
+        {
+            if (EnemyID == prefab.name)
+            {
+                return prefab;
+            }
+        }
+
+        return null;
+    }
+    int GetCountEnemy(int level)
+    {
+        int count = 0;
+        List<WaveData> dataWave = dictionaryWave[level];
+        foreach (var wave in dataWave)
+        {
+            count += wave.Amount;
+        }
+
+        return count;
+    }
+    [Button("SPAWN ENEMY", ButtonSizes.Gigantic), GUIColor(0.4f, 0.8f, 1),]
+    public void TestSpawn()
+    {
+        SpawnEnemy(level);
+    }
+    public void SpawnEnemy(int currentLevel)
+    {
+        int enemyCountinLevel = GetCountEnemy(currentLevel);
+        List<GameObject> prefabs = LevelMapConfigManager.Instance.zoneData.enemyList;
+        float time = 0;
+        int countRandomRatio = 0;
+        foreach (WaveData wave in dictionaryWave[currentLevel])
+        {
+            GameObject tempEnemyPrefab = GetPrefabInZoneData(wave.EnemyID, prefabs);
+            for (int i = 0; i < wave.Amount; i++)
+            {
+                time += (wave.TimeSpawnMin + wave.TimeSpawnMax) * GetRandomRatioTime();
+                countRandomRatio += 1;
+                Vector3 positionRandom = GetRandomPosition();
+                Action action = delegate
+                {
+                    Spawn(tempEnemyPrefab,positionRandom);
+                    Debug.Log("spawn");
+                };
+                ActionBufferManager.Instance.ActionDelayTime(action,time);
+            }
+        }
+    }
+    public void Spawn(GameObject prefab,Vector3 positionSpawn)
+    {
+        StateMachineController temp = null;
+        temp = PoolManager.Spawn(prefab.GetComponent<PoolItem>(),positionSpawn).GetComponent<StateMachineController>();
+        temp.GetComponent<ComponentManager>().SetupEntity();
+    }
 }

@@ -358,6 +358,7 @@ MonoBehaviour:
   nameTrigger: []
   componentManager: {fileID: 5014112573117211704}
   animator: {fileID: 5014112573294459869}
+  testState: []
 --- !u!114 &5014112573117211700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -372,6 +373,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StateMachine:
     value: {fileID: 5014112573117211698}
+  value: {fileID: 5014112573117211698}
   prefabMecanim: {fileID: 0}
 --- !u!114 &5014112573117211709
 MonoBehaviour:
@@ -388,6 +390,8 @@ MonoBehaviour:
   healthComponent:
     health: 1000
     maxHealth: 1000
+  health: 1000
+  maxHealth: 1000
 --- !u!114 &5014112573117211706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -402,6 +406,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   powerComponent:
     value: 20
+  value: 20
 --- !u!114 &5014112573117211705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -416,6 +421,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   behaviourTreeComponent:
     value: {fileID: 5014112573117211702}
+  value: {fileID: 5014112573117211702}
 --- !u!114 &-7311342524654134362
 MonoBehaviour:
   m_ObjectHideFlags: 0

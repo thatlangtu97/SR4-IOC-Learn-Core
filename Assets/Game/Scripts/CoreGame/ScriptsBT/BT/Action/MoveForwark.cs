@@ -13,9 +13,9 @@ namespace CoreBT
             base.OnStart();
             componentManager.Value.stateMachine.ChangeState(NameState.MoveState);
         }
-        public override void OnEnd()
-        {
-            base.OnEnd();
-        }
+//        public override void OnEnd()
+//        {
+//            base.OnEnd();
+//        }
     }
 }

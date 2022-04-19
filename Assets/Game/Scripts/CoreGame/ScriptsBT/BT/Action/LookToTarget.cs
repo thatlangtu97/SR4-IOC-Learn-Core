@@ -8,10 +8,10 @@ namespace CoreBT
     public class LookToTarget : Action
     {
         public SharedComponentManager componentManager;
-        public override void OnStart()
-        {
-            base.OnStart();
-        }
+//        public override void OnStart()
+//        {
+//            base.OnStart();
+//        }
         public override TaskStatus OnUpdate()
         {
             componentManager.Value.OnInputChangeFacing();

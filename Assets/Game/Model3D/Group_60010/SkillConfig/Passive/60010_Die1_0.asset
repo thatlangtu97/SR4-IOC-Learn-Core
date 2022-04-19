@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e99b05c0d3ca429c81969be69abd34fd, type: 3}
+  m_Name: 60010_Die1_0
+  m_EditorClassIdentifier: 
+  skillClassName: DieSkill
+  animationName: 
+  scaleTime: 1
+  lifetimeInSeconds: 999
+  channelingExitFrame: 0
+  stateExitFrame: 0
+  acceptWindowStartFrame: 0
+  acceptWindowEndFrame: 0
+  attackStateWindowStartFrame: 0
+  attackStateWindowEndFrame: 0
+  extras: []
+  events:
+  - 
+  - '['
+  - '  {'
+  - '    "events" : ['
+  - '      {'
+  - '        "enable" : true,'
+  - '        "tag"    : "",'
+  - '        "trigger" : {'
+  - '          "__type__" : "Ssar.Combat.Skills.Events.Triggers.TimelineTrigger,
+    Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",'
+  - '          "__value__" : {'
+  - '            "frame" : 60.0,'
+  - '            "relative" : false,'
+  - '            "triggerType" : "Frame"'
+  - '          }'
+  - '        },'
+  - '        "action"  : {'
+  - '          "__type__" : "Ssar.Combat.Skills.Events.Actions.ModifierAction, Assembly-CSharp,
+    Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",'
+  - '          "__value__" : {'
+  - '            "modifierConfig" : {'
+  - '              "__type__" : "Combat.Skills.ModifierConfigs.Modifiers.PauseAnimationModifierConfig,
+    Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",'
+  - '              "__value__" : {'
+  - '                "durationInSeconds" : 999.0,'
+  - '                "modifierType"      : "PauseAnimation",'
+  - '                "successRate"       : 1.0,'
+  - '                "delayToApplyInFrames" : 0,'
+  - '                "isDependentOnParentSkill" : false,'
+  - '                "vfx"                      : ['
+  - '                ],'
+  - '                "ico"                      : "_NoIcon"'
+  - '              }'
+  - '            },'
+  - '            "actionType"     : "Modifier"'
+  - '          }'
+  - '        }'
+  - '      }'
+  - '    ],'
+  - '    "isRelative" : false'
+  - '  }'
+  - ']'

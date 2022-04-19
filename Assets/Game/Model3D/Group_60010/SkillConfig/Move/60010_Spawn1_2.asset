@@ -1,0 +1,119 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e99b05c0d3ca429c81969be69abd34fd, type: 3}
+  m_Name: 60010_Spawn1_2
+  m_EditorClassIdentifier: 
+  skillClassName: DefaultSkill
+  animationName: Spawn
+  scaleTime: 1
+  lifetimeInSeconds: 2
+  channelingExitFrame: 60
+  stateExitFrame: 60
+  acceptWindowStartFrame: 0
+  acceptWindowEndFrame: 0
+  attackStateWindowStartFrame: 0
+  attackStateWindowEndFrame: 0
+  extras:
+  - 
+  - '{'
+  - '  "speedMultiplier" : 1.0'
+  - '}'
+  events:
+  - 
+  - '['
+  - '  {'
+  - '    "events" : ['
+  - '      {'
+  - '        "enable" : true,'
+  - '        "tag"    : "",'
+  - '        "trigger" : {'
+  - '          "__type__" : "Ssar.Combat.Skills.Events.Triggers.TimelineTrigger, Assembly-CSharp,
+    Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",'
+  - '          "__value__" : {'
+  - '            "frame" : 1.0,'
+  - '            "relative" : false,'
+  - '            "triggerType" : "Frame"'
+  - '          }'
+  - '        },'
+  - '        "action"  : {'
+  - '          "__type__" : "Ssar.Combat.Skills.Events.Actions.ModifierAction, Assembly-CSharp,
+    Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",'
+  - '          "__value__" : {'
+  - '            "modifierConfig" : {'
+  - '              "__type__" : "Combat.Skills.ModifierConfigs.Modifiers.PauseAnimationModifierConfig,
+    Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",'
+  - '              "__value__" : {'
+  - '                "durationInSeconds" : 1.0,'
+  - '                "modifierType"      : "PauseAnimation",'
+  - '                "successRate"       : 1.0,'
+  - '                "delayToApplyInFrames" : 0,'
+  - '                "isDependentOnParentSkill" : false,'
+  - '                "vfx"                      : ['
+  - '                ],'
+  - '                "ico"                      : "_NoIcon"'
+  - '              }'
+  - '            },'
+  - '            "actionType"     : "Modifier"'
+  - '          }'
+  - '        }'
+  - '      },'
+  - '      {'
+  - '        "enable" : true,'
+  - '        "tag"    : "",'
+  - '        "trigger" : {'
+  - '          "__type__" : "Ssar.Combat.Skills.Events.Triggers.TimelineTrigger, Assembly-CSharp,
+    Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",'
+  - '          "__value__" : {'
+  - '            "frame" : 0.0,'
+  - '            "relative" : false,'
+  - '            "triggerType" : "Frame"'
+  - '          }'
+  - '        },'
+  - '        "action"  : {'
+  - '          "__type__" : "Ssar.Combat.Skills.Events.Actions.VfxAction, Assembly-CSharp,
+    Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",'
+  - '          "__value__" : {'
+  - '            "profile" : -1,'
+  - '            "timeToLiveInSeconds" : 2.0,'
+  - '            "lifecycleDependOnParentSkill" : false,'
+  - '            "baseVfx"                      : {'
+  - '              "__type__" : "Ssar.Combat.Skills.Events.Actions.VfxAction+SpawnPrefabVfx,
+    Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",'
+  - '              "__value__" : {'
+  - '                "attachment" : {'
+  - '                  "__type__" : "Ssar.Combat.Skills.Events.Actions.VfxAction+RelativePositionAttachment,
+    Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",'
+  - '                  "__value__" : {'
+  - '                    "relativePosition" : {'
+  - '                      "x" : 0.0,'
+  - '                      "y" : 0.0'
+  - '                    },'
+  - '                    "followCaster"     : false,'
+  - '                    "followCasterFacing" : false,'
+  - '                    "attachType"         : "RelativePosition"'
+  - '                  }'
+  - '                },'
+  - '                "characterState" : "Any",'
+  - '                "vfxPath"        : "Effect/Effect Character/Orbs/Projectiles/Portal_Spawnfx",'
+  - '                "proxyMode"      : false,'
+  - '                "proxyName"      : "",'
+  - '                "vfxType"        : "SpawnPrefab"'
+  - '              }'
+  - '            },'
+  - '            "actionType"                   : "Vfx"'
+  - '          }'
+  - '        }'
+  - '      }'
+  - '    ],'
+  - '    "isRelative" : false'
+  - '  }'
+  - ']'

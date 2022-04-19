@@ -1,0 +1,201 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e99b05c0d3ca429c81969be69abd34fd, type: 3}
+  m_Name: 60010_PassiveTraitShock1_1
+  m_EditorClassIdentifier: 
+  skillClassName: BossTraitPassiveSkill
+  animationName: 
+  scaleTime: 1
+  lifetimeInSeconds: 9999
+  channelingExitFrame: 0
+  stateExitFrame: 0
+  acceptWindowStartFrame: 0
+  acceptWindowEndFrame: 0
+  attackStateWindowStartFrame: 0
+  attackStateWindowEndFrame: 0
+  extras:
+  - 
+  - '{'
+  - '  "stackCount" : 3,'
+  - '  "eventId1"   : 1,'
+  - '  "eventId2"   : 2'
+  - '}'
+  events:
+  - 
+  - '['
+  - '  {'
+  - '    "events" : ['
+  - '      {'
+  - '        "enable" : true,'
+  - '        "tag"    : "",'
+  - '        "trigger" : {'
+  - '          "__type__" : "Ssar.Combat.Skills.Events.Triggers.EventBasedTrigger,
+    Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",'
+  - '          "__value__" : {'
+  - '            "id" : 1,'
+  - '            "triggerType" : "Event"'
+  - '          }'
+  - '        },'
+  - '        "action"  : {'
+  - '          "__type__" : "Ssar.Combat.Skills.Events.Actions.AddModifierToTargetAction,
+    Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",'
+  - '          "__value__" : {'
+  - '            "modifierConfig" : {'
+  - '              "__type__" : "Combat.Skills.ModifierConfigs.Modifiers.MoveSpeedModifierConfig,
+    Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",'
+  - '              "__value__" : {'
+  - '                "duration" : 5.0,'
+  - '                "percentage" : 0.0,'
+  - '                "modifierType" : "MovementSpeed",'
+  - '                "successRate"  : 0.0,'
+  - '                "delayToApplyInFrames" : 0,'
+  - '                "isDependentOnParentSkill" : false,'
+  - '                "vfx"                      : ['
+  - '                  {'
+  - '                    "enable" : false,'
+  - '                    "frame"  : 0,'
+  - '                    "ttl"    : 0.0,'
+  - '                    "vfx"    : {'
+  - '                      "__type__" : "Ssar.Combat.Skills.Events.Actions.VfxAction+SpawnPrefabVfx,
+    Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",'
+  - '                      "__value__" : {'
+  - '                        "attachment" : {'
+  - '                          "__type__" : "Ssar.Combat.Skills.Events.Actions.VfxAction+RelativePositionAttachment,
+    Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",'
+  - '                          "__value__" : {'
+  - '                            "relativePosition" : {'
+  - '                              "x" : 0.0,'
+  - '                              "y" : 0.0'
+  - '                            },'
+  - '                            "followCaster"     : false,'
+  - '                            "attachType"       : "RelativePosition"'
+  - '                          }'
+  - '                        },'
+  - '                        "characterState" : "Any",'
+  - '                        "vfxPath"        : "",'
+  - '                        "proxyMode"      : false,'
+  - '                        "proxyName"      : "",'
+  - '                        "vfxType"        : "SpawnPrefab"'
+  - '                      }'
+  - '                    }'
+  - '                  }'
+  - '                ],'
+  - '                "ico"                      : "_NoIcon"'
+  - '              }'
+  - '            },'
+  - '            "actionType"     : "AddModifierToTarget"'
+  - '          }'
+  - '        }'
+  - '      },'
+  - '      {'
+  - '        "enable" : true,'
+  - '        "tag"    : "",'
+  - '        "trigger" : {'
+  - '          "__type__" : "Ssar.Combat.Skills.Events.Triggers.EventBasedTrigger,
+    Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",'
+  - '          "__value__" : {'
+  - '            "id" : 2,'
+  - '            "triggerType" : "Event"'
+  - '          }'
+  - '        },'
+  - '        "action"  : {'
+  - '          "__type__" : "Ssar.Combat.Skills.Events.Actions.AddModifierToTargetAction,
+    Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",'
+  - '          "__value__" : {'
+  - '            "modifierConfig" : {'
+  - '              "__type__" : "Combat.Skills.ModifierConfigs.Modifiers.ShockModifierConfig,
+    Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",'
+  - '              "__value__" : {'
+  - '                "duration" : 10.0,'
+  - '                "damageScale" : 0.5,'
+  - '                "vfxPrefabPath" : "Effect/Effect_UI/Prefab/Adventure/Boss mode
+    traits/Debuff_ShockImpact",'
+  - '                "modifierType"  : "Shock",'
+  - '                "successRate"   : 1.0,'
+  - '                "delayToApplyInFrames" : 0,'
+  - '                "isDependentOnParentSkill" : false,'
+  - '                "vfx"                      : ['
+  - '                  {'
+  - '                    "enable" : true,'
+  - '                    "frame"  : 0,'
+  - '                    "ttl"    : 10.0,'
+  - '                    "vfx"    : {'
+  - '                      "__type__" : "Ssar.Combat.Skills.Events.Actions.VfxAction+SpawnPrefabVfx,
+    Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",'
+  - '                      "__value__" : {'
+  - '                        "attachment" : {'
+  - '                          "__type__" : "Ssar.Combat.Skills.Events.Actions.VfxAction+JointAttachment,
+    Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",'
+  - '                          "__value__" : {'
+  - '                            "jointName" : "Chest_M",'
+  - '                            "rotation"  : true,'
+  - '                            "updateType" : "Update",'
+  - '                            "_2d"        : false,'
+  - '                            "jointAxis"  : {'
+  - '                              "x" : 0.0,'
+  - '                              "y" : 1.0,'
+  - '                              "z" : 0.0'
+  - '                            },'
+  - '                            "flip"       : true,'
+  - '                            "attachType" : "Joint"'
+  - '                          }'
+  - '                        },'
+  - '                        "characterState" : "Any",'
+  - '                        "vfxPath"        : "Effect/Effect_UI/Prefab/Adventure/Boss
+    mode traits/Debuff_Shock_Overtime",'
+  - '                        "proxyMode"      : false,'
+  - '                        "proxyName"      : "",'
+  - '                        "vfxType"        : "SpawnPrefab"'
+  - '                      }'
+  - '                    }'
+  - '                  },'
+  - '                  {'
+  - '                    "enable" : true,'
+  - '                    "frame"  : 0,'
+  - '                    "ttl"    : 1.0,'
+  - '                    "vfx"    : {'
+  - '                      "__type__" : "Ssar.Combat.Skills.Events.Actions.VfxAction+SpawnPrefabVfx,
+    Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",'
+  - '                      "__value__" : {'
+  - '                        "attachment" : {'
+  - '                          "__type__" : "Ssar.Combat.Skills.Events.Actions.VfxAction+RelativePositionAttachment,
+    Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",'
+  - '                          "__value__" : {'
+  - '                            "relativePosition" : {'
+  - '                              "x" : 0.0,'
+  - '                              "y" : 0.0'
+  - '                            },'
+  - '                            "followCaster"     : true,'
+  - '                            "attachType"       : "RelativePosition"'
+  - '                          }'
+  - '                        },'
+  - '                        "characterState" : "Any",'
+  - '                        "vfxPath"        : "Effect/Effect_UI/Prefab/Adventure/Boss
+    mode traits/Debuff_ShockImpact_Active",'
+  - '                        "proxyMode"      : false,'
+  - '                        "proxyName"      : "",'
+  - '                        "vfxType"        : "SpawnPrefab"'
+  - '                      }'
+  - '                    }'
+  - '                  }'
+  - '                ],'
+  - '                "ico"                      : "icon_trait_shock"'
+  - '              }'
+  - '            },'
+  - '            "actionType"     : "AddModifierToTarget"'
+  - '          }'
+  - '        }'
+  - '      }'
+  - '    ],'
+  - '    "isRelative" : false'
+  - '  }'
+  - ']'

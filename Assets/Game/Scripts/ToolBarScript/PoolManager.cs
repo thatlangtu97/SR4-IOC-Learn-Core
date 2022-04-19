@@ -60,7 +60,7 @@ public class PoolManager : MonoBehaviour
     Dictionary<PoolItem, GameObject> spawnedObjects = new Dictionary<PoolItem, GameObject>();
     public ObjectPool[] PoolDefault;
     public PoolList[] poolLists;
-    public ZoneData zodeData; 
+    //public ZoneData zodeData; 
     #endregion
 
     #region POOL ENTITY
@@ -155,6 +155,10 @@ public class PoolManager : MonoBehaviour
                 if (obj != null)
                 {
                     transform = obj.transform;
+                    if(parent)
+                    
+                    
+                    
                     if(transform.parent != null)
                         transform.parent = parent;
                     if (parent != null)
@@ -347,7 +351,8 @@ public class PoolManager : MonoBehaviour
     public static void CreatePoolsList()
     {
         var pools = instance.poolLists;
-        var zoneData = instance.zodeData;
+        //var zoneData = instance.zodeData;
+        var zoneData = LevelMapConfigManager.Instance.zoneData;
         List<PoolList> tempListPooled = new List<PoolList>();
         if (pools != null && pools.Length > 0)
         {
@@ -360,7 +365,7 @@ public class PoolManager : MonoBehaviour
                     else
                     {
 
-                        foreach (var zone in instance.zodeData.poolSizeData)
+                        foreach (var zone in zoneData.poolSizeData)
                         {
                             if (VARIABLE.ListPrefab[i].prefab.name == zone.name)
                             {
@@ -454,7 +459,7 @@ public class PoolManager : MonoBehaviour
     {
         if(instance==null)
             _instance = this;
-        zodeData = Resources.Load<ZoneData>("ZoneData/ZoneData1");
+        //zodeData = Resources.Load<ZoneData>("ZoneData/ZoneData1");
         //_disposable = new CompositeDisposable();
 
     }

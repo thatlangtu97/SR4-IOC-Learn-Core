@@ -203,6 +203,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StateMachine:
     value: {fileID: 6471316227819945590}
+  value: {fileID: 6471316227819945590}
   prefabMecanim: {fileID: 0}
 --- !u!61 &6471316227819945591
 BoxCollider2D:
@@ -265,6 +266,7 @@ MonoBehaviour:
   nameTrigger: []
   componentManager: {fileID: 6471316227819945579}
   animator: {fileID: 6471316228301277988}
+  testState: []
 --- !u!114 &2095664645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -280,6 +282,8 @@ MonoBehaviour:
   healthComponent:
     health: 10
     maxHealth: 10
+  health: 10
+  maxHealth: 10
 --- !u!114 &2095664644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -294,6 +298,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   powerComponent:
     value: 10
+  value: 10
 --- !u!114 &4611551787971203826
 MonoBehaviour:
   m_ObjectHideFlags: 0

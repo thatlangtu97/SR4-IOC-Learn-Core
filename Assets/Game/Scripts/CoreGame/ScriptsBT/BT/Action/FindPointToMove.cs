@@ -45,10 +45,10 @@ namespace CoreBT
             }
 
         }
-        public override void OnEnd()
-        {
-            base.OnEnd();
-        }
+//        public override void OnEnd()
+//        {
+//            base.OnEnd();
+//        }
         private Vector3 RandomDistance()
         {
             Vector3 temp = Vector3.zero;

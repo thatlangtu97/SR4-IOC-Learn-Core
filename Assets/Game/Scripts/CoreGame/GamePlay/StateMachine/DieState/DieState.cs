@@ -6,10 +6,12 @@ public class DieState : State
     public override void EnterState()
     {
         base.EnterState();
-        if (entity.hasBehaviourTree)
-        {
-            entity.behaviourTree.value.DisableBehavior();
-        }
+//        if (entity.hasBehaviourTree)
+//        {
+//            entity.behaviourTree.value.DisableBehavior();
+//            controller.componentManager.DisableBehavior();
+//        }
+        controller.componentManager.DisableBehavior();
         controller.SetTrigger(eventCollectionData[idState].NameTrigger,eventCollectionData[idState].typeAnim,eventCollectionData[idState].timeStart);
     }
     public override void UpdateState()

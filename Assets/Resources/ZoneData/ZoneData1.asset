@@ -26,12 +26,12 @@ MonoBehaviour:
     EnemyID: E1
     Amount: 3
     Time: 0
-    TimeSpawnMin: 0
-    TimeSpawnMax: 0
+    TimeSpawnMin: 0.7
+    TimeSpawnMax: 1
   levelList: []
   enemyList:
-  - {fileID: 5561927636742712978, guid: 6c8e2f60bcf90d8488487028fe28372b, type: 3}
+  - {fileID: 5561927636742712978, guid: 2f6f35420a3e2784a83ebf5783c701ef, type: 3}
   poolSizeData:
   - name: E1
-    size: 50
+    size: 3
   poolManager: {fileID: 0}

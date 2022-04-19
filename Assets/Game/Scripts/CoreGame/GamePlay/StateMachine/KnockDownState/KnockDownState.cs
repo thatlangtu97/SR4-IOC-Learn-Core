@@ -8,10 +8,11 @@ public class KnockDownState : State
     public override void EnterState()
     {
         base.EnterState();
-        if (entity.hasBehaviourTree)
-        {
-            entity.behaviourTree.value.DisableBehavior();
-        }
+//        if (entity.hasBehaviourTree)
+//        {
+//            entity.behaviourTree.value.DisableBehavior();
+//        }
+        controller.componentManager.DisableBehavior();
         controller.componentManager.rgbody2D.velocity = new Vector2 (0f, 0f);
         controller.SetTrigger(eventCollectionData[idState].NameTrigger,eventCollectionData[idState].typeAnim,eventCollectionData[idState].timeStart);
     }

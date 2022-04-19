@@ -144,6 +144,7 @@ MonoBehaviour:
   nameTrigger: []
   componentManager: {fileID: 428360683092188368}
   animator: {fileID: 0}
+  testState: []
 --- !u!114 &428360683092188368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -188,6 +189,7 @@ MonoBehaviour:
   speedMove: 0
   originBoxCheckGround2d: {x: 0.4, y: 0.1}
   currentImunes: 
+  enableAI: 0
   baseImmunes: 
   jumpCount: 0
   dashCount: 0
@@ -228,9 +230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77e0333c9605d43d9bfceb332c275006, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StateMachine:
-    value: {fileID: 428360683092188370}
-  prefabMecanim: {fileID: 0}
+  value: {fileID: 428360683092188370}
 --- !u!114 &428360683092188373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -243,9 +243,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 844c2e9915e3dd54da7a3cf2dd8b0299, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthComponent:
-    health: 10
-    maxHealth: 10000
+  health: 100
+  maxHealth: 100
 --- !u!114 &428360683092185900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -258,9 +257,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08cecbac18c3a7c4f9662146b3000e7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  value:
-    isPlayer: 1
-  isPlayer: 0
+  isPlayer: 1
 --- !u!114 &428360683092188372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -273,8 +270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1ef77160bb4e3947a21998ab4a822de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerComponent:
-    value: 30
+  value: 10
 --- !u!114 &428360683092188369
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -318,6 +314,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad86720286f4fdb4592925c9bf221831, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stateMachine: {fileID: 428360683092188370}
 --- !u!1 &428360684405696829
 GameObject:
   m_ObjectHideFlags: 0

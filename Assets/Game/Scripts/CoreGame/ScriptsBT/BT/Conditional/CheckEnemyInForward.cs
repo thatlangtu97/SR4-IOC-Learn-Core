@@ -8,10 +8,10 @@ namespace CoreBT
     public class CheckEnemyInForward : Conditional
     {
         public SharedComponentManager componentManager;
-        public override void OnStart()
-        {
-            base.OnStart();
-        }
+//        public override void OnStart()
+//        {
+//            base.OnStart();
+//        }
 
         public override TaskStatus OnUpdate()
         {

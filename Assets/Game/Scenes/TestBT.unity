@@ -9311,7 +9311,7 @@ MonoBehaviour:
         m_MethodName: Spawn
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 428360683092185903, guid: 4e28c0a2e9fa201479002a4fe7982700,
+          m_ObjectArgument: {fileID: 428360683092185903, guid: 020233bc58f8e0c4a85b8c285660020e,
             type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
@@ -9486,6 +9486,55 @@ Transform:
   - {fileID: 1605414349}
   m_Father: {fileID: 0}
   m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &818276673
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 818276675}
+  - component: {fileID: 818276674}
+  m_Layer: 0
+  m_Name: EnemySpawnController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &818276674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 818276673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f58f6028a8a8f14eb4c9eb73e8b0f2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: 1
+  layerWall:
+    serializedVersion: 2
+    m_Bits: 8192
+  randomRatioIime: []
+  randomPositionGround: []
+--- !u!4 &818276675
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 818276673}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.4008355, y: 1.596522, z: -5.376953}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &931071008
 GameObject:
@@ -14752,7 +14801,6 @@ MonoBehaviour:
     - size: 1
       prefab: {fileID: 5284923481547528749, guid: 0331d21cfd4d4934c99c976841391283,
         type: 3}
-  zodeData: {fileID: 0}
 --- !u!4 &1075197162
 Transform:
   m_ObjectHideFlags: 0
@@ -18497,6 +18545,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1741230521}
   m_CullTransparentMesh: 0
+--- !u!1 &1766561133
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1766561135}
+  - component: {fileID: 1766561134}
+  m_Layer: 0
+  m_Name: LevelMapConfigManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1766561134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1766561133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cd8747cde35ad841abd7ae86f526183, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zoneData: {fileID: 11400000, guid: 69649ec55dd497d48ba7ef5cb0658ced, type: 2}
+--- !u!4 &1766561135
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1766561133}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.4008355, y: 1.596522, z: -5.376953}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1796862312
 GameObject:
   m_ObjectHideFlags: 0
@@ -23768,7 +23860,7 @@ MonoBehaviour:
   - name: Player
     ListPrefab:
     - size: 1
-      prefab: {fileID: -5987359361696396885, guid: 4e28c0a2e9fa201479002a4fe7982700,
+      prefab: {fileID: -5987359361696396885, guid: 020233bc58f8e0c4a85b8c285660020e,
         type: 3}
     - size: 1
       prefab: {fileID: 366081758016351783, guid: 547bab9a685b10141ae02ee86fa73f2e,
@@ -23806,15 +23898,14 @@ MonoBehaviour:
   - name: E1
     ListPrefab:
     - size: 1
-      prefab: {fileID: 5314317156340808085, guid: 6c8e2f60bcf90d8488487028fe28372b,
+      prefab: {fileID: 5314317156340808085, guid: 2f6f35420a3e2784a83ebf5783c701ef,
         type: 3}
     - size: 1
-      prefab: {fileID: 8206845486186549087, guid: f65df9cfb93d38145bf3f5de7e337094,
+      prefab: {fileID: 8206845486186549087, guid: ac9d9ac57cfb0e743a80ee99d3f563d1,
         type: 3}
     - size: 1
       prefab: {fileID: 5284923481547528749, guid: 0331d21cfd4d4934c99c976841391283,
         type: 3}
-  zodeData: {fileID: 0}
 --- !u!4 &2082627698
 Transform:
   m_ObjectHideFlags: 0
@@ -24143,7 +24234,7 @@ MonoBehaviour:
         m_MethodName: Spawn
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 5561927636742712978, guid: 6c8e2f60bcf90d8488487028fe28372b,
+          m_ObjectArgument: {fileID: 5561927636742712978, guid: 2f6f35420a3e2784a83ebf5783c701ef,
             type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0

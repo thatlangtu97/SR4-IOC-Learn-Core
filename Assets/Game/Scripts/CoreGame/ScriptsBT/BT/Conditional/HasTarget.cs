@@ -11,16 +11,18 @@ namespace CoreBT
         public SharedComponentManager componentManager;
         public int frameUpdate = 5;
         public int frameCount;
-        public override void OnAwake()
-        {
-            base.OnAwake();
-        }
-        public override void OnStart()
-        {
-            base.OnStart();
-        }
+//        public override void OnAwake()
+//        {
+//            base.OnAwake();
+//        }
+//        public override void OnStart()
+//        {
+//            base.OnStart();
+//        }
         public override TaskStatus OnUpdate()
         {
+            if (!componentManager.Value.enableAI) return TaskStatus.Failure;
+
             frameCount += 1;
             if (componentManager.Value.enemy != null)
             {
@@ -31,10 +33,11 @@ namespace CoreBT
                         componentManager.Value.enemy = null;
                         componentManager.Value.stateMachine.ChangeState(NameState.IdleState, 0, true);
                         componentManager.Value.speedMove = 0;
-                        componentManager.Value.vectorSpeed=Vector2.zero;
+                        componentManager.Value.vectorSpeed = Vector2.zero;
                         return TaskStatus.Failure;
                     }
                 }
+
                 return TaskStatus.Success;
             }
             else
@@ -43,9 +46,11 @@ namespace CoreBT
                 {
                     return TaskStatus.Failure;
                 }
+
                 if (Contexts.sharedInstance.game.playerFlagEntity != null)
                 {
-                    componentManager.Value.enemy = Contexts.sharedInstance.game.playerFlagEntity.stateMachineContainer.value.transform;
+                    componentManager.Value.enemy = Contexts.sharedInstance.game.playerFlagEntity
+                        .stateMachineContainer.value.transform;
                     return TaskStatus.Success;
                 }
                 else
@@ -53,6 +58,7 @@ namespace CoreBT
                     return TaskStatus.Failure;
                 }
             }
+            
         }
     }
 }

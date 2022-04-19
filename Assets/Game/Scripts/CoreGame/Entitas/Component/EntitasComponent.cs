@@ -11,15 +11,15 @@ public class PlayerFlagComponent : IComponent
 {
     public bool isPlayer = true;
 }
-[System.Serializable]
-public class ConvertToPlayerFlag : ConvertToComponent
-{
-    public bool isPlayer = true;
-    public override IComponent Convert()
-    {
-        return new PlayerFlagComponent(){isPlayer = isPlayer};
-    }
-}
+//[System.Serializable]
+//public class ConvertToPlayerFlag : ConvertToComponent
+//{
+//    public bool isPlayer = true;
+//    public override IComponent Convert()
+//    {
+//        return new PlayerFlagComponent(){isPlayer = isPlayer};
+//    }
+//}
 #endregion
 
 #region ProjectileContainer
@@ -28,15 +28,15 @@ public class ProjectileContainerComponent : IComponent
 {
     public ProjectileComponent value;
 }
-[System.Serializable]
-public class ConvertToProjectileContainer: ConvertToComponent
-{
-    public ProjectileComponent value;
-    public override IComponent Convert()
-    {
-        return new ProjectileContainerComponent(){value = value};
-    }
-}
+//[System.Serializable]
+//public class ConvertToProjectileContainer: ConvertToComponent
+//{
+//    public ProjectileComponent value;
+//    public override IComponent Convert()
+//    {
+//        return new ProjectileContainerComponent(){value = value};
+//    }
+//}
 #endregion
 
 #region StateMachineContainer
@@ -45,15 +45,15 @@ public class StateMachineContainerComponent : IComponent
 {
     public StateMachineController value;
 }
-[System.Serializable]
-public class ConvertToStateMachineContainer :ConvertToComponent
-{
-    public StateMachineController value;
-    public override IComponent Convert()
-    {
-        return new StateMachineContainerComponent() { value = value};
-    }
-}
+//[System.Serializable]
+//public class ConvertToStateMachineContainer :ConvertToComponent
+//{
+//    public StateMachineController value;
+//    public override IComponent Convert()
+//    {
+//        return new StateMachineContainerComponent() { value = value};
+//    }
+//}
 #endregion
 
 #region DamageText
@@ -64,17 +64,17 @@ public class DamageTextComponent  : IComponent
     public string value;
     public Vector3 position;
 }
-[System.Serializable]
-public class ConvertToDamageText : ConvertToComponent
-{
-    public DamageTextType damageTextType;
-    public string value;
-    public Vector3 position;
-    public override IComponent Convert()
-    {
-        return new DamageTextComponent() {damageTextType = damageTextType , value= value, position= position };
-    }
-}
+//[System.Serializable]
+//public class ConvertToDamageText : ConvertToComponent
+//{
+//    public DamageTextType damageTextType;
+//    public string value;
+//    public Vector3 position;
+//    public override IComponent Convert()
+//    {
+//        return new DamageTextComponent() {damageTextType = damageTextType , value= value, position= position };
+//    }
+//}
 
 public enum DamageTextType
 {
@@ -90,16 +90,16 @@ public class HealthComponent : IComponent
     public int health;
     public int maxHealth;
 }
-[System.Serializable]
-public class ConvertToHealth : ConvertToComponent
-{
-    public int health;
-    public int maxHealth;
-    public override IComponent Convert()
-    {
-        return new HealthComponent() {health = health, maxHealth = maxHealth};
-    }
-}
+//[System.Serializable]
+//public class ConvertToHealth : ConvertToComponent
+//{
+//    public int health;
+//    public int maxHealth;
+//    public override IComponent Convert()
+//    {
+//        return new HealthComponent() {health = health, maxHealth = maxHealth};
+//    }
+//}
 #endregion
 
 #region Power
@@ -108,15 +108,15 @@ public class PowerComponent : IComponent
 {
     public int value;
 }
-[System.Serializable]
-public class ConvertToPower : ConvertToComponent
-{
-    public int value;
-    public override IComponent Convert()
-    {
-        return new PowerComponent() {value = value};
-    }
-}
+//[System.Serializable]
+//public class ConvertToPower : ConvertToComponent
+//{
+//    public int value;
+//    public override IComponent Convert()
+//    {
+//        return new PowerComponent() {value = value};
+//    }
+//}
 #endregion
 
 #region TakeDamage
@@ -154,15 +154,15 @@ public class BehaviourTreeComponent : IComponent
 {
     public BehaviorTree value;
 }
-[System.Serializable]
-public class ConvertToBehaviourTree : ConvertToComponent
-{
-    public BehaviorTree value;
-    public override IComponent Convert()
-    {
-        return new BehaviourTreeComponent() {value = value};
-    }
-}
+//[System.Serializable]
+//public class ConvertToBehaviourTree : ConvertToComponent
+//{
+//    public BehaviorTree value;
+//    public override IComponent Convert()
+//    {
+//        return new BehaviourTreeComponent() {value = value};
+//    }
+//}
 #endregion
 
 #region HealthBarUI

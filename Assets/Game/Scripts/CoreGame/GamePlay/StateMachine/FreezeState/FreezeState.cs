@@ -8,10 +8,11 @@ public class FreezeState : State
     public override void EnterState()
     {
         base.EnterState();
-        if (entity.hasBehaviourTree)
-        {
-            entity.behaviourTree.value.DisableBehavior();
-        }
+//        if (entity.hasBehaviourTree)
+//        {
+//            entity.behaviourTree.value.DisableBehavior();
+//        }
+        controller.componentManager.DisableBehavior();
     }
     public override void UpdateState()
     {
@@ -26,9 +27,10 @@ public class FreezeState : State
     public override void ExitState()
     {
         base.ExitState();
-        if (entity.hasBehaviourTree)
-        {
-            entity.behaviourTree.value.EnableBehavior();
-        }
+//        if (entity.hasBehaviourTree)
+//        {
+//            entity.behaviourTree.value.EnableBehavior();
+//        }
+        controller.componentManager.EnableBehavior();
     }
 }

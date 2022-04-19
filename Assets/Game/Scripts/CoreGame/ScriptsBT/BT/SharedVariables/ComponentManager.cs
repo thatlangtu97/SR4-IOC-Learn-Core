@@ -56,6 +56,8 @@ public class ComponentManager : MonoBehaviour
     [FoldoutGroup("BUFFER")]
     [ShowInInspector]
     public List<Immune> currentImunes= new List<Immune>();
+    [FoldoutGroup("BUFFER")]
+    public bool enableAI ;
     
 //    [FoldoutGroup("PROPERTIES")]
 //    public int heal=100;
@@ -80,6 +82,10 @@ public class ComponentManager : MonoBehaviour
             if(AutoAdds.Contains(component)) continue;
             AutoAdds.Add(component);
         }
+//        foreach (var component in components)
+//        {
+//            component.CoppyData();
+//        }
     }
 //    public void OnEnable()
 //    {
@@ -89,22 +95,42 @@ public class ComponentManager : MonoBehaviour
 ////        link = gameObject.Link(entity);
 //        //SetupEntity();
 //    }
-    [Button("SETUP ENTITY", ButtonSizes.Gigantic), GUIColor(0.4f, 0.8f, 1),]
-    public void SetupEntity()
+    public void DisableBehavior()
+    {
+        enableAI = false;
+    }
+
+    public void EnableBehavior()
+    {
+        enableAI = true;
+    }
+    private void Awake()
+    {
+        ComponentManagerUtils.AddComponent(this);
+        CloneImune();
+    }
+    public void CloneImune()
     {
         currentImunes = baseImmunes.Clone();
+    }
+    [Button("SETUP ENTITY", ButtonSizes.Gigantic), GUIColor(0.4f, 0.8f, 1),]
+
+    public void SetupEntity()
+    {
+        //currentImunes = baseImmunes.Clone();
         //entity = ObjectPool.instance.SpawnEntity();
         entity = PoolManager.SpawnEntity();
         link = gameObject.Link(entity);
         foreach (var component in AutoAdds)
         {
-            component.AddComponent(ref entity);
+            component.AddComponent(entity);
         }
-        if (entity.hasBehaviourTree)
-        {
-            entity.behaviourTree.value.DisableBehavior();
-        }
-        ComponentManagerUtils.AddComponent(this);
+//        if (entity.hasBehaviourTree)
+//        {
+//            entity.behaviourTree.value.DisableBehavior();
+//        }
+        DisableBehavior();
+        //ComponentManagerUtils.AddComponent(this);
     }
     private void OnDisable()
     {
@@ -112,10 +138,11 @@ public class ComponentManager : MonoBehaviour
         {
             return;
         }
-        if (entity.hasBehaviourTree)
-        {
-            entity.behaviourTree.value.DisableBehavior();
-        }
+//        if (entity.hasBehaviourTree)
+//        {
+//            entity.behaviourTree.value.DisableBehavior();
+//        }
+        DisableBehavior();
         DestroyEntity();
     }
     public void OnInputChangeFacing()

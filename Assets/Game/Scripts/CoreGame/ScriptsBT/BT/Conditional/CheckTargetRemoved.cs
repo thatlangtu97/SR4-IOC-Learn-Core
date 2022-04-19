@@ -11,14 +11,14 @@ namespace CoreBT
         public SharedComponentManager componentManager;
         public int frameUpdate = 5;
         public int frameCount;
-        public override void OnAwake()
-        {
-            base.OnAwake();
-        }
-        public override void OnStart()
-        {
-            base.OnStart();
-        }
+//        public override void OnAwake()
+//        {
+//            base.OnAwake();
+//        }
+//        public override void OnStart()
+//        {
+//            base.OnStart();
+//        }
         public override TaskStatus OnUpdate()
         {
             frameCount += 1;
