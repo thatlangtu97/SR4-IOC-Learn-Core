@@ -22,9 +22,11 @@ public class GameUIController : MonoBehaviour
     public Transform HpBarLeft;
 
     public Transform HpBarRight;
+
+    public Transform WaveContarner;
     
     private bool useRayCastTest;
-
+    private WaveInfoUI prefabWaveUI;
     public GameEntity EntityController;
     public HPBarUI SpawnHPBar(HPBarUI hpBarUi,bool left)
     {
@@ -32,28 +34,39 @@ public class GameUIController : MonoBehaviour
         {
             for(int i = HpBarLeft.childCount-1;i>=0;i--)
             {
-                //Destroy(HpBarLeft.GetChild(i).gameObject);
                 PoolManager.Recycle(HpBarLeft.GetChild(i).GetComponent<PoolItem>());
             }
 
             HPBarUI temp = PoolManager.Spawn(hpBarUi, HpBarLeft);
             temp.Show();
             return temp;
-            // return Instantiate(hpBarUi, HpBarLeft);
+            
         }
         else
         {
             for(int i = HpBarRight.childCount-1;i>=0;i--)
             {
-                Destroy(HpBarRight.GetChild(i).gameObject);
+                //Destroy(HpBarRight.GetChild(i).gameObject);
                 PoolManager.Recycle(HpBarRight.GetChild(i).GetComponent<PoolItem>());
             }
             HPBarUI temp = PoolManager.Spawn(hpBarUi, HpBarRight);
             temp.Show();
             return temp;
-            //return Instantiate(hpBarUi, HpBarRight);
         }
     }
+
+    public WaveInfoUI SpawnWaveInfo()
+    {
+        if (WaveContarner.childCount != 0)
+        {
+            var temp = WaveContarner.GetChild(0).GetComponent<WaveInfoUI>();
+            return temp;
+        }
+        
+        WaveInfoUI spawnWaveUI = PoolManager.Spawn(prefabWaveUI, WaveContarner);
+        return spawnWaveUI;
+    }
+    
     
     
     private void Awake()
@@ -62,6 +75,8 @@ public class GameUIController : MonoBehaviour
         {
             instance = this;
         }
+        prefabWaveUI = Resources.Load<WaveInfoUI>("GamePlay/WaveInfoUI");
+        
     }
     [Button("MODIFY", ButtonSizes.Gigantic), GUIColor(0.4f, 0.8f, 1),]
     public void MODIFY()
@@ -81,33 +96,6 @@ public class GameUIController : MonoBehaviour
     public Vector2 VectorMove;
     private void Update()
     {
-
-
-//        if (Input.GetKeyDown(KeyCode.D))
-//        {
-//            Dash();
-//        }
-//        if (Input.GetKeyDown(KeyCode.A))
-//        {
-//            Attack();
-//        }
-//        if (Input.GetKeyDown(KeyCode.Space))
-//        {
-//            Jump();
-//        }
-//        if (Input.GetKeyDown(KeyCode.End))
-//        {
-//            stateMachine.ChangeState(NameState.ReviveState, true);
-//        }
-//        if (Input.GetKeyDown(KeyCode.Q))
-//        {
-//            Skill1();
-//        }
-//        if (Input.GetKeyDown(KeyCode.W))
-//        {
-//            Skill2();
-//        }
-        
         if (gamePad!=null)
         {
 

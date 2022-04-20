@@ -26,4 +26,9 @@ public class GamePlayCreator : MonoBehaviour
         GameUIController.instance.stateMachine = statemachine;
         GameUIController.instance.MODIFY(); 
     }
+
+    public void NextWave(int waveID)
+    {
+        
+    }
 }
