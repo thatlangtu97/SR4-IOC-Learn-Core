@@ -21,14 +21,7 @@ public class StateMachineUpdateSystem : IExecuteSystem
     {
         foreach (var e in entities.GetEntities())
         {
-//            if (!e.hasStateMachineContainer)
-//            {
-//                e.RemoveAllComponents();
-//                e.Destroy();
-//                continue;
-//            }
             e.stateMachineContainer.value.UpdateState();
-            e.stateMachineContainer.value.UpdateMecanim();
         }
 //        NativeArray<float2> position = new NativeArray<float2>(1,Allocator.TempJob);
 //        var job = new jobupdate(){position = position};
