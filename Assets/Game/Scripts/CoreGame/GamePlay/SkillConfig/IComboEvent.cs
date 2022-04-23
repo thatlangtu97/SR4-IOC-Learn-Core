@@ -480,7 +480,9 @@ public class ColliderEvent : IComboEvent
                                 int damageProperties = entity.power.value;
                                 DamageInfoEvent damageInfoEventTemp = new DamageInfoEvent(damageInfoEvent);
                                 damageInfoEventTemp.forcePower = damageInfoEvent.forcePower * direction;
-                                ComponentManager componentManager = col.GetComponent<ComponentManager>();
+                                //ComponentManager componentManager = col.GetComponent<ComponentManager>();
+                                ComponentManager componentManager =
+                                    ComponentManagerUtils.GetComponentByInstanceId(col.gameObject.GetInstanceID());
                                 void Action()
                                 {
                                     componentManager.rgbody2D.velocity = new Vector2(0,componentManager.rgbody2D.velocity.y);
@@ -531,7 +533,9 @@ public class ColliderEvent : IComboEvent
                                 int damageProperties = entity.power.value;
                                 DamageInfoEvent damageInfoEventTemp = new DamageInfoEvent(damageInfoEvent);
                                 damageInfoEventTemp.forcePower = damageInfoEvent.forcePower * direction;
-                                ComponentManager componentManager = col.GetComponent<ComponentManager>();
+                                //ComponentManager componentManager = col.GetComponent<ComponentManager>();
+                                ComponentManager componentManager =
+                                    ComponentManagerUtils.GetComponentByInstanceId(col.gameObject.GetInstanceID());
                                 Action action = delegate
                                 {
                                     componentManager.rgbody2D.velocity = new Vector2(0,componentManager.rgbody2D.velocity.y);

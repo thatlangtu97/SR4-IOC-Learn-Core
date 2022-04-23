@@ -6,11 +6,16 @@ public static class ComponentManagerUtils
 {
     static List<ComponentManager> componentManagers= new List<ComponentManager>();
     static List<ProjectileComponent > projectileComponents = new List<ProjectileComponent>();
+    static Dictionary<int, ComponentManager> componentByInstanceId = new Dictionary<int, ComponentManager>();
     public static void AddComponent(ComponentManager component)
     {
         if (!componentManagers.Contains(component))
         {
             componentManagers.Add(component);
+            componentByInstanceId.Add(component.gameObject.GetInstanceID(),component);
+            
+            ComponentGameController.Instance.AddComponent(component);
+                
         }
     }
     public static void AddComponent(ProjectileComponent component)
@@ -18,6 +23,7 @@ public static class ComponentManagerUtils
         if (!projectileComponents.Contains(component))
         {
             projectileComponents.Add(component);
+            ComponentGameController.Instance.AddComponent(component);
         }
     }
     public static void ResetAll()
@@ -31,6 +37,11 @@ public static class ComponentManagerUtils
         }
         componentManagers.Clear();
         projectileComponents.Clear();
+    }
+
+    public static ComponentManager GetComponentByInstanceId(int id)
+    {
+        return componentByInstanceId[id];
     }
     
 }
