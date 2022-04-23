@@ -115,14 +115,14 @@ public class CastVfxEvent : IComboEvent
     
     public int id { get { return idEvent; } set { idEvent = value; } }
     public float timeTrigger { get { return timeTriggerEvent; } }
-    private PoolItem prefabSpawned;
+    private GameObject prefabSpawned;
     public void OnEventTrigger(GameEntity entity)
     {
         if (Prefab)
         {
             //prefabSpawned = ObjectPool.Spawn(Prefab);
             Transform baseTransform = entity.stateMachineContainer.value.transform;
-            prefabSpawned = PoolManager.Spawn(Prefab.GetComponent<PoolItem>(),baseTransform);
+            prefabSpawned = PoolManager.Spawn(Prefab,baseTransform);
             //prefabSpawned.transform.parent = baseTransform;
             prefabSpawned.transform.localPosition = new Vector3(Localosition.x , Localosition.y , Localosition.z );
             prefabSpawned.transform.localRotation = Quaternion.Euler(LocalRotation);
@@ -237,7 +237,7 @@ public class SpawnGameObject : IComboEvent
     [FoldoutGroup("SPAWN GAMEOBJECT")]     public LayerMask LayerMask ;
     public int id { get { return idEvent; } set { idEvent = value; } }
     public float timeTrigger { get { return timeTriggerEvent; } }
-    private PoolItem prefabSpawned;
+    private GameObject prefabSpawned;
     public void OnEventTrigger(GameEntity entity)
     {
         if (Prefab)
@@ -247,7 +247,7 @@ public class SpawnGameObject : IComboEvent
             {
                 case TypeSpawn.Transform:
                     //prefabSpawned = ObjectPool.Spawn(Prefab, baseTransform, localPosition,Quaternion.Euler(LocalRotation), LocalScale);
-                    prefabSpawned = PoolManager.Spawn(Prefab.GetComponent<PoolItem>(), baseTransform, localPosition ,Quaternion.Euler(LocalRotation), LocalScale);
+                    prefabSpawned = PoolManager.Spawn(Prefab, baseTransform, localPosition ,Quaternion.Euler(LocalRotation), LocalScale);
                     if (!setParent)
                     {
                         prefabSpawned.transform.parent = null;
@@ -256,7 +256,7 @@ public class SpawnGameObject : IComboEvent
                     break;
                 case TypeSpawn.RigidBody2D:
                     //prefabSpawned = ObjectPool.Spawn(Prefab, baseTransform, localPosition,Quaternion.Euler(LocalRotation), LocalScale);
-                    prefabSpawned = PoolManager.Spawn(Prefab.GetComponent<PoolItem>(), baseTransform, localPosition,Quaternion.Euler(LocalRotation), LocalScale);
+                    prefabSpawned = PoolManager.Spawn(Prefab, baseTransform, localPosition,Quaternion.Euler(LocalRotation), LocalScale);
                     
                     if (!setParent)
                     {
@@ -286,7 +286,7 @@ public class SpawnGameObject : IComboEvent
                                 Vector3 direction = col.transform.position - baseTransform.position;
                                 Vector3 rightTransform = direction.normalized  * baseTransform.localScale.x ;
                                 //prefabSpawned = ObjectPool.Spawn(Prefab, baseTransform, localPosition, rightTransform, localScaleCalculate);
-                                prefabSpawned = PoolManager.Spawn(Prefab.GetComponent<PoolItem>(), baseTransform, localPosition, rightTransform, localScaleCalculate);
+                                prefabSpawned = PoolManager.Spawn(Prefab, baseTransform, localPosition, rightTransform, localScaleCalculate);
                                 break;
                             }
                         }
@@ -417,7 +417,7 @@ public class ColliderEvent : IComboEvent
     [FoldoutGroup("COLLIDER EVENT")] 
     public DamageInfoEvent damageInfoEvent;
     
-    private PoolItem col;
+    private GameObject col;
     private int countCast;
     private float countDuration;
     private DamageCollider damageCollider;
@@ -457,7 +457,7 @@ public class ColliderEvent : IComboEvent
                 {
                     countDuration = 0;
                     //col = ObjectPool.Spawn(prefab);
-                    col = PoolManager.Spawn(prefab.GetComponent<PoolItem>());
+                    col = PoolManager.Spawn(prefab);
                     damageCollider = col.GetComponent<DamageCollider>();
                     damageCollider.SetCollider(typeCast, sizeBox, entity.power.value, damageInfoEvent, entity);
                     col.transform.position = point;
@@ -509,7 +509,7 @@ public class ColliderEvent : IComboEvent
                 {
                     countDuration = 0;
                     //col = ObjectPool.Spawn(prefab);
-                    col = PoolManager.Spawn(prefab.GetComponent<PoolItem>());
+                    col = PoolManager.Spawn(prefab);
                     
                     damageCollider = col.GetComponent<DamageCollider>();
                     int damageProperties = entity.power.value;
@@ -654,7 +654,7 @@ public class CastProjectile : IComboEvent
     public LayerMask LayerMaskLimitPosition ;
     public int id { get { return idEvent; } set { idEvent = value; } }
     public float timeTrigger { get { return timeTriggerEvent; } }
-    private PoolItem prefabSpawned;
+    private GameObject prefabSpawned;
     public void OnEventTrigger(GameEntity entity)
     {
         
@@ -665,7 +665,7 @@ public class CastProjectile : IComboEvent
             {
                 case TypeSpawn.Transform:
                     //prefabSpawned = ObjectPool.Spawn(Prefab,baseTransform,localPosition,Quaternion.Euler(LocalRotation),LocalScale);
-                    prefabSpawned = PoolManager.Spawn(Prefab.GetComponent<PoolItem>(), baseTransform, localPosition ,Quaternion.Euler(LocalRotation), LocalScale);
+                    prefabSpawned = PoolManager.Spawn(Prefab, baseTransform, localPosition ,Quaternion.Euler(LocalRotation), LocalScale);
                     if (!setParent)
                     {
                         prefabSpawned.transform.parent = null;
@@ -675,7 +675,7 @@ public class CastProjectile : IComboEvent
                 
                 case TypeSpawn.RigidBody2D:
                     //prefabSpawned = ObjectPool.Spawn(Prefab,baseTransform,localPosition,Quaternion.Euler(LocalRotation),LocalScale);
-                    prefabSpawned = PoolManager.Spawn(Prefab.GetComponent<PoolItem>(), baseTransform, localPosition ,Quaternion.Euler(LocalRotation), LocalScale);
+                    prefabSpawned = PoolManager.Spawn(Prefab, baseTransform, localPosition ,Quaternion.Euler(LocalRotation), LocalScale);
                     if (!setParent)
                     {
                         prefabSpawned.transform.parent = null;
@@ -703,7 +703,7 @@ public class CastProjectile : IComboEvent
                                 Vector3 direction = col.transform.position - baseTransform.position;
                                 Vector3 rightTransform = direction.normalized  * baseTransform.localScale.x ;
                                 //prefabSpawned = ObjectPool.Spawn(Prefab, baseTransform, localPosition, rightTransform, LocalScale);
-                                prefabSpawned = PoolManager.Spawn(Prefab.GetComponent<PoolItem>(), baseTransform, localPosition ,rightTransform, LocalScale);
+                                prefabSpawned = PoolManager.Spawn(Prefab, baseTransform, localPosition ,rightTransform, LocalScale);
                                 break;
                             }
                         }

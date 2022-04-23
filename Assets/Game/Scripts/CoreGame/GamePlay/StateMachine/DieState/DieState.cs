@@ -30,7 +30,7 @@ public class DieState : State
         {
             controller.componentManager.DestroyEntity();
             controller.Recycle();
-            PoolManager.Recycle(controller.GetComponent<PoolItem>());
+            PoolManager.Recycle(controller.gameObject);
         }
 
 //        controller.componentManager.DestroyEntity();

@@ -22,7 +22,6 @@ public class ComponentGameController : MonoBehaviour
     public List<ComponentManager> componentManagers= new List<ComponentManager>();
     public List<ProjectileComponent > projectileComponents = new List<ProjectileComponent>(); 
     public List<int> InstanceIds= new List<int>();
-    public List<int> InstanceIds2= new List<int>();
     public void AddComponent(ProjectileComponent component)
     {
         if (!projectileComponents.Contains(component))
@@ -36,7 +35,6 @@ public class ComponentGameController : MonoBehaviour
         {
             componentManagers.Add(component);
             InstanceIds.Add(component.gameObject.GetInstanceID());
-            InstanceIds2.Add(component.GetInstanceID());
         }
     }
     public void ResetAll()
@@ -44,6 +42,5 @@ public class ComponentGameController : MonoBehaviour
         componentManagers.Clear();
         projectileComponents.Clear();
         InstanceIds.Clear();
-        InstanceIds2.Clear();
     }
 }

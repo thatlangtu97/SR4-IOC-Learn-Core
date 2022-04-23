@@ -34,10 +34,10 @@ public class GameUIController : MonoBehaviour
         {
             for(int i = HpBarLeft.childCount-1;i>=0;i--)
             {
-                PoolManager.Recycle(HpBarLeft.GetChild(i).GetComponent<PoolItem>());
+                PoolManager.Recycle(HpBarLeft.GetChild(i).gameObject);
             }
 
-            HPBarUI temp = PoolManager.Spawn(hpBarUi, HpBarLeft);
+            HPBarUI temp = PoolManager.Spawn<HPBarUI>(hpBarUi.gameObject, HpBarLeft);
             temp.Show();
             return temp;
             
@@ -46,10 +46,9 @@ public class GameUIController : MonoBehaviour
         {
             for(int i = HpBarRight.childCount-1;i>=0;i--)
             {
-                //Destroy(HpBarRight.GetChild(i).gameObject);
-                PoolManager.Recycle(HpBarRight.GetChild(i).GetComponent<PoolItem>());
+                PoolManager.Recycle(HpBarRight.GetChild(i).gameObject);
             }
-            HPBarUI temp = PoolManager.Spawn(hpBarUi, HpBarRight);
+            HPBarUI temp = PoolManager.Spawn<HPBarUI>(hpBarUi.gameObject, HpBarRight);
             temp.Show();
             return temp;
         }
@@ -63,7 +62,7 @@ public class GameUIController : MonoBehaviour
             return temp;
         }
         
-        WaveInfoUI spawnWaveUI = PoolManager.Spawn(prefabWaveUI, WaveContarner);
+        WaveInfoUI spawnWaveUI = PoolManager.Spawn<WaveInfoUI>(prefabWaveUI.gameObject, WaveContarner);
         return spawnWaveUI;
     }
     

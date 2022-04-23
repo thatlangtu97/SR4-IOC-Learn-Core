@@ -21,7 +21,7 @@ public class GamePlayCreator : MonoBehaviour
     public void CreateHero()
     {
         
-        StateMachineController statemachine = PoolManager.Spawn(heroPrefab).GetComponent<StateMachineController>();
+        StateMachineController statemachine = PoolManager.Spawn<StateMachineController>(heroPrefab.gameObject);
         statemachine.GetComponent<ComponentManager>().SetupEntity();
         GameUIController.instance.stateMachine = statemachine;
         GameUIController.instance.MODIFY(); 

@@ -42,7 +42,7 @@ public class TestSpawnCharacter : View
 //            setActionDelay(tempAction, TimeDelay);
             
             
-            temp = PoolManager.Spawn(prefab.GetComponent<PoolItem>()).GetComponent<StateMachineController>();
+            temp = PoolManager.Spawn(prefab).GetComponent<StateMachineController>();
             temp.GetComponent<ComponentManager>().SetupEntity();
             
 //            Action tempAction = delegate {  temp.GetComponent<ComponentManager>().SetupEntity(); };
@@ -114,7 +114,7 @@ public class TestSpawnCharacter : View
 //            ActionBufferManager.Instance.ActionDelayTime(action,timeDelay*countSpawn);
 //            
             Vector3 randomPos = new Vector3(Random.Range(-13f,5f),0f,0f);
-            StateMachineController temp = PoolManager.Spawn(prefab.GetComponent<PoolItem>(),null,randomPos).GetComponent<StateMachineController>();
+            StateMachineController temp = PoolManager.Spawn(prefab,null,randomPos).GetComponent<StateMachineController>();
             Action tempAction = delegate
             {
                 temp.GetComponent<ComponentManager>().SetupEntity();
@@ -124,11 +124,7 @@ public class TestSpawnCharacter : View
             countSpawn += 1;
         }
     }
-    public void SpawnEffect(PoolItem prefab)
-    {
-        PoolItem temp = PoolManager.Spawn(prefab);
-        PoolManager.Recycle(temp,1f);
-    }
+
     private int fps = -1;
     public void SetFps()
     {

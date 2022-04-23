@@ -28,7 +28,7 @@ public class StateMachineUpdateSystem : IExecuteSystem
 //                continue;
 //            }
             e.stateMachineContainer.value.UpdateState();
-            //e.stateMachineContainer.stateMachine.componentManager.UpdateMecanim();
+            e.stateMachineContainer.value.UpdateMecanim();
         }
 //        NativeArray<float2> position = new NativeArray<float2>(1,Allocator.TempJob);
 //        var job = new jobupdate(){position = position};

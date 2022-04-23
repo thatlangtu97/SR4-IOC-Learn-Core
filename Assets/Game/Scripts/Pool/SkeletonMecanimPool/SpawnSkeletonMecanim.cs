@@ -14,7 +14,7 @@ public class SpawnSkeletonMecanim : MonoBehaviour
     private SkeletonMecanim tempMecanim;
     private void OnEnable()
     {
-        tempMecanim = PoolManager.Spawn(mecanimPrefab,controller.transform,Vector3.zero,quaternion.identity, localScale);
+        tempMecanim = PoolManager.Spawn<SkeletonMecanim>(mecanimPrefab.gameObject,controller.transform,Vector3.zero,quaternion.identity, localScale);
         controller.animator = tempMecanim.GetComponent<Animator>();
         componentManager.meshRenderer = tempMecanim.GetComponent<MeshRenderer>();
         controller.SetupAnim(controller.animator);
@@ -22,6 +22,6 @@ public class SpawnSkeletonMecanim : MonoBehaviour
 
     private void OnDisable()
     {
-        PoolManager.Recycle(tempMecanim.GetComponent<PoolItem>());
+        PoolManager.Recycle(tempMecanim.gameObject);
     }
 }

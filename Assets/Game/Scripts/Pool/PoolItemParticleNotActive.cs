@@ -25,6 +25,6 @@ public class PoolItemParticleNotActive : PoolItem
 
     public void OnDisable()
     {
-        PoolManager.Recycle(this);
+        PoolManager.Recycle(this.gameObject);
     }
 }

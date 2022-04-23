@@ -58,6 +58,8 @@ public class PoolManager : MonoBehaviour
     
     Dictionary<GameObject, List<PoolItem>> pooledObjects = new Dictionary<GameObject, List<PoolItem>>();
     Dictionary<PoolItem, GameObject> spawnedObjects = new Dictionary<PoolItem, GameObject>();
+    
+    
     public ObjectPool[] PoolDefault;
     public PoolList[] poolLists;
     //public ZoneData zodeData; 
@@ -99,46 +101,91 @@ public class PoolManager : MonoBehaviour
     #endregion
     
     #region PUBLIC STATIC METHOD
-    public static T Spawn<T>(T prefab, Transform parent, Vector3 position, Vector3 rotation,Vector3 localScale) where T : Component
+    public static T Spawn<T>(GameObject prefab, Transform parent, Vector3 position, Vector3 rotation,Vector3 localScale) where T : Component
     {
         return SpawnPoolItem(prefab.gameObject, parent, position, rotation, localScale).GetComponent<T>();
     }
-    public static T Spawn<T>(T prefab, Transform parent, Vector3 position, Quaternion rotation,Vector3 localScale) where T : Component
+    public static T Spawn<T>(GameObject prefab, Transform parent, Vector3 position, Quaternion rotation,Vector3 localScale) where T : Component
     {
         return SpawnPoolItem(prefab.gameObject, parent, position, rotation, localScale).GetComponent<T>();
     }
     
-    public static T Spawn<T>(T prefab, Transform parent, Vector3 position, Quaternion rotation) where T : Component
+    public static T Spawn<T>(GameObject prefab, Transform parent, Vector3 position, Quaternion rotation) where T : Component
     {
         return SpawnPoolItem(prefab.gameObject, parent, position, rotation).GetComponent<T>();
     }
 
-    public static T Spawn<T>(T prefab, Vector3 position, Quaternion rotation) where T : Component
+    public static T Spawn<T>(GameObject prefab, Vector3 position, Quaternion rotation) where T : Component
     {
         return SpawnPoolItem(prefab.gameObject, null, position, rotation).GetComponent<T>();
     }
 
-    public static T Spawn<T>(T prefab, Transform parent, Vector3 position) where T : Component
+    public static T Spawn<T>(GameObject prefab, Transform parent, Vector3 position) where T : Component
     {
         return SpawnPoolItem(prefab.gameObject, parent, position, Quaternion.identity).GetComponent<T>();
     }
 
-    public static T Spawn<T>(T prefab, Vector3 position) where T : Component
+    public static T Spawn<T>(GameObject prefab, Vector3 position) where T : Component
     {
         return SpawnPoolItem(prefab.gameObject, null, position, Quaternion.identity).GetComponent<T>();
     }
 
-    public static T Spawn<T>(T prefab, Transform parent) where T : Component
+    public static T Spawn<T>(GameObject prefab, Transform parent) where T : Component
     {
         return SpawnPoolItem(prefab.gameObject, parent, Vector3.zero, Quaternion.identity).GetComponent<T>();
     }
 
-    public static T Spawn<T>(T prefab) where T : Component
+    public static T Spawn<T>(GameObject prefab) where T : Component
     {
         return SpawnPoolItem(prefab.gameObject, null, Vector3.zero, Quaternion.identity).GetComponent<T>();
     }
+/// <summary>
+/// 
+/// </summary>
+/// <param name="prefab"></param>
+/// <param name="parent"></param>
+/// <param name="position"></param>
+/// <param name="rotation"></param>
+///
+public static GameObject Spawn(GameObject prefab, Transform parent, Vector3 position, Vector3 rotation,Vector3 localScale)
+{
+    return SpawnPoolItem(prefab, parent, position, rotation, localScale);
+}
+public static GameObject Spawn(GameObject prefab, Transform parent, Vector3 position, Quaternion rotation,Vector3 localScale)
+{
+    return SpawnPoolItem(prefab.gameObject, parent, position, rotation, localScale);
+}
+    
+public static GameObject Spawn (GameObject prefab, Transform parent, Vector3 position, Quaternion rotation)  
+{
+    return SpawnPoolItem(prefab.gameObject, parent, position, rotation);
+}
 
-    static PoolItem SpawnPoolItem(GameObject prefab, Transform parent, Vector3 position, Quaternion rotation)
+public static GameObject Spawn (GameObject prefab, Vector3 position, Quaternion rotation) 
+{
+    return SpawnPoolItem(prefab.gameObject, null, position, rotation);
+}
+
+public static GameObject Spawn (GameObject prefab, Transform parent, Vector3 position) 
+{
+    return SpawnPoolItem(prefab.gameObject, parent, position, Quaternion.identity);
+}
+
+public static GameObject Spawn (GameObject prefab, Vector3 position) 
+{
+    return SpawnPoolItem(prefab.gameObject, null, position, Quaternion.identity);
+}
+
+public static GameObject Spawn (GameObject prefab, Transform parent)  
+{
+    return SpawnPoolItem(prefab.gameObject, parent, Vector3.zero, Quaternion.identity);
+}
+
+public static GameObject Spawn (GameObject prefab) 
+{
+    return SpawnPoolItem(prefab.gameObject, null, Vector3.zero, Quaternion.identity);
+}
+    static GameObject SpawnPoolItem(GameObject prefab, Transform parent, Vector3 position, Quaternion rotation)
     {
         if (instance.pooledObjects.TryGetValue(prefab, out List<PoolItem> list))
         {
@@ -170,7 +217,7 @@ public class PoolManager : MonoBehaviour
                     transform.localScale = prefab.transform.localScale;
                     obj.Spawn();
                     instance.spawnedObjects.Add(obj, prefab);
-                    return obj;
+                    return obj.gameObject;
                 }
             }
             
@@ -188,7 +235,7 @@ public class PoolManager : MonoBehaviour
             transform.localScale = prefab.transform.localScale;
             obj.Spawn();
             instance.spawnedObjects.Add(obj, prefab);
-            return obj;
+            return obj.gameObject;
         }
         else
         {
@@ -196,7 +243,7 @@ public class PoolManager : MonoBehaviour
             return SpawnPoolItem(prefab, parent, position, rotation);
         }
     }
-    static PoolItem SpawnPoolItem(GameObject prefab, Transform parent, Vector3 position, Quaternion rotation, Vector3 localScale)
+    static GameObject SpawnPoolItem(GameObject prefab, Transform parent, Vector3 position, Quaternion rotation, Vector3 localScale)
     {
         if (instance.pooledObjects.TryGetValue(prefab, out List<PoolItem> list))
         {
@@ -224,7 +271,7 @@ public class PoolManager : MonoBehaviour
                     transform.localScale = localScale;
                     obj.Spawn();
                     instance.spawnedObjects.Add(obj, prefab);
-                    return obj;
+                    return obj.gameObject;
                 }
             }
             
@@ -242,7 +289,7 @@ public class PoolManager : MonoBehaviour
             transform.localScale = localScale;
             obj.Spawn();
             instance.spawnedObjects.Add(obj, prefab);
-            return obj;
+            return obj.gameObject;
         }
         else
         {
@@ -251,7 +298,7 @@ public class PoolManager : MonoBehaviour
         }
     }
     
-    static PoolItem SpawnPoolItem(GameObject prefab, Transform parent, Vector3 localPosition, Vector3 rightTransform , Vector3 localScale)
+    static GameObject SpawnPoolItem(GameObject prefab, Transform parent, Vector3 localPosition, Vector3 rightTransform , Vector3 localScale)
     {
         if (instance.pooledObjects.TryGetValue(prefab, out List<PoolItem> list))
         {
@@ -280,7 +327,7 @@ public class PoolManager : MonoBehaviour
                     transform.localScale = localScale;
                     obj.Spawn();
                     instance.spawnedObjects.Add(obj, prefab);
-                    return obj;
+                    return obj.gameObject;
                 }
             }
             obj = Object.Instantiate(prefab).GetComponent<PoolItem>();;
@@ -298,7 +345,7 @@ public class PoolManager : MonoBehaviour
             transform.localScale = localScale;
             obj.Spawn();
             instance.spawnedObjects.Add(obj, prefab);
-            return obj;
+            return obj.gameObject;
         }
         else
         {
@@ -326,22 +373,23 @@ public class PoolManager : MonoBehaviour
         }
     }
 
-    public static void Recycle(PoolItem gameObject)
-    {   
+    public static void Recycle(GameObject gameObject)
+    {
 
-        if (instance.spawnedObjects.TryGetValue(gameObject, out GameObject prefabSpawnedObjects))
+        PoolItem temp = gameObject.GetComponent<PoolItem>();
+        if (instance.spawnedObjects.TryGetValue(temp, out GameObject prefabSpawnedObjects))
         {
-            gameObject.Recycle();
+            temp.Recycle();
             //gameObject.transform.parent = instance.transform;
-            instance.pooledObjects[prefabSpawnedObjects].Add(gameObject);
-            instance.spawnedObjects.Remove(gameObject);
+            instance.pooledObjects[prefabSpawnedObjects].Add(temp);
+            instance.spawnedObjects.Remove(temp);
         }
 
     }
 
-    public static void Recycle(PoolItem gameObject,float time)
+    public static void Recycle(GameObject gameObject,float time)
     {
-        //Observable.Timer(TimeSpan.FromSeconds(time)).Subscribe(l => {  Recycle(gameObject); }).AddTo(_disposable);
+
         Action tempAction = delegate { Recycle(gameObject);};
         
         ActionBufferManager.Instance.ActionDelayTime(tempAction,time);
@@ -351,7 +399,7 @@ public class PoolManager : MonoBehaviour
     public static void CreatePoolsList()
     {
         var pools = instance.poolLists;
-        //var zoneData = instance.zodeData;
+
         var zoneData = LevelMapConfigManager.Instance.zoneData;
         List<PoolList> tempListPooled = new List<PoolList>();
         if (pools != null && pools.Length > 0)

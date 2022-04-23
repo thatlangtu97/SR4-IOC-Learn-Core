@@ -45,7 +45,6 @@ public class ProjectileCollider : MonoBehaviour
         
         DamageInfoSend damageInfoSend = new DamageInfoSend(damageInfoEvent, component.entity.power.value, Action);
         DealDmgManager.DealDamage(other, component.entity, damageInfoSend);
-        PoolManager.Recycle(this.gameObject.GetComponent<PoolItem>());
-        //ObjectPool.Recycle(this.gameObject);
+        PoolManager.Recycle(this.gameObject);
     }
 }

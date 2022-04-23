@@ -185,8 +185,7 @@ public class EnemySpawnController : View
     }
     public void Spawn(GameObject prefab,Vector3 positionSpawn)
     {
-        StateMachineController temp = null;
-        temp = PoolManager.Spawn(prefab.GetComponent<PoolItem>(),positionSpawn).GetComponent<StateMachineController>();
+        StateMachineController temp = PoolManager.Spawn<StateMachineController>(prefab,positionSpawn);
         temp.GetComponent<ComponentManager>().SetupEntity();
     }
 }
