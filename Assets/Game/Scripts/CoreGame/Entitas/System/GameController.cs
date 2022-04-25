@@ -29,6 +29,7 @@ public class GameController : View
         //Debug.Log("entry context "+EntryContextView.Instance);
 #if UNITY_EDITOR
         EntryContextView.Instance.loadFlashScene = testloadFlashScene;
+        GamePlayContextView.Instance.Load();
 #endif
         if (instance == null)
         {

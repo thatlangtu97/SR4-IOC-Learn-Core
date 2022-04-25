@@ -16,8 +16,7 @@ namespace EntrySystem {
 				if (instance == null)
 				{
 
-					GameObject Entry = Instantiate( Resources.Load<GameObject>("EntryContext")); 
-					//Entry.name = "EntryContext";
+					GameObject Entry = Instantiate( Resources.Load<GameObject>("EntryContext"));
 					instance = Entry.GetComponent<EntryContextView>();
 					DontDestroyOnLoad(Entry);
 				}

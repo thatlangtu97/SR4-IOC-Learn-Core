@@ -88,14 +88,21 @@ public class EnemySpawnController : View
         
     }
     #endregion
-    
-    
-    protected override void Awake()
+
+    public void Setup()
     {
-        base.Awake();
+        base.CopyStart();
         SetupWaveData();
         RandomListTimeRatio();
         RandomListPosition();
+        Debug.Log("Setup");
+    }
+    protected override void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
     }
 
     public void SetupWaveData()
