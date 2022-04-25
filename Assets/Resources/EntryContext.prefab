@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dd219ac2bff62648a6ae1c651c2eb5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  KeySafeArea: 27
+  KeySafeArea: 256
 --- !u!114 &4627643119004524483
 MonoBehaviour:
   m_ObjectHideFlags: 0

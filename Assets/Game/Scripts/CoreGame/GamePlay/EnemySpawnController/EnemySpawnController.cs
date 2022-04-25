@@ -20,7 +20,6 @@ public class EnemySpawnController : MonoBehaviour
                 GameObject dataManager = new GameObject();
                 dataManager.name = "EnemySpawnController";
                 instance = dataManager.AddComponent<EnemySpawnController>();
-                //DontDestroyOnLoad(instance);
             }
             return instance;
         }

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using strange.extensions.signal.impl;
 using UnityEngine.EventSystems;
@@ -8,6 +9,10 @@ public class PopupManager
 {
     public PanelKey panelKey { get; set; }
     public PopupKey popupKey { get; set; }
+
+    public SceneKey sceneKey { get; set; }
+    
+    public Dictionary<SceneKey, List<PanelKey>> backPanelData = new Dictionary<SceneKey, List<PanelKey>>();
     public Dictionary<UILayer, Transform> UIDic = new Dictionary<UILayer, Transform>();
     public Dictionary<PanelKey, GameObject> PanelDic = new Dictionary<PanelKey, GameObject>();
     public Dictionary<PopupKey, AbsPopupView> PopupDic = new Dictionary<PopupKey, AbsPopupView>();
@@ -42,6 +47,7 @@ public class PopupManager
 
         }
     }
+    
     public Transform GetUILayer(UILayer layer)
     {
         if (UIDic.ContainsKey(layer))
@@ -82,6 +88,15 @@ public class PopupManager
         else
         {
             PanelDic.Add(key, panel);
+        }
+
+        if (!backPanelData.ContainsKey(sceneKey))
+        {
+            backPanelData.Add(sceneKey, new List<PanelKey>(){key});
+        }
+        if (!backPanelData[sceneKey].Contains(key))
+        {
+            backPanelData[sceneKey].Add(key);
         }
     }
     public void SetPanelAfterLoadHomeScene(PanelKey key , PopupKey popupkey)
@@ -137,7 +152,7 @@ public class PopupManager
         }
         if (lastPopup != null)
         {
-            lastPopup/*.GetComponent<AbsPopupView>()*/.HidePopup();
+            lastPopup.HidePopup();
             return;
         }
         //disable Panel
@@ -154,10 +169,14 @@ public class PopupManager
                 }
             }
         }
-        if(BasePabelKey == PanelKey.PanelHome)
+
+        if (sceneKey == SceneKey.Home)
         {
-            showPanelHomeSignal.Dispatch();
-            panelKey = PanelKey.PanelHome;
+            if (BasePabelKey == PanelKey.PanelHome)
+            {
+                showPanelHomeSignal.Dispatch();
+                panelKey = PanelKey.PanelHome;
+            }
         }
     }
     #endregion
@@ -228,6 +247,12 @@ public enum PopupKey
     GachaInfoPopup =11,
     RevivePopup = 12,
     RewardGameplayPopup = 13,
+}
+
+public enum SceneKey
+{
+    Home,
+    GamePlay,
 }
 public enum UILayer
 {

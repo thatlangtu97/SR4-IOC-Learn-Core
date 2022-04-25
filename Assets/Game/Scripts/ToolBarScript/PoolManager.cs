@@ -71,31 +71,12 @@ public class PoolManager : MonoBehaviour
     #endregion
     
     #region INSTANCE
-    //static CompositeDisposable _disposable;
     static PoolManager _instance;
     public static PoolManager instance
     {
         get
         {
-//            if (_disposable == null)
-//            {
-//                _disposable= new CompositeDisposable();
-//            }
             return _instance;
-//            if (_instance != null)
-//                return _instance;
-//
-//            _instance = Object.FindObjectOfType<PoolManager>();
-//            if (_instance != null)
-//                return _instance;
-//
-//            var obj = new GameObject("PoolManager");
-//            obj.transform.localPosition = Vector3.zero;
-//            obj.transform.localRotation = Quaternion.identity;
-//            obj.transform.localScale = Vector3.one;
-//            _instance = obj.AddComponent<PoolManager>();
-//            Debug.Log("create instance");
-//            return _instance;
         }
     }
     #endregion
@@ -507,9 +488,6 @@ public static GameObject Spawn (GameObject prefab)
     {
         if(instance==null)
             _instance = this;
-        //zodeData = Resources.Load<ZoneData>("ZoneData/ZoneData1");
-        //_disposable = new CompositeDisposable();
-
     }
 
     private void Start()
@@ -519,11 +497,10 @@ public static GameObject Spawn (GameObject prefab)
 
     public void SetupPool()
     {
-                CreatePoolsList();
-                CreateStartupPools();
-                CreatePoolEntity(Contexts.sharedInstance, 100);
+        CreatePoolsList();
+        CreateStartupPools();
+        CreatePoolEntity(Contexts.sharedInstance, 100);
     }
-
     #endregion
    
 }

@@ -6,7 +6,7 @@ using UnityEngine;
 public class GamePlayContext : MVCSContext
 {
     private readonly GamePlayContextView view;
-
+    
     public GamePlayContext(GamePlayContextView view) : base(view, true)
     {
         this.view = view;
