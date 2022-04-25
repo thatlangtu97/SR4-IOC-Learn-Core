@@ -4,10 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using Sirenix.OdinInspector;
 using strange.extensions.mediation.impl;
+using UniRx;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class EnemySpawnController : View
+public class EnemySpawnController : MonoBehaviour
 {
     private static EnemySpawnController instance;
     public static EnemySpawnController Instance
@@ -25,7 +26,7 @@ public class EnemySpawnController : View
         }
     }
 
-    public static Dictionary<int, List<WaveData>> dictionaryWave = new Dictionary<int, List<WaveData>>();
+    public Dictionary<int, List<WaveData>> dictionaryWave = new Dictionary<int, List<WaveData>>();
     public int level;
     public LayerMask layerWall;
     #region RANDOM DATA
@@ -91,13 +92,14 @@ public class EnemySpawnController : View
 
     public void Setup()
     {
-        base.CopyStart();
+        //base.CopyStart();
         SetupWaveData();
         RandomListTimeRatio();
         RandomListPosition();
-        Debug.Log("Setup");
+        _disposable= new CompositeDisposable();
+        
     }
-    protected override void Awake()
+    protected void Awake()
     {
         if (instance == null)
         {
@@ -154,12 +156,13 @@ public class EnemySpawnController : View
     int GetCountEnemy(int level)
     {
         int count = 0;
+        
         List<WaveData> dataWave = dictionaryWave[level];
         foreach (var wave in dataWave)
         {
             count += wave.Amount;
         }
-
+        Debug.Log("count enemy "+ count);
         return count;
     }
     [Button("SPAWN ENEMY", ButtonSizes.Gigantic), GUIColor(0.4f, 0.8f, 1),]
@@ -184,9 +187,8 @@ public class EnemySpawnController : View
                 Action action = delegate
                 {
                     Spawn(tempEnemyPrefab,positionRandom);
-                    Debug.Log("spawn");
                 };
-                ActionBufferManager.Instance.ActionDelayTime(action,time);
+                ActionDelayTime(action,time);
             }
         }
     }
@@ -194,5 +196,15 @@ public class EnemySpawnController : View
     {
         StateMachineController temp = PoolManager.Spawn<StateMachineController>(prefab,positionSpawn);
         temp.GetComponent<ComponentManager>().SetupEntity();
+    }
+    CompositeDisposable _disposable;
+    public void ActionDelayTime(Action action ,float timedelay)
+    {
+        Observable.Timer(TimeSpan.FromSeconds(timedelay)).Subscribe(l => { action.Invoke(); }).AddTo(_disposable);
+    }
+
+    public void ActionDelayFrame(Action action, int frameDelay)
+    {
+        Observable.TimerFrame(frameDelay,FrameCountType.Update).Subscribe(l => { action.Invoke(); }).AddTo(_disposable);
     }
 }

@@ -7,6 +7,8 @@ public class SetupGamePlayCommand : Command
 {
     public override void Execute()
     {
+        Debug.Log("Setup");
         EnemySpawnController.Instance.Setup();
+        PoolManager.instance.SetupPool();
     }
 }

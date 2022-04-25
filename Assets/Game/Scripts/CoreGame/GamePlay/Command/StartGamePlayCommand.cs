@@ -9,5 +9,6 @@ public class StartGamePlayCommand : Command
     {
         GamePlayCreator.Instance.CreateHero();
         EnemySpawnController.Instance.TestSpawn();
+        Debug.Log("Spawn e");
     }
 }

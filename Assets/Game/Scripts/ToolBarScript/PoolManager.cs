@@ -514,9 +514,14 @@ public static GameObject Spawn (GameObject prefab)
 
     private void Start()
     {
-        CreatePoolsList();
-        CreateStartupPools();
-        CreatePoolEntity(Contexts.sharedInstance, 100);
+
+    }
+
+    public void SetupPool()
+    {
+                CreatePoolsList();
+                CreateStartupPools();
+                CreatePoolEntity(Contexts.sharedInstance, 100);
     }
 
     #endregion

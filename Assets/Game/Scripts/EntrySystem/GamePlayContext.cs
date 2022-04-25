@@ -23,4 +23,9 @@ public class GamePlayContext : MVCSContext
     {
         injectionBinder.GetInstance<StartGamePlaySignal>().Dispatch();
     }
+
+    public override void OnRemove()
+    {
+        base.OnRemove();
+    }
 }
