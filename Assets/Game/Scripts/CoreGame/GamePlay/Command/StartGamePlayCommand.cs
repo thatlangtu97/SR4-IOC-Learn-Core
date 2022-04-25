@@ -7,6 +7,7 @@ public class StartGamePlayCommand : Command
 {
     public override void Execute()
     {
-        
+        GamePlayCreator.Instance.CreateHero();
+        EnemySpawnController.Instance.TestSpawn();
     }
 }

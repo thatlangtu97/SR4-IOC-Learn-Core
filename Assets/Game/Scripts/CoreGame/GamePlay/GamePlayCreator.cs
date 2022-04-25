@@ -15,6 +15,10 @@ public class GamePlayCreator : MonoBehaviour
     
     private void Awake()
     {
+        if (instance == null)
+        {
+            instance = this;
+        }
         heroPrefab = Resources.Load<PoolItem>("PrefabCharacter/" + heroPrefabName);
     }
     [Button("SPAWN HERO", ButtonSizes.Gigantic), GUIColor(0.4f, 0.8f, 1),]
