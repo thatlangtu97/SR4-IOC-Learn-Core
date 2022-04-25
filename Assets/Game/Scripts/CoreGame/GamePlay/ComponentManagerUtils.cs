@@ -1,47 +1,68 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public static class ComponentManagerUtils
 {
-    static List<ComponentManager> componentManagers= new List<ComponentManager>();
-    static List<ProjectileComponent > projectileComponents = new List<ProjectileComponent>();
+    //Cach luu component 
+    static Dictionary<int, ProjectileComponent> projectileComponentByInstanceId = new Dictionary<int, ProjectileComponent>();
     static Dictionary<int, ComponentManager> componentByInstanceId = new Dictionary<int, ComponentManager>();
+    static Dictionary<int, Rigidbody2D> rigidbodyByInstanceId = new Dictionary<int, Rigidbody2D>();
+
     public static void AddComponent(ComponentManager component)
     {
-        if (!componentManagers.Contains(component))
+        int instanceId = component.gameObject.GetInstanceID();
+        if (!componentByInstanceId.Keys.Contains(instanceId))
         {
-            componentManagers.Add(component);
-            componentByInstanceId.Add(component.gameObject.GetInstanceID(),component);
-            
-            ComponentGameController.Instance.AddComponent(component);
-                
+            componentByInstanceId.Add(instanceId,component);
         }
     }
     public static void AddComponent(ProjectileComponent component)
     {
-        if (!projectileComponents.Contains(component))
+        int instanceId = component.gameObject.GetInstanceID();
+        if (!projectileComponentByInstanceId.Keys.Contains(instanceId))
         {
-            projectileComponents.Add(component);
-            ComponentGameController.Instance.AddComponent(component);
+            projectileComponentByInstanceId.Add(instanceId,component);
+        }
+    }
+    public static void AddComponent(Rigidbody2D component)
+    {
+        int instanceId = component.gameObject.GetInstanceID();
+        if (!rigidbodyByInstanceId.Keys.Contains(instanceId))
+        {
+            rigidbodyByInstanceId.Add(instanceId,component);
         }
     }
     public static void ResetAll()
     {
-        foreach(ComponentManager temp in componentManagers)
+        foreach(ComponentManager temp in componentByInstanceId.Values)
         {
             if (temp != null)
             {
                 temp.DestroyEntity();
             }
         }
-        componentManagers.Clear();
-        projectileComponents.Clear();
+
+        foreach (ProjectileComponent temp in projectileComponentByInstanceId.Values)
+        {
+            if (temp != null)
+            {
+                temp.DestroyEntity();
+            }
+        }
+        componentByInstanceId.Clear();
+        projectileComponentByInstanceId.Clear();
+        rigidbodyByInstanceId.Clear();
     }
+
 
     public static ComponentManager GetComponentByInstanceId(int id)
     {
         return componentByInstanceId[id];
     }
-    
+    public static Rigidbody2D getRigidbodyByInstanceId(int id)
+    {
+        return rigidbodyByInstanceId[id];
+    }
 }

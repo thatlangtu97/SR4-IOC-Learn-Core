@@ -36,15 +36,14 @@ public class ProjectileCollider : MonoBehaviour
     }
     public virtual void OnTriggerEnter2D(Collider2D other)
     {
+        ComponentManager componentManager =ComponentManagerUtils.GetComponentByInstanceId(other.gameObject.GetInstanceID());
         void Action()
         {
-            other.GetComponent<Rigidbody2D>().AddForceAtPosition(damageInfoEvent.forcePower * transform.localScale.x, other.transform.position);
+            componentManager.rgbody2D.AddForceAtPosition(damageInfoEvent.forcePower * transform.localScale.x, other.transform.position);
         }
 
-        Vector2 direction = (other.transform.position - transform.position).normalized;
-        
         DamageInfoSend damageInfoSend = new DamageInfoSend(damageInfoEvent, component.entity.power.value, Action);
-        DealDmgManager.DealDamage(other, component.entity, damageInfoSend);
+        DealDmgManager.DealDamage(componentManager.entity, component.entity, damageInfoSend);
         PoolManager.Recycle(this.gameObject);
     }
 }

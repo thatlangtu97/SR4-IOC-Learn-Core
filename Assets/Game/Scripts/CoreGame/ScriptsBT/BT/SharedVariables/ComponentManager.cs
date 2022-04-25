@@ -82,10 +82,7 @@ public class ComponentManager : MonoBehaviour
             if(AutoAdds.Contains(component)) continue;
             AutoAdds.Add(component);
         }
-//        foreach (var component in components)
-//        {
-//            component.CoppyData();
-//        }
+
     }
 //    public void OnEnable()
 //    {
@@ -107,6 +104,7 @@ public class ComponentManager : MonoBehaviour
     private void Awake()
     {
         ComponentManagerUtils.AddComponent(this);
+        ComponentManagerUtils.AddComponent(rgbody2D);
         CloneImune();
     }
     public void CloneImune()

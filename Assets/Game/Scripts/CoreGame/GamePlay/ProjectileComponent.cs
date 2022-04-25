@@ -67,5 +67,14 @@ public class ProjectileComponent : MonoBehaviour
     {
         OnDisable();
     }
-    
+    public void DestroyEntity()
+    {
+        if (entity != null)
+        {
+            gameObject.Unlink();
+            PoolManager.RecycleEntity(entity);
+            entity = null;
+            link = null;
+        }
+    }
 }
