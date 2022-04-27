@@ -36,6 +36,7 @@ namespace EntrySystem
             commandBinder.Bind<AddGoldSignal>().To<AddGoldCmd>();
             commandBinder.Bind<AddGemSignal>().To<AddGemCmd>();
             commandBinder.Bind<AddStaminaSignal>().To<AddStaminaCmd>();
+            commandBinder.Bind<AddEquipmentSignal>().To<AddEquipmentCmd>();
             
             //NOTIFICATION
             commandBinder.Bind<NotificationPanelHeroSignal>().To<NotificationPanelHeroCmd>();

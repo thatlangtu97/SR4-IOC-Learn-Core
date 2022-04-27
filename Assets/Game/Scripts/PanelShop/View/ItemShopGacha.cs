@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using strange.extensions.mediation.impl;
 using UnityEngine;
@@ -9,6 +10,12 @@ public class ItemShopGacha : View
     [Inject] public ShowPopupGachaSignal showPopupGachaSignal { get; set; }
     [Inject] public GlobalData global { get; set; }
     [Inject] public ShowPopupGachaInfoSignal ShowPopupGachaInfoSignal { get; set; }
+
+
+    [Inject] public AddRewardFromItemSignal AddRewardFromItemSignal { get; set; }
+    [Inject] public CheckAndConsumeCurrencySignal CheckAndConsumeCurrencySignal { get; set; }
+    
+    
     public int idGacha;
     public Text costOpen1Text, costOpen10Text;
     public Gacha gacha;
@@ -32,33 +39,88 @@ public class ItemShopGacha : View
     }
     public void Open()
     {
-        if (DataManager.Instance.CurrencyDataManager.gem < gacha.costOpen1) return;
-       
-        global.CurrenctGacha = ScriptableObjectData.GachaConfigCollection.GetGachaById(idGacha);
-        DataManager.Instance.CurrencyDataManager.DownGem(gacha.costOpen1, false);
-        global.UpdateDataAllCurrencyView();
+        Action Success = delegate { 
+            global.CurrenctGacha = ScriptableObjectData.GachaConfigCollection.GetGachaById(idGacha);
+            global.UpdateDataAllCurrencyView();
 
-        DataGachaOpened dataGachaOpened = new DataGachaOpened();
-        DataGachaRandom data= GachaLogic.GetGachaRandom(idGacha);        
-        dataGachaOpened.datas.Add(data);
+            DataGachaOpened dataGachaOpened = new DataGachaOpened();
+            DataGachaRandom data= GachaLogic.GetGachaRandom(idGacha);        
+            dataGachaOpened.datas.Add(data);
 
-        showPopupGachaSignal.Dispatch(dataGachaOpened);
+            List<EquipmentData> newItems = new List<EquipmentData>();
+            foreach (DataGachaRandom tempData in dataGachaOpened.datas)
+            {
+                EquipmentConfig config = EquipmentLogic.GetEquipmentConfigById(tempData.idConfig);
+                EquipmentData newItem = EquipmentLogic.CloneEquipmentData(tempData.idConfig, tempData.Rarity, tempData.GearSlot, tempData.idOfHero, 1);
+                newItem.mainStatData = EquipmentLogic.RandomStatEquipment(config.mainStatConfig, tempData.Rarity);
+                newItems.Add(newItem); 
+            }
+
+            AbsRewardLogic rewardLogic = RewardUtils.ParseToRewardLogic(newItems);
+            AddRewardParameter parameter = new AddRewardParameter(rewardLogic,delegate {  }, false);
+            
+            AddRewardFromItemSignal.Dispatch(parameter);
+            showPopupGachaSignal.Dispatch(dataGachaOpened);
+        };
+        CheckAndConsumeCurrencyParameter param = new CheckAndConsumeCurrencyParameter(CurrencyType.gem, gacha.costOpen1, Success);
+        CheckAndConsumeCurrencySignal.Dispatch(param);
+        
+
     }
     public void Open10()
     {        
-        if (DataManager.Instance.CurrencyDataManager.gem < gacha.costOpen10) return;
-        
-        global.CurrenctGacha = ScriptableObjectData.GachaConfigCollection.GetGachaById(idGacha);
-        DataManager.Instance.CurrencyDataManager.DownGem(gacha.costOpen10, false);
-        global.UpdateDataAllCurrencyView();
+//        if (DataManager.Instance.CurrencyDataManager.gem < gacha.costOpen10) return;
+//        
+//        global.CurrenctGacha = ScriptableObjectData.GachaConfigCollection.GetGachaById(idGacha);
+//        DataManager.Instance.CurrencyDataManager.DownGem(gacha.costOpen10, false);
+//        global.UpdateDataAllCurrencyView();
+//
+//        DataGachaOpened dataGachaOpened = new DataGachaOpened();
+//        for (int i=0;i< 10; i++)
+//        {           
+//            DataGachaRandom data = GachaLogic.GetGachaRandom(idGacha);
+//            dataGachaOpened.datas.Add(data);
+//        }
+//        showPopupGachaSignal.Dispatch(dataGachaOpened);
+//        
+//        List<EquipmentData> newItems = new List<EquipmentData>();
+//        foreach (DataGachaRandom tempData in dataGachaOpened.datas)
+//        {
+//            EquipmentConfig config = EquipmentLogic.GetEquipmentConfigById(tempData.idConfig);
+//            EquipmentData newItem = EquipmentLogic.CloneEquipmentData(tempData.idConfig, tempData.Rarity, tempData.GearSlot, tempData.idOfHero, 1);
+//            newItem.mainStatData = EquipmentLogic.RandomStatEquipment(config.mainStatConfig, tempData.Rarity);
+//            newItems.Add(newItem); 
+//        }
 
-        DataGachaOpened dataGachaOpened = new DataGachaOpened();
-        for (int i=0;i< 10; i++)
-        {           
-            DataGachaRandom data = GachaLogic.GetGachaRandom(idGacha);
-            dataGachaOpened.datas.Add(data);
-        }
-        showPopupGachaSignal.Dispatch(dataGachaOpened);
+
+        Action Success = delegate { 
+            global.CurrenctGacha = ScriptableObjectData.GachaConfigCollection.GetGachaById(idGacha);
+            global.UpdateDataAllCurrencyView();
+
+            DataGachaOpened dataGachaOpened = new DataGachaOpened();
+            for (int i=0;i< 10; i++)
+            {           
+                DataGachaRandom data = GachaLogic.GetGachaRandom(idGacha);
+                dataGachaOpened.datas.Add(data);
+            }
+            
+            List<EquipmentData> newItems = new List<EquipmentData>();
+            foreach (DataGachaRandom tempData in dataGachaOpened.datas)
+            {
+                EquipmentConfig config = EquipmentLogic.GetEquipmentConfigById(tempData.idConfig);
+                EquipmentData newItem = EquipmentLogic.CloneEquipmentData(tempData.idConfig, tempData.Rarity, tempData.GearSlot, tempData.idOfHero, 1);
+                newItem.mainStatData = EquipmentLogic.RandomStatEquipment(config.mainStatConfig, tempData.Rarity);
+                newItems.Add(newItem); 
+            }
+            
+            AbsRewardLogic rewardLogic = RewardUtils.ParseToRewardLogic(newItems);
+            AddRewardParameter parameter = new AddRewardParameter(rewardLogic,delegate {  }, false);
+            
+            AddRewardFromItemSignal.Dispatch(parameter);
+            showPopupGachaSignal.Dispatch(dataGachaOpened);
+        };
+        CheckAndConsumeCurrencyParameter param = new CheckAndConsumeCurrencyParameter(CurrencyType.gem, gacha.costOpen10, Success);
+        CheckAndConsumeCurrencySignal.Dispatch(param);
     }
 
 }

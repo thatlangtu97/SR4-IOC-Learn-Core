@@ -15,7 +15,15 @@ public class RewardUtils
             case CurrencyType.stamina:
                 return new StaminaRewardLogic(value);
         }
-
         return null;
+    }
+
+    public static AbsRewardLogic ParseToRewardLogic(EquipmentData data)
+    {
+        return new EquipmentRewardLogic(data);
+    }
+    public static AbsRewardLogic ParseToRewardLogic(List< EquipmentData> data)
+    {
+        return new EquipmentRewardLogic(data);
     }
 }

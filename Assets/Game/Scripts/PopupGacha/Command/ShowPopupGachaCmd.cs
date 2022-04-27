@@ -13,15 +13,15 @@ public class ShowPopupGachaCmd : AbsShowPopupCmd
         popupGachaView.dataGachaOpened = dataGachaOpened;
         popupGachaView.ShowPopupByCmd();
 
-        List<EquipmentData> newItems = new List<EquipmentData>();
-        foreach (DataGachaRandom tempData in dataGachaOpened.datas)
-        {
-            EquipmentConfig config = EquipmentLogic.GetEquipmentConfigById(tempData.idConfig);
-            EquipmentData newItem = EquipmentLogic.CloneEquipmentData(tempData.idConfig, tempData.Rarity, tempData.GearSlot, tempData.idOfHero, 1);
-            newItem.mainStatData = EquipmentLogic.RandomStatEquipment(config.mainStatConfig, tempData.Rarity);
-            newItems.Add(newItem); 
-        }
-        DataManager.Instance.InventoryDataManager.AddItems(newItems);
+//        List<EquipmentData> newItems = new List<EquipmentData>();
+//        foreach (DataGachaRandom tempData in dataGachaOpened.datas)
+//        {
+//            EquipmentConfig config = EquipmentLogic.GetEquipmentConfigById(tempData.idConfig);
+//            EquipmentData newItem = EquipmentLogic.CloneEquipmentData(tempData.idConfig, tempData.Rarity, tempData.GearSlot, tempData.idOfHero, 1);
+//            newItem.mainStatData = EquipmentLogic.RandomStatEquipment(config.mainStatConfig, tempData.Rarity);
+//            newItems.Add(newItem); 
+//        }
+//        DataManager.Instance.InventoryDataManager.AddItems(newItems);
 
 
 
