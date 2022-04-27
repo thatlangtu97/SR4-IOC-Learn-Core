@@ -28,6 +28,15 @@ namespace EntrySystem
             commandBinder.Bind<ShowPopupGachaInfoSignal>().To<ShowPopupGachaInfoCmd>();
             commandBinder.Bind<ShowRevivePopupSignal>().To<ShowRevivePopupCmd>();
             commandBinder.Bind<ShowRewardGamePlayPopupSignal>().To<ShowRewardGamePlayPopupCmd>();
+            commandBinder.Bind<AddRewardFromItemSignal>().To<AddRewardFromItemCmd>();
+            commandBinder.Bind<ShowPopupRewardSignal>().To<ShowPopupRewardCmd>();
+            commandBinder.Bind<CheckAndConsumeCurrencySignal>().To<CheckAndConsumeCurrencyCmd>();
+            
+            //RESOURCE
+            commandBinder.Bind<AddGoldSignal>().To<AddGoldCmd>();
+            commandBinder.Bind<AddGemSignal>().To<AddGemCmd>();
+            commandBinder.Bind<AddStaminaSignal>().To<AddStaminaCmd>();
+            
             //NOTIFICATION
             commandBinder.Bind<NotificationPanelHeroSignal>().To<NotificationPanelHeroCmd>();
             commandBinder.Bind<NotificationPanelCraftSignal>().To<NotificationPanelCraftCmd>();

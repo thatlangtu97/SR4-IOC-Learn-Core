@@ -5,7 +5,21 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-    public static SoundManager instance;
+    private static SoundManager _instance;
+    public static SoundManager instance 
+    {
+        get
+        {
+            if (_instance == null)
+            {
+
+                GameObject soundManager = Instantiate( Resources.Load<GameObject>("SoundManager"));
+                _instance = soundManager.GetComponent<SoundManager>();
+                DontDestroyOnLoad(soundManager);
+            }
+            return _instance;
+        }
+    }
 
     public int sizeAudio = 10;
     
@@ -14,11 +28,10 @@ public class SoundManager : MonoBehaviour
     private bool isMute;
     private void Awake()
     {
-        if (instance == null)
+        if (_instance == null)
         {
-            instance = this;
+            _instance = this;
         }
-
         initAudio();
     }
 
