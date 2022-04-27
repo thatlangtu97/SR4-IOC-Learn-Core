@@ -4,13 +4,32 @@ using System.Collections.Generic;
 using strange.extensions.command.impl;
 using UnityEngine;
 
-public class ShowPopupRewardCmd : Command
+public class ShowPopupRewardCmd : AbsShowPopupCmd
 {
     [Inject] public List<AbsRewardLogic> listRewardLogics { get; set; }
     [Inject] public Action action { get; set; }
 
     public override void Execute()
     {
-        
+        popupKey = PopupKey.RewardPopup;
+        PopupRewardView popupReward = GetInstance<PopupRewardView>();
+        popupReward.SetParameter(new ShowPopupRewardParameter(listRewardLogics));
+        popupReward.ShowPopupByCmd();
+    }
+
+    public override string GetResourcePath()
+    {
+        return GameResourcePath.POPUP_REWARD;
+    }
+}
+
+public class ShowPopupRewardParameter : ParameterPopup
+{
+    public List<AbsRewardLogic> listRewardLogics;
+    public ShowPopupRewardParameter(){}
+
+    public ShowPopupRewardParameter(List<AbsRewardLogic> listRewardLogics)
+    {
+        this.listRewardLogics = listRewardLogics;
     }
 }

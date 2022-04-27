@@ -25,7 +25,7 @@ public class ItemShopAds : View
     {
         
         rewardLogic = RewardUtils.ParseToRewardLogic(currencyType, value);
-        AddRewardParameter parameter = new AddRewardParameter(rewardLogic,delegate {  }, false);
+        AddRewardParameter parameter = new AddRewardParameter(rewardLogic,delegate {  }, true);
         AddRewardFromItemSignal.Dispatch(parameter); 
         
 //        switch (currencyType)

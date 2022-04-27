@@ -34,23 +34,12 @@ public class ItemShopView : View
         
         Action Success = delegate { 
             rewardLogic = RewardUtils.ParseToRewardLogic(currencyTypeReward, value);
-            AddRewardParameter parameter = new AddRewardParameter(rewardLogic,delegate {  }, false);
+            AddRewardParameter parameter = new AddRewardParameter(rewardLogic,delegate {  }, true);
             AddRewardFromItemSignal.Dispatch(parameter); 
             
         };
         
-//        switch (currencyTypeReward)
-//        {
-//            case CurrencyType.gold:
-//                DataManager.Instance.CurrencyDataManager.UpGold(value, false);
-//                break;
-//            case CurrencyType.gem:
-//                DataManager.Instance.CurrencyDataManager.UpGem(value, false);
-//                break;
-//            case CurrencyType.stamina:
-//                DataManager.Instance.CurrencyDataManager.UpStamina(value, false);
-//                break;
-//        }
+
         CheckAndConsumeCurrencyParameter param = new CheckAndConsumeCurrencyParameter(currencyTypeCost, cost, Success);
         CheckAndConsumeCurrencySignal.Dispatch(param);
         

@@ -5,5 +5,11 @@ using UnityEngine;
 
 public abstract class AbsRewardLogic 
 {
+    
     public abstract AbsRewardLogic AddReward(IInjectionBinder injectionBinder);
+    public abstract Sprite Icon();
+    
+    public abstract Color ColorBorder();
+    
+    public abstract string ValueText();
 }

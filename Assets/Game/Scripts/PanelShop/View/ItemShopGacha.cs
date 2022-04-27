@@ -48,16 +48,17 @@ public class ItemShopGacha : View
             dataGachaOpened.datas.Add(data);
 
             List<EquipmentData> newItems = new List<EquipmentData>();
+            List<AbsRewardLogic> rewardLogics = new List<AbsRewardLogic>();
             foreach (DataGachaRandom tempData in dataGachaOpened.datas)
             {
                 EquipmentConfig config = EquipmentLogic.GetEquipmentConfigById(tempData.idConfig);
                 EquipmentData newItem = EquipmentLogic.CloneEquipmentData(tempData.idConfig, tempData.Rarity, tempData.GearSlot, tempData.idOfHero, 1);
                 newItem.mainStatData = EquipmentLogic.RandomStatEquipment(config.mainStatConfig, tempData.Rarity);
-                newItems.Add(newItem); 
+                newItems.Add(newItem);
+                rewardLogics.Add(RewardUtils.ParseToRewardLogic(newItem));
             }
-
-            AbsRewardLogic rewardLogic = RewardUtils.ParseToRewardLogic(newItems);
-            AddRewardParameter parameter = new AddRewardParameter(rewardLogic,delegate {  }, false);
+            
+            AddRewardParameter parameter = new AddRewardParameter(rewardLogics,delegate {  }, false);
             
             AddRewardFromItemSignal.Dispatch(parameter);
             showPopupGachaSignal.Dispatch(dataGachaOpened);
@@ -68,31 +69,7 @@ public class ItemShopGacha : View
 
     }
     public void Open10()
-    {        
-//        if (DataManager.Instance.CurrencyDataManager.gem < gacha.costOpen10) return;
-//        
-//        global.CurrenctGacha = ScriptableObjectData.GachaConfigCollection.GetGachaById(idGacha);
-//        DataManager.Instance.CurrencyDataManager.DownGem(gacha.costOpen10, false);
-//        global.UpdateDataAllCurrencyView();
-//
-//        DataGachaOpened dataGachaOpened = new DataGachaOpened();
-//        for (int i=0;i< 10; i++)
-//        {           
-//            DataGachaRandom data = GachaLogic.GetGachaRandom(idGacha);
-//            dataGachaOpened.datas.Add(data);
-//        }
-//        showPopupGachaSignal.Dispatch(dataGachaOpened);
-//        
-//        List<EquipmentData> newItems = new List<EquipmentData>();
-//        foreach (DataGachaRandom tempData in dataGachaOpened.datas)
-//        {
-//            EquipmentConfig config = EquipmentLogic.GetEquipmentConfigById(tempData.idConfig);
-//            EquipmentData newItem = EquipmentLogic.CloneEquipmentData(tempData.idConfig, tempData.Rarity, tempData.GearSlot, tempData.idOfHero, 1);
-//            newItem.mainStatData = EquipmentLogic.RandomStatEquipment(config.mainStatConfig, tempData.Rarity);
-//            newItems.Add(newItem); 
-//        }
-
-
+    {
         Action Success = delegate { 
             global.CurrenctGacha = ScriptableObjectData.GachaConfigCollection.GetGachaById(idGacha);
             global.UpdateDataAllCurrencyView();
@@ -105,16 +82,17 @@ public class ItemShopGacha : View
             }
             
             List<EquipmentData> newItems = new List<EquipmentData>();
+            List<AbsRewardLogic> rewardLogics = new List<AbsRewardLogic>();
             foreach (DataGachaRandom tempData in dataGachaOpened.datas)
             {
                 EquipmentConfig config = EquipmentLogic.GetEquipmentConfigById(tempData.idConfig);
                 EquipmentData newItem = EquipmentLogic.CloneEquipmentData(tempData.idConfig, tempData.Rarity, tempData.GearSlot, tempData.idOfHero, 1);
                 newItem.mainStatData = EquipmentLogic.RandomStatEquipment(config.mainStatConfig, tempData.Rarity);
                 newItems.Add(newItem); 
+                rewardLogics.Add(RewardUtils.ParseToRewardLogic(newItem));
             }
-            
-            AbsRewardLogic rewardLogic = RewardUtils.ParseToRewardLogic(newItems);
-            AddRewardParameter parameter = new AddRewardParameter(rewardLogic,delegate {  }, false);
+
+            AddRewardParameter parameter = new AddRewardParameter(rewardLogics,delegate {  }, false);
             
             AddRewardFromItemSignal.Dispatch(parameter);
             showPopupGachaSignal.Dispatch(dataGachaOpened);
@@ -122,7 +100,8 @@ public class ItemShopGacha : View
         CheckAndConsumeCurrencyParameter param = new CheckAndConsumeCurrencyParameter(CurrencyType.gem, gacha.costOpen10, Success);
         CheckAndConsumeCurrencySignal.Dispatch(param);
     }
-
+    
+    
 }
 public class DataGachaOpened
 {

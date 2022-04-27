@@ -40,8 +40,12 @@ public class GameController : View
     {
         GameObject UI1 = Resources.Load<GameObject>(GameResourcePath.UI1);
         GameObject UI2 = Resources.Load<GameObject>(GameResourcePath.UI2);
+        GameObject UI3 = Resources.Load<GameObject>(GameResourcePath.UI3);
+        GameObject UI4 = Resources.Load<GameObject>(GameResourcePath.UI4);
         Instantiate(UI1);
         Instantiate(UI2);
+        Instantiate(UI3);
+        Instantiate(UI4);
     }
     public void CreateSystem()
     {

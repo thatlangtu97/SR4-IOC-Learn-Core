@@ -247,6 +247,9 @@ public enum PopupKey
     GachaInfoPopup =11,
     RevivePopup = 12,
     RewardGameplayPopup = 13,
+    RewardPopup=14,
+    
+    
 }
 
 public enum SceneKey
@@ -259,4 +262,6 @@ public enum UILayer
     UI1,
     UI2,
     NODE,
+    UI3,
+    UI4,
 }

@@ -19,4 +19,19 @@ public class GoldRewardLogic : AbsRewardLogic
         injectionBinder.GetInstance<AddGoldSignal>().Dispatch(value);
         return this;
     }
+
+    public override Sprite Icon()
+    {
+        return ScriptableObjectData.ResourceIconCollection.GetResourceIcon(CurrencyType.gold);
+    }
+    
+    public override Color ColorBorder()
+    {
+        return EquipmentLogic.GetColorByRarity(Rarity.common);
+    }
+
+    public override string ValueText()
+    {
+        return value.ToString();
+    }
 }

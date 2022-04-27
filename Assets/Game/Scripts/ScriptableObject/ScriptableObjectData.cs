@@ -10,7 +10,7 @@ public class ScriptableObjectData
     private static readonly string EQUIPMENT_PATH_CONFIG = FOLDER + "EquipmentConfigCollection";
     private static readonly string GACHA_PATH_CONFIG = FOLDER + "GachaConfigCollection";
     private static readonly string HEOR_PATH_CONFIG = FOLDER + "HeroConfigCollection";
-   
+    private static readonly string RESOURCE_ICON_PATH_CONFIG = FOLDER + "ResourceIconCollection";
 
     private static EquipmentConfigCollection _equipmentConfigCollection;
     public static EquipmentConfigCollection EquipmentConfigCollection
@@ -47,6 +47,18 @@ public class ScriptableObjectData
                 heroConfigCollection = Load<HeroConfigCollection>(HEOR_PATH_CONFIG);
             }
             return heroConfigCollection;
+        }
+    }
+    private static ResourceIconCollection resourceIconCollection;
+    public static ResourceIconCollection ResourceIconCollection
+    {
+        get
+        {
+            if (resourceIconCollection == null)
+            {
+                resourceIconCollection = Load<ResourceIconCollection>(RESOURCE_ICON_PATH_CONFIG);
+            }
+            return resourceIconCollection;
         }
     }
     public static T Load<T>(string path) where T : ScriptableObject

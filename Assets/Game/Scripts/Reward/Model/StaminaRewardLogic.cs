@@ -20,4 +20,19 @@ public class StaminaRewardLogic : AbsRewardLogic
         injectionBinder.GetInstance<AddStaminaSignal>().Dispatch(value);
         return this;
     }
+
+    public override Sprite Icon()
+    {
+        return ScriptableObjectData.ResourceIconCollection.GetResourceIcon(CurrencyType.stamina);
+    }
+    
+    public override Color ColorBorder()
+    {
+        return EquipmentLogic.GetColorByRarity(Rarity.common);
+    }
+
+    public override string ValueText()
+    {
+        return value.ToString();
+    }
 }

@@ -19,4 +19,19 @@ public class GemRewardLogic : AbsRewardLogic
         injectionBinder.GetInstance<AddGemSignal>().Dispatch(value);
         return this;
     }
+
+    public override Sprite Icon()
+    {
+        return ScriptableObjectData.ResourceIconCollection.GetResourceIcon(CurrencyType.gem);
+    }
+    
+    public override Color ColorBorder()
+    {
+        return EquipmentLogic.GetColorByRarity(Rarity.common);
+    }
+
+    public override string ValueText()
+    {
+        return value.ToString();
+    }
 }

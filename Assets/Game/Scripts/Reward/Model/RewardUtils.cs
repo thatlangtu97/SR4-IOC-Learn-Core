@@ -22,8 +22,4 @@ public class RewardUtils
     {
         return new EquipmentRewardLogic(data);
     }
-    public static AbsRewardLogic ParseToRewardLogic(List< EquipmentData> data)
-    {
-        return new EquipmentRewardLogic(data);
-    }
 }

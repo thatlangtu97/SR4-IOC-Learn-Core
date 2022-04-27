@@ -17,6 +17,10 @@ public class AddEquipmentCmd : Command
 public class DataEquipmentRewardParameter
 {
     public List<EquipmentData> afterAddToInventory = new List<EquipmentData> ();
+    public DataEquipmentRewardParameter(EquipmentData afterAddToInventory)
+    {
+        this.afterAddToInventory.Add(afterAddToInventory);
+    }
     public DataEquipmentRewardParameter(List<EquipmentData> afterAddToInventory)
     {
         this.afterAddToInventory = afterAddToInventory;

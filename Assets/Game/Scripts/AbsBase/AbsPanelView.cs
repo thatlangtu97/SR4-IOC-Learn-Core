@@ -11,6 +11,12 @@ public abstract class AbsPanelView : View
 	public PanelKey panelKey;
 	AutoFIllPanelInParent autoFIllPanelInParent;
 	public UiViewController UiViewController;
+	public ParameterPopup parameterPopup;
+
+	public void SetParameter(ParameterPopup parameterPopup)
+	{
+		this.parameterPopup = parameterPopup;
+	}
 
 	protected override void Start()
 	{

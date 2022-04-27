@@ -11,6 +11,13 @@ public class AbsPopupView : View
 	public PopupKey popupKey;
 	AutoFIllPanelInParent autoFIllPanelInParent;
 	public UiViewController UiViewController;
+	
+	public ParameterPopup parameterPopup;
+
+	public void SetParameter(ParameterPopup parameterPopup)
+	{
+		this.parameterPopup = parameterPopup;
+	}
 	protected override void Start()
 	{
 		base.Start();

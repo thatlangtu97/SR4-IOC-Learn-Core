@@ -6,11 +6,13 @@ using UnityEngine.UI;
 
 public class ItemShopIAP : View
 {
-    [Inject] public GlobalData globalData { get; set; }
+    //[Inject] public GlobalData globalData { get; set; }
+    [Inject] public AddRewardFromItemSignal AddRewardFromItemSignal { get; set; }
     public CurrencyType currencyType;
     public int value;
     public Text valueText;
     public string bundleIAP;
+    public AbsRewardLogic rewardLogic;
     protected override void Awake()
     {
         base.Awake();
@@ -24,18 +26,9 @@ public class ItemShopIAP : View
     }
     public void RewardValue()
     {
-        switch (currencyType)
-        {
-            case CurrencyType.gold:
-                DataManager.Instance.CurrencyDataManager.UpGold(value, false);
-                break;
-            case CurrencyType.gem:
-                DataManager.Instance.CurrencyDataManager.UpGem(value, false);
-                break;
-            case CurrencyType.stamina:
-                DataManager.Instance.CurrencyDataManager.UpStamina(value, false);
-                break;
-        }
-        globalData.UpdateDataAllCurrencyView();
+        rewardLogic = RewardUtils.ParseToRewardLogic(currencyType, value);
+        AddRewardParameter parameter = new AddRewardParameter(rewardLogic,delegate {  }, true);
+        AddRewardFromItemSignal.Dispatch(parameter); 
+        
     }
 }
