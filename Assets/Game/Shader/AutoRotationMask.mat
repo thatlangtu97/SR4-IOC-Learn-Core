@@ -28,11 +28,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NewTex_2:
-        m_Texture: {fileID: 2800000, guid: 5a0f1b28fb343e14f8ca0d774d790d33, type: 3}
+        m_Texture: {fileID: 2800000, guid: e03f470f69e60734fabde29eda13771b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NewTex_3:
-        m_Texture: {fileID: 2800000, guid: 5a0f1b28fb343e14f8ca0d774d790d33, type: 3}
+        m_Texture: {fileID: 2800000, guid: e03f470f69e60734fabde29eda13771b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -42,15 +42,15 @@ Material:
     - RotationUV_Rotation_PosX_2: 0.5
     - RotationUV_Rotation_PosY_1: 0.5
     - RotationUV_Rotation_PosY_2: 0.5
-    - RotationUV_Rotation_Speed_1: 3.927
-    - RotationUV_Rotation_Speed_2: -3.433
+    - RotationUV_Rotation_Speed_1: 1
+    - RotationUV_Rotation_Speed_2: -1
     - ZoomUV_PosX_1: 0.5
     - ZoomUV_PosX_2: 0.5
     - ZoomUV_PosY_1: 0.5
     - ZoomUV_PosY_2: 0.5
-    - ZoomUV_Zoom_1: 1.32
-    - ZoomUV_Zoom_2: 1.04
-    - _Add_Fade_1: 1
+    - ZoomUV_Zoom_1: 1.6
+    - ZoomUV_Zoom_2: 1.1
+    - _Add_Fade_1: 0.5
     - _ColorMask: 15
     - _MaskRGBA_Fade_1: 0
     - _OperationBlendMask_Fade_1: 0.464
