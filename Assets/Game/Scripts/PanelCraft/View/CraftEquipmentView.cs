@@ -69,6 +69,7 @@ public class CraftEquipmentView : View
             listEquipmentOfHeroView[index].backItem.SetActive(false);
             listEquipmentOfHeroView[index].view.gameObject.SetActive(true);
             listEquipmentOfHeroView[index].view.Show(data, config);
+            listEquipmentOfHeroView[index].view.transform.localPosition=Vector3.zero;
             index += 1;
         }
     }

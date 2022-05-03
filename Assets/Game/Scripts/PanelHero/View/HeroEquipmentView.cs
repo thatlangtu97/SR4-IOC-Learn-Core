@@ -48,6 +48,7 @@ public class HeroEquipmentView : View
             DicEquipmentOfHeroView[data.gearSlot].backItem.SetActive(false);
             DicEquipmentOfHeroView[data.gearSlot].view.gameObject.SetActive(true);
             DicEquipmentOfHeroView[data.gearSlot].view.Show(data, config);
+            DicEquipmentOfHeroView[data.gearSlot].view.transform.localPosition=Vector3.zero;
         }
         heroPreViewData.Show(global.CurrentIdHero);
     }
