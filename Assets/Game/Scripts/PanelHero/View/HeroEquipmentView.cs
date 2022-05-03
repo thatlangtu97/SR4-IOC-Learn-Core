@@ -16,6 +16,7 @@ public class HeroEquipmentView : View
     private List<EquipmentData> currentEquipment = new List<EquipmentData>();
     [SerializeField]
     private HeroPreViewData heroPreViewData;
+    public PopupKey popupKeyDetail;
     protected override void Awake()
     {
         base.Awake();
@@ -92,7 +93,7 @@ public class HeroEquipmentView : View
         ParameterEquipmentDetail temp = new ParameterEquipmentDetail();
         temp.equipmentData = tempEquipment.data;
         temp.equipmentConfig = tempEquipment.config;
-        temp.popupkey = PopupKey.EquipmentHeroDetailLeft;
+        temp.popupkey = popupKeyDetail;
         showEquipmentDetailSignal.Dispatch(temp);
     }
     

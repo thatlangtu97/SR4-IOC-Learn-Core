@@ -7,14 +7,16 @@ public class CraftEquipmentView : View
 {
     [Inject] public GlobalData global { get; set; }
     [Inject] public CraftEquipmentSignal CraftEquipmentSignal { get; set; }
+    [Inject] public ShowEquipmentDetailSignal showEquipmentDetailSignal { get; set; }
     [SerializeField]
     List<EquipmentToCraftView> listEquipmentOfHeroView = new List<EquipmentToCraftView>();
     List<EquipmentData> currentEquipment = new List<EquipmentData>();
-
+    public PopupKey popupKeyDetail;
     protected override void Awake()
     {
         base.Awake();
         base.CopyStart();
+        InitItem();
     }
     protected override void Start()
     {
@@ -27,6 +29,29 @@ public class CraftEquipmentView : View
         base.OnEnable();
         Show();
 
+    }
+    private void InitItem()
+    {
+        foreach(EquipmentToCraftView temp in listEquipmentOfHeroView)
+        {
+            if (temp.container.childCount == 0)
+            {
+                GameObject prefab = PrefabUtils.LoadPrefab(GameResourcePath.ITEM_EQUIPMENT_VIEW);
+                EquipmentItemView itemview = Instantiate(prefab, temp.container).GetComponent<EquipmentItemView>();
+                itemview.transform.localPosition=Vector3.zero;
+                itemview.SetupAction( ()=>ShowDetail(itemview) );
+                temp.view = itemview;
+            }
+        }
+
+    }
+    public void ShowDetail(EquipmentItemView tempEquipment)
+    {
+        ParameterEquipmentDetail temp = new ParameterEquipmentDetail();
+        temp.equipmentData = tempEquipment.data;
+        temp.equipmentConfig = tempEquipment.config;
+        temp.popupkey = popupKeyDetail;
+        showEquipmentDetailSignal.Dispatch(temp);
     }
     public void Show()
     {
@@ -56,10 +81,11 @@ public class CraftEquipmentView : View
 
     }
     [System.Serializable]
-    public struct EquipmentToCraftView
+    public class EquipmentToCraftView
     {
         public EquipmentItemView view;
         public GameObject backItem;
+        public Transform container;
     }
 }
 

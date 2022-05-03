@@ -18,6 +18,7 @@ public class InventoryView : View
     public ScrollRect scrollRectContainer;
     public int currentPage = 1;
     public int maxSlotInPage = 15;
+    public PopupKey popupKeyDetail;
     protected override void Awake()
     {
         base.Awake();
@@ -44,7 +45,7 @@ public class InventoryView : View
         ParameterEquipmentDetail temp = new ParameterEquipmentDetail();
         temp.equipmentData = tempEquipment.data;
         temp.equipmentConfig = tempEquipment.config;
-        temp.popupkey = PopupKey.EquipmentHeroDetailRight;
+        temp.popupkey = popupKeyDetail;
         showEquipmentDetailSignal.Dispatch(temp);
     }
     protected override void OnEnable()
