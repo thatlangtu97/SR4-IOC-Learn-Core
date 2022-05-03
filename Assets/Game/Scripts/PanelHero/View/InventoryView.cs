@@ -15,6 +15,7 @@ public class InventoryView : View
     public List<EquipmentData> ListEquipment = new List<EquipmentData>();
 
     public Transform gridContainer;
+    public ScrollRect scrollRectContainer;
     public int currentPage = 1;
     public int maxSlotInPage = 15;
     protected override void Awake()
@@ -56,6 +57,10 @@ public class InventoryView : View
     {
         //Todo show ListEquipment;
         currentPage = 1;
+        if (global.CurrentTab != gearSlot)
+        {
+            ResetScroll();
+        }
         global.CurrentTab = gearSlot;
         ReloadPage();
         ShowButton();
@@ -77,6 +82,20 @@ public class InventoryView : View
         ListEquipment = EquipmentLogic.GetAllEquipmentBySlotOfHeroNotEquiped(global.CurrentTab,global.CurrentIdHero);        
         int countEquipment = ListEquipment.Count;
         int indexStart = equipmentItemViews.Count * (currentPage - 1);
+        
+
+        if (equipmentItemViews.Count < ListEquipment.Count)
+        {
+            int count = ListEquipment.Count - equipmentItemViews.Count;
+            GameObject prefab = PrefabUtils.LoadPrefab(GameResourcePath.ITEM_EQUIPMENT_VIEW);
+            for (int i = 0; i < count; i++)
+            {
+                EquipmentItemView temp = Instantiate(prefab, gridContainer).GetComponent<EquipmentItemView>();
+                equipmentItemViews.Add(temp);
+                temp.SetupAction( ()=>ShowDetail(temp) );
+                maxSlotInPage += count;
+            }
+        }
         for (int i = 0; i < equipmentItemViews.Count; i++)
         {
             if (indexStart < countEquipment)
@@ -93,7 +112,7 @@ public class InventoryView : View
             indexStart += 1;
         }
     }
-
+    
     public void ShowButton()
     {
         foreach (TabType temp in tabTypes)
@@ -108,6 +127,11 @@ public class InventoryView : View
                 temp.text.color = new Vector4(newColor.r, newColor.g, newColor.b, .5f);
             }
         }
+    }
+
+    void ResetScroll()
+    {
+        scrollRectContainer.verticalNormalizedPosition = 1f;
     }
     [System.Serializable]
     public struct TabType 
