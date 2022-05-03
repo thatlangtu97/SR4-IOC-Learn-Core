@@ -12,6 +12,7 @@ public class EquipmentItemView : View
 
     public Image icon;
     public Image boderRarity;
+    public Image backgroundRarity;
     public Text level;
     EquipmentData data;
     EquipmentConfig config;

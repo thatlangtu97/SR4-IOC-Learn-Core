@@ -27,6 +27,11 @@ public class EquipmentRewardLogic : AbsRewardLogic
         return EquipmentLogic.GetColorByRarity( equipmentData.rarity);
     }
 
+    public override Sprite BackGround()
+    {
+        return EquipmentLogic.GetBackGroundByRarity(equipmentData.rarity);
+    }
+
     public override string ValueText()
     {
         return "1";

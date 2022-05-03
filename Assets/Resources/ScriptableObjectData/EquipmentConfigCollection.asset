@@ -47,3 +47,14 @@ MonoBehaviour:
     color: {r: 0.5921569, g: 0.28235295, b: 0.64705884, a: 1}
   - rarity: 4
     color: {r: 0.75686276, g: 0.4509804, b: 0, a: 1}
+  backgroundRarity:
+  - rarity: 0
+    background: {fileID: 21300000, guid: 809699e8c78bff04f88b6ccb820a6d40, type: 3}
+  - rarity: 1
+    background: {fileID: 21300000, guid: 1d137e0a84b52b447ab525251a171552, type: 3}
+  - rarity: 2
+    background: {fileID: 21300000, guid: 5016a8bb01c9ae148ba95c402ad4d4f3, type: 3}
+  - rarity: 3
+    background: {fileID: 21300000, guid: 6e8e32c94d1d33a449fd5e8484b529c9, type: 3}
+  - rarity: 4
+    background: {fileID: 21300000, guid: 3e753a9fe92102c46a12ea0f5e35e021, type: 3}

@@ -10,6 +10,8 @@ public abstract class AbsRewardLogic
     public abstract Sprite Icon();
     
     public abstract Color ColorBorder();
+
+    public abstract Sprite BackGround();
     
     public abstract string ValueText();
 }

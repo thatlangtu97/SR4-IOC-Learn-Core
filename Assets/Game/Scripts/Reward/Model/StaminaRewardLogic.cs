@@ -31,6 +31,11 @@ public class StaminaRewardLogic : AbsRewardLogic
         return EquipmentLogic.GetColorByRarity(Rarity.common);
     }
 
+    public override Sprite BackGround()
+    {
+        return ScriptableObjectData.ResourceIconCollection.GetResourceBackGround(CurrencyType.gold);
+    }
+
     public override string ValueText()
     {
         return value.ToString();

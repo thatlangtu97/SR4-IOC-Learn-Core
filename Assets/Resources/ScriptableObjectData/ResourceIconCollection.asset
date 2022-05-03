@@ -14,8 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   configs:
   - sprite: {fileID: 21300000, guid: 0e10fb898aeb38a47975c86eeed3b83b, type: 3}
+    spriteBackGround: {fileID: 21300000, guid: 3e753a9fe92102c46a12ea0f5e35e021, type: 3}
     type: 0
   - sprite: {fileID: 21300000, guid: 3336f3b762e3dff43aad7793e10bdd0e, type: 3}
+    spriteBackGround: {fileID: 21300000, guid: 5016a8bb01c9ae148ba95c402ad4d4f3, type: 3}
     type: 1
   - sprite: {fileID: 21300000, guid: 1e6a76b430fdb2144bfa4b110e9aa1a1, type: 3}
+    spriteBackGround: {fileID: 21300000, guid: 6e8e32c94d1d33a449fd5e8484b529c9, type: 3}
     type: 2

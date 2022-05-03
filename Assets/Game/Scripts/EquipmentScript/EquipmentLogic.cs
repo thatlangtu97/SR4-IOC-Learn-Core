@@ -82,6 +82,18 @@ public class EquipmentLogic
         return Color.white;
 
     }
+    public static Sprite GetBackGroundByRarity(Rarity rarity)
+    {
+        foreach (BackGroundRarity tempColor in ScriptableObjectData.EquipmentConfigCollection.backgroundRarity)
+        {
+            if (tempColor.rarity == rarity)
+            {
+                return tempColor.background;
+            }
+        }
+        return null;
+
+    }
     public static EquipmentConfig GetEquipmentConfigById(int idConfig)
     {
         return cacheConfig[idConfig];

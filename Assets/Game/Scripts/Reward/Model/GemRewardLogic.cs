@@ -30,6 +30,11 @@ public class GemRewardLogic : AbsRewardLogic
         return EquipmentLogic.GetColorByRarity(Rarity.common);
     }
 
+    public override Sprite BackGround()
+    {
+        return ScriptableObjectData.ResourceIconCollection.GetResourceBackGround(CurrencyType.gem);
+    }
+
     public override string ValueText()
     {
         return value.ToString();

@@ -7,6 +7,7 @@ public class ItemView : MonoBehaviour
 {
     public Image imgIcon;
     public Image imgBorder;
+    public Image imgBackGroundRarity;
     public Text txtValue;
 
     public void Show(AbsRewardLogic absRewardLogic)
@@ -14,6 +15,7 @@ public class ItemView : MonoBehaviour
         imgIcon.sprite = absRewardLogic.Icon();
         imgBorder.color = absRewardLogic.ColorBorder();
         txtValue.text = absRewardLogic.ValueText();
+        imgBackGroundRarity.sprite = absRewardLogic.BackGround();
         this.gameObject.SetActive(true);
     }
 
