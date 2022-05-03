@@ -13,7 +13,10 @@ public class InventoryView : View
     public List<EquipmentItemView> equipmentItemViews = new List<EquipmentItemView>();
     [ShowInInspector]
     public List<EquipmentData> ListEquipment = new List<EquipmentData>();
+
+    public Transform gridContainer;
     public int currentPage = 1;
+    public int maxSlotInPage = 15;
     protected override void Awake()
     {
         base.Awake();
@@ -23,6 +26,25 @@ public class InventoryView : View
         {
             temp.button.onClick.AddListener(() => Open(temp.slot));
         }
+        
+        if (equipmentItemViews.Count == 0)
+        {
+            GameObject prefab = PrefabUtils.LoadPrefab(GameResourcePath.ITEM_EQUIPMENT_VIEW);
+            for (int i = 0; i < maxSlotInPage; i++)
+            {
+                EquipmentItemView temp = Instantiate(prefab, gridContainer).GetComponent<EquipmentItemView>();
+                equipmentItemViews.Add(temp);
+                temp.SetupAction( ()=>ShowDetail(temp) );
+            }
+        }
+    }
+    public void ShowDetail(EquipmentItemView tempEquipment)
+    {
+        ParameterEquipmentDetail temp = new ParameterEquipmentDetail();
+        temp.equipmentData = tempEquipment.data;
+        temp.equipmentConfig = tempEquipment.config;
+        temp.popupkey = PopupKey.EquipmentHeroDetailRight;
+        showEquipmentDetailSignal.Dispatch(temp);
     }
     protected override void OnEnable()
     {

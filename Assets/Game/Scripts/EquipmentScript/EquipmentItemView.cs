@@ -14,12 +14,16 @@ public class EquipmentItemView : View
     public Image boderRarity;
     public Image backgroundRarity;
     public Text level;
-    EquipmentData data;
-    EquipmentConfig config;
+    public Button btnClick;
+    public Action onClickAction;
+    public EquipmentData data;
+    public EquipmentConfig config;
     
     protected override void Awake()
     {
         base.Awake();
+        if(btnClick)
+            btnClick.onClick.AddListener(Onclick);
     }
     public void Show(EquipmentData data, EquipmentConfig config )
     {
@@ -28,7 +32,7 @@ public class EquipmentItemView : View
         this.config = config;
         icon.sprite = config.GearIcon;
         boderRarity.color = EquipmentLogic.GetColorByRarity(data.rarity);
-        if(level!=null) level.text = $"{data.level}";
+        if(level!=null) level.text = $"Lv.{data.level}";
     }
     public void ShowDetail(int valuePopup)
     {
@@ -38,7 +42,19 @@ public class EquipmentItemView : View
         temp.popupkey = (PopupKey)valuePopup;
         showEquipmentDetailSignal.Dispatch(temp);
     }
-    
+
+    public void SetupAction(Action action )
+    {
+        onClickAction = action;
+    }
+
+    public void Onclick()
+    {
+        if (onClickAction != null)
+        {
+            onClickAction.Invoke();
+        }
+    }
 
 
 }
