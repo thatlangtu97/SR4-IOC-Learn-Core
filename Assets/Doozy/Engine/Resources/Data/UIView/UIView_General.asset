@@ -19,6 +19,7 @@ MonoBehaviour:
   - ' EquipmentHeroCraftRight'
   - ' EquipmentHeroDetailLeft'
   - ' EquipmentHeroDetailRight'
+  - Background
   - PanelCraft
   - PanelHero
   - PanelHome
@@ -29,4 +30,5 @@ MonoBehaviour:
   - PopupShopGem
   - PopupShopGold
   - PopupStamina
+  - RewardPopup
   - Unnamed

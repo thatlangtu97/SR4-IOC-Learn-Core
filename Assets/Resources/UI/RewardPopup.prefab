@@ -1714,7 +1714,7 @@ MonoBehaviour:
   UpdateShowProgressorOnHide: 0
   UseCustomStartAnchoredPosition: 0
   ViewCategory: General
-  ViewName: PopupStamina
+  ViewName: RewardPopup
 --- !u!114 &3870788735958873583
 MonoBehaviour:
   m_ObjectHideFlags: 0
