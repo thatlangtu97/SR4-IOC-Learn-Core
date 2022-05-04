@@ -248,6 +248,8 @@ public enum PopupKey
     RevivePopup = 12,
     RewardGameplayPopup = 13,
     RewardPopup=14,
+    TooltipPopup=15,
+    
     
     
 }

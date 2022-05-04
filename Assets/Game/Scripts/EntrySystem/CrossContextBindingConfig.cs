@@ -31,6 +31,7 @@ namespace EntrySystem
             commandBinder.Bind<AddRewardFromItemSignal>().To<AddRewardFromItemCmd>();
             commandBinder.Bind<ShowPopupRewardSignal>().To<ShowPopupRewardCmd>();
             commandBinder.Bind<CheckAndConsumeCurrencySignal>().To<CheckAndConsumeCurrencyCmd>();
+            commandBinder.Bind<ShowTooltipPopupSignal>().To<ShowTooltipPopupCmd>();
             
             //RESOURCE
             commandBinder.Bind<AddGoldSignal>().To<AddGoldCmd>();
