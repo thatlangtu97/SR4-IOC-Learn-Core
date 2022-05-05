@@ -13,12 +13,14 @@ public class TestUtils :View
     [Inject] public ShowPopupCraftSignal ShowPopupCraftSignal { get; set; }
     [Inject] public ShowTooltipPopupSignal ShowTooltipPopupSignal { get; set; }
     [Inject] public AddRewardFromItemSignal AddRewardFromItemSignal { get; set; }
+    [Inject] public ShowTooltipTextSignal ShowTooltipTextSignal { get; set; }
     public PanelKey panelKey;
     public PopupKey popupKey;
     public Transform Transform;
     public CurrencyType currencyType;
     public int valueCurrency;
-    
+
+    public string StringToolTipText;
     protected override void Start()
     {
         base.Start();
@@ -44,7 +46,7 @@ public class TestUtils :View
             //globalData.UpdateDataAllCurrencyView();
 //            EquipmentRewardLogic temp = new EquipmentRewardLogic(dataEquip);
 //            AddRewardFromItemSignal.Dispatch(new AddRewardParameter(temp,null,true));
-            TestParseCurrencyAbsLogic();
+            ShowTooltipTextSignal.Dispatch(StringToolTipText,true);
         }
 
     }
