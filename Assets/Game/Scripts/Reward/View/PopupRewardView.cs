@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PopupRewardView : AbsPopupView
 {
     List<AbsRewardLogic> listReward = new List<AbsRewardLogic>();
     public List<ItemView> listItemView= new List<ItemView>();
+    public Button btnClose;
     protected override void Awake()
     {
         base.Awake();
@@ -17,6 +19,7 @@ public class PopupRewardView : AbsPopupView
         base.ShowPopupByCmd();
         listReward = (parameterPopup as ShowPopupRewardParameter).listRewardLogics;
         Show();
+        btnClose.onClick.AddListener(HidePopup);
     }
 
     public void InitItemView()

@@ -801,7 +801,6 @@ GameObject:
   - component: {fileID: 2559082636860906994}
   - component: {fileID: 2559082636860906996}
   - component: {fileID: 2559082636860906999}
-  - component: {fileID: 1174537774885990565}
   - component: {fileID: 1175724481999600033}
   - component: {fileID: 7112597677111138798}
   - component: {fileID: 6721703682223372733}
@@ -877,21 +876,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &1174537774885990565
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2559082636860906989}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2b113a96dda78c49b5139e8a9d2f2c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  uILayer: 3
-  popupKey: 14
-  UiViewController: {fileID: 3870788735958873583}
 --- !u!114 &1175724481999600033
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1730,7 +1714,7 @@ MonoBehaviour:
   UpdateShowProgressorOnHide: 0
   UseCustomStartAnchoredPosition: 0
   ViewCategory: General
-  ViewName: PopupStamina
+  ViewName: RewardPopup
 --- !u!114 &3870788735958873583
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1768,6 +1752,7 @@ MonoBehaviour:
   - {fileID: 6656620374302034455}
   - {fileID: 5250051029270513618}
   - {fileID: 7113041787523593283}
+  btnClose: {fileID: 7771713232809548970}
 --- !u!1 &2559082637683233044
 GameObject:
   m_ObjectHideFlags: 0
@@ -1887,7 +1872,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1174537774885990565}
+      - m_Target: {fileID: 0}
         m_MethodName: HidePopup
         m_Mode: 1
         m_Arguments:

@@ -34,6 +34,6 @@ public class EquipmentRewardLogic : AbsRewardLogic
 
     public override string ValueText()
     {
-        return "1";
+        return $"Lv.{equipmentData.level}";
     }
 }

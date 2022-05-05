@@ -27,8 +27,10 @@ public static class GameResourcePath
 	public static readonly string UI4 = "UI/UI4";
 	#endregion
 	#region MISC
-
+	public static readonly string ITEM_VIEW = "MISC/ItemView";
 	public static readonly string ITEM_EQUIPMENT_VIEW = "MISC/EquipmentView";
 	public static readonly string ITEM_EQUIPMENT_VIEW_CIRCLE = "MISC/EquipmentViewCircle";
+	public static readonly string TOOLTIP_POPUP = "MISC/TooltipPopup";
+
 	#endregion
 }
