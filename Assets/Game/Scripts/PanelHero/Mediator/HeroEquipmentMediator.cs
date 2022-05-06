@@ -9,6 +9,8 @@ public class HeroEquipmentMediator : Mediator
     [Inject] public OnViewHeroSignal OnViewHeroSignal { get; set; }
     
     [Inject] public LevelUpGearSuccessSignal LevelUpGearSuccessSignal { get; set; }
+    
+    
     public override void OnRegister()
     {
         OnViewHeroSignal.AddListener(View.Show);

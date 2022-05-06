@@ -12,6 +12,8 @@ public class EquipmentDetailView : AbsPopupView
     [Inject] public NotificationPanelCraftSignal NotificationPanelCraftSignal { get; set; }
     
     [Inject] public LevelUpGearSignal LevelUpGearSignal { get; set; }
+    
+    [Inject] public SellGearSignal SellGearSignal  { get; set; }
     public EquipmentItemView EquipmentView;
     public Text nameEquipment;
     public Text rarityEquipment;
@@ -76,6 +78,19 @@ public class EquipmentDetailView : AbsPopupView
     public void LevelUpGear()
     {
         LevelUpGearSignal.Dispatch(equipmentData);
+    }
+
+    public void SellGear()
+    {
+        SellGearSignal.Dispatch(new DataSellGear(equipmentData));
+    }
+
+    public void CheckSell(List<EquipmentData> datas)
+    {
+        if (datas.Contains(equipmentData))
+        {
+            HidePopup();
+        }
     }
     
 

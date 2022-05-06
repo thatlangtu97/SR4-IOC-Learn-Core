@@ -44,13 +44,12 @@ public class HeroEquipmentView : View
         }
         foreach (EquipmentData data in currentEquipment)
         {
-            DicEquipmentOfHeroView[data.gearSlot].backItem.SetActive(false);
-            
-            EquipmentLogic.ShowEquipmentView(data,DicEquipmentOfHeroView[data.gearSlot].view);
-//            EquipmentConfig config = EquipmentLogic.GetEquipmentConfigById(data.idConfig);
-//            DicEquipmentOfHeroView[data.gearSlot].view.gameObject.SetActive(true);
-//            DicEquipmentOfHeroView[data.gearSlot].view.Show(data, config);
-            DicEquipmentOfHeroView[data.gearSlot].view.transform.localPosition=Vector3.zero;
+            if (data != null)
+            {
+                DicEquipmentOfHeroView[data.gearSlot].backItem.SetActive(false);
+                EquipmentLogic.ShowEquipmentView(data, DicEquipmentOfHeroView[data.gearSlot].view);
+                DicEquipmentOfHeroView[data.gearSlot].view.transform.localPosition = Vector3.zero;
+            }
         }
         heroPreViewData.Show(global.CurrentIdHero);
     }
@@ -62,11 +61,7 @@ public class HeroEquipmentView : View
             if (currentEquipment[i].id == data.id)
             {
                 currentEquipment[i] = data;
-//                EquipmentConfig config = EquipmentLogic.GetEquipmentConfigById(data.idConfig);
-//                DicEquipmentOfHeroView[data.gearSlot].view.Show(data,config);
-//                
                 EquipmentLogic.ShowEquipmentView(data,DicEquipmentOfHeroView[data.gearSlot].view);
-                
             }
         }
     }
@@ -92,20 +87,6 @@ public class HeroEquipmentView : View
                 temp.view = itemview;
             }
         }
-        
-//        
-//        foreach(EquipmentOfHeroView temp in listEquipmentOfHeroView)
-//        {
-//            if (!DicEquipmentOfHeroView.ContainsKey(temp.slot))
-//            {
-//                DicEquipmentOfHeroView.Add(temp.slot, temp);
-//            }
-//            else
-//            {
-//                DicEquipmentOfHeroView[temp.slot] = temp;
-//            }
-//            temp.view.SetupAction( ()=>ShowDetail(temp.view) );
-//        }
     }
     public void ShowDetail(EquipmentItemView tempEquipment)
     {

@@ -74,36 +74,39 @@ public class TestUtils :View
     [Button("SELL ALL GEAR BY SLOT", ButtonSizes.Gigantic), GUIColor(0.4f, 0.8f, 1),]
     void TestRemoveAllGearBySlot()
     {
-        SellGearSignal.Dispatch(EquipmentLogic.GetEquipmentInventory(gearSlotToRemove,0));
+        DataSellGear data = new DataSellGear();
+        data.datas = EquipmentLogic.GetEquipmentInventory(gearSlotToRemove, 0);
+        data.gearOfHero = 0;
+        SellGearSignal.Dispatch(data);
         
     }
-    [Button("SELL GEAR BY SLOT", ButtonSizes.Gigantic), GUIColor(0.4f, 0.8f, 1),]
-    void TestRemoveGearBySlot()
-    {
-        List<EquipmentData> tempData = EquipmentLogic.GetEquipmentInventory(gearSlotToRemove, 0);
-        int count = gearcCuntRemove;
-        foreach (var VARIABLE in tempData)
-        {
-            if (count <= 0)
-            {
-                break;
-            }
-            else
-            {
-                int idGearEquiped = DataManager.Instance.HeroDataManager.GetIdEquipmentEquiped(gearSlotToRemove, 0);
-                if (VARIABLE.id != idGearEquiped)
-                {
-                    tempData.Remove(VARIABLE);
-                }
-            }
-        }
-        
-//        while (count>0)
+//    [Button("SELL GEAR BY SLOT", ButtonSizes.Gigantic), GUIColor(0.4f, 0.8f, 1),]
+//    void TestRemoveGearBySlot()
+//    {
+//        List<EquipmentData> tempData = EquipmentLogic.GetEquipmentInventory(gearSlotToRemove, 0);
+//        int count = gearcCuntRemove;
+//        foreach (var VARIABLE in tempData)
 //        {
-//            tempData.RemoveAt(0);
-//            count -= 1;
+//            if (count <= 0)
+//            {
+//                break;
+//            }
+//            else
+//            {
+//                int idGearEquiped = DataManager.Instance.HeroDataManager.GetIdEquipmentEquiped(gearSlotToRemove, 0);
+//                if (VARIABLE.id != idGearEquiped)
+//                {
+//                    tempData.Remove(VARIABLE);
+//                }
+//            }
 //        }
-        SellGearSignal.Dispatch(tempData);
-        
-    }
+//        
+////        while (count>0)
+////        {
+////            tempData.RemoveAt(0);
+////            count -= 1;
+////        }
+//        SellGearSignal.Dispatch(tempData);
+//        
+//    }
 }

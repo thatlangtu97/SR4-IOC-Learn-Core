@@ -97,6 +97,11 @@ public class HeroDataManager : IObjectDataManager
         }
         return -1;
     }
+
+    public Dictionary<GearSlot, int> GetGearEquiped(int idHero)
+    {
+        return allHeroData.HeroDataDic[idHero].gearEquip;
+    }
 }
 [Serializable]
 public class AllHeroData : DataObject
