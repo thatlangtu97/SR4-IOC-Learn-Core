@@ -115,6 +115,43 @@ public class InventoryView : View
         }
     }
 
+    public void ReloadDataRemove(List<EquipmentData> datas)
+    {
+        foreach (var tempData in datas)
+        {
+            if(ListEquipment.Contains(tempData))
+                ListEquipment.Remove(tempData);
+        }
+        int countEquipment = ListEquipment.Count;
+        int indexStart = equipmentItemViews.Count * (currentPage - 1);
+        
+
+        if (equipmentItemViews.Count < ListEquipment.Count)
+        {
+            int count = ListEquipment.Count - equipmentItemViews.Count;
+            GameObject prefab = PrefabUtils.LoadPrefab(GameResourcePath.ITEM_EQUIPMENT_VIEW);
+            for (int i = 0; i < count; i++)
+            {
+                EquipmentItemView temp = Instantiate(prefab, gridContainer).GetComponent<EquipmentItemView>();
+                equipmentItemViews.Add(temp);
+                temp.SetupAction( ()=>ShowDetail(temp) );
+                maxSlotInPage += count;
+            }
+        }
+        for (int i = 0; i < equipmentItemViews.Count; i++)
+        {
+            if (indexStart < countEquipment)
+            {
+                EquipmentLogic.ShowEquipmentView(ListEquipment[indexStart],equipmentItemViews[i]);
+            }
+            else
+            {
+                equipmentItemViews[i].gameObject.SetActive(false);
+            }
+            indexStart += 1;
+        }
+        
+    }
     public void ReShow(EquipmentData data)
     {
         for (int i = 0; i < ListEquipment.Count; i++)

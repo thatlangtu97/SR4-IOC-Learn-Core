@@ -13,6 +13,7 @@ namespace EntrySystem
         {
             injectionBinder.Bind<OnViewHeroSignal>().ToSingleton();
             injectionBinder.Bind<LevelUpGearSuccessSignal>().ToSingleton();
+            injectionBinder.Bind<SellGearSuccessSignal>().ToSingleton();
             
             //
             commandBinder.Bind<ShowPanelHomeSignal>().To<ShowPanelHomeCmd>();
@@ -24,6 +25,7 @@ namespace EntrySystem
             commandBinder.Bind<EquipGearSignal>().To<EquipGearCmd>();
             commandBinder.Bind<UnequipGearSignal>().To<UnequipGearCmd>();
             commandBinder.Bind<LevelUpGearSignal>().To<LevelUpGearCmd>();
+            commandBinder.Bind<SellGearSignal>().To<SellGearCmd>();
             commandBinder.Bind<ShowEquipmentDetailSignal>().To<ShowEquipmentDetailCmd>();
             commandBinder.Bind<CraftEquipmentSignal>().To<CraftEquipmentCmd>();
             commandBinder.Bind<ShowPopupCraftSignal>().To<ShowPopupCraftCmd>();
@@ -35,7 +37,7 @@ namespace EntrySystem
             commandBinder.Bind<CheckAndConsumeCurrencySignal>().To<CheckAndConsumeCurrencyCmd>();
             commandBinder.Bind<ShowTooltipPopupSignal>().To<ShowTooltipPopupCmd>();
             commandBinder.Bind<ShowTooltipTextSignal>().To<ShowTooltipTextCmd>();
-            
+
             //RESOURCE
             commandBinder.Bind<AddGoldSignal>().To<AddGoldCmd>();
             commandBinder.Bind<AddGemSignal>().To<AddGemCmd>();

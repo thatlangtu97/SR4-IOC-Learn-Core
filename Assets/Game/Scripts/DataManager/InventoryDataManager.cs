@@ -139,6 +139,37 @@ public class InventoryDataManager : IObjectDataManager
             }
         }
     }
+    public void RemoveItem(List<EquipmentData>  equipmentDatas)
+    {
+        Dictionary<GearSlot , List<EquipmentData>> dictionary = new Dictionary<GearSlot, List<EquipmentData>>();
+
+        foreach (var equipment in equipmentDatas)
+        {
+            GearSlot key = equipment.gearSlot;
+            if (dictionary.ContainsKey(key))
+            {
+                dictionary[key].Add(equipment);
+            }
+            else
+            {
+                List<EquipmentData> listAdd = new List<EquipmentData>();
+                listAdd.Add(equipment);
+                dictionary.Add(key,listAdd);
+            }
+        }
+
+        foreach (GearSlot key in dictionary.Keys)
+        {
+            List<EquipmentData> tempDatas = dictionary[key];
+            foreach (EquipmentData tempData in tempDatas)
+            {
+                inventoryData.EquipmentDicBySlot[tempData.gearSlot].Remove(tempData);
+            }
+        }
+        SaveData();
+        
+        
+    }
     //public void RemoveItem(GearSlot gearSlot, int idItem)
     //{
     //    List<EquipmentData> tempList = inventoryData.EquipmentDicBySlot[gearSlot];

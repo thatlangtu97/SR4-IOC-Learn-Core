@@ -383,4 +383,14 @@ public class EquipmentLogic
         view.gameObject.SetActive(true);
         view.Show(data, config);
     }
+
+    public static void SellEquipment(EquipmentData data)
+    {
+        DataManager.Instance.InventoryDataManager.RemoveItem(data);
+    }
+
+    public static void SellEquipment(List<EquipmentData> datas)
+    {
+        DataManager.Instance.InventoryDataManager.RemoveItem(datas);
+    }
 }
