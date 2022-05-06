@@ -26,6 +26,7 @@ namespace EntrySystem
             commandBinder.Bind<UnequipGearSignal>().To<UnequipGearCmd>();
             commandBinder.Bind<LevelUpGearSignal>().To<LevelUpGearCmd>();
             commandBinder.Bind<SellGearSignal>().To<SellGearCmd>();
+            commandBinder.Bind<AutoEquipSignal>().To<AutoEquipCmd>();
             commandBinder.Bind<ShowEquipmentDetailSignal>().To<ShowEquipmentDetailCmd>();
             commandBinder.Bind<CraftEquipmentSignal>().To<CraftEquipmentCmd>();
             commandBinder.Bind<ShowPopupCraftSignal>().To<ShowPopupCraftCmd>();
