@@ -21125,7 +21125,7 @@ MonoBehaviour:
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 130871
 --- !u!225 &3724252814343078148
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -86715,7 +86715,7 @@ MonoBehaviour:
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 130871
 --- !u!225 &2266172348407285178
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -87537,6 +87537,7 @@ MonoBehaviour:
   rarityEquipment: {fileID: 8937867654661690069}
   mainStatType: {fileID: 511723739278468953}
   mainStatValue: {fileID: 766949598110580479}
+  textLevel: {fileID: 1261573925769211472}
 --- !u!1 &8413374042407187103
 GameObject:
   m_ObjectHideFlags: 0
@@ -87978,7 +87979,7 @@ MonoBehaviour:
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 130871
 --- !u!225 &5987549678681511280
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -88800,6 +88801,7 @@ MonoBehaviour:
   rarityEquipment: {fileID: 559192221626847180}
   mainStatType: {fileID: 8556302801840728313}
   mainStatValue: {fileID: 5801563164108749801}
+  textLevel: {fileID: 4452615586846196851}
 --- !u!1 &8506029999583352441
 GameObject:
   m_ObjectHideFlags: 0

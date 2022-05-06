@@ -101,16 +101,33 @@ public class InventoryView : View
         {
             if (indexStart < countEquipment)
             {
-                EquipmentConfig config = EquipmentLogic.GetEquipmentConfigById(ListEquipment[indexStart].idConfig);
-
-                equipmentItemViews[i].gameObject.SetActive(true);
-                equipmentItemViews[i].Show(ListEquipment[indexStart], config);
+//                EquipmentConfig config = EquipmentLogic.GetEquipmentConfigById(ListEquipment[indexStart].idConfig);
+//
+//                equipmentItemViews[i].gameObject.SetActive(true);
+//                equipmentItemViews[i].Show(ListEquipment[indexStart], config);
+                EquipmentLogic.ShowEquipmentView(ListEquipment[indexStart],equipmentItemViews[i]);
             }
             else
             {
                 equipmentItemViews[i].gameObject.SetActive(false);
             }
             indexStart += 1;
+        }
+    }
+
+    public void ReShow(EquipmentData data)
+    {
+        for (int i = 0; i < ListEquipment.Count; i++)
+        {
+            if (ListEquipment[i].id == data.id)
+            {
+                ListEquipment[i] = data;
+//                EquipmentConfig config = EquipmentLogic.GetEquipmentConfigById(data.idConfig);
+//
+//                equipmentItemViews[i].gameObject.SetActive(true);
+//                equipmentItemViews[i].Show(data, config);
+                EquipmentLogic.ShowEquipmentView(data,equipmentItemViews[i]);
+            }
         }
     }
     

@@ -186,6 +186,12 @@ public class InventoryDataManager : IObjectDataManager
         }
         SaveData();
     }
+
+    public void LevelUpItem(EquipmentData equipmentData)
+    {
+        equipmentData.level += 1;
+        SaveData();
+    }
 }
 [Serializable]
 public class InventoryData : DataObject

@@ -44,13 +44,31 @@ public class HeroEquipmentView : View
         }
         foreach (EquipmentData data in currentEquipment)
         {
-            EquipmentConfig config = EquipmentLogic.GetEquipmentConfigById(data.idConfig);
             DicEquipmentOfHeroView[data.gearSlot].backItem.SetActive(false);
-            DicEquipmentOfHeroView[data.gearSlot].view.gameObject.SetActive(true);
-            DicEquipmentOfHeroView[data.gearSlot].view.Show(data, config);
+            
+            EquipmentLogic.ShowEquipmentView(data,DicEquipmentOfHeroView[data.gearSlot].view);
+//            EquipmentConfig config = EquipmentLogic.GetEquipmentConfigById(data.idConfig);
+//            DicEquipmentOfHeroView[data.gearSlot].view.gameObject.SetActive(true);
+//            DicEquipmentOfHeroView[data.gearSlot].view.Show(data, config);
             DicEquipmentOfHeroView[data.gearSlot].view.transform.localPosition=Vector3.zero;
         }
         heroPreViewData.Show(global.CurrentIdHero);
+    }
+
+    public void ReShow(EquipmentData data)
+    {
+        for (int i = 0; i < currentEquipment.Count; i++)
+        {
+            if (currentEquipment[i].id == data.id)
+            {
+                currentEquipment[i] = data;
+//                EquipmentConfig config = EquipmentLogic.GetEquipmentConfigById(data.idConfig);
+//                DicEquipmentOfHeroView[data.gearSlot].view.Show(data,config);
+//                
+                EquipmentLogic.ShowEquipmentView(data,DicEquipmentOfHeroView[data.gearSlot].view);
+                
+            }
+        }
     }
     private void InitItem()
     {

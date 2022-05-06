@@ -67,8 +67,9 @@ public class CraftEquipmentView : View
             if (index > listEquipmentOfHeroView.Count) continue;
             EquipmentConfig config = EquipmentLogic.GetEquipmentConfigById(data.idConfig);
             listEquipmentOfHeroView[index].backItem.SetActive(false);
-            listEquipmentOfHeroView[index].view.gameObject.SetActive(true);
-            listEquipmentOfHeroView[index].view.Show(data, config);
+//            listEquipmentOfHeroView[index].view.gameObject.SetActive(true);
+//            listEquipmentOfHeroView[index].view.Show(data, config);
+            EquipmentLogic.ShowEquipmentView(data,listEquipmentOfHeroView[index].view);
             listEquipmentOfHeroView[index].view.transform.localPosition=Vector3.zero;
             index += 1;
         }

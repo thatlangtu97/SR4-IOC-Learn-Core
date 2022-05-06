@@ -8,6 +8,9 @@ public class CheckAndConsumeCurrencyCmd : Command
 {
     [Inject]
     public CheckAndConsumeCurrencyParameter Parameter { get; set; }
+
+    [Inject] public ShowTooltipTextSignal ShowTooltipTextSignal { get; set; }
+
     public override void Execute()
     {
         CurrencyType type = Parameter.type;
@@ -23,6 +26,8 @@ public class CheckAndConsumeCurrencyCmd : Command
                 {
                     if(Parameter.failure!=null)
                         Parameter.failure.Invoke();
+                    ShowTooltipTextSignal.Dispatch("Not Enough Gold",true);
+                    
                 }
                 break;
             case CurrencyType.gem:
@@ -35,6 +40,7 @@ public class CheckAndConsumeCurrencyCmd : Command
                 {
                     if(Parameter.failure!=null)
                         Parameter.failure.Invoke();
+                    ShowTooltipTextSignal.Dispatch("Not Enough Gem",true);
                 }
                 break;
             case CurrencyType.stamina:

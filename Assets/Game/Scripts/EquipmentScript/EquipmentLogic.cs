@@ -247,6 +247,11 @@ public class EquipmentLogic
     {
         DataManager.Instance.HeroDataManager.UnEquipGear(data.gearSlot, (int)hero);
     }
+
+    public static void LevelUpGear(EquipmentData data)
+    {
+        DataManager.Instance.InventoryDataManager.LevelUpItem(data);
+    }
     public static List<EquipmentData> GetEquipmentOfCraft()
     {
         return equipmentOfCraft;
@@ -367,8 +372,15 @@ public class EquipmentLogic
                 return "rst_defense_scale";
             case StatType.HealthPointScale:
                 return "rst_health_point_scale";
-
         }
         return "Unknowns StatType";
+    }
+
+    public static void ShowEquipmentView(EquipmentData data , EquipmentItemView view)
+    {
+        EquipmentConfig config = GetEquipmentConfigById(data.idConfig);
+
+        view.gameObject.SetActive(true);
+        view.Show(data, config);
     }
 }

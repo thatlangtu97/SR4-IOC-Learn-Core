@@ -26440,6 +26440,7 @@ MonoBehaviour:
   rarityEquipment: {fileID: 6072806085959951346}
   mainStatType: {fileID: 6072806085173116034}
   mainStatValue: {fileID: 6072806086235853151}
+  textLevel: {fileID: 6072806085996813187}
 --- !u!1 &6072806086216775973
 GameObject:
   m_ObjectHideFlags: 0
@@ -30016,7 +30017,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 280.095, y: -75}
+  m_AnchoredPosition: {x: 280, y: -75}
   m_SizeDelta: {x: 388, y: 131}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6072806086679245170
@@ -30099,19 +30100,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: EnhanceGear
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_MethodName: OnClickButton
+      - m_Target: {fileID: 380415088501025424}
+        m_MethodName: LevelUpGear
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -38102,7 +38092,7 @@ MonoBehaviour:
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 130871
 --- !u!225 &1995156937
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -38924,6 +38914,7 @@ MonoBehaviour:
   rarityEquipment: {fileID: 8415059593955308979}
   mainStatType: {fileID: 8415059595343421272}
   mainStatValue: {fileID: 8415059593865683555}
+  textLevel: {fileID: 8415059594939503698}
 --- !u!1 &8415059593365044518
 GameObject:
   m_ObjectHideFlags: 0
@@ -51561,19 +51552,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: EnhanceGear
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_MethodName: OnClickButton
+      - m_Target: {fileID: 3969694040350756793}
+        m_MethodName: LevelUpGear
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

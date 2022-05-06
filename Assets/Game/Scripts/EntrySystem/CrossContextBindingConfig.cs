@@ -12,6 +12,7 @@ namespace EntrySystem
             IMediationBinder mediationBinder)
         {
             injectionBinder.Bind<OnViewHeroSignal>().ToSingleton();
+            injectionBinder.Bind<LevelUpGearSuccessSignal>().ToSingleton();
             
             //
             commandBinder.Bind<ShowPanelHomeSignal>().To<ShowPanelHomeCmd>();
@@ -22,6 +23,7 @@ namespace EntrySystem
             commandBinder.Bind<ShowPopupGachaSignal>().To<ShowPopupGachaCmd>();
             commandBinder.Bind<EquipGearSignal>().To<EquipGearCmd>();
             commandBinder.Bind<UnequipGearSignal>().To<UnequipGearCmd>();
+            commandBinder.Bind<LevelUpGearSignal>().To<LevelUpGearCmd>();
             commandBinder.Bind<ShowEquipmentDetailSignal>().To<ShowEquipmentDetailCmd>();
             commandBinder.Bind<CraftEquipmentSignal>().To<CraftEquipmentCmd>();
             commandBinder.Bind<ShowPopupCraftSignal>().To<ShowPopupCraftCmd>();
@@ -46,6 +48,7 @@ namespace EntrySystem
             //MEDIATOR
             mediationBinder.Bind<InventoryView>().To<InventoryMediator>();
             mediationBinder.Bind<HeroEquipmentView>().To<HeroEquipmentMediator>();
+            mediationBinder.Bind<EquipmentDetailView>().To<EquipmentDetailMediator>();
         }
     }
 }
