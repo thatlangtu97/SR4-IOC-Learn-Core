@@ -33,6 +33,7 @@ public class EquipmentItemView : View
         icon.sprite = config.GearIcon;
         boderRarity.color = EquipmentLogic.GetColorByRarity(data.rarity);
         if(level!=null) level.text = $"Lv.{data.level}";
+        backgroundRarity.sprite = EquipmentLogic.GetBackGroundByRarity(data.rarity);
     }
     public void ShowDetail(int valuePopup)
     {

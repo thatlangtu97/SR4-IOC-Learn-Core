@@ -8,6 +8,8 @@ public class CraftEquipmentView : View
     [Inject] public GlobalData global { get; set; }
     [Inject] public CraftEquipmentSignal CraftEquipmentSignal { get; set; }
     [Inject] public ShowEquipmentDetailSignal showEquipmentDetailSignal { get; set; }
+    
+    [Inject] public ShowTooltipTextSignal ShowTooltipTextSignal { get; set; }
     [SerializeField]
     List<EquipmentToCraftView> listEquipmentOfHeroView = new List<EquipmentToCraftView>();
     List<EquipmentData> currentEquipment = new List<EquipmentData>();
@@ -79,6 +81,10 @@ public class CraftEquipmentView : View
         if (EquipmentLogic.CanCraft())
         {
             CraftEquipmentSignal.Dispatch();
+        }
+        else
+        {
+            ShowTooltipTextSignal.Dispatch("Not Enough Item",true);
         }
 
     }
