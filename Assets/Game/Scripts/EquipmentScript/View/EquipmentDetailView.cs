@@ -26,11 +26,11 @@ public class EquipmentDetailView : AbsPopupView
     {
         base.Awake();
     }
-    public void SetupData(EquipmentData equipmentData, EquipmentConfig equipmentConfig)
+    public void SetupData(EquipmentData equipmentData)
     {
         this.equipmentData = equipmentData;
-        this.equipmentConfig = equipmentConfig;
-        //EquipmentView.Show(equipmentData, equipmentConfig);
+        //this.equipmentConfig = equipmentConfig;
+        equipmentConfig = EquipmentLogic.GetEquipmentConfigById(equipmentData.idConfig);
         EquipmentLogic.ShowEquipmentView(equipmentData,EquipmentView);
         nameEquipment.text = equipmentConfig.gearName;
         nameEquipment.color = EquipmentLogic.GetColorByRarity(equipmentData.rarity);

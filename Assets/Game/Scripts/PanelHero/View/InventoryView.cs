@@ -9,6 +9,8 @@ public class InventoryView : View
 {
     [Inject] public GlobalData global{ get; set; }
     [Inject] public ShowEquipmentDetailSignal showEquipmentDetailSignal { get; set; }
+    [Inject] public SetOldItemSignal SetOldItemSignal { get; set; }
+
     public List<TabType> tabTypes = new List<TabType>();
     public List<EquipmentItemView> equipmentItemViews = new List<EquipmentItemView>();
     [ShowInInspector]
@@ -44,9 +46,11 @@ public class InventoryView : View
     {
         ParameterEquipmentDetail temp = new ParameterEquipmentDetail();
         temp.equipmentData = tempEquipment.data;
-        temp.equipmentConfig = tempEquipment.config;
+        //temp.equipmentConfig = tempEquipment.config;
         temp.popupkey = popupKeyDetail;
         showEquipmentDetailSignal.Dispatch(temp);
+        SetOldItemSignal.Dispatch(temp.equipmentData);
+        
     }
     protected override void OnEnable()
     {
@@ -101,10 +105,6 @@ public class InventoryView : View
         {
             if (indexStart < countEquipment)
             {
-//                EquipmentConfig config = EquipmentLogic.GetEquipmentConfigById(ListEquipment[indexStart].idConfig);
-//
-//                equipmentItemViews[i].gameObject.SetActive(true);
-//                equipmentItemViews[i].Show(ListEquipment[indexStart], config);
                 EquipmentLogic.ShowEquipmentView(ListEquipment[indexStart],equipmentItemViews[i]);
             }
             else
@@ -159,10 +159,6 @@ public class InventoryView : View
             if (ListEquipment[i].id == data.id)
             {
                 ListEquipment[i] = data;
-//                EquipmentConfig config = EquipmentLogic.GetEquipmentConfigById(data.idConfig);
-//
-//                equipmentItemViews[i].gameObject.SetActive(true);
-//                equipmentItemViews[i].Show(data, config);
                 EquipmentLogic.ShowEquipmentView(data,equipmentItemViews[i]);
             }
         }

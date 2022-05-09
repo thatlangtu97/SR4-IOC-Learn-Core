@@ -11,7 +11,7 @@ public class ShowEquipmentDetailCmd : Command
     {
         
         EquipmentDetailView detailview = popupManager.GetPopupByPopupKey(Parameter.popupkey) as EquipmentDetailView;
-        detailview.SetupData(Parameter.equipmentData, Parameter.equipmentConfig);
+        detailview.SetupData(Parameter.equipmentData);
         popupManager.ShowPopup(Parameter.popupkey);
         
     }

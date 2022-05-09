@@ -9,7 +9,9 @@ public class HeroEquipmentView : View
     [Inject] public GlobalData global { get; set; }
     [Inject] public OnViewHeroSignal OnViewHeroSignal { get; set; }
     [Inject] public ShowEquipmentDetailSignal showEquipmentDetailSignal { get; set; }
-    
+
+    [Inject] public SetOldItemSignal SetOldItemSignal { get; set; }
+
     private Dictionary<GearSlot, EquipmentOfHeroView> DicEquipmentOfHeroView = new Dictionary<GearSlot, EquipmentOfHeroView>();
     [SerializeField]
     private List<EquipmentOfHeroView> listEquipmentOfHeroView = new List<EquipmentOfHeroView>();
@@ -92,9 +94,10 @@ public class HeroEquipmentView : View
     {
         ParameterEquipmentDetail temp = new ParameterEquipmentDetail();
         temp.equipmentData = tempEquipment.data;
-        temp.equipmentConfig = tempEquipment.config;
+        //temp.equipmentConfig = tempEquipment.config;
         temp.popupkey = popupKeyDetail;
         showEquipmentDetailSignal.Dispatch(temp);
+        SetOldItemSignal.Dispatch(temp.equipmentData);
     }
     
     [System.Serializable]

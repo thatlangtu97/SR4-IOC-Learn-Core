@@ -544,6 +544,7 @@ MonoBehaviour:
   icon: {fileID: 550759389285100026}
   boderRarity: {fileID: 550759390391552051}
   backgroundRarity: {fileID: 550759389990242888}
+  notice: {fileID: 550759390465372863}
   level: {fileID: 550759389226798867}
   btnClick: {fileID: 550759390465372832}
   data:
@@ -556,6 +557,7 @@ MonoBehaviour:
     mainStatData:
       statType: 0
       baseValue: 0
+    isNewItem: 0
   config: {fileID: 0}
 --- !u!114 &-1969838150258734368
 MonoBehaviour:
