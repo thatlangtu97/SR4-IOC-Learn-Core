@@ -393,4 +393,9 @@ public class EquipmentLogic
     {
         DataManager.Instance.InventoryDataManager.RemoveItem(datas);
     }
+
+    public static int GetPriceEquipment(EquipmentData data)
+    {
+        return (int) data.rarity * 3000;
+    }
 }

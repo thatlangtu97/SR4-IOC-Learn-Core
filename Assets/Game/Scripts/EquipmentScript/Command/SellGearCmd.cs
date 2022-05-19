@@ -9,6 +9,7 @@ public class SellGearCmd : Command
     [Inject] public DataSellGear dataSellGear { get; set; }
     [Inject] public SellGearSuccessSignal SellGearSuccessSignal { get; set; }
     [Inject] public UnequipGearSignal UnequipGearSignal { get; set; }
+    [Inject] public AddGoldSignal AddGoldSignal { get; set; }
 
     public override void Execute()
     {
@@ -22,6 +23,18 @@ public class SellGearCmd : Command
             }
         }
         EquipmentLogic.SellEquipment(dataSellGear.datas);
+        
+        AddGoldSignal.Dispatch(GetGold(dataSellGear));
         SellGearSuccessSignal.Dispatch(dataSellGear.datas);
+    }
+
+    int GetGold(DataSellGear datas)
+    {
+        int gold = 0;
+        foreach (var equipment in dataSellGear.datas)
+        {
+            gold += EquipmentLogic.GetPriceEquipment(equipment);
+        }
+        return gold;
     }
 }
