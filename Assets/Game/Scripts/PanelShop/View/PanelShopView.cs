@@ -42,6 +42,12 @@ public class PanelShopView : AbsPanelView
         base.ShowPanel();
         //ShowPopupShop(popupManager.popupKey);
     }
+
+    protected override void OnShowPopup<T>(T parameter)
+    {
+        throw new NotImplementedException();
+    }
+
     protected override void OnEnable()
     {
         base.CopyStart();

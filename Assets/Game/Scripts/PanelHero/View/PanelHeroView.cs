@@ -26,6 +26,12 @@ public class PanelHeroView : AbsPanelView
 //        PopupEquipmentDetailLeft.HidePopup();
 //        PopupEquipmentDetailFight.HidePopup();
     }
+
+    protected override void OnShowPopup<T>(T parameter)
+    {
+        throw new System.NotImplementedException();
+    }
+
     public override void ShowPanelByCmd()
     {
         EquipmentLogic.RemoveAllEquipmentToCraft();

@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class ShowPanelHomeCmd : AbsShowPanelCmd
 {
+    [Inject] public ParameterPanelHome ParameterPanelHome { get; set; }
 
     public override void Execute()
     {
         PanelHomeView panelHomeView = GetInstance<PanelHomeView>();
-        panelHomeView.ShowPanelByCmd();
+        panelHomeView.ShowPopup(ParameterPanelHome);
     }
     public override string GetResourcePath()
     {

@@ -22,6 +22,11 @@ public class PopupRewardView : AbsPopupView
         btnClose.onClick.AddListener(HidePopup);
     }
 
+    protected override void OnShowPopup<T>(T parameter)
+    {
+        throw new System.NotImplementedException();
+    }
+
     public void InitItemView()
     {
         

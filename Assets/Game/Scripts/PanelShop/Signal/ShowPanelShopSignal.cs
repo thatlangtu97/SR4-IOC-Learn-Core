@@ -3,7 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShowPanelShopSignal : Signal
+public class ShowPanelShopSignal : Signal<ParameterPanelShop>
 {
+}
 
+public class ParameterPanelShop : ParameterPopup
+{
+    
 }

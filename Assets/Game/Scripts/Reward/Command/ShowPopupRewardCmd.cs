@@ -13,7 +13,8 @@ public class ShowPopupRewardCmd : AbsShowPopupCmd
     {
         PopupRewardView popupReward = GetInstance<PopupRewardView>();
         popupReward.SetParameter(new ShowPopupRewardParameter(listRewardLogics));
-        popupReward.ShowPopupByCmd();
+//        popupReward.ShowPopupByCmd();
+        popupReward.ShowPopup(new ParameterPopup());
     }
 
     public override string GetResourcePath()

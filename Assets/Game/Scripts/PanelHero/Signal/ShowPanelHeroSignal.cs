@@ -1,6 +1,11 @@
 ﻿using strange.extensions.signal.impl;
 
-public class ShowPanelHeroSignal : Signal
+public class ShowPanelHeroSignal : Signal<ParameterPanelHero>
 {
 
+}
+
+public class ParameterPanelHero : ParameterPopup
+{
+    
 }

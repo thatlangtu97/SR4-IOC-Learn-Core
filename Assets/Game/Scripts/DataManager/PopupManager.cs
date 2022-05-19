@@ -182,7 +182,7 @@ public class PopupManager
         {
             if (BasePabelKey == typeof(PanelHomeView).ToString())
             {
-                showPanelHomeSignal.Dispatch();
+                showPanelHomeSignal.Dispatch(new ParameterPanelHome());
                 panelKey = typeof(PanelHomeView).ToString();
             }
         }

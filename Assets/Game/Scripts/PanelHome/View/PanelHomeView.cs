@@ -28,17 +28,6 @@ public class PanelHomeView : AbsPanelView
 
         ShopBtn.onClick.AddListener(ShowPanelShopGold);
         StartGameBtn.onClick.AddListener(StartGame);
-        /*
-        StaminaBtn.onClick.AddListener( ()=>{ showPopupStaminaSignal.Dispatch(); });
-        ShopGoldBtn.onClick.AddListener(() => { showPanelShopSignal.Dispatch(); });
-        ShopGoldBtn.onClick.AddListener(() => { popupManager.popupKey = PopupKey.ShopGoldPopup; });
-        ShopGemBtn.onClick.AddListener(() => { showPanelShopSignal.Dispatch(); });
-        ShopGemBtn.onClick.AddListener(() => { popupManager.popupKey = PopupKey.ShopGemPopup; });
-        */
-
-//        UIBtnHero.OnClick.OnTrigger.Event.AddListener(ShowPanelHero);
-//        UIBtnShop.OnClick.OnTrigger.Event.AddListener(ShowPanelShopGold);
-//        UIBtnCraft.OnClick.OnTrigger.Event.AddListener(ShowPanelCraft);
 
     }
 
@@ -48,9 +37,14 @@ public class PanelHomeView : AbsPanelView
         popupManager.SetFirstSelect(ShopBtn.gameObject);
     }
 
+    protected override void OnShowPopup<T>(T parameter)
+    {
+        throw new NotImplementedException();
+    }
+
     public void ShowPanelHero()
     {
-        showPanelHeroSignal.Dispatch();
+        showPanelHeroSignal.Dispatch(new ParameterPanelHero());
     }
     public void ShowPanelCraft()
     {
@@ -59,7 +53,7 @@ public class PanelHomeView : AbsPanelView
     public void ShowPanelShopGold()
     {
         //popupManager.popupKey = PopupKey.ShopGoldPopup;
-        showPanelShopSignal.Dispatch();
+        showPanelShopSignal.Dispatch(new ParameterPanelShop());
     }
     public void LoadScene(string name)
     {

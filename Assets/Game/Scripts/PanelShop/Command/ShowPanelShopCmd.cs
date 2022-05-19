@@ -5,10 +5,12 @@ using UnityEngine;
 
 public class ShowPanelShopCmd : AbsShowPanelCmd
 {
+    [Inject] public ParameterPanelShop ParameterPanelShop { get; set; }
+
     public override void Execute()
     {
         PanelShopView panelShopView = GetInstance<PanelShopView>();
-        panelShopView.ShowPanelByCmd();
+        panelShopView.ShowPopup(ParameterPanelShop);
     }
     public override string GetResourcePath()
     {
