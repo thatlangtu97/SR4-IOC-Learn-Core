@@ -18,12 +18,12 @@ public class PanelCurrencyView : View
             ShopStaminaBtn.onClick.AddListener(() => { showPopupStaminaSignal.Dispatch(); });
         if (ShopGoldBtn != null)
         {
-            ShopGoldBtn.onClick.AddListener(() => { showPanelShopSignal.Dispatch(); });
+            ShopGoldBtn.onClick.AddListener(() => { showPanelShopSignal.Dispatch(new ParameterPanelShop()); });
             //ShopGoldBtn.onClick.AddListener(() => { ShowShop(PopupKey.ShopGoldPopup, PanelKey.PanelShop); });
         }
         if (ShopGemBtn != null)
         {
-            ShopGemBtn.onClick.AddListener(() => { showPanelShopSignal.Dispatch(); });
+            ShopGemBtn.onClick.AddListener(() => { showPanelShopSignal.Dispatch(new ParameterPanelShop()); });
             //ShopGemBtn.onClick.AddListener(() => { ShowShop(PopupKey.ShopGemPopup, PanelKey.PanelShop); });
         }
         
@@ -51,13 +51,13 @@ public class PanelCurrencyView : View
 
     public void ShowShopGem()
     {
-        showPanelShopSignal.Dispatch();
+        showPanelShopSignal.Dispatch(new ParameterPanelShop());
         //ShowShop(PopupKey.ShopGemPopup, PanelKey.PanelShop);
     }
     
     public void ShowShopGold()
     {
-        showPanelShopSignal.Dispatch();
+        showPanelShopSignal.Dispatch(new ParameterPanelShop());
         //ShowShop(PopupKey.ShopGoldPopup, PanelKey.PanelShop);
     }
     

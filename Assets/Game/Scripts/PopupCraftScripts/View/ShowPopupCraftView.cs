@@ -27,4 +27,9 @@ public class ShowPopupCraftView : AbsPopupView
             animator.SetTrigger("Show");
         }
     }
+
+    protected override void OnShowPopup<T>(T parameter)
+    {
+        throw new System.NotImplementedException();
+    }
 }

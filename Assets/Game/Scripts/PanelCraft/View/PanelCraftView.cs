@@ -23,6 +23,12 @@ public class PanelCraftView : AbsPanelView
         craftEquipmentView.Show();
         inventoryView.ReloadPage();
     }
+
+    protected override void OnShowPopup<T>(T parameter)
+    {
+        throw new System.NotImplementedException();
+    }
+
     public override void ShowPanelByCmd()
     {
         EquipmentLogic.RemoveAllEquipmentToCraft();

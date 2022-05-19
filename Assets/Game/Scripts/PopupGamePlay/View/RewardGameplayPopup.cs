@@ -45,4 +45,9 @@ public class RewardGameplayPopup : AbsPopupView
         };
         ActionBufferManager.Instance.ActionDelayFrame(action,1);
     }
+
+    protected override void OnShowPopup<T>(T parameter)
+    {
+        throw new NotImplementedException();
+    }
 }

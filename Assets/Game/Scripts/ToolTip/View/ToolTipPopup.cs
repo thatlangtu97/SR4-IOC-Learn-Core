@@ -39,6 +39,11 @@ public class ToolTipPopup : AbsPopupView
         ,1);
     }
 
+    protected override void OnShowPopup<T>(T parameter)
+    {
+        throw new System.NotImplementedException();
+    }
+
     public void SetupPositionFolowScreen(Vector3 position)
     {
         if (position.x >= ScreenSize.x)

@@ -4,3 +4,8 @@ public class ShowPopupGachaSignal: Signal<DataGachaOpened>
 {
     
 }
+
+public class ParameterPopupGacha : ParameterPopup
+{
+    
+}

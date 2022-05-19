@@ -92,6 +92,10 @@ public class EquipmentDetailView : AbsPopupView
             HidePopup();
         }
     }
-    
 
+
+    protected override void OnShowPopup<T>(T parameter)
+    {
+        throw new System.NotImplementedException();
+    }
 }

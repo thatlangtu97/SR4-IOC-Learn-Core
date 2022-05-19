@@ -20,6 +20,11 @@ public class RevivePopup : AbsPopupView
         //this.gameObject.SetActive(true);
     }
 
+    protected override void OnShowPopup<T>(T parameter)
+    {
+        throw new System.NotImplementedException();
+    }
+
     public void Revive()
     {
         Contexts.sharedInstance.game.playerFlagEntity.stateMachineContainer.value.OnInputRevive();

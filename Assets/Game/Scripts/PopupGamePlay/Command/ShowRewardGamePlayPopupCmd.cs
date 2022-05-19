@@ -9,6 +9,7 @@ public class ShowRewardGamePlayPopupCmd : AbsShowPopupCmd
         base.Execute();
         RewardGameplayPopup popup = GetInstance<RewardGameplayPopup>();
         popup.ShowPopupByCmd();
+        popup.ShowPopup(new ParameterPopup());
     }
 
     public override string GetResourcePath()

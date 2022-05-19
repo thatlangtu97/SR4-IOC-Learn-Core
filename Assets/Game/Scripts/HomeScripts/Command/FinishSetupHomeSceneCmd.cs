@@ -23,16 +23,16 @@ public class FinishSetupHomeSceneCmd : Command
         switch (panelKey)
         {
             case "PanelHomeView":
-                showPanelHomeSignal.Dispatch();
+                showPanelHomeSignal.Dispatch(new ParameterPanelHome());
                 break;
             case "PanelHeroView":
-                showPanelHeroSignal.Dispatch();
+                showPanelHeroSignal.Dispatch(new ParameterPanelHero());
                 break;
             case "PanelCraftView":
                 showPanelCraftSignal.Dispatch();
                 break;
             case "PanelShopView":
-                showPanelShopSignal.Dispatch();
+                showPanelShopSignal.Dispatch(new ParameterPanelShop());
                 break;
         }
         //popupManager.ResetPanelShowAfterLoadHomeScene();

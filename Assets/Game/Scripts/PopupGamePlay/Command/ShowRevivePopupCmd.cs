@@ -10,6 +10,7 @@ public class ShowRevivePopupCmd : AbsShowPopupCmd
         RevivePopup revivePopup = GetInstance<RevivePopup>();
 
         revivePopup.ShowPopupByCmd();
+        revivePopup.ShowPopup();
     }
     public override string GetResourcePath()
     {

@@ -13,6 +13,7 @@ public class ShowTooltipPopupCmd : AbsShowPopupCmd
         ToolTipPopup toolTipPopup = GetInstance<ToolTipPopup>();
         toolTipPopup.SetParameter(Parameter);
         toolTipPopup.ShowPopupByCmd();
+        toolTipPopup.ShowPopup(new ParameterPopup());
     }
 
     public override string GetResourcePath()

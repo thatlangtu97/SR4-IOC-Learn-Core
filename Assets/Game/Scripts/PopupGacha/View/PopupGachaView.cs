@@ -40,6 +40,12 @@ public class PopupGachaView : AbsPopupView
         RarityText.color = EquipmentLogic.GetColorByRarity(data.Rarity);
         animator.SetTrigger("Show");
     }
+
+    protected override void OnShowPopup<T>(T parameter)
+    {
+        throw new NotImplementedException();
+    }
+
     public void SetupValue()
     {
         gacha = global.CurrenctGacha;

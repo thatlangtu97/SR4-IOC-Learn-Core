@@ -6,3 +6,8 @@ using UnityEngine;
 public class ShowRevivePopupSignal : Signal
 {
 }
+
+public class ParameterRevivePopup : ParameterPopup
+{
+    
+}

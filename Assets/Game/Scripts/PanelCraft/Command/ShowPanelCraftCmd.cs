@@ -8,6 +8,7 @@ public class ShowPanelCraftCmd : AbsShowPanelCmd
     {
         PanelCraftView panelCraftView = GetInstance<PanelCraftView>();
         panelCraftView.ShowPanelByCmd();
+        panelCraftView.ShowPopup(new ParameterPopup());
     }
     //public override string GetInjectName()
     //{
