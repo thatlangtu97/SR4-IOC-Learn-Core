@@ -58,7 +58,7 @@ public class PanelHomeView : AbsPanelView
     }
     public void ShowPanelShopGold()
     {
-        popupManager.popupKey = PopupKey.ShopGoldPopup;
+        //popupManager.popupKey = PopupKey.ShopGoldPopup;
         showPanelShopSignal.Dispatch();
     }
     public void LoadScene(string name)

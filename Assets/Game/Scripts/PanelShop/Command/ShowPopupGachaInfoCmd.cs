@@ -9,7 +9,6 @@ public class ShowPopupGachaInfoCmd : AbsShowPopupCmd
     public override void Execute()
     {
         base.Execute();
-        popupKey = PopupKey.GachaInfoPopup;
         PopupGachaInfoView popupGachaInfoView = GetInstance<PopupGachaInfoView>();
         popupGachaInfoView.gacha = gacha;
         popupGachaInfoView.ShowPopupByCmd();

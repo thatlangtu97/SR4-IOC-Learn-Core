@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AbsPopupView : View
+public abstract class AbsPopupView : View
 {
 	[Inject]
 	public PopupManager popupManager { get; set; }
@@ -32,7 +32,7 @@ public class AbsPopupView : View
 	{
 		base.CopyStart();
 		NotifyShowPopup();
-		popupManager.ShowPopup(popupKey);
+		popupManager.ShowPopup(this);
 	}
 	public virtual void ShowPopup()
 	{
@@ -51,6 +51,19 @@ public class AbsPopupView : View
 	{
 		return true;
 	}
+	
+	public void ShowPopup<T>(T parameter) where T : ParameterPopup
+	{
+//		this.WaitUntilFinshRegister(delegate
+//		{
+//			OnBeforeShowPopup(parameter);
+			NotifyShowPopup();
+//			NGUITools.SetActiveSelf(this.gameObject,true);
+			OnShowPopup(parameter);
+			popupManager.ShowPopup(this);
+//		});
+	}
+	protected abstract void OnShowPopup<T>(T parameter) where T : ParameterPopup;
 }
 public class ParameterPopup
 {

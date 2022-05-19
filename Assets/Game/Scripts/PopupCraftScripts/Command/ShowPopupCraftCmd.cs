@@ -8,7 +8,6 @@ public class ShowPopupCraftCmd : AbsShowPopupCmd
     [Inject] public EquipmentData equipmentData { get; set; }
     public override void Execute()
     {
-        popupKey = PopupKey.CraftPopup;
         ShowPopupCraftView showPopupCraftView = GetInstance<ShowPopupCraftView>();
         showPopupCraftView.equipmentData = equipmentData;
         showPopupCraftView.ShowPopupByCmd();

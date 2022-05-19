@@ -5,7 +5,6 @@ using strange.extensions.command.impl;
 public abstract class AbsShowPopupCmd : Command
 {
     [Inject] public PopupManager popupManager { get; set; }
-    public PopupKey popupKey;
     public override void Execute()
     {
 
@@ -40,21 +39,22 @@ public abstract class AbsShowPopupCmd : Command
 	{
 		GameObject o = PrefabUtils.LoadPrefab(GetResourcePath());
 		GameObject spawned = null;
-		if (!popupManager.CheckContainPopup(popupKey))
+		AbsPopupView typePopup = o.GetComponent<AbsPopupView>();
+		if (!popupManager.CheckContainPopup(typePopup))
 		{
 			spawned = GameObject.Instantiate(o) as GameObject;
-			popupManager.AddPopup(popupKey, spawned.GetComponent<AbsPopupView>());
+			popupManager.AddPopup(spawned.GetComponent<AbsPopupView>());
 		}
 		else
 		{
-			if (popupManager.GetPopupByPopupKey(popupKey) == null)
+			if (popupManager.GetPopupByPopupKey(typePopup) == null)
 			{
 				spawned = GameObject.Instantiate(o) as GameObject;
-				popupManager.AddPopup(popupKey, spawned.GetComponent<AbsPopupView>());
+				popupManager.AddPopup(spawned.GetComponent<AbsPopupView>());
 			}
 			else
 			{
-				spawned = popupManager.GetPopupByPopupKey(popupKey).gameObject;
+				spawned = popupManager.GetPopupByPopupKey(typePopup).gameObject;
 
 			}
 		}

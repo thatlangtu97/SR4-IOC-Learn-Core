@@ -14,8 +14,8 @@ public class PanelCraftView : AbsPanelView
     {
         base.Start();
         backBtn.onClick.AddListener(() => popupManager.BackPanel());
-        popupManager.AddPopup(PopupKey.EquipmentCraftDetailLeft, PopupEquipmentDetailLeft);
-        popupManager.AddPopup(PopupKey.EquipmentCraftDetailRight, PopupEquipmentDetailFight);
+//        popupManager.AddPopup(PopupKey.EquipmentCraftDetailLeft, PopupEquipmentDetailLeft);
+//        popupManager.AddPopup(PopupKey.EquipmentCraftDetailRight, PopupEquipmentDetailFight);
     }
     public override void NotifyShowPanel()
     {

@@ -30,7 +30,7 @@ public abstract class AbsPanelView : View
 		base.CopyStart();
 		//this.gameObject.SetActive(true);
 		//NotifyShowPanel();
-		popupManager.ShowPanel(panelKey);
+		popupManager.ShowPanel(this);
 		
 	}
 	public virtual void ShowPanel()
@@ -56,4 +56,16 @@ public abstract class AbsPanelView : View
 	{
 		return true;
 	}
+	public void ShowPopup<T>(T parameter) where T : ParameterPopup
+	{
+//		this.WaitUntilFinshRegister(delegate
+//		{
+//			OnBeforeShowPopup(parameter);
+		NotifyShowPanel();
+//			NGUITools.SetActiveSelf(this.gameObject,true);
+		OnShowPopup(parameter);
+		popupManager.ShowPanel(this);
+//		});
+	}
+	protected abstract void OnShowPopup<T>(T parameter) where T : ParameterPopup;
 }

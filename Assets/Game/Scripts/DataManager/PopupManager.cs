@@ -7,19 +7,22 @@ using UnityEngine.EventSystems;
 
 public class PopupManager 
 {
-    public PanelKey panelKey { get; set; }
-    public PopupKey popupKey { get; set; }
+    public string panelKey { get; set; }
+    public string popupKey { get; set; }
 
-    public SceneKey sceneKey { get; set; }
+    public string sceneKey { get; set; }
     
-    public Dictionary<SceneKey, List<PanelKey>> backPanelData = new Dictionary<SceneKey, List<PanelKey>>();
+    public string BasePabelKey;
+    
+    public Dictionary<string, List<string>> backPanelData = new Dictionary<string, List<string>>();
     public Dictionary<UILayer, Transform> UIDic = new Dictionary<UILayer, Transform>();
-    public Dictionary<PanelKey, GameObject> PanelDic = new Dictionary<PanelKey, GameObject>();
-    public Dictionary<PopupKey, AbsPopupView> PopupDic = new Dictionary<PopupKey, AbsPopupView>();
-    public PanelKey BasePabelKey;
+    public Dictionary<string, AbsPanelView> PanelDic = new Dictionary<string, AbsPanelView>();
+    public Dictionary<string, AbsPopupView> PopupDic = new Dictionary<string, AbsPopupView>();
+
     public Dictionary<string, IEnumerator> listActionDelay = new Dictionary<string, IEnumerator>();
     //public Dictionary<PanelKey, List<GameObject>> ListPopupOfPanel = new Dictionary<PanelKey, List<GameObject>>();
     public EventSystem eventSystem { get; set; }
+    public List<AbsPopupView> ListPopupShow = new List<AbsPopupView>();
     [Inject] public ShowPanelHeroSignal showPanelHeroSignal { get; set; }
     [Inject] public ShowPanelHomeSignal showPanelHomeSignal { get; set; }
     [Inject] public ShowPanelShopSignal showPanelShopSignal { get; set; }
@@ -62,7 +65,7 @@ public class PopupManager
     }
 
     #region PANEL
-    public bool CheckContainPanel(PanelKey key)
+    public bool CheckContainPanel(string key)
     {
         if (PanelDic.ContainsKey(key))
         {
@@ -70,7 +73,7 @@ public class PopupManager
         }
         return false;
     }
-    public GameObject GetPanelByPanelKey(PanelKey key)
+    public AbsPanelView GetPanelByPanelKey(string key)
     {
         if (PanelDic.ContainsKey(key))
         {
@@ -79,8 +82,9 @@ public class PopupManager
         
         return null;
     }
-    public void AddPanel(PanelKey key, GameObject panel)
+    public void AddPanel(AbsPanelView panel)
     {
+        string key = panel.GetType().ToString();
         if (PanelDic.ContainsKey(key))
         {
             PanelDic[key] = panel;
@@ -92,26 +96,26 @@ public class PopupManager
 
         if (!backPanelData.ContainsKey(sceneKey))
         {
-            backPanelData.Add(sceneKey, new List<PanelKey>(){key});
+            backPanelData.Add(sceneKey, new List<string>(){key});
         }
         if (!backPanelData[sceneKey].Contains(key))
         {
             backPanelData[sceneKey].Add(key);
         }
     }
-    public void SetPanelAfterLoadHomeScene(PanelKey key , PopupKey popupkey)
-    {
-        panelKey = key;
-        popupKey = popupkey;
-        BasePabelKey = PanelKey.PanelHome;
-    }
+//    public void SetPanelAfterLoadHomeScene(PanelKey key , PopupKey popupkey)
+//    {
+//        panelKey = key;
+//        popupKey = popupkey;
+//        BasePabelKey = PanelKey.PanelHome;
+//    }
     
     public void ResetPanelAfterLoadHomeScene()
     {
-        panelKey = PanelKey.PanelHome;
-        BasePabelKey = PanelKey.PanelHome;
+        panelKey = typeof(PanelHomeView).ToString();
+        BasePabelKey = typeof(PanelHomeView).ToString();
     }
-    public PanelKey GetPanelAfterLoadHomeScene()
+    public string GetPanelAfterLoadHomeScene()
     {
         return panelKey;
     }
@@ -119,22 +123,26 @@ public class PopupManager
     {
         //panelKey = PanelKey.PanelHome;
     }
-    public void ShowPanel(PanelKey key)
+
+    public void ShowPanel(AbsPanelView panel)
     {
-        panelKey = key;
-        foreach (PanelKey temp in PanelDic.Keys)
+        //panelKey = key;
+
+        string key = panel.GetType().ToString();
+        foreach (string temp in PanelDic.Keys)
         {
             if (temp != key)
             {
                 if(PanelDic[temp]!=null)
-                    PanelDic[temp].GetComponent<AbsPanelView>().HidePanel();
+                    PanelDic[temp].HidePanel();
             }
-            else
-            {
-                if (PanelDic[temp] != null)
-                    PanelDic[temp].GetComponent<AbsPanelView>().ShowPanel();
-            }
+//            else
+//            {
+//                if (PanelDic[temp] != null)
+//                    PanelDic[temp].ShowPanel();
+//            }
         }
+        PanelDic[key].ShowPanel();
     }
     public void BackPanel()
     {
@@ -156,13 +164,13 @@ public class PopupManager
             return;
         }
         //disable Panel
-        foreach (PanelKey temp in PanelDic.Keys)
+        foreach (string temp in PanelDic.Keys)
         {
             if (temp != BasePabelKey)
             {
                 if (PanelDic[temp] != null)
                 {
-                    if (PanelDic[temp].activeInHierarchy == true)
+                    if (PanelDic[temp].gameObject.activeInHierarchy == true)
                     {
                         PanelDic[temp].GetComponent<AbsPanelView>().HidePanel();
                     }
@@ -170,28 +178,29 @@ public class PopupManager
             }
         }
 
-        if (sceneKey == SceneKey.Home)
+        if (sceneKey == "Home")
         {
-            if (BasePabelKey == PanelKey.PanelHome)
+            if (BasePabelKey == typeof(PanelHomeView).ToString())
             {
                 showPanelHomeSignal.Dispatch();
-                panelKey = PanelKey.PanelHome;
+                panelKey = typeof(PanelHomeView).ToString();
             }
         }
     }
     #endregion
 
     #region POPUP
-    public bool CheckContainPopup(PopupKey key)
+    public bool CheckContainPopup(AbsPopupView popup)
     {
-        if (PopupDic.ContainsKey(key))
+        if (PopupDic.ContainsKey(popup.GetType().ToString()))
         {
             return true;
         }
         return false;
     }
-    public AbsPopupView GetPopupByPopupKey(PopupKey key)
+    public AbsPopupView GetPopupByPopupKey(AbsPopupView popup)
     {
+        string key = popup.GetType().ToString();
         if (PopupDic.ContainsKey(key))
         {
             return PopupDic[key];
@@ -199,8 +208,9 @@ public class PopupManager
 
         return null;
     }
-    public void AddPopup(PopupKey key, AbsPopupView panel)
+    public void AddPopup(AbsPopupView panel)
     {
+        string key = panel.GetType().ToString();
         if (PopupDic.ContainsKey(key))
         {
             PopupDic[key] = panel;
@@ -214,14 +224,52 @@ public class PopupManager
     {
         //popupKey = PopupKey.Node;
     }
-    public void ShowPopup(PopupKey key)
+    public void ShowPopup(AbsPopupView popup)
     {
+        string key = popup.GetType().ToString();
         if (!PopupDic.ContainsKey(key))
             return;
         if (PopupDic[key] != null)
             PopupDic[key]/*.GetComponent<AbsPopupView>()*/.ShowPopup();
     }
     #endregion
+    
+    
+    
+    public T GetPopupShow<T>() where T : AbsPopupView {
+        for (int i = 0; i < ListPopupShow.Count; i++)
+        {
+            if (ListPopupShow[i].GetType() == typeof(T))
+            {
+                return (T)ListPopupShow[i];
+            }
+        }
+
+        return null;
+    }
+    public bool GetPopupShow<T>(out AbsPopupView popup) where T : AbsPopupView
+    {
+        if (IsShowPopup<T>())
+        {
+            popup = GetPopupShow<T>();
+            return true;
+        }
+
+        popup = null;
+        return false;
+    }
+    public bool IsShowPopup<T>() where T : AbsPopupView
+    {
+        for (int i = 0; i < ListPopupShow.Count; i++)
+        {
+            if (ListPopupShow[i].GetType() == typeof(T))
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
 
 }
 public enum PanelKey

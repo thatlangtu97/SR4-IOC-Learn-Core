@@ -8,7 +8,6 @@ public class ShowPopupGachaCmd : AbsShowPopupCmd
     [Inject] public DataGachaOpened dataGachaOpened { get; set; }
     public override void Execute()
     {
-        popupKey = PopupKey.GachaPopup;
         PopupGachaView popupGachaView = GetInstance<PopupGachaView>();
         popupGachaView.dataGachaOpened = dataGachaOpened;
         popupGachaView.ShowPopupByCmd();

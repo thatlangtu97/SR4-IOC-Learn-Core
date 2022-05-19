@@ -7,7 +7,6 @@ public class ShowPopupStaminaCmd : AbsShowPopupCmd
 {
     public override void Execute()
     {
-        popupKey = PopupKey.StaminaPopup;
         PopupStaminaView popupStaminaView = GetInstance<PopupStaminaView>();
         popupStaminaView.ShowPopupByCmd();
     }

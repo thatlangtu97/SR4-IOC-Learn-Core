@@ -10,7 +10,7 @@ public class InitHomeSceneCmd : Command
 
     public override void Execute()
     {
-	    popupManager.sceneKey = SceneKey.Home;
+	    popupManager.sceneKey = SceneKey.Home.ToString();
         //	popupManager.listActionDelay.Add(GameResourcePath.PANEL_HERO, delayPlayAction(
         //		() =>
         //		{
@@ -79,25 +79,24 @@ public class InitHomeSceneCmd : Command
 		GameObject spawned = null;
 		PanelKey panelKey = o.GetComponent<AbsPanelView>().panelKey;
 		UILayer uILayer = o.GetComponent<AbsPanelView>().uILayer;
-		
-		if (!popupManager.CheckContainPanel(panelKey))
+		AbsPanelView typePanel = o.GetComponent<AbsPanelView>();
+		if (!popupManager.CheckContainPanel(typePanel.GetType().ToString()))
 		{
 			spawned = GameObject.Instantiate(o/*, popupManager.GetUILayer(uiLayer)*/) as GameObject;
 			
-			popupManager.AddPanel(panelKey, spawned);
+			popupManager.AddPanel(spawned.GetComponent<AbsPanelView>());
 
 		}
 		else
 		{
-			if (popupManager.GetPanelByPanelKey(panelKey) == null)
+			if (popupManager.GetPanelByPanelKey(typePanel.GetType().ToString()) == null)
 			{
 				spawned = GameObject.Instantiate(o) as GameObject;
-				popupManager.AddPanel(panelKey, spawned);
+				popupManager.AddPanel(spawned.GetComponent<AbsPanelView>());
 			}
 			else
 			{
-				spawned = popupManager.GetPanelByPanelKey(panelKey);
-
+				spawned = popupManager.GetPanelByPanelKey(typePanel.GetType().ToString()).gameObject;
 			}
 		}
 		spawned.transform.parent = popupManager.GetUILayer(uILayer);

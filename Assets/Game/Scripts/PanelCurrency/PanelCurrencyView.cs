@@ -19,12 +19,12 @@ public class PanelCurrencyView : View
         if (ShopGoldBtn != null)
         {
             ShopGoldBtn.onClick.AddListener(() => { showPanelShopSignal.Dispatch(); });
-            ShopGoldBtn.onClick.AddListener(() => { ShowShop(PopupKey.ShopGoldPopup, PanelKey.PanelShop); });
+            //ShopGoldBtn.onClick.AddListener(() => { ShowShop(PopupKey.ShopGoldPopup, PanelKey.PanelShop); });
         }
         if (ShopGemBtn != null)
         {
             ShopGemBtn.onClick.AddListener(() => { showPanelShopSignal.Dispatch(); });
-            ShopGemBtn.onClick.AddListener(() => { ShowShop(PopupKey.ShopGemPopup, PanelKey.PanelShop); });
+            //ShopGemBtn.onClick.AddListener(() => { ShowShop(PopupKey.ShopGemPopup, PanelKey.PanelShop); });
         }
         
         ////
@@ -43,22 +43,22 @@ public class PanelCurrencyView : View
 
     }
 
-    void ShowShop(PopupKey keyPopup , PanelKey panelKey)
-    {
-        popupManager.popupKey = keyPopup;
-        popupManager.ShowPanel(panelKey);
-    }
+//    void ShowShop(PopupKey keyPopup , PanelKey panelKey)
+//    {
+//        popupManager.popupKey = keyPopup;
+//        popupManager.ShowPanel(panelKey);
+//    }
 
     public void ShowShopGem()
     {
         showPanelShopSignal.Dispatch();
-        ShowShop(PopupKey.ShopGemPopup, PanelKey.PanelShop);
+        //ShowShop(PopupKey.ShopGemPopup, PanelKey.PanelShop);
     }
     
     public void ShowShopGold()
     {
         showPanelShopSignal.Dispatch();
-        ShowShop(PopupKey.ShopGoldPopup, PanelKey.PanelShop);
+        //ShowShop(PopupKey.ShopGoldPopup, PanelKey.PanelShop);
     }
     
     public void ShowPopupStamina()

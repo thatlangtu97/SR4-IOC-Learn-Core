@@ -10,7 +10,6 @@ public class ShowTooltipPopupCmd : AbsShowPopupCmd
     public override void Execute()
     {
         base.Execute();
-        popupKey = PopupKey.TooltipPopup;
         ToolTipPopup toolTipPopup = GetInstance<ToolTipPopup>();
         toolTipPopup.SetParameter(Parameter);
         toolTipPopup.ShowPopupByCmd();

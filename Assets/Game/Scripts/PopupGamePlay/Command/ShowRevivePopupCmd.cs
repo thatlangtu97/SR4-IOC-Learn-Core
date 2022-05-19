@@ -7,7 +7,6 @@ public class ShowRevivePopupCmd : AbsShowPopupCmd
     public override void Execute()
     {
         base.Execute();
-        popupKey = PopupKey.RevivePopup;
         RevivePopup revivePopup = GetInstance<RevivePopup>();
 
         revivePopup.ShowPopupByCmd();

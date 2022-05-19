@@ -11,7 +11,6 @@ public class ShowPopupRewardCmd : AbsShowPopupCmd
 
     public override void Execute()
     {
-        popupKey = PopupKey.RewardPopup;
         PopupRewardView popupReward = GetInstance<PopupRewardView>();
         popupReward.SetParameter(new ShowPopupRewardParameter(listRewardLogics));
         popupReward.ShowPopupByCmd();

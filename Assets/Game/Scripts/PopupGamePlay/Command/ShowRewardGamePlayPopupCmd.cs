@@ -7,7 +7,6 @@ public class ShowRewardGamePlayPopupCmd : AbsShowPopupCmd
     public override void Execute()
     {
         base.Execute();
-        popupKey = PopupKey.RewardGameplayPopup;
         RewardGameplayPopup popup = GetInstance<RewardGameplayPopup>();
         popup.ShowPopupByCmd();
     }

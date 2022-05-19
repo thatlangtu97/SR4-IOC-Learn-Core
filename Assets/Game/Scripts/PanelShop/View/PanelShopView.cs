@@ -21,7 +21,7 @@ public class PanelShopView : AbsPanelView
     {
         base.Start();
         Setup();
-        ShowPopupShop(popupManager.popupKey);
+        //ShowPopupShop(popupManager.popupKey);
 
     }
     public void Setup()
@@ -35,18 +35,18 @@ public class PanelShopView : AbsPanelView
     public override void ShowPanelByCmd()
     {
         base.ShowPanelByCmd();
-        ShowPopupShop(popupManager.popupKey);
+        //ShowPopupShop(popupManager.popupKey);
     }
     public override void ShowPanel()
     {
         base.ShowPanel();
-        ShowPopupShop(popupManager.popupKey);
+        //ShowPopupShop(popupManager.popupKey);
     }
     protected override void OnEnable()
     {
         base.CopyStart();
         base.OnEnable();
-        ShowPopupShop(popupManager.popupKey);
+        //ShowPopupShop(popupManager.popupKey);
     }
     void ShowPopupShop(PopupKey popupKey)
     {

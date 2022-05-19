@@ -1,4 +1,5 @@
-﻿using strange.extensions.command.impl;
+﻿using System.CodeDom;
+using strange.extensions.command.impl;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,19 +19,19 @@ public class FinishSetupHomeSceneCmd : Command
 
     public override void Execute()
     {
-        PanelKey panelKey = popupManager.GetPanelAfterLoadHomeScene();
+        string panelKey = popupManager.GetPanelAfterLoadHomeScene();
         switch (panelKey)
         {
-            case PanelKey.PanelHome:
+            case "PanelHomeView":
                 showPanelHomeSignal.Dispatch();
                 break;
-            case PanelKey.PanelHero:
+            case "PanelHeroView":
                 showPanelHeroSignal.Dispatch();
                 break;
-            case PanelKey.PanelCraft:
+            case "PanelCraftView":
                 showPanelCraftSignal.Dispatch();
                 break;
-            case PanelKey.PanelShop:
+            case "PanelShopView":
                 showPanelShopSignal.Dispatch();
                 break;
         }

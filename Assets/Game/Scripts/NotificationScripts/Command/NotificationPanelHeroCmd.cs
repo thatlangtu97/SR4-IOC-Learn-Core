@@ -8,7 +8,7 @@ public class NotificationPanelHeroCmd : Command
     [Inject] public PopupManager popupManager { get; set; }
     public override void Execute()
     {
-        PanelHeroView heroView = popupManager.GetPanelByPanelKey(PanelKey.PanelHero).GetComponent<PanelHeroView>();
+        PanelHeroView heroView = (PanelHeroView)popupManager.GetPanelByPanelKey(typeof(PanelHeroView).ToString());
         heroView.NotifyShowPanel();
     }
 }
