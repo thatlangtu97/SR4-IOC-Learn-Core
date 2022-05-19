@@ -15,4 +15,9 @@ public class ShowPanelHomeCmd : AbsShowPanelCmd
     {
         return GameResourcePath.PANEL_HOME;
     }
+
+    public override UILayer GetUiLayer()
+    {
+        return UILayer.UI1;
+    }
 }

@@ -18,19 +18,21 @@ public class HomeSceneContextView : ContextView
           EntryContextView.Instance.loadFlashScene = false;
 #endif
 
-        InitUI();
+        //InitUI();
     }
-    public void InitUI()
-    {
-        GameObject UI1 = Resources.Load<GameObject>(GameResourcePath.UI1);
-        GameObject UI2 = Resources.Load<GameObject>(GameResourcePath.UI2);
-        GameObject UI3 = Resources.Load<GameObject>(GameResourcePath.UI3);
-        GameObject UI4 = Resources.Load<GameObject>(GameResourcePath.UI4);
-        Instantiate(UI1);
-        Instantiate(UI2);
-        Instantiate(UI3);
-        Instantiate(UI4);
-    }
+//    public void InitUI()
+//    {
+//        GameObject UI1 = Resources.Load<GameObject>(GameResourcePath.UI1);
+//        GameObject UI2 = Resources.Load<GameObject>(GameResourcePath.UI2);
+//        GameObject UI3 = Resources.Load<GameObject>(GameResourcePath.UI3);
+//        GameObject UI4 = Resources.Load<GameObject>(GameResourcePath.UI4);
+//        UIBasePanel tempUI1 = Instantiate(UI1).GetComponent<UIBasePanel>();
+//        UIBasePanel tempUI2 = Instantiate(UI2).GetComponent<UIBasePanel>();
+//        UIBasePanel tempUI3 =Instantiate(UI3);.GetComponent<UIBasePanel>();
+//        UIBasePanel tempUI4 =Instantiate(UI4);.GetComponent<UIBasePanel>();
+//        
+//        Debug.Log("Init UI");
+//    }
 
     void Start()
     {

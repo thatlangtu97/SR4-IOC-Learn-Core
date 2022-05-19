@@ -40,16 +40,17 @@ public abstract class AbsShowPopupCmd : Command
 		GameObject o = PrefabUtils.LoadPrefab(GetResourcePath());
 		GameObject spawned = null;
 		AbsPopupView typePopup = o.GetComponent<AbsPopupView>();
+		Transform parent = popupManager.GetUILayer(GetUiLayer());
 		if (!popupManager.CheckContainPopup(typePopup))
 		{
-			spawned = GameObject.Instantiate(o) as GameObject;
-			popupManager.AddPopup(spawned.GetComponent<AbsPopupView>());
+			spawned = GameObject.Instantiate(o, parent) as GameObject;
+				popupManager.AddPopup(spawned.GetComponent<AbsPopupView>());
 		}
 		else
 		{
 			if (popupManager.GetPopupByPopupKey(typePopup) == null)
 			{
-				spawned = GameObject.Instantiate(o) as GameObject;
+				spawned = GameObject.Instantiate(o, parent) as GameObject;
 				popupManager.AddPopup(spawned.GetComponent<AbsPopupView>());
 			}
 			else
@@ -58,9 +59,13 @@ public abstract class AbsShowPopupCmd : Command
 
 			}
 		}
-
 		return spawned;
+		
 	}
 
+	public virtual UILayer GetUiLayer()
+	{
+		return UILayer.NODE;
+	}
 	public abstract string GetResourcePath();
 }

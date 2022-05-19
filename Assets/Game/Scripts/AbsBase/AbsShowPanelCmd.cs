@@ -41,9 +41,10 @@ public abstract class AbsShowPanelCmd : Command
 		GameObject spawned = null;
 		panelKey = o.GetComponent<AbsPanelView>().panelKey;
 		AbsPanelView typePanel = o.GetComponent<AbsPanelView>();
+		Transform parent = popupManager.GetUILayer(GetUiLayer());
 		if (!popupManager.CheckContainPanel(typePanel.GetType().ToString()))
         {
-			spawned = GameObject.Instantiate(o/*, popupManager.GetUILayer(uiLayer)*/) as GameObject;
+			spawned = GameObject.Instantiate(o, parent) as GameObject;
 
 			popupManager.AddPanel(spawned.GetComponent<AbsPanelView>());
 		}
@@ -51,18 +52,20 @@ public abstract class AbsShowPanelCmd : Command
         {
 			if (popupManager.GetPanelByPanelKey(typePanel.GetType().ToString()) == null)
             {
-				spawned = GameObject.Instantiate(o) as GameObject;
+				spawned = GameObject.Instantiate(o, parent) as GameObject;
 				popupManager.AddPanel(spawned.GetComponent<AbsPanelView>());
 			}
             else
             {
 				spawned = popupManager.GetPanelByPanelKey(typePanel.GetType().ToString()).gameObject;
-
-			}
+            }
         }
 		
 		return spawned;
 	}
-
+	public virtual UILayer GetUiLayer()
+	{
+		return UILayer.NODE;
+	}
 	public abstract string GetResourcePath();
 }

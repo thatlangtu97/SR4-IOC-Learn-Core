@@ -21,9 +21,9 @@ public abstract class AbsPanelView : View
 	protected override void Start()
 	{
 		base.Start();
-		transform.parent = popupManager.GetUILayer(uILayer);
-		autoFIllPanelInParent = GetComponent<AutoFIllPanelInParent>();
-		autoFIllPanelInParent.AutoFill();
+//		transform.parent = popupManager.GetUILayer(uILayer);
+//		autoFIllPanelInParent = GetComponent<AutoFIllPanelInParent>();
+//		autoFIllPanelInParent.AutoFill();
 	}
 	public virtual void ShowPanelByCmd() 
 	{

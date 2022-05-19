@@ -39,7 +39,6 @@ public class PanelHomeView : AbsPanelView
 
     protected override void OnShowPopup<T>(T parameter)
     {
-        throw new NotImplementedException();
     }
 
     public void ShowPanelHero()

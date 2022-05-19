@@ -21,12 +21,12 @@ public abstract class AbsPopupView : View
 	protected override void Start()
 	{
 		base.Start();
-		if (uILayer != UILayer.NODE)
-		{
-			transform.parent = popupManager.GetUILayer(uILayer);
-			autoFIllPanelInParent = GetComponent<AutoFIllPanelInParent>();
-			autoFIllPanelInParent.AutoFill();
-		}
+//		if (uILayer != UILayer.NODE)
+//		{
+//			transform.parent = popupManager.GetUILayer(uILayer);
+//			autoFIllPanelInParent = GetComponent<AutoFIllPanelInParent>();
+//			autoFIllPanelInParent.AutoFill();
+//		}
 	}
 	public virtual void ShowPopupByCmd()
 	{

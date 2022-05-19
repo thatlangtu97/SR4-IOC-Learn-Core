@@ -16,4 +16,9 @@ public class ShowPanelHeroCmd : AbsShowPanelCmd
     {
         return GameResourcePath.PANEL_HERO;
     }
+
+    public override UILayer GetUiLayer()
+    {
+        return UILayer.UI2;
+    }
 }
