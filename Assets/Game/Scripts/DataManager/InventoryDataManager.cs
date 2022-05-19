@@ -47,51 +47,7 @@ public class InventoryDataManager : IObjectDataManager
         PlayerPrefs.Save();
         return returnValue;
     }
-    //public void AddEquipments(List<int> idConfigs, List<Rarity> raritys,List<GearSlot> gearSlots,List<int> idOfHeros)
-    //{
-    //    for (int i=0;i< idConfigs.Count; i++)
-    //    {
-    //        EquipmentData newEquipment = new EquipmentData();
-    //        newEquipment.id = GenerateIdentityEquipment();
-    //        newEquipment.idConfig = idConfigs[i];
-    //        newEquipment.gearSlot = gearSlots[i];
-    //        newEquipment.rarity = raritys[i];
-    //        newEquipment.level = 1;
-    //        newEquipment.idOfHero = idOfHeros[i];
-    //        if (inventoryData.EquipmentDicBySlot.ContainsKey(gearSlots[i]))
-    //        {
-    //            inventoryData.EquipmentDicBySlot[gearSlots[i]].Add(newEquipment);
-    //        }
-    //        else
-    //        {
-    //            List<EquipmentData> tempList = new List<EquipmentData>();
-    //            tempList.Add(newEquipment);
-    //            inventoryData.EquipmentDicBySlot.Add(gearSlots[i], tempList);
-    //        }
-    //    }
-    //    SaveData();
-    //}
-    //public void AddEquipment(int idConfig,Rarity rarity,GearSlot gearSlot,int idOfHero)
-    //{
-    //    EquipmentData newEquipment = new EquipmentData();
-    //    newEquipment.id = GenerateIdentityEquipment();
-    //    newEquipment.idConfig = idConfig;
-    //    newEquipment.gearSlot = gearSlot;
-    //    newEquipment.rarity = rarity;
-    //    newEquipment.level = 1;
-    //    newEquipment.idOfHero = idOfHero;
-    //    if (inventoryData.EquipmentDicBySlot.ContainsKey(gearSlot))
-    //    {
-    //        inventoryData.EquipmentDicBySlot[gearSlot].Add(newEquipment);
-    //    }
-    //    else
-    //    {
-    //        List<EquipmentData> tempList = new List<EquipmentData>();
-    //        tempList.Add(newEquipment);
-    //        inventoryData.EquipmentDicBySlot.Add(gearSlot, tempList);
-    //    }
-    //    SaveData();
-    //}
+    
     public List<EquipmentData> GetAllEquipmentBySlot(GearSlot gearSlot)
     {
         if (inventoryData.EquipmentDicBySlot.ContainsKey(gearSlot))
@@ -113,19 +69,6 @@ public class InventoryDataManager : IObjectDataManager
             }
         }
     }
-    //public void CraftItem(GearSlot gearSlot, int idItem)
-    //{
-    //    List<EquipmentData> tempList = inventoryData.EquipmentDicBySlot[gearSlot];
-    //    foreach(EquipmentData equipmentData in tempList)
-    //    {
-    //        if(equipmentData.id == idItem)
-    //        {
-    //            equipmentData.rarity = (Rarity)Mathf.Clamp( (int)equipmentData.rarity + 1,(int)Rarity.common,(int)Rarity.heroic);
-    //            SaveData();
-    //            return;
-    //        }
-    //    }
-    //}
     public void RemoveItem(EquipmentData equipmentData)
     {
         List<EquipmentData> tempList = inventoryData.EquipmentDicBySlot[equipmentData.gearSlot];
@@ -170,25 +113,13 @@ public class InventoryDataManager : IObjectDataManager
         
         
     }
-    //public void RemoveItem(GearSlot gearSlot, int idItem)
-    //{
-    //    List<EquipmentData> tempList = inventoryData.EquipmentDicBySlot[gearSlot];
-    //    foreach (EquipmentData equipmentData in tempList)
-    //    {
-    //        if (equipmentData.id == idItem)
-    //        {
-    //            inventoryData.EquipmentDicBySlot[gearSlot].Remove(equipmentData);
-    //            SaveData();
-    //            return;
-    //        }
-    //    }
-    //}
     public void AddItems(List<EquipmentData> equipmentDatas)
     {
         for (int i = 0; i < equipmentDatas.Count; i++)
         {
             EquipmentData newEquipment = equipmentDatas[i];
             newEquipment.id = GenerateIdentityEquipment();
+            newEquipment.isNewItem = true;
             if (inventoryData.EquipmentDicBySlot.ContainsKey(newEquipment.gearSlot))
             {
                 inventoryData.EquipmentDicBySlot[newEquipment.gearSlot].Add(newEquipment);
@@ -205,6 +136,7 @@ public class InventoryDataManager : IObjectDataManager
     public void AddItem(EquipmentData equipmentData)
     {
         equipmentData.id = GenerateIdentityEquipment();
+        equipmentData.isNewItem = true;
         if (inventoryData.EquipmentDicBySlot.ContainsKey(equipmentData.gearSlot))
         {
             inventoryData.EquipmentDicBySlot[equipmentData.gearSlot].Add(equipmentData);
@@ -223,6 +155,12 @@ public class InventoryDataManager : IObjectDataManager
         equipmentData.level += 1;
         SaveData();
     }
+
+    public void SetOldItem(EquipmentData equipmentData)
+    {
+        equipmentData.isNewItem = false;
+        SaveData();
+    }
 }
 [Serializable]
 public class InventoryData : DataObject
@@ -239,6 +177,7 @@ public class EquipmentData
     public Rarity rarity;
     public int level;
     public StatData mainStatData;
+    public bool isNewItem;
 }
 [Serializable]
 public class StatData

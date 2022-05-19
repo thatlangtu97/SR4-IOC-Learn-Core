@@ -13,11 +13,12 @@ public class EquipmentItemView : View
     public Image icon;
     public Image boderRarity;
     public Image backgroundRarity;
+    public GameObject notice;
     public Text level;
     public Button btnClick;
     public Action onClickAction;
     public EquipmentData data;
-    public EquipmentConfig config;
+    //public EquipmentConfig config;
     
     protected override void Awake()
     {
@@ -29,17 +30,29 @@ public class EquipmentItemView : View
     {
         base.CopyStart();
         this.data = data;
-        this.config = config;
+        //this.config = config;
         icon.sprite = config.GearIcon;
         boderRarity.color = EquipmentLogic.GetColorByRarity(data.rarity);
         if(level!=null) level.text = $"Lv.{data.level}";
         backgroundRarity.sprite = EquipmentLogic.GetBackGroundByRarity(data.rarity);
+        if (notice)
+        {
+            if (data.isNewItem == true)
+            {
+                notice.SetActive(true);
+            }
+            else
+            {
+                notice.SetActive(false);
+            }
+        }
+
     }
     public void ShowDetail(int valuePopup)
     {
         ParameterEquipmentDetail temp = new ParameterEquipmentDetail();
         temp.equipmentData = data;
-        temp.equipmentConfig = config;
+        //temp.equipmentConfig = config;
         temp.popupkey = (PopupKey)valuePopup;
         showEquipmentDetailSignal.Dispatch(temp);
     }
@@ -62,6 +75,6 @@ public class EquipmentItemView : View
 public class ParameterEquipmentDetail
 {
     public EquipmentData equipmentData;
-    public EquipmentConfig equipmentConfig;
+    //public EquipmentConfig equipmentConfig;
     public PopupKey popupkey;
 }
