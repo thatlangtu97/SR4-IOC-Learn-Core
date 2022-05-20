@@ -9,6 +9,6 @@ public class NotificationPanelHeroCmd : Command
     public override void Execute()
     {
         PanelHeroView heroView = (PanelHeroView)popupManager.GetPanelByPanelKey(typeof(PanelHeroView).ToString());
-        heroView.NotifyShowPanel();
+//        heroView.NotifyShowPanel();
     }
 }

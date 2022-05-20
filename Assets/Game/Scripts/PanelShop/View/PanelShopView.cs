@@ -5,47 +5,50 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PanelShopView : AbsPanelView
+public class PanelShopView : AbsPopupView
 {
     public Button backBtn;
     public List<PopupShopType> ListPopup;
     public List<TabShopType> ListTab;
+    public List<GameObject> listTabGameObject;
+    
+    private ShopTabController tabController;
     protected override void Awake()
     {
         base.CopyStart();
         //Setup();
         //ShowPopupShop(popupManager.popupKey);
-
+        InitTab();
     }
     protected override void Start()
     {
         base.Start();
-        Setup();
+//        Setup();
         //ShowPopupShop(popupManager.popupKey);
 
     }
-    public void Setup()
-    {
-        backBtn.onClick.AddListener(() => popupManager.BackPanel());
-        foreach (TabShopType tab in ListTab)
-        {
-            tab.btn.onClick.AddListener(() => ShowPopupShop(tab.key));
-        }
-    }
-    public override void ShowPanelByCmd()
-    {
-        base.ShowPanelByCmd();
-        //ShowPopupShop(popupManager.popupKey);
-    }
-    public override void ShowPanel()
-    {
-        base.ShowPanel();
-        //ShowPopupShop(popupManager.popupKey);
-    }
+//    public void Setup()
+//    {
+//        backBtn.onClick.AddListener(() => popupManager.BackPanel());
+//        foreach (TabShopType tab in ListTab)
+//        {
+//            tab.btn.onClick.AddListener(() => ShowPopupShop(tab.key));
+//        }
+//    }
+//    public override void ShowPanelByCmd()
+//    {
+//        base.ShowPanelByCmd();
+//        //ShowPopupShop(popupManager.popupKey);
+//    }
+//    public override void ShowPanel()
+//    {
+//        base.ShowPanel();
+//        //ShowPopupShop(popupManager.popupKey);
+//    }
 
     protected override void OnShowPopup<T>(T parameter)
     {
-        throw new NotImplementedException();
+        ParameterPanelShop p = parameter as ParameterPanelShop;
     }
 
     protected override void OnEnable()
@@ -82,8 +85,31 @@ public class PanelShopView : AbsPanelView
             }
         }
     }
+    List<TabInitInfo<ShopTabType>> TabInitInfos() {
+        List<TabInitInfo<ShopTabType>> ret = new List<TabInitInfo<ShopTabType>>();
+        ret.Add(new TabInitInfo<ShopTabType>(ShopTabType.Gold, ClickTab));
+        ret.Add(new TabInitInfo<ShopTabType>(ShopTabType.Gem, ClickTab));
+        ret.Add(new TabInitInfo<ShopTabType>(ShopTabType.Gacha, ClickTab));
+        return ret;
+    }
+    void ClickTab(ShopTabType shopResourceTabType) {
+       
+        switch (shopResourceTabType) {
+            case ShopTabType.Gold:
 
+                break;
+            case ShopTabType.Gem:
 
+                break;
+            case ShopTabType.Gacha:
+                break;
+        }
+    }
+    void InitTab() {
+        tabController = new ShopTabController(listTabGameObject,TabInitInfos());
+    }
+    
+    
 
     [System.Serializable]
     public class PopupShopType

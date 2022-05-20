@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShowPanelCraftCmd : AbsShowPanelCmd
+public class ShowPanelCraftCmd : AbsShowPopupCmd
 {
     public override void Execute()
     {
         PanelCraftView panelCraftView = GetInstance<PanelCraftView>();
-        panelCraftView.ShowPanelByCmd();
+//        panelCraftView.ShowPanelByCmd();
         panelCraftView.ShowPopup(new ParameterPopup());
     }
     //public override string GetInjectName()

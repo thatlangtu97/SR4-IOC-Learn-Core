@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShowPanelHomeCmd : AbsShowPanelCmd
+public class ShowPanelHomeCmd : AbsShowPopupCmd
 {
     [Inject] public ParameterPanelHome ParameterPanelHome { get; set; }
 

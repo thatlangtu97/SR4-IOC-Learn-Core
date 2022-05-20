@@ -25426,7 +25426,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &5019252354123720247
 RectTransform:
   m_ObjectHideFlags: 0
@@ -25469,7 +25469,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uILayer: 0
-  panelKey: 0
+  popupKey: 0
   UiViewController: {fileID: 4530232120708026512}
   StaminaBtn: {fileID: 1253708036}
   ShopBtn: {fileID: 5019252353761924614}

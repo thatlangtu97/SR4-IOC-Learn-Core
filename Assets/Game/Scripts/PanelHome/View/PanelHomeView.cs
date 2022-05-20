@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class PanelHomeView : AbsPanelView
+public class PanelHomeView : AbsPopupView
 {
     [Inject] public ShowPopupStaminaSignal showPopupStaminaSignal { get; set; }
     [Inject] public ShowPanelHeroSignal showPanelHeroSignal { get; set; }
@@ -31,11 +31,11 @@ public class PanelHomeView : AbsPanelView
 
     }
 
-    public override void ShowPanelByCmd()
-    {
-        base.ShowPanelByCmd();
-        popupManager.SetFirstSelect(ShopBtn.gameObject);
-    }
+//    public override void ShowPanelByCmd()
+//    {
+//        base.ShowPanelByCmd();
+//        popupManager.SetFirstSelect(ShopBtn.gameObject);
+//    }
 
     protected override void OnShowPopup<T>(T parameter)
     {

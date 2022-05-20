@@ -16,4 +16,9 @@ public class ShowPanelShopCmd : AbsShowPanelCmd
     {
         return GameResourcePath.PANEL_SHOP;
     }
+
+    public override UILayer GetUiLayer()
+    {
+        return UILayer.UI1;
+    }
 }

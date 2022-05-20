@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -16,7 +17,7 @@ public class PopupManager
     
     public Dictionary<string, List<string>> backPanelData = new Dictionary<string, List<string>>();
     public Dictionary<UILayer, Transform> UIDic = new Dictionary<UILayer, Transform>();
-    public Dictionary<string, AbsPanelView> PanelDic = new Dictionary<string, AbsPanelView>();
+    public Dictionary<string, AbsPopupView> PanelDic = new Dictionary<string, AbsPopupView>();
     public Dictionary<string, AbsPopupView> PopupDic = new Dictionary<string, AbsPopupView>();
 
     public Dictionary<string, IEnumerator> listActionDelay = new Dictionary<string, IEnumerator>();
@@ -26,10 +27,30 @@ public class PopupManager
     [Inject] public ShowPanelHeroSignal showPanelHeroSignal { get; set; }
     [Inject] public ShowPanelHomeSignal showPanelHomeSignal { get; set; }
     [Inject] public ShowPanelShopSignal showPanelShopSignal { get; set; }
+    
+    
+    // 
+    public List<Type> fullScreenPopup= new List<Type>();
+    private List<AbsPopupView> listPopupShow = new List<AbsPopupView>();
+    private Type curPopup = null;
+    
+    
     public PopupManager()
     {
     }
 
+    void SetupFullScreen()
+    {
+        fullScreenPopup.Add(typeof(PanelHomeView));
+        fullScreenPopup.Add(typeof(PanelHeroView));
+        fullScreenPopup.Add(typeof(PanelShopView));
+        fullScreenPopup.Add(typeof(PanelCraftView));
+    }
+    
+    
+    
+    
+    
     public void SetFirstSelect(GameObject gameObjectFirst)
     {
         if (eventSystem)
@@ -73,7 +94,7 @@ public class PopupManager
         }
         return false;
     }
-    public AbsPanelView GetPanelByPanelKey(string key)
+    public AbsPopupView GetPanelByPanelKey(string key)
     {
         if (PanelDic.ContainsKey(key))
         {
@@ -82,7 +103,7 @@ public class PopupManager
         
         return null;
     }
-    public void AddPanel(AbsPanelView panel)
+    public void AddPanel(AbsPopupView panel)
     {
         string key = panel.GetType().ToString();
         if (PanelDic.ContainsKey(key))
@@ -103,12 +124,7 @@ public class PopupManager
             backPanelData[sceneKey].Add(key);
         }
     }
-//    public void SetPanelAfterLoadHomeScene(PanelKey key , PopupKey popupkey)
-//    {
-//        panelKey = key;
-//        popupKey = popupkey;
-//        BasePabelKey = PanelKey.PanelHome;
-//    }
+
     
     public void ResetPanelAfterLoadHomeScene()
     {
@@ -134,7 +150,7 @@ public class PopupManager
             if (temp != key)
             {
                 if(PanelDic[temp]!=null)
-                    PanelDic[temp].HidePanel();
+                    PanelDic[temp].HidePopup();
             }
 //            else
 //            {
@@ -142,7 +158,8 @@ public class PopupManager
 //                    PanelDic[temp].ShowPanel();
 //            }
         }
-        PanelDic[key].ShowPanel();
+//
+//        PanelDic[key].ShowPopup();
     }
     public void BackPanel()
     {
@@ -192,7 +209,13 @@ public class PopupManager
     #region POPUP
     public bool CheckContainPopup(AbsPopupView popup)
     {
-        if (PopupDic.ContainsKey(popup.GetType().ToString()))
+        string key = popup.GetType().ToString();
+        if (PopupDic.ContainsKey(key))
+        {
+            return true;
+        }
+
+        if (PanelDic.ContainsKey(key))
         {
             return true;
         }
@@ -201,6 +224,10 @@ public class PopupManager
     public AbsPopupView GetPopupByPopupKey(AbsPopupView popup)
     {
         string key = popup.GetType().ToString();
+        if (PanelDic.ContainsKey(key))
+        {
+            return PanelDic[key];
+        }
         if (PopupDic.ContainsKey(key))
         {
             return PopupDic[key];
@@ -224,13 +251,50 @@ public class PopupManager
     {
         //popupKey = PopupKey.Node;
     }
-    public void ShowPopup(AbsPopupView popup)
+//    public void ShowPopup(AbsPopupView popup)
+//    {
+//        string key = popup.GetType().ToString();
+//        if (!PopupDic.ContainsKey(key))
+//            return;
+//        if (PopupDic[key] != null)
+//            PopupDic[key]/*.GetComponent<AbsPopupView>()*/.ShowPopup();
+//    }
+    public void ShowPopup(AbsPopupView absPopup,bool addToListShow=true)
     {
-        string key = popup.GetType().ToString();
-        if (!PopupDic.ContainsKey(key))
-            return;
-        if (PopupDic[key] != null)
-            PopupDic[key]/*.GetComponent<AbsPopupView>()*/.ShowPopup();
+        if (fullScreenPopup.Contains(absPopup.GetType()))
+        {
+//            string key = absPopup.GetType().ToString();
+//            if (!listTypeHasSetup.Contains(absPopup.GetType()))
+//            {
+//                SetupBackForPopup(absPopup);
+//            }
+//            if (backData.ContainsKey(key))
+//            {
+//                currentBackData.Add(absPopup.GetType(), key);
+//            }
+
+            curPopup = absPopup.GetType();
+            
+            string key = absPopup.GetType().ToString();
+            foreach (string temp in PanelDic.Keys)
+            {
+                if (temp != key)
+                {
+                    if(PanelDic[temp]!=null)
+                        PanelDic[temp].HidePopup();
+                }
+            }
+    
+            for (int i = PopupDic.Count - 1; i >= 0; i--)
+            {
+                if (listPopupShow[i] != null)
+                    listPopupShow[i].HidePopup();
+            }
+
+            listPopupShow.Clear();
+        }
+        if (addToListShow)
+            listPopupShow.Add(absPopup);
     }
     #endregion
     

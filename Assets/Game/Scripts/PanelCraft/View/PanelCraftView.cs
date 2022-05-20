@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PanelCraftView : AbsPanelView
+public class PanelCraftView : AbsPopupView
 {
     public Button backBtn;
     public GameObject EquipmentDetailLeft, EquipmentDetailFight;
@@ -17,9 +17,9 @@ public class PanelCraftView : AbsPanelView
 //        popupManager.AddPopup(PopupKey.EquipmentCraftDetailLeft, PopupEquipmentDetailLeft);
 //        popupManager.AddPopup(PopupKey.EquipmentCraftDetailRight, PopupEquipmentDetailFight);
     }
-    public override void NotifyShowPanel()
+    public void NotifyShowPopup()
     {
-        base.NotifyShowPanel();
+        base.NotifyShowPopup();
         craftEquipmentView.Show();
         inventoryView.ReloadPage();
     }
@@ -29,13 +29,13 @@ public class PanelCraftView : AbsPanelView
         throw new System.NotImplementedException();
     }
 
-    public override void ShowPanelByCmd()
-    {
-        EquipmentLogic.RemoveAllEquipmentToCraft();
-        base.ShowPanelByCmd();
-        
-        //craftEquipmentView.Show();
-        //inventoryView.ReloadPage();
-        
-    }
+//    public override void ShowPanelByCmd()
+//    {
+//        EquipmentLogic.RemoveAllEquipmentToCraft();
+//        base.ShowPanelByCmd();
+//        
+//        //craftEquipmentView.Show();
+//        //inventoryView.ReloadPage();
+//        
+//    }
 }

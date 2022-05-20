@@ -42163,7 +42163,6 @@ GameObject:
   - component: {fileID: 232784159562516395}
   - component: {fileID: 7720944449282682993}
   - component: {fileID: 7348512226883635556}
-  - component: {fileID: 8542216147822493131}
   m_Layer: 5
   m_Name: PopupShopGacha
   m_TagString: Untagged
@@ -43038,21 +43037,6 @@ MonoBehaviour:
   uiView: {fileID: 7720944449282682993}
   isStarted: 0
   DisableGameObjectWhenHidden: 1
---- !u!114 &8542216147822493131
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6178995030173466586}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92db0d176cb318643b1fddaff84b6bb4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  uILayer: 2
-  popupKey: 8
-  UiViewController: {fileID: 7348512226883635556}
 --- !u!1 &6178995030226203267
 GameObject:
   m_ObjectHideFlags: 0
@@ -70916,7 +70900,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uILayer: 0
-  panelKey: 3
+  popupKey: 0
   UiViewController: {fileID: 1818377097998349378}
   backBtn: {fileID: 1819582197813336347}
   ListPopup:
@@ -70936,6 +70920,10 @@ MonoBehaviour:
   - btn: {fileID: 6487548750277300991}
     text: {fileID: 9184201606576204798}
     key: 8
+  listTabGameObject:
+  - {fileID: 7891259304456467920}
+  - {fileID: 7352357111624088875}
+  - {fileID: 5605940675705972706}
 --- !u!223 &817647882811035269
 Canvas:
   m_ObjectHideFlags: 0
@@ -83020,7 +83008,6 @@ GameObject:
   - component: {fileID: 6270682867325380401}
   - component: {fileID: 770088091775459407}
   - component: {fileID: 7850707800154391718}
-  - component: {fileID: 5365304383882721392}
   m_Layer: 5
   m_Name: PopupShopGold
   m_TagString: Untagged
@@ -83093,7 +83080,7 @@ MonoBehaviour:
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 130871
 --- !u!225 &6270682867325380401
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -83895,21 +83882,6 @@ MonoBehaviour:
   uiView: {fileID: 770088091775459407}
   isStarted: 0
   DisableGameObjectWhenHidden: 1
---- !u!114 &5365304383882721392
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6178995032260006730}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92db0d176cb318643b1fddaff84b6bb4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  uILayer: 2
-  popupKey: 6
-  UiViewController: {fileID: 7850707800154391718}
 --- !u!1 &6178995032274871892
 GameObject:
   m_ObjectHideFlags: 0
@@ -93512,7 +93484,6 @@ GameObject:
   - component: {fileID: 8715050007741675924}
   - component: {fileID: 5589453430076488827}
   - component: {fileID: 2650414969465556683}
-  - component: {fileID: 746619271955532945}
   m_Layer: 5
   m_Name: PopupShopGem
   m_TagString: Untagged
@@ -94387,21 +94358,6 @@ MonoBehaviour:
   uiView: {fileID: 5589453430076488827}
   isStarted: 0
   DisableGameObjectWhenHidden: 1
---- !u!114 &746619271955532945
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8227878098314840481}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92db0d176cb318643b1fddaff84b6bb4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  uILayer: 2
-  popupKey: 7
-  UiViewController: {fileID: 2650414969465556683}
 --- !u!1 &8344156651207253681
 GameObject:
   m_ObjectHideFlags: 0

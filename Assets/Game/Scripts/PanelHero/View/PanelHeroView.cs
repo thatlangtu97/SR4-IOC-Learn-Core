@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PanelHeroView : AbsPanelView
+public class PanelHeroView : AbsPopupView
 {
     public Button backBtn;
     public GameObject EquipmentDetailLeft, EquipmentDetailFight;
@@ -18,25 +18,25 @@ public class PanelHeroView : AbsPanelView
 //        popupManager.AddPopup(PopupKey.EquipmentHeroDetailRight, PopupEquipmentDetailFight);
         
     }
-    public override void NotifyShowPanel()
-    {
-        base.NotifyShowPanel();
-        heroEquipmentView.Show();
-        inventoryView.ReloadPage();
-//        PopupEquipmentDetailLeft.HidePopup();
-//        PopupEquipmentDetailFight.HidePopup();
-    }
+//    public void NotifyShowPanel()
+//    {
+//        base.NotifyShowPanel();
+//        heroEquipmentView.Show();
+//        inventoryView.ReloadPage();
+////        PopupEquipmentDetailLeft.HidePopup();
+////        PopupEquipmentDetailFight.HidePopup();
+//    }
 
     protected override void OnShowPopup<T>(T parameter)
     {
         throw new System.NotImplementedException();
     }
 
-    public override void ShowPanelByCmd()
-    {
-        EquipmentLogic.RemoveAllEquipmentToCraft();
-        base.ShowPanelByCmd();
-        
-    }
+//    public override void ShowPanelByCmd()
+//    {
+//        EquipmentLogic.RemoveAllEquipmentToCraft();
+//        base.ShowPanelByCmd();
+//        
+//    }
 
 }
