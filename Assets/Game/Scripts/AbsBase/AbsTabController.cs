@@ -21,7 +21,10 @@ public class AbsTabController <T1, T2> where T2 : AbsTabView<T1> where T1 : stru
 //            TabViewCacheMonoBehaviour data = o.GetComponent<TabViewCacheMonoBehaviour>();
 //            absTab.MapValue(data);
             tabViews.Add(absTab);
-            tabViews[i].Init(tabInitInfos[i].Type, delegate(T1 obj) { OnSelect(obj); });
+            tabViews[i].Init(tabInitInfos[i].Type, delegate(T1 obj)
+            {
+                OnSelect(obj);
+            });
 
 //            tabViews[i].ShowHighlight(tabInitInfos[i].Type);
 //
@@ -66,5 +69,6 @@ public class AbsTabController <T1, T2> where T2 : AbsTabView<T1> where T1 : stru
                 tabInitInfo.GetCallBack.Invoke(type);
             }
         }
+        
     }
 }

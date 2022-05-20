@@ -19,6 +19,8 @@ public class PanelShopView : AbsPopupView
         //Setup();
         //ShowPopupShop(popupManager.popupKey);
         InitTab();
+        tabController.SetTabInit(ShopTabType.Gold);
+        tabController.Show();
     }
     protected override void Start()
     {
@@ -51,12 +53,12 @@ public class PanelShopView : AbsPopupView
         ParameterPanelShop p = parameter as ParameterPanelShop;
     }
 
-    protected override void OnEnable()
-    {
-        base.CopyStart();
-        base.OnEnable();
-        //ShowPopupShop(popupManager.popupKey);
-    }
+//    protected override void OnEnable()
+//    {
+//        base.CopyStart();
+//        base.OnEnable();
+//        //ShowPopupShop(popupManager.popupKey);
+//    }
     void ShowPopupShop(PopupKey popupKey)
     {
         foreach (PopupShopType popup in ListPopup)
