@@ -139,28 +139,7 @@ public class PopupManager
     {
         //panelKey = PanelKey.PanelHome;
     }
-
-    public void ShowPanel(AbsPanelView panel)
-    {
-        //panelKey = key;
-
-        string key = panel.GetType().ToString();
-        foreach (string temp in PanelDic.Keys)
-        {
-            if (temp != key)
-            {
-                if(PanelDic[temp]!=null)
-                    PanelDic[temp].HidePopup();
-            }
-//            else
-//            {
-//                if (PanelDic[temp] != null)
-//                    PanelDic[temp].ShowPanel();
-//            }
-        }
-//
-//        PanelDic[key].ShowPopup();
-    }
+    
     public void BackPanel()
     {
         //Disable popup
@@ -177,7 +156,7 @@ public class PopupManager
         }
         if (lastPopup != null)
         {
-            lastPopup.HidePopup();
+            lastPopup.Hide();
             return;
         }
         //disable Panel
@@ -189,7 +168,7 @@ public class PopupManager
                 {
                     if (PanelDic[temp].gameObject.activeInHierarchy == true)
                     {
-                        PanelDic[temp].GetComponent<AbsPanelView>().HidePanel();
+                        PanelDic[temp].GetComponent<AbsPopupView>().Hide();
                     }
                 }
             }
@@ -247,18 +226,6 @@ public class PopupManager
             PopupDic.Add(key, panel);
         }
     }
-    public void ResetPopup()
-    {
-        //popupKey = PopupKey.Node;
-    }
-//    public void ShowPopup(AbsPopupView popup)
-//    {
-//        string key = popup.GetType().ToString();
-//        if (!PopupDic.ContainsKey(key))
-//            return;
-//        if (PopupDic[key] != null)
-//            PopupDic[key]/*.GetComponent<AbsPopupView>()*/.ShowPopup();
-//    }
     public void ShowPopup(AbsPopupView absPopup,bool addToListShow=true)
     {
         if (fullScreenPopup.Contains(absPopup.GetType()))
@@ -281,14 +248,14 @@ public class PopupManager
                 if (temp != key)
                 {
                     if(PanelDic[temp]!=null)
-                        PanelDic[temp].HidePopup();
+                        PanelDic[temp].Hide();
                 }
             }
     
             for (int i = PopupDic.Count - 1; i >= 0; i--)
             {
                 if (listPopupShow[i] != null)
-                    listPopupShow[i].HidePopup();
+                    listPopupShow[i].Hide();
             }
 
             listPopupShow.Clear();

@@ -56,6 +56,7 @@ public class AbsTabController <T1, T2> where T2 : AbsTabView<T1> where T1 : stru
     {
         for (int i = 0; i < tabViews.Count; i++)
         {
+            
             tabViews[i].OnChangeTab(type);
         }
     }

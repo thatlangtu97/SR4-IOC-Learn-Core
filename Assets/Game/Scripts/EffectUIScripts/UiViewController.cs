@@ -72,7 +72,6 @@ public class UiViewController : MonoBehaviour
             action.Invoke();
         else
         {
-            Debug.Log("action bi null");
         }
     }
 }

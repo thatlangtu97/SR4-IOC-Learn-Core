@@ -37,6 +37,11 @@ public class PanelHomeView : AbsPopupView
 //        popupManager.SetFirstSelect(ShopBtn.gameObject);
 //    }
 
+    public override bool EnableBack()
+    {
+        throw new NotImplementedException();
+    }
+
     protected override void OnShowPopup<T>(T parameter)
     {
     }

@@ -25,47 +25,47 @@ public abstract class AbsPanelView : View
 //		autoFIllPanelInParent = GetComponent<AutoFIllPanelInParent>();
 //		autoFIllPanelInParent.AutoFill();
 	}
-	public virtual void ShowPanelByCmd() 
-	{
-		base.CopyStart();
-		//this.gameObject.SetActive(true);
-		//NotifyShowPanel();
-		popupManager.ShowPanel(this);
-		
-	}
-	public virtual void ShowPanel()
-    {
-		UiViewController.Show();
-	}
-	public void HidePanel()
-    {
-		UiViewController.Hide();
-	}
-
-	public virtual void NotifyShowPanel()
-	{
-		
-	}
-
-	public virtual void SetUpGamePad()
-	{
-		
-	}
-	
-	public virtual bool EnableBack()
-	{
-		return true;
-	}
-	public void ShowPopup<T>(T parameter) where T : ParameterPopup
-	{
-//		this.WaitUntilFinshRegister(delegate
-//		{
-//			OnBeforeShowPopup(parameter);
-		NotifyShowPanel();
-//			NGUITools.SetActiveSelf(this.gameObject,true);
-		OnShowPopup(parameter);
-		popupManager.ShowPanel(this);
-//		});
-	}
-	protected abstract void OnShowPopup<T>(T parameter) where T : ParameterPopup;
+//	public virtual void ShowPanelByCmd() 
+//	{
+//		base.CopyStart();
+//		//this.gameObject.SetActive(true);
+//		//NotifyShowPanel();
+//		popupManager.ShowPanel(this);
+//		
+//	}
+//	public virtual void ShowPanel()
+//    {
+//		UiViewController.Show();
+//	}
+//	public void HidePanel()
+//    {
+//		UiViewController.Hide();
+//	}
+//
+//	public virtual void NotifyShowPanel()
+//	{
+//		
+//	}
+//
+//	public virtual void SetUpGamePad()
+//	{
+//		
+//	}
+//	
+//	public virtual bool EnableBack()
+//	{
+//		return true;
+//	}
+//	public void ShowPopup<T>(T parameter) where T : ParameterPopup
+//	{
+////		this.WaitUntilFinshRegister(delegate
+////		{
+////			OnBeforeShowPopup(parameter);
+//		NotifyShowPanel();
+////			NGUITools.SetActiveSelf(this.gameObject,true);
+//		OnShowPopup(parameter);
+//		popupManager.ShowPanel(this);
+////		});
+//	}
+//	protected abstract void OnShowPopup<T>(T parameter) where T : ParameterPopup;
 }

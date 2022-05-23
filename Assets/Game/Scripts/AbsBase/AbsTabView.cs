@@ -10,7 +10,7 @@ public abstract class AbsTabView<T> : View where T : struct, IComparable, IForma
     public Image backGroundTab;
     public Text[] textTab;
     public T tabType;
-    public Action<T> onSelect = delegate (T inventoryType) { };
+    public Action<T> onSelect = delegate (T action) { };
     public bool isSelect = false;
     public void Init(T tabType, Action<T> onSelect) {
         this.tabType = tabType;
@@ -18,9 +18,8 @@ public abstract class AbsTabView<T> : View where T : struct, IComparable, IForma
         OnInit();
         GetComponent<Button>().onClick.AddListener(delegate
         {
-            //this.onSelect.Invoke(tabType);
             Debug.Log("Select Tab"+tabType);
-            OnChangeTab(tabType);
+            Select();
         } );
         textTab = GetComponentsInChildren<Text>();
     }
@@ -34,6 +33,9 @@ public abstract class AbsTabView<T> : View where T : struct, IComparable, IForma
             
         }
         onChange(isSelect);
+    }
+    protected virtual void Select() {
+        OnChangeTab(tabType);
     }
     protected abstract void OnMapValue();
     protected virtual void OnInit(){}

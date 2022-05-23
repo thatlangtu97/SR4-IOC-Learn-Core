@@ -19,9 +19,19 @@ public class PopupGachaView : AbsPopupView
     public Text RarityText;
     public Text costOpen1Text, costOpen10Text;
     public Animator animator;
-    public override void ShowPopupByCmd()
+//    public override void ShowPopupByCmd()
+//    {
+//        base.ShowPopupByCmd();
+//        
+//    }
+
+    public override bool EnableBack()
     {
-        base.ShowPopupByCmd();
+        return true;                                                                                                                                                                    
+    }
+
+    protected override void OnShowPopup<T>(T parameter)
+    {
         DataGachaRandom data = dataGachaOpened.datas[0];
         foreach(DataGachaRandom tempData in dataGachaOpened.datas)
         {
@@ -39,11 +49,6 @@ public class PopupGachaView : AbsPopupView
         RarityText.text = data.Rarity.ToString();
         RarityText.color = EquipmentLogic.GetColorByRarity(data.Rarity);
         animator.SetTrigger("Show");
-    }
-
-    protected override void OnShowPopup<T>(T parameter)
-    {
-        throw new NotImplementedException();
     }
 
     public void SetupValue()

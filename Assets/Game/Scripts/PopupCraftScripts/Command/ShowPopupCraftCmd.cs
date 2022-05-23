@@ -10,7 +10,6 @@ public class ShowPopupCraftCmd : AbsShowPopupCmd
     {
         ShowPopupCraftView showPopupCraftView = GetInstance<ShowPopupCraftView>();
         showPopupCraftView.equipmentData = equipmentData;
-        showPopupCraftView.ShowPopupByCmd();
         showPopupCraftView.ShowPopup(new ParameterPopup());
     }
 

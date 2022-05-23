@@ -12,7 +12,6 @@ public class ShowTooltipPopupCmd : AbsShowPopupCmd
         base.Execute();
         ToolTipPopup toolTipPopup = GetInstance<ToolTipPopup>();
         toolTipPopup.SetParameter(Parameter);
-        toolTipPopup.ShowPopupByCmd();
         toolTipPopup.ShowPopup(new ParameterPopup());
     }
 

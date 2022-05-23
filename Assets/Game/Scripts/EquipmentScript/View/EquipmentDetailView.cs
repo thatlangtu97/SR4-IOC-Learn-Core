@@ -53,26 +53,26 @@ public class EquipmentDetailView : AbsPopupView
     {
         equipGearSignal.Dispatch(equipmentData);
         NotificationPanelHeroSignal.Dispatch();
-        HidePopup();
+        Hide();
 
     }
     public void UnEquipGear()
     {
         unEquipGearSignal.Dispatch(equipmentData);
         NotificationPanelHeroSignal.Dispatch();
-        HidePopup();
+        Hide();
     }
     public void SelectGearCraft()
     {
         EquipmentLogic.AddEquipmentToCraft(equipmentData);
         NotificationPanelCraftSignal.Dispatch();
-        HidePopup();
+        Hide();
     }
     public void UnSelectGearCraft()
     {
         EquipmentLogic.RemoveEquipmentToCraft(equipmentData);
         NotificationPanelCraftSignal.Dispatch();
-        HidePopup();
+        Hide();
     }
 
     public void LevelUpGear()
@@ -89,13 +89,18 @@ public class EquipmentDetailView : AbsPopupView
     {
         if (datas.Contains(equipmentData))
         {
-            HidePopup();
+            Hide();
         }
     }
 
 
+    public override bool EnableBack()
+    {
+        return true;
+    }
+
     protected override void OnShowPopup<T>(T parameter)
     {
-        throw new System.NotImplementedException();
+        
     }
 }

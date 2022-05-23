@@ -18,30 +18,30 @@ public class ToolTipPopup : AbsPopupView
         GameObject prefab = PrefabUtils.LoadPrefab(GameResourcePath.ITEM_VIEW);
         itemView = Instantiate(prefab, itemViewContainer).GetComponent<ItemView>();
         itemView.transform.localPosition=Vector3.zero;
-        btnClose.onClick.AddListener(HidePopup);
+        btnClose.onClick.AddListener(Hide);
         parent.gameObject.SetActive(false);
     }
 
-    public override void ShowPopupByCmd()
+
+    public override bool EnableBack()
     {
-        ToolTipPopupParameter parameter = parameterPopup as ToolTipPopupParameter;
-        parent.gameObject.SetActive(false);
-        itemView.Show(parameter.rewardLogic);
-        ScreenSize =  transform.position;
-        SetupPositionFolowScreen(parameter.position);
-        base.ShowPopupByCmd();
-        
-        ActionBufferManager.Instance.ActionDelayFrame(()=>
-        {
-            parent.transform.position = parameter.position;
-            parent.gameObject.SetActive(true);
-        }
-        ,1);
+        throw new System.NotImplementedException();
     }
 
     protected override void OnShowPopup<T>(T parameter)
     {
-        throw new System.NotImplementedException();
+        ToolTipPopupParameter parameterPopup  = parameter as ToolTipPopupParameter;
+        parent.gameObject.SetActive(false);
+        itemView.Show(parameterPopup.rewardLogic);
+        ScreenSize =  transform.position;
+        SetupPositionFolowScreen(parameterPopup.position);
+
+        ActionBufferManager.Instance.ActionDelayFrame(()=>
+            {
+                parent.transform.position = parameterPopup.position;
+                parent.gameObject.SetActive(true);
+            }
+            ,1);
     }
 
     public void SetupPositionFolowScreen(Vector3 position)

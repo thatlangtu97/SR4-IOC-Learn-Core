@@ -48,6 +48,11 @@ public class PanelShopView : AbsPopupView
 //        //ShowPopupShop(popupManager.popupKey);
 //    }
 
+    public override bool EnableBack()
+    {
+        return true;
+    }
+
     protected override void OnShowPopup<T>(T parameter)
     {
         ParameterPanelShop p = parameter as ParameterPanelShop;
@@ -59,34 +64,34 @@ public class PanelShopView : AbsPopupView
 //        base.OnEnable();
 //        //ShowPopupShop(popupManager.popupKey);
 //    }
-    void ShowPopupShop(PopupKey popupKey)
-    {
-        foreach (PopupShopType popup in ListPopup)
-        {
-            if(popup.key == popupKey)
-            {
-                popup.Prefab.GetComponent<AbsPopupView>().ShowPopup();
-            }
-            else
-            {
-                if(popup.Prefab.activeInHierarchy)
-                    popup.Prefab.GetComponent<AbsPopupView>().HidePopup();
-            }
-        }
-        foreach (TabShopType tab in ListTab)
-        {
-            Color colorTemp = tab.text.color;
-            if (tab.key == popupKey)
-            {
-                
-                tab.text.color = new Vector4(colorTemp.r, colorTemp.g, colorTemp.b, 1f);
-            }
-            else
-            {
-                tab.text.color = new Vector4(colorTemp.r, colorTemp.g, colorTemp.b, 0.5f);
-            }
-        }
-    }
+//    void ShowPopupShop(PopupKey popupKey)
+//    {
+//        foreach (PopupShopType popup in ListPopup)
+//        {
+//            if(popup.key == popupKey)
+//            {
+//                popup.Prefab.GetComponent<AbsPopupView>().ShowPopup();
+//            }
+//            else
+//            {
+//                if(popup.Prefab.activeInHierarchy)
+//                    popup.Prefab.GetComponent<AbsPopupView>().HidePopup();
+//            }
+//        }
+//        foreach (TabShopType tab in ListTab)
+//        {
+//            Color colorTemp = tab.text.color;
+//            if (tab.key == popupKey)
+//            {
+//                
+//                tab.text.color = new Vector4(colorTemp.r, colorTemp.g, colorTemp.b, 1f);
+//            }
+//            else
+//            {
+//                tab.text.color = new Vector4(colorTemp.r, colorTemp.g, colorTemp.b, 0.5f);
+//            }
+//        }
+//    }
     List<TabInitInfo<ShopTabType>> TabInitInfos() {
         List<TabInitInfo<ShopTabType>> ret = new List<TabInitInfo<ShopTabType>>();
         ret.Add(new TabInitInfo<ShopTabType>(ShopTabType.Gold, ClickTab));
@@ -98,12 +103,13 @@ public class PanelShopView : AbsPopupView
        
         switch (shopResourceTabType) {
             case ShopTabType.Gold:
-
+                Debug.Log("vao tab gold");
                 break;
             case ShopTabType.Gem:
-
+                Debug.Log("vao tab gem");
                 break;
             case ShopTabType.Gacha:
+                Debug.Log("vao tab gacha");
                 break;
         }
     }

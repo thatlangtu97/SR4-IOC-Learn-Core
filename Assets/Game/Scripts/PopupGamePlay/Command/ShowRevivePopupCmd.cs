@@ -8,9 +8,7 @@ public class ShowRevivePopupCmd : AbsShowPopupCmd
     {
         base.Execute();
         RevivePopup revivePopup = GetInstance<RevivePopup>();
-
-        revivePopup.ShowPopupByCmd();
-        revivePopup.ShowPopup();
+        revivePopup.ShowPopup(new ParameterPopup());
     }
     public override string GetResourcePath()
     {

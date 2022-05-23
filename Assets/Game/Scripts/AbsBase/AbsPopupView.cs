@@ -7,8 +7,8 @@ public abstract class AbsPopupView : View
 {
 	[Inject]
 	public PopupManager popupManager { get; set; }
-	public UILayer uILayer;
-	public PopupKey popupKey;
+//	public UILayer uILayer;
+//	public PopupKey popupKey;
 	AutoFIllPanelInParent autoFIllPanelInParent;
 	public UiViewController UiViewController;
 	
@@ -28,17 +28,21 @@ public abstract class AbsPopupView : View
 //			autoFIllPanelInParent.AutoFill();
 //		}
 	}
-	public virtual void ShowPopupByCmd()
-	{
-		base.CopyStart();
-		NotifyShowPopup();
-		popupManager.ShowPopup(this);
-	}
-	public virtual void ShowPopup()
-	{
-		UiViewController.Show();
-	}
-	public void HidePopup()
+//	public virtual void ShowPopupByCmd()
+//	{
+//		base.CopyStart();
+//		NotifyShowPopup();
+//		popupManager.ShowPopup(this);
+//	}
+//	public virtual void ShowPopup()
+//	{
+//		UiViewController.Show();
+//	}
+//	public void HidePopup()
+//	{
+//		UiViewController.Hide();
+//	}
+	public void Hide()
 	{
 		UiViewController.Hide();
 	}
@@ -47,21 +51,14 @@ public abstract class AbsPopupView : View
 
 	}
 
-	public virtual bool EnableBack()
-	{
-		return true;
-	}
-	
+	public abstract bool EnableBack();
+
 	public void ShowPopup<T>(T parameter) where T : ParameterPopup
 	{
-//		this.WaitUntilFinshRegister(delegate
-//		{
-//			OnBeforeShowPopup(parameter);
-			NotifyShowPopup();
-//			NGUITools.SetActiveSelf(this.gameObject,true);
-			OnShowPopup(parameter);
-			popupManager.ShowPopup(this);
-//		});
+		NotifyShowPopup();
+		OnShowPopup(parameter);
+		popupManager.ShowPopup(this);
+		UiViewController.Show();
 	}
 	protected abstract void OnShowPopup<T>(T parameter) where T : ParameterPopup;
 }

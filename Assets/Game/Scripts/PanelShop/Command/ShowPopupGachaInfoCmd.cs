@@ -11,7 +11,6 @@ public class ShowPopupGachaInfoCmd : AbsShowPopupCmd
         base.Execute();
         PopupGachaInfoView popupGachaInfoView = GetInstance<PopupGachaInfoView>();
         popupGachaInfoView.gacha = gacha;
-        popupGachaInfoView.ShowPopupByCmd();
         popupGachaInfoView.ShowPopup(new ParameterPopup());
     }
     public override string GetResourcePath()

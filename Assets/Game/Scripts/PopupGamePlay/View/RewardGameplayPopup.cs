@@ -46,6 +46,11 @@ public class RewardGameplayPopup : AbsPopupView
         ActionBufferManager.Instance.ActionDelayFrame(action,1);
     }
 
+    public override bool EnableBack()
+    {
+        return true;
+    }
+
     protected override void OnShowPopup<T>(T parameter)
     {
         throw new NotImplementedException();

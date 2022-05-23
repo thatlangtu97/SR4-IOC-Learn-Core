@@ -24,6 +24,11 @@ public class PanelCraftView : AbsPopupView
         inventoryView.ReloadPage();
     }
 
+    public override bool EnableBack()
+    {
+        throw new System.NotImplementedException();
+    }
+
     protected override void OnShowPopup<T>(T parameter)
     {
         throw new System.NotImplementedException();

@@ -12,19 +12,18 @@ public class PopupRewardView : AbsPopupView
     {
         base.Awake();
         InitItemView();
+        btnClose.onClick.AddListener(Hide);
     }
 
-    public override void ShowPopupByCmd()
+    public override bool EnableBack()
     {
-        base.ShowPopupByCmd();
-        listReward = (parameterPopup as ShowPopupRewardParameter).listRewardLogics;
-        Show();
-        btnClose.onClick.AddListener(HidePopup);
+        return true;
     }
 
     protected override void OnShowPopup<T>(T parameter)
     {
-        throw new System.NotImplementedException();
+        listReward = (parameterPopup as ShowPopupRewardParameter).listRewardLogics;
+        Show();
     }
 
     public void InitItemView()

@@ -10,7 +10,6 @@ public class ShowPopupGachaCmd : AbsShowPopupCmd
     {
         PopupGachaView popupGachaView = GetInstance<PopupGachaView>();
         popupGachaView.dataGachaOpened = dataGachaOpened;
-        popupGachaView.ShowPopupByCmd();
         popupGachaView.ShowPopup(new ParameterPopupGacha());
     }
 

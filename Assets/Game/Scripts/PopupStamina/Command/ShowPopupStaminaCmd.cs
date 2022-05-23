@@ -8,8 +8,7 @@ public class ShowPopupStaminaCmd : AbsShowPopupCmd
     public override void Execute()
     {
         PopupStaminaView popupStaminaView = GetInstance<PopupStaminaView>();
-        popupStaminaView.ShowPopupByCmd();
-        popupStaminaView.ShowPopup();
+        popupStaminaView.ShowPopup(new ParameterPopup());
     }
 
     public override string GetResourcePath()

@@ -12,9 +12,14 @@ public class ShowPopupCraftView : AbsPopupView
     public Text EquipmentText;
     public Text RarityText;
     public Animator animator;
-    public override void ShowPopupByCmd()
+
+    public override bool EnableBack()
     {
-        base.ShowPopupByCmd();
+        throw new System.NotImplementedException();
+    }
+
+    protected override void OnShowPopup<T>(T parameter)
+    {
         if (equipmentData != null)
         {
             config = GachaLogic.getEquipmentConfig(equipmentData.gearSlot, equipmentData.idConfig, equipmentData.idOfHero);
@@ -26,10 +31,5 @@ public class ShowPopupCraftView : AbsPopupView
             RarityText.color = EquipmentLogic.GetColorByRarity(equipmentData.rarity);
             animator.SetTrigger("Show");
         }
-    }
-
-    protected override void OnShowPopup<T>(T parameter)
-    {
-        throw new System.NotImplementedException();
     }
 }

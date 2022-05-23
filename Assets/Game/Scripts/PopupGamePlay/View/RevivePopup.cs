@@ -11,13 +11,18 @@ public class RevivePopup : AbsPopupView
     {
         base.Awake();
         reviveBtn.onClick.AddListener(Revive);
-        closeBtn.onClick.AddListener(HidePopup);
+        closeBtn.onClick.AddListener(Hide);
     }
 
-    public override void ShowPopupByCmd()
+//    public override void ShowPopupByCmd()
+//    {
+//        base.ShowPopupByCmd();
+//        //this.gameObject.SetActive(true);
+//    }
+
+    public override bool EnableBack()
     {
-        base.ShowPopupByCmd();
-        //this.gameObject.SetActive(true);
+        return true;
     }
 
     protected override void OnShowPopup<T>(T parameter)
@@ -28,7 +33,7 @@ public class RevivePopup : AbsPopupView
     public void Revive()
     {
         Contexts.sharedInstance.game.playerFlagEntity.stateMachineContainer.value.OnInputRevive();
-        HidePopup();
+        Hide();
     }
     
 }
