@@ -12,6 +12,7 @@ public abstract class AbsTabView<T> : View where T : struct, IComparable, IForma
     public T tabType;
     public Action<T> onSelect = delegate (T action) { };
     public bool isSelect = false;
+    public bool isLock = false;
     public void Init(T tabType, Action<T> onSelect) {
         this.tabType = tabType;
         this.onSelect += onSelect;
@@ -36,6 +37,10 @@ public abstract class AbsTabView<T> : View where T : struct, IComparable, IForma
     }
     protected virtual void Select() {
         OnChangeTab(tabType);
+    }
+    public void Lock(bool isLock)
+    {
+        this.isLock = isLock;
     }
     protected abstract void OnMapValue();
     protected virtual void OnInit(){}

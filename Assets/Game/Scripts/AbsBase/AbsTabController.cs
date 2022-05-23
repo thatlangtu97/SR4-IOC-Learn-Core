@@ -25,7 +25,8 @@ public class AbsTabController <T1, T2> where T2 : AbsTabView<T1> where T1 : stru
             {
                 OnSelect(obj);
             });
-
+            tabViews[i].ShowHighlight(tabInitInfos[i].Type);
+            tabViews[i].Lock(tabInitInfos[i].IsLock);
 //            tabViews[i].ShowHighlight(tabInitInfos[i].Type);
 //
 //            tabViews[i].toggle.@group = ToogleGroup();
