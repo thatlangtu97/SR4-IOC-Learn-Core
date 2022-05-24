@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShowPanelShopCmd : AbsShowPanelCmd
+public class ShowPanelShopCmd : AbsShowPopupCmd
 {
     [Inject] public ParameterPanelShop ParameterPanelShop { get; set; }
 

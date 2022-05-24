@@ -11,6 +11,11 @@ public class ShowRewardGamePlayPopupCmd : AbsShowPopupCmd
         popup.ShowPopup(new ParameterPopup());
     }
 
+    public override UILayer GetUiLayer()
+    {
+        return UILayer.UI2;
+    }
+
     public override string GetResourcePath()
     {
         return GameResourcePath.POPUP_REWARD_GAMEPLAY;

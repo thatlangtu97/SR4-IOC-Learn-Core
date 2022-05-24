@@ -9,7 +9,7 @@ public class PanelShopView : AbsPopupView
 {
     public Button backBtn;
     public List<PopupShopType> ListPopup;
-    public List<TabShopType> ListTab;
+//    public List<TabShopType> ListTab;
     public List<GameObject> listTabGameObject;
     
     private ShopTabController tabController;
@@ -19,8 +19,7 @@ public class PanelShopView : AbsPopupView
         //Setup();
         //ShowPopupShop(popupManager.popupKey);
         InitTab();
-        tabController.SetTabInit(ShopTabType.Gold);
-        tabController.Show();
+
     }
     protected override void Start()
     {
@@ -56,6 +55,9 @@ public class PanelShopView : AbsPopupView
     protected override void OnShowPopup<T>(T parameter)
     {
         ParameterPanelShop p = parameter as ParameterPanelShop;
+        tabController.SetTabInit(p.shopTabType);
+        tabController.Show();
+        ClickTab(p.shopTabType);
     }
 
 //    protected override void OnEnable()
@@ -101,18 +103,31 @@ public class PanelShopView : AbsPopupView
     }
     void ClickTab(ShopTabType shopResourceTabType) {
        
-        switch (shopResourceTabType) {
-            case ShopTabType.Gold:
-                Debug.Log("vao tab gold");
-                break;
-            case ShopTabType.Gem:
-                Debug.Log("vao tab gem");
-                break;
-            case ShopTabType.Gacha:
-                Debug.Log("vao tab gacha");
-                break;
+//        switch (shopResourceTabType) {
+//            case ShopTabType.Gold:
+//                Debug.Log("vao tab gold");
+//                break;
+//            case ShopTabType.Gem:
+//                Debug.Log("vao tab gem");
+//                break;
+//            case ShopTabType.Gacha:
+//                Debug.Log("vao tab gacha");
+//                break;
+//        }
+
+        foreach (var VARIABLE in ListPopup)
+        {
+            if (VARIABLE.key == shopResourceTabType)
+            {
+                VARIABLE.Prefab.GetComponent<UiViewController>().Show();
+            }
+            else
+            {
+                VARIABLE.Prefab.GetComponent<UiViewController>().Hide();
+            }
         }
     }
+    
     void InitTab() {
         tabController = new ShopTabController(listTabGameObject,TabInitInfos());
     }
@@ -123,7 +138,7 @@ public class PanelShopView : AbsPopupView
     public class PopupShopType
     {
         public GameObject Prefab;
-        public PopupKey key;
+        public ShopTabType key;
     }
     [System.Serializable]
     public class TabShopType

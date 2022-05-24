@@ -70899,27 +70899,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7ba695669104de297cb82fc289bb23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uILayer: 0
-  popupKey: 0
   UiViewController: {fileID: 1818377097998349378}
   backBtn: {fileID: 1819582197813336347}
   ListPopup:
   - Prefab: {fileID: 6178995032260006730}
-    key: 6
+    key: 0
   - Prefab: {fileID: 8227878098314840481}
-    key: 7
+    key: 1
   - Prefab: {fileID: 6178995030173466586}
-    key: 8
-  ListTab:
-  - btn: {fileID: 4376230113638536716}
-    text: {fileID: 8993434989304410900}
-    key: 6
-  - btn: {fileID: 3493898968284288265}
-    text: {fileID: 7794258490357808927}
-    key: 7
-  - btn: {fileID: 6487548750277300991}
-    text: {fileID: 9184201606576204798}
-    key: 8
+    key: 2
   listTabGameObject:
   - {fileID: 7891259304456467920}
   - {fileID: 7352357111624088875}

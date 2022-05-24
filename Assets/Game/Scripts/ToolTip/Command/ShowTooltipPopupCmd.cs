@@ -15,6 +15,11 @@ public class ShowTooltipPopupCmd : AbsShowPopupCmd
         toolTipPopup.ShowPopup(new ParameterPopup());
     }
 
+    public override UILayer GetUiLayer()
+    {
+        return UILayer.UI4;
+    }
+
     public override string GetResourcePath()
     {
         return GameResourcePath.TOOLTIP_POPUP;

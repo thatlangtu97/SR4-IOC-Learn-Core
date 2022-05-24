@@ -13,6 +13,12 @@ public class ShowPopupGachaInfoCmd : AbsShowPopupCmd
         popupGachaInfoView.gacha = gacha;
         popupGachaInfoView.ShowPopup(new ParameterPopup());
     }
+
+    public override UILayer GetUiLayer()
+    {
+        return UILayer.UI3;
+    }
+
     public override string GetResourcePath()
     {
         return GameResourcePath.POPUP_INFO_GACHA;

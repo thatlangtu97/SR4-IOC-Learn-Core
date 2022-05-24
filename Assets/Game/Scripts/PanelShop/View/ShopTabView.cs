@@ -15,7 +15,6 @@ public class ShopTabView :AbsTabView<ShopTabType>
         base.onChange(isSelect);
         foreach (var text in textTab)
         {
-            Debug.Log("vao ham check");
             if (isSelect)
             {
                 text.color = new Vector4(text.color.r, text.color.g, text.color.b, 1f);

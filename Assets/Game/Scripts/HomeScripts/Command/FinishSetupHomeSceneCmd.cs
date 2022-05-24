@@ -32,7 +32,7 @@ public class FinishSetupHomeSceneCmd : Command
                 showPanelCraftSignal.Dispatch();
                 break;
             case "PanelShopView":
-                showPanelShopSignal.Dispatch(new ParameterPanelShop());
+                showPanelShopSignal.Dispatch(new ParameterPanelShop(ShopTabType.Gold));
                 break;
         }
         //popupManager.ResetPanelShowAfterLoadHomeScene();

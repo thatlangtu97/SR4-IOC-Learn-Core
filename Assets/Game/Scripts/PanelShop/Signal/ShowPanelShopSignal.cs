@@ -9,5 +9,11 @@ public class ShowPanelShopSignal : Signal<ParameterPanelShop>
 
 public class ParameterPanelShop : ParameterPopup
 {
-    
+    public ShopTabType shopTabType;
+    public ParameterPanelShop(){}
+
+    public ParameterPanelShop(ShopTabType shopTabType)
+    {
+        this.shopTabType = shopTabType;
+    }
 }

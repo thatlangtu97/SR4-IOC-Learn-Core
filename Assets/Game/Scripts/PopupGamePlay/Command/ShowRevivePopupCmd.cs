@@ -10,6 +10,12 @@ public class ShowRevivePopupCmd : AbsShowPopupCmd
         RevivePopup revivePopup = GetInstance<RevivePopup>();
         revivePopup.ShowPopup(new ParameterPopup());
     }
+
+    public override UILayer GetUiLayer()
+    {
+        return UILayer.UI2;
+    }
+
     public override string GetResourcePath()
     {
         return GameResourcePath.POPUP_REVIVE;

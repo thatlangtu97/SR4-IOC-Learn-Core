@@ -7,13 +7,13 @@ public class ShowPanelCraftCmd : AbsShowPopupCmd
     public override void Execute()
     {
         PanelCraftView panelCraftView = GetInstance<PanelCraftView>();
-//        panelCraftView.ShowPanelByCmd();
         panelCraftView.ShowPopup(new ParameterPopup());
     }
-    //public override string GetInjectName()
-    //{
-    //    return typeof(PanelHeroView).ToString() ;
-    //}
+    public override UILayer GetUiLayer()
+    {
+        return UILayer.UI1;
+    }
+
     public override string GetResourcePath()
     {
         return GameResourcePath.PANEL_CRAFT;

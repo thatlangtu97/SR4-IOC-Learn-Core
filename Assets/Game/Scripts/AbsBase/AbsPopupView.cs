@@ -18,6 +18,13 @@ public abstract class AbsPopupView : View
 	{
 		this.parameterPopup = parameterPopup;
 	}
+
+	protected override void Awake()
+	{
+		base.Awake();
+		base.CopyStart();
+	}
+
 	protected override void Start()
 	{
 		base.Start();

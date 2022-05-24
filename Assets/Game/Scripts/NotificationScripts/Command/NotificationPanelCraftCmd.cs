@@ -8,7 +8,7 @@ public class NotificationPanelCraftCmd : Command
     [Inject] public PopupManager popupManager { get; set; }
     public override void Execute()
     {
-        PanelCraftView craftview = (PanelCraftView)popupManager.GetPanelByPanelKey(typeof(PanelCraftView).ToString());
+        //PanelCraftView craftview = (PanelCraftView)popupManager.GetPanelByPanelKey(typeof(PanelCraftView).ToString());
 //        craftview.NotifyShowPanel();
     }
 }

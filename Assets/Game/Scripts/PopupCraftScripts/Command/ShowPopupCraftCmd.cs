@@ -13,6 +13,11 @@ public class ShowPopupCraftCmd : AbsShowPopupCmd
         showPopupCraftView.ShowPopup(new ParameterPopup());
     }
 
+    public override UILayer GetUiLayer()
+    {
+        return UILayer.UI2;
+    }
+
     public override string GetResourcePath()
     {
         return GameResourcePath.POPUP_CRAFT;

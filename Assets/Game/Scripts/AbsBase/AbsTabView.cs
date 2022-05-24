@@ -19,28 +19,25 @@ public abstract class AbsTabView<T> : View where T : struct, IComparable, IForma
         OnInit();
         GetComponent<Button>().onClick.AddListener(delegate
         {
-            Debug.Log("Select Tab"+tabType);
-            Select();
+            this.onSelect.Invoke(this.tabType);
+            //Select();
         } );
         textTab = GetComponentsInChildren<Text>();
     }
-    public void OnChangeTab(T tabType)
+    public void OnChangeTab(T type)
     {
-        Debug.Log("OnChangeTab"+tabType);
-        isSelect = this.tabType.GetHashCode() == tabType.GetHashCode();
-        if (isSelect)
-        {
-            onSelect.Invoke(tabType);
-            
-        }
+        isSelect = this.tabType.GetHashCode() == type.GetHashCode();
+//        if (isSelect)
+//        {
+//            //Debug.Log("change Tab "+type);
+//            //onSelect.Invoke(tabType);
+//            this.onSelect.Invoke(tabType);
+//        }
+//        Debug.Log($"change Tab {type} {isSelect}" );
         onChange(isSelect);
     }
     protected virtual void Select() {
         OnChangeTab(tabType);
-    }
-    public void Lock(bool isLock)
-    {
-        this.isLock = isLock;
     }
     protected abstract void OnMapValue();
     protected virtual void OnInit(){}

@@ -63,9 +63,7 @@ public abstract class AbsShowPopupCmd : Command
 		
 	}
 
-	public virtual UILayer GetUiLayer()
-	{
-		return UILayer.NODE;
-	}
+	public abstract UILayer GetUiLayer();
+
 	public abstract string GetResourcePath();
 }
