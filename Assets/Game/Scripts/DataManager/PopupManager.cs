@@ -273,7 +273,7 @@ public class PopupManager
             listPopupShow.Clear();
         }
         if (addToListShow)
-            listPo pupShow.Add(absPopup);
+            listPopupShow.Add(absPopup);
     }
     #endregion
     
