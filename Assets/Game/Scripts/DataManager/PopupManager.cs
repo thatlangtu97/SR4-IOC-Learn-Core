@@ -614,6 +614,22 @@ public class PopupManager
 			}
 		}
 
+		public void ForceBackPopup()
+		{
+			for (int i = listPopupShow.Count-1; i >=0 ; i++)
+			{
+				var tempPopup = listPopupShow[i];
+				if (!tempPopup.EnableBack()) return;
+				
+				BackPopup(tempPopup);
+				listPopupShow.Remove(tempPopup);
+				break;
+			}
+//			foreach (var tempPopup in listPopupShow)
+//			{
+//				
+//			}
+		}
 		public bool HasPopupShow()
 		{
 			return this.listPopupShow.Count > 0;

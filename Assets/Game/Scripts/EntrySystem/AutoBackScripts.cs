@@ -14,12 +14,12 @@ public class AutoBackScripts : View
     }
     private void Update()
     {
-//        if (Input.GetKeyDown(KeyCode.Escape))
-//        {
-//            //Back panel;
-//            popupManager.BackPopup();
-//        }
-//
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            //Back panel;
+            popupManager.ForceBackPopup();
+        }
+
 //        if (Gamepad.current != null)
 //        {
 //            if (Gamepad.current.leftShoulder.wasPressedThisFrame || Gamepad.current.leftTrigger.wasPressedThisFrame)

@@ -39,7 +39,7 @@ public class PanelHomeView : AbsPopupView
 
     public override bool EnableBack()
     {
-        throw new NotImplementedException();
+        return false;
     }
 
     protected override void OnShowPopup<T>(T parameter)

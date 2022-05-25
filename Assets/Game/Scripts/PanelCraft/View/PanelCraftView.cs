@@ -26,12 +26,12 @@ public class PanelCraftView : AbsPopupView
 
     public override bool EnableBack()
     {
-        throw new System.NotImplementedException();
+        return true;
     }
 
     protected override void OnShowPopup<T>(T parameter)
     {
-        throw new System.NotImplementedException();
+//        throw new System.NotImplementedException();
     }
 
 //    public override void ShowPanelByCmd()
