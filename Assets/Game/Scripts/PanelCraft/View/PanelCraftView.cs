@@ -13,7 +13,7 @@ public class PanelCraftView : AbsPopupView
     protected override void Start()
     {
         base.Start();
-        backBtn.onClick.AddListener(() => popupManager.BackPanel());
+        backBtn.onClick.AddListener(() => popupManager.BackPopup(this));
 //        popupManager.AddPopup(PopupKey.EquipmentCraftDetailLeft, PopupEquipmentDetailLeft);
 //        popupManager.AddPopup(PopupKey.EquipmentCraftDetailRight, PopupEquipmentDetailFight);
     }

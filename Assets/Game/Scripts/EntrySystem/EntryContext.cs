@@ -25,7 +25,9 @@ namespace EntrySystem
 		}
 		public override void Launch()
 		{
+			injectionBinder.GetInstance<PopupManager>().CurrentContext = this;
 			injectionBinder.GetInstance<SetupDatamanagerSignal>().Dispatch();
+			
 		}
 	}
 }

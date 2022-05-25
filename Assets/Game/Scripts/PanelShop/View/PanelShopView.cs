@@ -16,7 +16,7 @@ public class PanelShopView : AbsPopupView
     protected override void Awake()
     {
         base.CopyStart();
-        //Setup();
+        Setup();
         //ShowPopupShop(popupManager.popupKey);
         InitTab();
 
@@ -28,14 +28,14 @@ public class PanelShopView : AbsPopupView
         //ShowPopupShop(popupManager.popupKey);
 
     }
-//    public void Setup()
-//    {
-//        backBtn.onClick.AddListener(() => popupManager.BackPanel());
+    public void Setup()
+    {
+        backBtn.onClick.AddListener(() => popupManager.BackPopup(this));
 //        foreach (TabShopType tab in ListTab)
 //        {
 //            tab.btn.onClick.AddListener(() => ShowPopupShop(tab.key));
 //        }
-//    }
+    }
 //    public override void ShowPanelByCmd()
 //    {
 //        base.ShowPanelByCmd();

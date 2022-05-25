@@ -12,11 +12,11 @@ public class UIEventSystem : View
     {
         base.Awake();
         base.CopyStart();
-        if (!popupManager.eventSystem)
-        {
-            popupManager.eventSystem = eventSystem;
-            DontDestroyOnLoad(this.gameObject);
-        }
+//        if (!popupManager.eventSystem)
+//        {
+//            popupManager.eventSystem = eventSystem;
+//            DontDestroyOnLoad(this.gameObject);
+//        }
     }
 
 }

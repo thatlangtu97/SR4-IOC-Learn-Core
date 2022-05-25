@@ -14,18 +14,18 @@ public class AutoBackScripts : View
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            //Back panel;
-            popupManager.BackPanel();
-        }
-
-        if (Gamepad.current != null)
-        {
-            if (Gamepad.current.leftShoulder.wasPressedThisFrame || Gamepad.current.leftTrigger.wasPressedThisFrame)
-            {
-                popupManager.BackPanel();
-            }
-        }
+//        if (Input.GetKeyDown(KeyCode.Escape))
+//        {
+//            //Back panel;
+//            popupManager.BackPopup();
+//        }
+//
+//        if (Gamepad.current != null)
+//        {
+//            if (Gamepad.current.leftShoulder.wasPressedThisFrame || Gamepad.current.leftTrigger.wasPressedThisFrame)
+//            {
+//                popupManager.BackPanel();
+//            }
+//        }
     }
 }

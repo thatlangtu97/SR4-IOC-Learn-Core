@@ -14,9 +14,6 @@ public class HomeSceneContext : MVCSContext
     protected override void mapBindings()
     {
         base.mapBindings();
-        //commandBinder.Bind<>().To<>();
-        //injectionBinder.Bind<PopupManager>().ToValue(new PopupManager()).ToSingleton();
-        //commandBinder.Bind<InitHomeSceneSignal>().To<InitHomeSceneCmd>().To<FinishSetupHomeSceneCmd>().InSequence(); 
         commandBinder.Bind<InitHomeSceneSignal>().To<InitHomeSceneCmd>().To<FinishSetupHomeSceneCmd>().InSequence();
 
         //commandBinder.Bind<FinishSetupHomeSceneSignal>().To<FinishSetupHomeSceneCmd>();
@@ -37,7 +34,7 @@ public class HomeSceneContext : MVCSContext
     public override void Launch()
     {
         base.Launch();
-        injectionBinder.GetInstance<PopupManager>().ResetPanelAfterLoadHomeScene();
+        injectionBinder.GetInstance<PopupManager>().CurrentContext = this;
         injectionBinder.GetInstance<InitHomeSceneSignal>().Dispatch();
         //injectionBinder.GetInstance<FinishSetupHomeSceneSignal>().Dispatch();
     }

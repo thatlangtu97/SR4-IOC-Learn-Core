@@ -11,6 +11,6 @@ public class SetupGamePlayCommand : Command
         Debug.Log("Setup");
         EnemySpawnController.Instance.Setup();
         PoolManager.instance.SetupPool();
-        PopupManager.sceneKey = SceneKey.GamePlay.ToString();
+//        PopupManager.sceneKey = SceneKey.GamePlay.ToString();
     }
 }

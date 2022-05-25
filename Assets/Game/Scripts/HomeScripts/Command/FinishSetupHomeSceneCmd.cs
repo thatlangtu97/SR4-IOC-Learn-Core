@@ -19,22 +19,23 @@ public class FinishSetupHomeSceneCmd : Command
 
     public override void Execute()
     {
-        string panelKey = popupManager.GetPanelAfterLoadHomeScene();
-        switch (panelKey)
-        {
-            case "PanelHomeView":
-                showPanelHomeSignal.Dispatch(new ParameterPanelHome());
-                break;
-            case "PanelHeroView":
-                showPanelHeroSignal.Dispatch(new ParameterPanelHero());
-                break;
-            case "PanelCraftView":
-                showPanelCraftSignal.Dispatch();
-                break;
-            case "PanelShopView":
-                showPanelShopSignal.Dispatch(new ParameterPanelShop(ShopTabType.Gold));
-                break;
-        }
+        showPanelHomeSignal.Dispatch();
+//        string panelKey = popupManager.GetPanelAfterLoadHomeScene();
+//        switch (panelKey)
+//        {
+//            case "PanelHomeView":
+//                showPanelHomeSignal.Dispatch(new ParameterPanelHome());
+//                break;
+//            case "PanelHeroView":
+//                showPanelHeroSignal.Dispatch(new ParameterPanelHero());
+//                break;
+//            case "PanelCraftView":
+//                showPanelCraftSignal.Dispatch();
+//                break;
+//            case "PanelShopView":
+//                showPanelShopSignal.Dispatch(new ParameterPanelShop(ShopTabType.Gold));
+//                break;
+//        }
         //popupManager.ResetPanelShowAfterLoadHomeScene();
     }
 }

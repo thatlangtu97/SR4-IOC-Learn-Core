@@ -13,7 +13,7 @@ public class PanelHeroView : AbsPopupView
     protected override void Start()
     {
         base.Start();
-        backBtn.onClick.AddListener(()=>popupManager.BackPanel());
+        backBtn.onClick.AddListener(()=>popupManager.BackPopup(this));
 //        popupManager.AddPopup(PopupKey.EquipmentHeroDetailLeft, PopupEquipmentDetailLeft);
 //        popupManager.AddPopup(PopupKey.EquipmentHeroDetailRight, PopupEquipmentDetailFight);
         
@@ -34,7 +34,7 @@ public class PanelHeroView : AbsPopupView
 
     protected override void OnShowPopup<T>(T parameter)
     {
-        throw new System.NotImplementedException();
+        //throw new System.NotImplementedException();
     }
 
 //    public override void ShowPanelByCmd()

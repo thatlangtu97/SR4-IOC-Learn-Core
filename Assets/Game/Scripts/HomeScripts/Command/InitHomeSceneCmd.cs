@@ -10,7 +10,7 @@ public class InitHomeSceneCmd : Command
 
 	public override void Execute()
     {
-	    popupManager.sceneKey = SceneKey.Home.ToString();
+//	    popupManager.sceneKey = SceneKey.Home.ToString();
         //	popupManager.listActionDelay.Add(GameResourcePath.PANEL_HERO, delayPlayAction(
         //		() =>
         //		{
@@ -51,7 +51,7 @@ public class InitHomeSceneCmd : Command
 
 	    InitUI();
 
-	    popupManager.ResetPanelAfterLoadHomeScene();
+//	    popupManager.ResetPanelAfterLoadHomeScene();
     }
 	public void InitUI()
 	{

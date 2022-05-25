@@ -44,14 +44,14 @@ public abstract class AbsShowPopupCmd : Command
 		if (!popupManager.CheckContainPopup(typePopup))
 		{
 			spawned = GameObject.Instantiate(o, parent) as GameObject;
-				popupManager.AddPopup(spawned.GetComponent<AbsPopupView>());
+				//popupManager.AddPopup(spawned.GetComponent<AbsPopupView>());
 		}
 		else
 		{
 			if (popupManager.GetPopupByPopupKey(typePopup) == null)
 			{
 				spawned = GameObject.Instantiate(o, parent) as GameObject;
-				popupManager.AddPopup(spawned.GetComponent<AbsPopupView>());
+				//popupManager.AddPopup(spawned.GetComponent<AbsPopupView>());
 			}
 			else
 			{
@@ -60,6 +60,26 @@ public abstract class AbsShowPopupCmd : Command
 			}
 		}
 		return spawned;
+		
+		
+//		switch (GetUiLayer())
+//		{
+//			case UILayer.NODE:
+////				return NGUITools.AddChild(GlobalData.GetLastestContext().GetContextView().gameObject, o);
+//				break;
+//			default:
+//				
+//				if (parent != null)
+//				{
+//					o.transform.SetParent(parent);
+//					//GameObject obj = o.transform.SetParent(parent);
+//					return o;
+//				}
+//				else
+//				{
+//					return GameObject.Instantiate(o) as GameObject;
+//				}
+//		}
 		
 	}
 
