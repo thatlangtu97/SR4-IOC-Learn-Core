@@ -59,7 +59,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -133,7 +133,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -207,7 +207,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -8930,9 +8930,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2b113a96dda78c49b5139e8a9d2f2c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uILayer: 1
-  popupKey: 1
   UiViewController: {fileID: 8314899558810732723}
+  closeBtns:
+  - {fileID: 3245147832894546422}
 --- !u!114 &-2989620567418682115
 MonoBehaviour:
   m_ObjectHideFlags: 0

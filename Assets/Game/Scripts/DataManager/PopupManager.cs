@@ -506,7 +506,7 @@ public class PopupManager
 			
 			if (fullScreenPopup.Contains(absPopup.GetType()))
 			{
-				string key = absPopup.GetType() + "_" + curPopup;
+				string key = absPopup.GetType().ToString();// + "_" + curPopup;
 				if (!listTypeHasSetup.Contains(absPopup.GetType()))
 				{
 					SetupBackForPopup(absPopup);
@@ -611,6 +611,10 @@ public class PopupManager
 									.GetInstance(autoBackData[currentPopup.GetType()]) as Signal);
 					signal.Dispatch();
 				}
+				else
+				{
+					currentPopup.Hide();
+				}
 			}
 		}
 
@@ -693,6 +697,11 @@ public class PopupManager
 		public void UnListenOnHidePopup(Action<AbsPopupView, bool> onHidePopup)
 		{
 			this.onHidePopup -= onHidePopup;
+		}
+
+		public Type GetCurrentPopup()
+		{
+			return curPopup;
 		}
 	}
 public enum PanelKey

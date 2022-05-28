@@ -62,16 +62,23 @@ public class UiViewController : MonoBehaviour
     }
     void DelayInvokeAction()
     {
-        StartCoroutine(delayInvokeAction());
+        ActionBufferManager.Instance.ActionDelayFrame(
+            delegate
+            {
+                if (action!=null)
+                    action.Invoke();
+            }, 
+            1
+            );
+//        StartCoroutine(delayInvokeAction());
     }
-    IEnumerator delayInvokeAction()
-    {
-        //yield return new WaitForSeconds(0.1f);
-        yield return new WaitForEndOfFrame();
-        if (action!=null)
-            action.Invoke();
-        else
-        {
-        }
-    }
+//    IEnumerator delayInvokeAction()
+//    {
+//        //yield return new WaitForSeconds(0.1f);
+//        yield return new WaitForEndOfFrame();
+//        
+//        else
+//        {
+//        }
+//    }
 }

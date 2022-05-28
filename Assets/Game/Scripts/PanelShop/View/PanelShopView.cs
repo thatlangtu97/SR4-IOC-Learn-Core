@@ -115,17 +115,29 @@ public class PanelShopView : AbsPopupView
 //                break;
 //        }
 
-        foreach (var VARIABLE in ListPopup)
-        {
-            if (VARIABLE.key == shopResourceTabType)
+        ActionBufferManager.Instance.ActionDelayFrame(
+            delegate
             {
-                VARIABLE.Prefab.GetComponent<UiViewController>().Show();
-            }
-            else
-            {
-                VARIABLE.Prefab.GetComponent<UiViewController>().Hide();
-            }
-        }
+                foreach (var VARIABLE in ListPopup)
+                {
+                    UiViewController childView = VARIABLE.Prefab.GetComponent<UiViewController>();
+                    childView.StopAllCoroutines();
+                    if (VARIABLE.key == shopResourceTabType)
+                    {
+                
+                        childView.Show();
+                        //VARIABLE.Prefab.GetComponent<UiViewController>().Show();
+                    }
+                    else
+                    {
+                        childView.Hide();
+                        //VARIABLE.Prefab.GetComponent<UiViewController>().Hide();
+                    }
+                }
+            }, 
+            1
+            );
+
     }
     
     void InitTab() {

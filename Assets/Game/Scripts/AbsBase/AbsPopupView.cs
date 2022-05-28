@@ -2,18 +2,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public abstract class AbsPopupView : View
 {
-	[Inject]
-	public PopupManager popupManager { get; set; }
-//	public UILayer uILayer;
-//	public PopupKey popupKey;
-	AutoFIllPanelInParent autoFIllPanelInParent;
+	[Inject] public PopupManager popupManager { get; set; }
 	public UiViewController UiViewController;
-	
 	public ParameterPopup parameterPopup;
-
+	public Button[] closeBtns;
+	
+	AutoFIllPanelInParent autoFIllPanelInParent;
 	public void SetParameter(ParameterPopup parameterPopup)
 	{
 		this.parameterPopup = parameterPopup;
@@ -23,6 +21,15 @@ public abstract class AbsPopupView : View
 	{
 		base.Awake();
 		base.CopyStart();
+		SetClose();
+	}
+
+	void SetClose()
+	{
+		foreach (var btn in closeBtns)
+		{
+			btn.onClick.AddListener(Hide);
+		}
 	}
 
 	protected override void Start()
@@ -64,6 +71,10 @@ public abstract class AbsPopupView : View
 	{
 		NotifyShowPopup();
 		OnShowPopup(parameter);
+//		if (!(popupManager.GetCurrentPopup() == this.GetType()))
+//		{
+//			UiViewController.Show();
+//		}
 		popupManager.ShowPopup(this);
 		UiViewController.Show();
 	}

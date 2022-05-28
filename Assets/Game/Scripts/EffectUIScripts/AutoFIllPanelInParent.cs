@@ -9,7 +9,7 @@ public class AutoFIllPanelInParent : MonoBehaviour
     public Vector2 anchorMin = Vector2.zero, anchorMax = Vector2.one;
     void Start()
     {
-        AutoFill();
+        //AutoFill();
     }
     public void AutoFill()
     {
