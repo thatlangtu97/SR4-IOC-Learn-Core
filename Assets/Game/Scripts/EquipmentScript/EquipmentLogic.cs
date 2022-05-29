@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 using UnityEngine;
 
 public class EquipmentLogic 
@@ -210,7 +211,8 @@ public class EquipmentLogic
             }
 
         }
-        
+        newlist = newlist.OrderByDescending(x => (int)(x.rarity)).ThenByDescending(x => x.idConfig).ThenByDescending(x => x.level).ThenByDescending(x => x.idOfHero)
+            .ToList();
         return newlist;
     }
     
@@ -237,6 +239,8 @@ public class EquipmentLogic
             if (!breakID.Contains(tempItem.id))
                 newlist.Add(tempItem);
         }
+        newlist = newlist.OrderByDescending(x => (int)(x.rarity)).ThenByDescending(x => x.idConfig).ThenByDescending(x => x.level).ThenByDescending(x => x.idOfHero)
+            .ToList();
         return newlist;
     }
     public static void EquipGear(EquipmentData data ,int hero)

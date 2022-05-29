@@ -33040,7 +33040,7 @@ MonoBehaviour:
   m_Content: {fileID: 7030258529294507575}
   m_Horizontal: 0
   m_Vertical: 1
-  m_MovementType: 2
+  m_MovementType: 1
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135
@@ -71808,6 +71808,7 @@ MonoBehaviour:
   - view: {fileID: 0}
     backItem: {fileID: 1634775658306270878}
     container: {fileID: 2964409828537623174}
+  compare: 1
   popupKeyDetail: 4
 --- !u!1 &7413025882616787504
 GameObject:

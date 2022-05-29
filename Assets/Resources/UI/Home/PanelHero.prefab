@@ -10006,7 +10006,7 @@ MonoBehaviour:
   m_Content: {fileID: 3422269645829903345}
   m_Horizontal: 0
   m_Vertical: 1
-  m_MovementType: 2
+  m_MovementType: 1
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135
@@ -15272,6 +15272,7 @@ MonoBehaviour:
   icon: {fileID: 5819149802989274083}
   boderRarity: {fileID: 3248428050113121492}
   backgroundRarity: {fileID: 1643748178499791913}
+  notice: {fileID: 0}
   level: {fileID: 8415059594939503698}
   btnClick: {fileID: 0}
   data:
@@ -15284,7 +15285,7 @@ MonoBehaviour:
     mainStatData:
       statType: 0
       baseValue: 0
-  config: {fileID: 0}
+    isNewItem: 0
 --- !u!1 &5819149802989274085
 GameObject:
   m_ObjectHideFlags: 0
@@ -15861,9 +15862,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe4f6aa8239464cb384756f26d6e6e06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uILayer: 0
-  panelKey: 1
   UiViewController: {fileID: 3444113786609472732}
+  closeBtns: []
   backBtn: {fileID: 8706582124306025869}
   EquipmentDetailLeft: {fileID: 8415059593327673745}
   EquipmentDetailFight: {fileID: 6072806086212616657}
@@ -23848,6 +23848,7 @@ MonoBehaviour:
   icon: {fileID: 6072806084999519652}
   boderRarity: {fileID: 6072806086046152921}
   backgroundRarity: {fileID: 6072806085292562517}
+  notice: {fileID: 0}
   level: {fileID: 6072806085996813187}
   btnClick: {fileID: 0}
   data:
@@ -23860,7 +23861,7 @@ MonoBehaviour:
     mainStatData:
       statType: 0
       baseValue: 0
-  config: {fileID: 0}
+    isNewItem: 0
 --- !u!1 &6072806085759712062
 GameObject:
   m_ObjectHideFlags: 0
@@ -28725,15 +28726,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3680ff29e0fefd4c99666727e3c4104, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uILayer: 2
-  popupKey: 3
   UiViewController: {fileID: 1995156942}
+  closeBtns: []
   EquipmentView: {fileID: 4196970703537709112}
   nameEquipment: {fileID: 6072806085916915001}
   rarityEquipment: {fileID: 6072806085959951346}
   mainStatType: {fileID: 6072806085173116034}
   mainStatValue: {fileID: 6072806086235853151}
   textLevel: {fileID: 6072806085996813187}
+  btnEquip: {fileID: 0}
+  btnSell: {fileID: 0}
+  btnSelect: {fileID: 0}
+  btnLevelUp: {fileID: 0}
 --- !u!1 &6072806086216775973
 GameObject:
   m_ObjectHideFlags: 0
@@ -39318,7 +39322,7 @@ MonoBehaviour:
   scrollRectContainer: {fileID: 1706883798565852596}
   currentPage: 1
   maxSlotInPage: 15
-  popupKeyDetail: 3
+  compareEquipmentInfo: 0
 --- !u!1 &7859799704627600186
 GameObject:
   m_ObjectHideFlags: 0
@@ -48078,15 +48082,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3680ff29e0fefd4c99666727e3c4104, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uILayer: 2
-  popupKey: 2
   UiViewController: {fileID: 1995156935}
+  closeBtns: []
   EquipmentView: {fileID: 6946368421779030058}
   nameEquipment: {fileID: 8415059594977935447}
   rarityEquipment: {fileID: 8415059593955308979}
   mainStatType: {fileID: 8415059595343421272}
   mainStatValue: {fileID: 8415059593865683555}
   textLevel: {fileID: 8415059594939503698}
+  btnEquip: {fileID: 0}
+  btnSell: {fileID: 0}
+  btnSelect: {fileID: 0}
+  btnLevelUp: {fileID: 0}
 --- !u!1 &8415059593365044518
 GameObject:
   m_ObjectHideFlags: 0
