@@ -99,7 +99,7 @@ public class HeroEquipmentView : View
 //        //temp.equipmentConfig = tempEquipment.config;
 //        temp.popupkey = popupKeyDetail;
 //        showEquipmentDetailSignal.Dispatch(temp);
-        SetOldItemSignal.Dispatch(tempEquipment.data);
+//        SetOldItemSignal.Dispatch(tempEquipment.data);
         
         ShowEquipmentCompareSignal.Dispatch(new ParameterEquipmentCompare(ParameterEquipmentCompare.CompareType.Left,tempEquipment.data));
     }

@@ -24,8 +24,10 @@ public class EquipmentCompareView : AbsPopupView
 
     public override void Hide()
     {       
-        leftDetailView.Hide();
-        rightDetailView.Hide();
+        if(leftDetailView.gameObject.activeInHierarchy)
+            leftDetailView.Hide();
+        if(rightDetailView.gameObject.activeInHierarchy)
+            rightDetailView.Hide();
         base.Hide();
     }
 
@@ -44,7 +46,6 @@ public class EquipmentCompareView : AbsPopupView
                         {
                             leftDetailView.Show();
                         },1 );
-                    Debug.Log($"Show left");
                 }
                 break;
             case ParameterEquipmentCompare.CompareType.Right:
@@ -57,7 +58,6 @@ public class EquipmentCompareView : AbsPopupView
                         {
                             rightDetailView.Show();
                         },1 );
-                    Debug.Log($"Show right");
                 }
                 break;
         }
