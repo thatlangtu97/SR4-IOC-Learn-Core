@@ -8,7 +8,6 @@ using Sirenix.OdinInspector;
 public class InventoryView : View
 {
     [Inject] public GlobalData global{ get; set; }
-    [Inject] public ShowEquipmentDetailSignal showEquipmentDetailSignal { get; set; }
     [Inject] public SetOldItemSignal SetOldItemSignal { get; set; }
     [Inject] public ShowEquipmentCompareSignal ShowEquipmentCompareSignal { get; set; }
     public List<TabType> tabTypes = new List<TabType>();

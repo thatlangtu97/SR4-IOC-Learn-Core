@@ -16,6 +16,8 @@ public class InventoryMediator : Mediator
     
     [Inject] public EquipGearSuccessSignal EquipGearSuccessSignal { get; set; }
 
+    [Inject] public NotificationPanelCraftSignal NotificationPanelCraftSignal { get; set; }
+
     public override void OnRegister()
     {
         OnViewHeroSignal.AddListener(View.ReloadPage);
@@ -23,6 +25,7 @@ public class InventoryMediator : Mediator
         SellGearSuccessSignal.AddListener(View.ReloadDataRemove);
         SetOldItemSuccessSignal.AddListener(View.ReShow);
         EquipGearSuccessSignal.AddListener(View.EquipGear);
+        NotificationPanelCraftSignal.AddListener(View.ReloadPage);
     }
 
     public override void OnRemove()
@@ -32,6 +35,7 @@ public class InventoryMediator : Mediator
         SellGearSuccessSignal.RemoveListener(View.ReloadDataRemove);
         SetOldItemSuccessSignal.RemoveListener(View.ReShow);
         EquipGearSuccessSignal.RemoveListener(View.EquipGear);
+        NotificationPanelCraftSignal.RemoveListener(View.ReloadPage);
     }
 
     private void OnDestroy()

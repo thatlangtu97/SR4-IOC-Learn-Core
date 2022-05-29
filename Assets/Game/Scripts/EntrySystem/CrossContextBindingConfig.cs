@@ -16,6 +16,7 @@ namespace EntrySystem
             injectionBinder.Bind<SellGearSuccessSignal>().ToSingleton();
             injectionBinder.Bind<SetOldItemSuccessSignal>().ToSingleton();
             injectionBinder.Bind<EquipGearSuccessSignal>().ToSingleton();
+            injectionBinder.Bind<NotificationPanelCraftSignal>().ToSingleton();
             //
             commandBinder.Bind<ShowPanelHomeSignal>().To<ShowPanelHomeCmd>();
             commandBinder.Bind<ShowPopupStaminaSignal>().To<ShowPopupStaminaCmd>();
@@ -51,11 +52,12 @@ namespace EntrySystem
             
             //NOTIFICATION
             commandBinder.Bind<NotificationPanelHeroSignal>().To<NotificationPanelHeroCmd>();
-            commandBinder.Bind<NotificationPanelCraftSignal>().To<NotificationPanelCraftCmd>();
+//            commandBinder.Bind<NotificationPanelCraftSignal>().To<NotificationPanelCraftCmd>();
             //MEDIATOR
             mediationBinder.Bind<InventoryView>().To<InventoryMediator>();
             mediationBinder.Bind<HeroEquipmentView>().To<HeroEquipmentMediator>();
             mediationBinder.Bind<EquipmentDetailView>().To<EquipmentDetailMediator>();
+            mediationBinder.Bind<CraftEquipmentView>().To<CraftEquipmentMediator>();
         }
     }
 }

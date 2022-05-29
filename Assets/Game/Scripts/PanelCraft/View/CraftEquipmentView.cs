@@ -7,13 +7,17 @@ public class CraftEquipmentView : View
 {
     [Inject] public GlobalData global { get; set; }
     [Inject] public CraftEquipmentSignal CraftEquipmentSignal { get; set; }
-    [Inject] public ShowEquipmentDetailSignal showEquipmentDetailSignal { get; set; }
-    
+
     [Inject] public ShowTooltipTextSignal ShowTooltipTextSignal { get; set; }
+
+    [Inject] public ShowEquipmentCompareSignal ShowEquipmentCompareSignal { get; set; }
+
     [SerializeField]
     List<EquipmentToCraftView> listEquipmentOfHeroView = new List<EquipmentToCraftView>();
     List<EquipmentData> currentEquipment = new List<EquipmentData>();
+    public CompareEquipmentInfo compare = CompareEquipmentInfo.Craft;
     public PopupKey popupKeyDetail;
+    
     protected override void Awake()
     {
         base.Awake();
@@ -49,11 +53,7 @@ public class CraftEquipmentView : View
     }
     public void ShowDetail(EquipmentItemView tempEquipment)
     {
-        ParameterEquipmentDetail temp = new ParameterEquipmentDetail();
-        temp.equipmentData = tempEquipment.data;
-        //temp.equipmentConfig = tempEquipment.config;
-        temp.popupkey = popupKeyDetail;
-        showEquipmentDetailSignal.Dispatch(temp);
+        ShowEquipmentCompareSignal.Dispatch(new ParameterEquipmentCompare(CompareEquipmentType.Left,compare,tempEquipment.data));
     }
     public void Show()
     {
@@ -73,6 +73,11 @@ public class CraftEquipmentView : View
             listEquipmentOfHeroView[index].view.transform.localPosition=Vector3.zero;
             index += 1;
         }
+    }
+
+    public void Reshow()
+    {
+        Show();
     }
     public void CraftItem()
     {
