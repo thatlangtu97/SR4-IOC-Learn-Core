@@ -28,7 +28,7 @@ public abstract class AbsPopupView : View
 	{
 		foreach (var btn in closeBtns)
 		{
-			btn.onClick.AddListener(Hide);
+			btn.onClick.AddListener(HidePopup);
 		}
 	}
 
@@ -42,23 +42,14 @@ public abstract class AbsPopupView : View
 //			autoFIllPanelInParent.AutoFill();
 //		}
 	}
-//	public virtual void ShowPopupByCmd()
-//	{
-//		base.CopyStart();
-//		NotifyShowPopup();
-//		popupManager.ShowPopup(this);
-//	}
-//	public virtual void ShowPopup()
-//	{
-//		UiViewController.Show();
-//	}
-//	public void HidePopup()
-//	{
-//		UiViewController.Hide();
-//	}
-	public void Hide()
+	public virtual void Hide()
 	{
 		UiViewController.Hide();
+	}
+
+	public virtual void HidePopup()
+	{
+		popupManager.BackPopup(this);
 	}
 	public void NotifyShowPopup()
 	{

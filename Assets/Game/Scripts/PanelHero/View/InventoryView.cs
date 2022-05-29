@@ -10,7 +10,7 @@ public class InventoryView : View
     [Inject] public GlobalData global{ get; set; }
     [Inject] public ShowEquipmentDetailSignal showEquipmentDetailSignal { get; set; }
     [Inject] public SetOldItemSignal SetOldItemSignal { get; set; }
-
+    [Inject] public ShowEquipmentCompareSignal ShowEquipmentCompareSignal { get; set; }
     public List<TabType> tabTypes = new List<TabType>();
     public List<EquipmentItemView> equipmentItemViews = new List<EquipmentItemView>();
     [ShowInInspector]
@@ -44,12 +44,14 @@ public class InventoryView : View
     }
     public void ShowDetail(EquipmentItemView tempEquipment)
     {
-        ParameterEquipmentDetail temp = new ParameterEquipmentDetail();
-        temp.equipmentData = tempEquipment.data;
-        //temp.equipmentConfig = tempEquipment.config;
-        temp.popupkey = popupKeyDetail;
-        showEquipmentDetailSignal.Dispatch(temp);
-        SetOldItemSignal.Dispatch(temp.equipmentData);
+//        ParameterEquipmentDetail temp = new ParameterEquipmentDetail();
+//        temp.equipmentData = tempEquipment.data;
+//        //temp.equipmentConfig = tempEquipment.config;
+//        temp.popupkey = popupKeyDetail;
+//        showEquipmentDetailSignal.Dispatch(temp);
+        SetOldItemSignal.Dispatch(tempEquipment.data);
+        
+        ShowEquipmentCompareSignal.Dispatch(new ParameterEquipmentCompare(ParameterEquipmentCompare.CompareType.Right,tempEquipment.data));
         
     }
     protected override void OnEnable()

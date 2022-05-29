@@ -40,6 +40,7 @@ namespace EntrySystem
             commandBinder.Bind<CheckAndConsumeCurrencySignal>().To<CheckAndConsumeCurrencyCmd>();
             commandBinder.Bind<ShowTooltipPopupSignal>().To<ShowTooltipPopupCmd>();
             commandBinder.Bind<ShowTooltipTextSignal>().To<ShowTooltipTextCmd>();
+            commandBinder.Bind<ShowEquipmentCompareSignal>().To<ShowEquipmentCompareCmd>();
 
             //RESOURCE
             commandBinder.Bind<AddGoldSignal>().To<AddGoldCmd>();

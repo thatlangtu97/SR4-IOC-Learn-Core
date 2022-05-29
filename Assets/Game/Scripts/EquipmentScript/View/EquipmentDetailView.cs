@@ -25,6 +25,7 @@ public class EquipmentDetailView : AbsPopupView
     protected override void Awake()
     {
         base.Awake();
+        base.CopyStart();
     }
     public void SetupData(EquipmentData equipmentData)
     {
@@ -41,6 +42,10 @@ public class EquipmentDetailView : AbsPopupView
         textLevel.text = $"Lv.{equipmentData.level}";
     }
 
+    public void Show()
+    {
+        UiViewController.Show();
+    }
     public void ReShow(EquipmentData equipmentData)
     {
         if (this.equipmentData.id == equipmentData.id)
@@ -92,7 +97,7 @@ public class EquipmentDetailView : AbsPopupView
             Hide();
         }
     }
-
+    
 
     public override bool EnableBack()
     {

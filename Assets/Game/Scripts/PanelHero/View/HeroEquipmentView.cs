@@ -12,6 +12,8 @@ public class HeroEquipmentView : View
 
     [Inject] public SetOldItemSignal SetOldItemSignal { get; set; }
 
+    [Inject] public ShowEquipmentCompareSignal ShowEquipmentCompareSignal { get; set; }
+    
     private Dictionary<GearSlot, EquipmentOfHeroView> DicEquipmentOfHeroView = new Dictionary<GearSlot, EquipmentOfHeroView>();
     [SerializeField]
     private List<EquipmentOfHeroView> listEquipmentOfHeroView = new List<EquipmentOfHeroView>();
@@ -92,12 +94,14 @@ public class HeroEquipmentView : View
     }
     public void ShowDetail(EquipmentItemView tempEquipment)
     {
-        ParameterEquipmentDetail temp = new ParameterEquipmentDetail();
-        temp.equipmentData = tempEquipment.data;
-        //temp.equipmentConfig = tempEquipment.config;
-        temp.popupkey = popupKeyDetail;
-        showEquipmentDetailSignal.Dispatch(temp);
-        SetOldItemSignal.Dispatch(temp.equipmentData);
+//        ParameterEquipmentDetail temp = new ParameterEquipmentDetail();
+//        temp.equipmentData = tempEquipment.data;
+//        //temp.equipmentConfig = tempEquipment.config;
+//        temp.popupkey = popupKeyDetail;
+//        showEquipmentDetailSignal.Dispatch(temp);
+        SetOldItemSignal.Dispatch(tempEquipment.data);
+        
+        ShowEquipmentCompareSignal.Dispatch(new ParameterEquipmentCompare(ParameterEquipmentCompare.CompareType.Left,tempEquipment.data));
     }
     
     [System.Serializable]

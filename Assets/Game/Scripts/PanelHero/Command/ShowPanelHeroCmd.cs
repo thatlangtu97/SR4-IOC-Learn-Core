@@ -19,6 +19,6 @@ public class ShowPanelHeroCmd : AbsShowPopupCmd
 
     public override UILayer GetUiLayer()
     {
-        return UILayer.UI2;
+        return UILayer.UI1;
     }
 }

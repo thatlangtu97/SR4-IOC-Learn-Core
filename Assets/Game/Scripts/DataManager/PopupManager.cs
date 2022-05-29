@@ -489,7 +489,7 @@ public class PopupManager
 
 		private void AddToBackPrePopupSystem<T>(Type curPopup, Type prePopup) where T:Signal
 		{
-			string key = curPopup + "_" + prePopup;
+			string key = curPopup.ToString();// + "_" + prePopup;
 			if (!backData.ContainsKey(key)) backData.Add(key, typeof(T));
 		}
 
@@ -513,7 +513,12 @@ public class PopupManager
 				}
 				if (backData.ContainsKey(key))
 				{
-					currentBackData.Add(absPopup.GetType(), key);
+					if(!currentBackData.ContainsKey(absPopup.GetType()))
+						currentBackData.Add(absPopup.GetType(), key);
+					else
+					{
+						currentBackData[absPopup.GetType()] = key;
+					}
 				}
 
 				curPopup = absPopup.GetType();
@@ -629,10 +634,6 @@ public class PopupManager
 				listPopupShow.Remove(tempPopup);
 				break;
 			}
-//			foreach (var tempPopup in listPopupShow)
-//			{
-//				
-//			}
 		}
 		public bool HasPopupShow()
 		{

@@ -19,6 +19,7 @@ public static class GameResourcePath
 	public static readonly string POPUP_REVIVE = "UI/GamePlay/PopupRevive";
 	public static readonly string POPUP_REWARD_GAMEPLAY = "UI/GamePlay/RewardGameplayPopup";
 	public static readonly string POPUP_REWARD = "UI/RewardPopup";
+	public static readonly string POPUP_EQUIPMENT_COMPARE = "UI/Home/EquipmentComparePopup";
 	#endregion
 	#region UI
 	public static readonly string UI1 = "UI/UI1";
