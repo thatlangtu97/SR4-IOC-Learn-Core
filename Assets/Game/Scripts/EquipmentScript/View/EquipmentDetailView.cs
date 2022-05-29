@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -21,6 +22,8 @@ public class EquipmentDetailView : AbsPopupView
     public Text textLevel;
     EquipmentData equipmentData;
     EquipmentConfig equipmentConfig;
+    [BoxGroup]
+    public GameObject btnEquip, btnSell, btnSelect, btnLevelUp;
 
     protected override void Awake()
     {
@@ -97,8 +100,30 @@ public class EquipmentDetailView : AbsPopupView
             Hide();
         }
     }
-    
 
+    public void ShowButton(CompareEquipmentInfo compareInfo)
+    {
+        switch (compareInfo)
+        {
+            case CompareEquipmentInfo.CharacterEquip:
+                ActiveObject(new List<GameObject>() {btnEquip, btnSell, btnLevelUp}, true);
+                ActiveObject(new List<GameObject>() {btnSelect}, false);
+                break;
+            case CompareEquipmentInfo.Craft:
+                ActiveObject(new List<GameObject>() {btnEquip, btnSell, btnLevelUp}, false);
+                ActiveObject(new List<GameObject>() {btnSelect}, true);
+                break;
+        }
+    }
+
+    void ActiveObject(List<GameObject> listObject, bool active)
+    {
+        foreach (var obj in listObject)
+        {
+            if(obj != null)
+                obj.SetActive(active);
+        }
+    }
     public override bool EnableBack()
     {
         return true;

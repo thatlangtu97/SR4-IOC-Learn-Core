@@ -2443,6 +2443,7 @@ MonoBehaviour:
   icon: {fileID: 6743297843890796369}
   boderRarity: {fileID: 2018812555586750502}
   backgroundRarity: {fileID: 0}
+  notice: {fileID: 0}
   level: {fileID: 4073901813606809315}
   btnClick: {fileID: 0}
   data:
@@ -2455,7 +2456,7 @@ MonoBehaviour:
     mainStatData:
       statType: 0
       baseValue: 0
-  config: {fileID: 0}
+    isNewItem: 0
 --- !u!1 &71353789334227572
 GameObject:
   m_ObjectHideFlags: 0
@@ -5310,6 +5311,7 @@ MonoBehaviour:
   icon: {fileID: 8866660611380401718}
   boderRarity: {fileID: 1742709326434379946}
   backgroundRarity: {fileID: 0}
+  notice: {fileID: 0}
   level: {fileID: 4424637585033281248}
   btnClick: {fileID: 0}
   data:
@@ -5322,7 +5324,7 @@ MonoBehaviour:
     mainStatData:
       statType: 0
       baseValue: 0
-  config: {fileID: 0}
+    isNewItem: 0
 --- !u!1 &208737747043945995
 GameObject:
   m_ObjectHideFlags: 0
@@ -13756,6 +13758,7 @@ MonoBehaviour:
   icon: {fileID: 1111049580277747274}
   boderRarity: {fileID: 5237248742310365182}
   backgroundRarity: {fileID: 0}
+  notice: {fileID: 0}
   level: {fileID: 327330198634275389}
   btnClick: {fileID: 0}
   data:
@@ -13768,7 +13771,7 @@ MonoBehaviour:
     mainStatData:
       statType: 0
       baseValue: 0
-  config: {fileID: 0}
+    isNewItem: 0
 --- !u!1 &623651867485801738
 GameObject:
   m_ObjectHideFlags: 0
@@ -17736,6 +17739,7 @@ MonoBehaviour:
   icon: {fileID: 1731596218047153224}
   boderRarity: {fileID: 1587277883560398284}
   backgroundRarity: {fileID: 0}
+  notice: {fileID: 0}
   level: {fileID: 874648643674112017}
   btnClick: {fileID: 0}
   data:
@@ -17748,7 +17752,7 @@ MonoBehaviour:
     mainStatData:
       statType: 0
       baseValue: 0
-  config: {fileID: 0}
+    isNewItem: 0
 --- !u!1 &1277478714975994109
 GameObject:
   m_ObjectHideFlags: 0
@@ -21134,9 +21138,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bf8de48bd4d4452183811514bf12f38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uILayer: 0
-  panelKey: 2
   UiViewController: {fileID: 2421660021220338318}
+  closeBtns: []
   backBtn: {fileID: 4598481382586442902}
   EquipmentDetailLeft: {fileID: 8402612527309774206}
   EquipmentDetailFight: {fileID: 8493254836135210225}
@@ -28819,6 +28822,7 @@ MonoBehaviour:
   icon: {fileID: 3943365674773547372}
   boderRarity: {fileID: 3910697998862669667}
   backgroundRarity: {fileID: 0}
+  notice: {fileID: 0}
   level: {fileID: 7302399938751332250}
   btnClick: {fileID: 0}
   data:
@@ -28831,7 +28835,7 @@ MonoBehaviour:
     mainStatData:
       statType: 0
       baseValue: 0
-  config: {fileID: 0}
+    isNewItem: 0
 --- !u!1 &2015955822661999866
 GameObject:
   m_ObjectHideFlags: 0
@@ -31836,6 +31840,7 @@ MonoBehaviour:
   icon: {fileID: 1575048365643883161}
   boderRarity: {fileID: 3952051037051767953}
   backgroundRarity: {fileID: 0}
+  notice: {fileID: 0}
   level: {fileID: 5073610946320272342}
   btnClick: {fileID: 0}
   data:
@@ -31848,7 +31853,7 @@ MonoBehaviour:
     mainStatData:
       statType: 0
       baseValue: 0
-  config: {fileID: 0}
+    isNewItem: 0
 --- !u!1 &2190083972905716227
 GameObject:
   m_ObjectHideFlags: 0
@@ -35238,6 +35243,7 @@ MonoBehaviour:
   icon: {fileID: 6036645462679813358}
   boderRarity: {fileID: 6797325353955478273}
   backgroundRarity: {fileID: 4345756401921937677}
+  notice: {fileID: 0}
   level: {fileID: 1261573925769211472}
   btnClick: {fileID: 0}
   data:
@@ -35250,7 +35256,7 @@ MonoBehaviour:
     mainStatData:
       statType: 0
       baseValue: 0
-  config: {fileID: 0}
+    isNewItem: 0
 --- !u!1 &3387003954782644474
 GameObject:
   m_ObjectHideFlags: 0
@@ -41627,6 +41633,7 @@ MonoBehaviour:
   icon: {fileID: 3467298994465548493}
   boderRarity: {fileID: 6248831183568023447}
   backgroundRarity: {fileID: 0}
+  notice: {fileID: 0}
   level: {fileID: 7691286600015983804}
   btnClick: {fileID: 0}
   data:
@@ -41639,7 +41646,7 @@ MonoBehaviour:
     mainStatData:
       statType: 0
       baseValue: 0
-  config: {fileID: 0}
+    isNewItem: 0
 --- !u!1 &3907578990348030559
 GameObject:
   m_ObjectHideFlags: 0
@@ -41946,7 +41953,7 @@ MonoBehaviour:
   scrollRectContainer: {fileID: 7692494207069107251}
   currentPage: 1
   maxSlotInPage: 15
-  popupKeyDetail: 5
+  compareEquipmentInfo: 1
 --- !u!1 &4021607076403648095
 GameObject:
   m_ObjectHideFlags: 0
@@ -48056,6 +48063,7 @@ MonoBehaviour:
   icon: {fileID: 5277464901308612303}
   boderRarity: {fileID: 5115745570436215459}
   backgroundRarity: {fileID: 1905253876579785466}
+  notice: {fileID: 0}
   level: {fileID: 4452615586846196851}
   btnClick: {fileID: 0}
   data:
@@ -48068,7 +48076,7 @@ MonoBehaviour:
     mainStatData:
       statType: 0
       baseValue: 0
-  config: {fileID: 0}
+    isNewItem: 0
 --- !u!1 &5245711354396450660
 GameObject:
   m_ObjectHideFlags: 0
@@ -53509,6 +53517,7 @@ MonoBehaviour:
   icon: {fileID: 9252142789442034}
   boderRarity: {fileID: 2387342203145382346}
   backgroundRarity: {fileID: 0}
+  notice: {fileID: 0}
   level: {fileID: 7718718573355313691}
   btnClick: {fileID: 0}
   data:
@@ -53521,7 +53530,7 @@ MonoBehaviour:
     mainStatData:
       statType: 0
       baseValue: 0
-  config: {fileID: 0}
+    isNewItem: 0
 --- !u!1 &5426444264479552669
 GameObject:
   m_ObjectHideFlags: 0
@@ -56208,6 +56217,7 @@ MonoBehaviour:
   icon: {fileID: 4467640270761057033}
   boderRarity: {fileID: 7222324073923793014}
   backgroundRarity: {fileID: 0}
+  notice: {fileID: 0}
   level: {fileID: 8572323201048684669}
   btnClick: {fileID: 0}
   data:
@@ -56220,7 +56230,7 @@ MonoBehaviour:
     mainStatData:
       statType: 0
       baseValue: 0
-  config: {fileID: 0}
+    isNewItem: 0
 --- !u!1 &5568437662720864071
 GameObject:
   m_ObjectHideFlags: 0
@@ -71296,6 +71306,7 @@ MonoBehaviour:
   icon: {fileID: 4718002486647041729}
   boderRarity: {fileID: 6950734081154826477}
   backgroundRarity: {fileID: 0}
+  notice: {fileID: 0}
   level: {fileID: 7449712954752640984}
   btnClick: {fileID: 0}
   data:
@@ -71308,7 +71319,7 @@ MonoBehaviour:
     mainStatData:
       statType: 0
       baseValue: 0
-  config: {fileID: 0}
+    isNewItem: 0
 --- !u!1 &7331344266850401234
 GameObject:
   m_ObjectHideFlags: 0
@@ -76481,6 +76492,7 @@ MonoBehaviour:
   icon: {fileID: 8652992188028112795}
   boderRarity: {fileID: 5666450953101976989}
   backgroundRarity: {fileID: 0}
+  notice: {fileID: 0}
   level: {fileID: 4613580639312110950}
   btnClick: {fileID: 0}
   data:
@@ -76493,7 +76505,7 @@ MonoBehaviour:
     mainStatData:
       statType: 0
       baseValue: 0
-  config: {fileID: 0}
+    isNewItem: 0
 --- !u!1 &8089471905770225481
 GameObject:
   m_ObjectHideFlags: 0
@@ -81625,6 +81637,7 @@ MonoBehaviour:
   icon: {fileID: 85239992751901693}
   boderRarity: {fileID: 7494793350776461067}
   backgroundRarity: {fileID: 0}
+  notice: {fileID: 0}
   level: {fileID: 2617990408302506146}
   btnClick: {fileID: 0}
   data:
@@ -81637,7 +81650,7 @@ MonoBehaviour:
     mainStatData:
       statType: 0
       baseValue: 0
-  config: {fileID: 0}
+    isNewItem: 0
 --- !u!1 &8261783330398787522
 GameObject:
   m_ObjectHideFlags: 0
@@ -86674,6 +86687,7 @@ MonoBehaviour:
   icon: {fileID: 913350222728771186}
   boderRarity: {fileID: 1679270966623936027}
   backgroundRarity: {fileID: 0}
+  notice: {fileID: 0}
   level: {fileID: 1654182063535964030}
   btnClick: {fileID: 0}
   data:
@@ -86686,7 +86700,7 @@ MonoBehaviour:
     mainStatData:
       statType: 0
       baseValue: 0
-  config: {fileID: 0}
+    isNewItem: 0
 --- !u!1 &8311794398670666236
 GameObject:
   m_ObjectHideFlags: 0
@@ -87922,15 +87936,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3680ff29e0fefd4c99666727e3c4104, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uILayer: 2
-  popupKey: 4
   UiViewController: {fileID: 1701861998907122148}
+  closeBtns: []
   EquipmentView: {fileID: 903164053174154863}
   nameEquipment: {fileID: 2884006071917233706}
   rarityEquipment: {fileID: 8937867654661690069}
   mainStatType: {fileID: 511723739278468953}
   mainStatValue: {fileID: 766949598110580479}
   textLevel: {fileID: 1261573925769211472}
+  btnEquip: {fileID: 0}
+  btnSell: {fileID: 0}
+  btnSelect: {fileID: 0}
+  btnLevelUp: {fileID: 0}
 --- !u!1 &8413374042407187103
 GameObject:
   m_ObjectHideFlags: 0
@@ -89186,15 +89203,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3680ff29e0fefd4c99666727e3c4104, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uILayer: 2
-  popupKey: 5
   UiViewController: {fileID: 8969873639090312486}
+  closeBtns: []
   EquipmentView: {fileID: 8967450679350187948}
   nameEquipment: {fileID: 8917152765232506991}
   rarityEquipment: {fileID: 559192221626847180}
   mainStatType: {fileID: 8556302801840728313}
   mainStatValue: {fileID: 5801563164108749801}
   textLevel: {fileID: 4452615586846196851}
+  btnEquip: {fileID: 0}
+  btnSell: {fileID: 0}
+  btnSelect: {fileID: 0}
+  btnLevelUp: {fileID: 0}
 --- !u!1 &8506029999583352441
 GameObject:
   m_ObjectHideFlags: 0
@@ -92005,6 +92025,7 @@ MonoBehaviour:
   icon: {fileID: 8095229595256335103}
   boderRarity: {fileID: 2360564150518850688}
   backgroundRarity: {fileID: 0}
+  notice: {fileID: 0}
   level: {fileID: 3127541713730982756}
   btnClick: {fileID: 0}
   data:
@@ -92017,7 +92038,7 @@ MonoBehaviour:
     mainStatData:
       statType: 0
       baseValue: 0
-  config: {fileID: 0}
+    isNewItem: 0
 --- !u!1 &8761939615700380359
 GameObject:
   m_ObjectHideFlags: 0
@@ -95660,6 +95681,7 @@ MonoBehaviour:
   icon: {fileID: 5554385760689702967}
   boderRarity: {fileID: 6004341928224379953}
   backgroundRarity: {fileID: 0}
+  notice: {fileID: 0}
   level: {fileID: 6942374482443039243}
   btnClick: {fileID: 0}
   data:
@@ -95672,7 +95694,7 @@ MonoBehaviour:
     mainStatData:
       statType: 0
       baseValue: 0
-  config: {fileID: 0}
+    isNewItem: 0
 --- !u!1 &9207542749099041233
 GameObject:
   m_ObjectHideFlags: 0

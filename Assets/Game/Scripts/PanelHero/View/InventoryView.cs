@@ -20,7 +20,7 @@ public class InventoryView : View
     public ScrollRect scrollRectContainer;
     public int currentPage = 1;
     public int maxSlotInPage = 15;
-    public PopupKey popupKeyDetail;
+    public CompareEquipmentInfo compareEquipmentInfo;
     protected override void Awake()
     {
         base.Awake();
@@ -51,7 +51,7 @@ public class InventoryView : View
 //        showEquipmentDetailSignal.Dispatch(temp);
 //        SetOldItemSignal.Dispatch(tempEquipment.data);
         
-        ShowEquipmentCompareSignal.Dispatch(new ParameterEquipmentCompare(ParameterEquipmentCompare.CompareType.Right,tempEquipment.data));
+        ShowEquipmentCompareSignal.Dispatch(new ParameterEquipmentCompare(CompareEquipmentType.Right, compareEquipmentInfo ,tempEquipment.data));
         
     }
     protected override void OnEnable()

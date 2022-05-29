@@ -106,7 +106,7 @@ public class HeroEquipmentView : View
 //        showEquipmentDetailSignal.Dispatch(temp);
 //        SetOldItemSignal.Dispatch(tempEquipment.data);
         
-        ShowEquipmentCompareSignal.Dispatch(new ParameterEquipmentCompare(ParameterEquipmentCompare.CompareType.Left,tempEquipment.data));
+        ShowEquipmentCompareSignal.Dispatch(new ParameterEquipmentCompare(CompareEquipmentType.Left, CompareEquipmentInfo.CharacterEquip ,tempEquipment.data));
     }
     
     [System.Serializable]

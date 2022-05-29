@@ -36,10 +36,11 @@ public class EquipmentCompareView : AbsPopupView
         param = parameter as ParameterEquipmentCompare;
         switch (param.compareType)
         {
-            case ParameterEquipmentCompare.CompareType.Left:
+            case CompareEquipmentType.Left:
                 if (param.leftData != null)
                 {
                     leftDetailView.SetupData(param.leftData);
+                    leftDetailView.ShowButton(param.compareInfo);
                     //leftDetailView.gameObject.SetActive(true);
                     ActionBufferManager.Instance.ActionDelayFrame(
                         delegate
@@ -48,10 +49,11 @@ public class EquipmentCompareView : AbsPopupView
                         },1 );
                 }
                 break;
-            case ParameterEquipmentCompare.CompareType.Right:
+            case CompareEquipmentType.Right:
                 if (param.rightData != null)
                 {
                     rightDetailView.SetupData(param.rightData);
+                    rightDetailView.ShowButton(param.compareInfo);
                     //rightDetailView.gameObject.SetActive(true);
                     ActionBufferManager.Instance.ActionDelayFrame(
                         delegate

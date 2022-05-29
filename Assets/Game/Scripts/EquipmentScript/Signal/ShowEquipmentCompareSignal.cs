@@ -11,18 +11,21 @@ public class ParameterEquipmentCompare : ParameterPopup
 {
     public EquipmentData leftData;
     public EquipmentData rightData;
-    public CompareType compareType;
+    public CompareEquipmentType compareType;
+    public CompareEquipmentInfo compareInfo;
+    
     public ParameterEquipmentCompare(){ }
 
-    public ParameterEquipmentCompare(CompareType compareType ,EquipmentData data)
+    public ParameterEquipmentCompare(CompareEquipmentType compareType, CompareEquipmentInfo compareInfo ,EquipmentData data)
     {
         this.compareType = compareType;
+        this.compareInfo = compareInfo;
         switch (compareType)
         {
-            case CompareType.Left:
+            case CompareEquipmentType.Left:
                 this.leftData = data;
                 break;
-            case CompareType.Right:
+            case CompareEquipmentType.Right:
                 this.rightData = data;
                 break;
         }
@@ -33,9 +36,16 @@ public class ParameterEquipmentCompare : ParameterPopup
         leftData = null;
         rightData = null;
     }
-    public enum CompareType
-    {
-        Left,
-        Right,
-    }
+
+
+}
+public enum CompareEquipmentType
+{
+    Left,
+    Right,
+}
+public enum CompareEquipmentInfo
+{
+    CharacterEquip,
+    Craft,
 }
