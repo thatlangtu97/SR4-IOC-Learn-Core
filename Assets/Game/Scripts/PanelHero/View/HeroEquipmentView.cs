@@ -69,6 +69,11 @@ public class HeroEquipmentView : View
             }
         }
     }
+
+    public void EquipGear(EquipmentData data)
+    {
+        Show();
+    }
     private void InitItem()
     {
         foreach(EquipmentOfHeroView temp in listEquipmentOfHeroView)

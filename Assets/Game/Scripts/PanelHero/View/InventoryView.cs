@@ -154,6 +154,11 @@ public class InventoryView : View
         }
         
     }
+
+    public void EquipGear(EquipmentData datas)
+    {
+        ReloadPage();
+    }
     public void ReShow(EquipmentData data)
     {
         for (int i = 0; i < ListEquipment.Count; i++)

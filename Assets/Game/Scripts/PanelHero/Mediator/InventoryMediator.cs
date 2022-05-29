@@ -13,6 +13,8 @@ public class InventoryMediator : Mediator
     [Inject] public SellGearSuccessSignal SellGearSuccessSignal { get; set; }
 
     [Inject] public SetOldItemSuccessSignal SetOldItemSuccessSignal { get; set; }
+    
+    [Inject] public EquipGearSuccessSignal EquipGearSuccessSignal { get; set; }
 
     public override void OnRegister()
     {
@@ -20,6 +22,7 @@ public class InventoryMediator : Mediator
         LevelUpGearSuccessSignal.AddListener(View.ReShow);
         SellGearSuccessSignal.AddListener(View.ReloadDataRemove);
         SetOldItemSuccessSignal.AddListener(View.ReShow);
+        EquipGearSuccessSignal.AddListener(View.EquipGear);
     }
 
     public override void OnRemove()
@@ -28,6 +31,7 @@ public class InventoryMediator : Mediator
         LevelUpGearSuccessSignal.RemoveListener(View.ReShow);
         SellGearSuccessSignal.RemoveListener(View.ReloadDataRemove);
         SetOldItemSuccessSignal.RemoveListener(View.ReShow);
+        EquipGearSuccessSignal.RemoveListener(View.EquipGear);
     }
 
     private void OnDestroy()

@@ -15,7 +15,7 @@ namespace EntrySystem
             injectionBinder.Bind<LevelUpGearSuccessSignal>().ToSingleton();
             injectionBinder.Bind<SellGearSuccessSignal>().ToSingleton();
             injectionBinder.Bind<SetOldItemSuccessSignal>().ToSingleton();
-            
+            injectionBinder.Bind<EquipGearSuccessSignal>().ToSingleton();
             //
             commandBinder.Bind<ShowPanelHomeSignal>().To<ShowPanelHomeCmd>();
             commandBinder.Bind<ShowPopupStaminaSignal>().To<ShowPopupStaminaCmd>();
@@ -24,6 +24,7 @@ namespace EntrySystem
             commandBinder.Bind<ShowPanelShopSignal>().To<ShowPanelShopCmd>();
             commandBinder.Bind<ShowPopupGachaSignal>().To<ShowPopupGachaCmd>();
             commandBinder.Bind<EquipGearSignal>().To<EquipGearCmd>();
+
             commandBinder.Bind<UnequipGearSignal>().To<UnequipGearCmd>();
             commandBinder.Bind<LevelUpGearSignal>().To<LevelUpGearCmd>();
             commandBinder.Bind<SellGearSignal>().To<SellGearCmd>();
