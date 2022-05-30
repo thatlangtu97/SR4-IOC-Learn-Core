@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -25,6 +26,7 @@ public class EquipmentDetailView : AbsPopupView
     [BoxGroup]
     public GameObject btnEquip, btnSell, btnSelect, btnLevelUp;
 
+    public Action actionOnHide;
     protected override void Awake()
     {
         base.Awake();
@@ -116,6 +118,19 @@ public class EquipmentDetailView : AbsPopupView
         }
     }
 
+    public override void Hide()
+    {
+        base.Hide();
+        if (actionOnHide != null)
+        {
+            actionOnHide.Invoke();
+        }
+    }
+
+    public void ListenerActionOnHide(Action action)
+    {
+        actionOnHide = action;
+    }
     void ActiveObject(List<GameObject> listObject, bool active)
     {
         foreach (var obj in listObject)

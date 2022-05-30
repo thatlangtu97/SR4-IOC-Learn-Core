@@ -9,6 +9,8 @@ public class EquipmentCompareView : AbsPopupView
     protected override void Awake()
     {
         base.Awake();
+        leftDetailView.ListenerActionOnHide(CheckHide);
+        rightDetailView.ListenerActionOnHide(CheckHide);
     }
 
     protected override void Start()
@@ -24,13 +26,21 @@ public class EquipmentCompareView : AbsPopupView
 
     public override void Hide()
     {       
+        base.Hide();
         if(leftDetailView.gameObject.activeInHierarchy)
             leftDetailView.Hide();
         if(rightDetailView.gameObject.activeInHierarchy)
             rightDetailView.Hide();
-        base.Hide();
+        
     }
 
+    void CheckHide()
+    {
+        bool flag1 = leftDetailView.gameObject.activeInHierarchy;
+        bool flag2 = rightDetailView.gameObject.activeInHierarchy;
+        if(flag1 && !flag2 || !flag1 && flag2)
+            Hide();
+    }
     protected override void OnShowPopup<T>(T parameter)
     {
         param = parameter as ParameterEquipmentCompare;
