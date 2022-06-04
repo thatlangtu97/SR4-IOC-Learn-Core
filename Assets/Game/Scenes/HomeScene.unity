@@ -139,7 +139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &27724792
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,8 +163,8 @@ MonoBehaviour:
   - {fileID: 1972816389}
   - {fileID: 416191007}
   m_Bounds:
-    m_Center: {x: -0.70392215, y: 1.6111401, z: 0}
-    m_Extent: {x: 1.9962035, y: 1.5114362, z: 0}
+    m_Center: {x: -0.47003293, y: 0.11700094, z: 0}
+    m_Extent: {x: 2.009967, y: 1.0070009, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!212 &27724793
@@ -317,7 +317,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &76099473
 MonoBehaviour:
   m_ObjectHideFlags: 0

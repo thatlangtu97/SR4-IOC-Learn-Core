@@ -20,7 +20,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: c582f38278d179d40b74ec63b41e1ad1, type: 2}
+  m_Motion: {fileID: 7400000, guid: b0f722691c38a404e9e134b9aac43e6f, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -46,7 +46,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 071900f9857e2aa489e9d5483dd73047, type: 2}
+  m_Motion: {fileID: 7400000, guid: ccfd2cb6744896541b6c9cd32a9aa41a, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -72,7 +72,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 21313554200c7e8409fb74c967990e8e, type: 2}
+  m_Motion: {fileID: 7400000, guid: 712c161d48449164e94097c24e9425c9, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -98,7 +98,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 012a7f5cbb599fc489da163137852ab2, type: 2}
+  m_Motion: {fileID: 7400000, guid: ba8180f74c1b69247a9a3ce04ec14d28, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -146,7 +146,7 @@ AnimatorStateMachine:
     m_Position: {x: 270, y: 130, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -2395776699820466522}
-    m_Position: {x: 305, y: 195, z: 0}
+    m_Position: {x: 300, y: 200, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -7260838030019138590}
     m_Position: {x: 340, y: 260, z: 0}
@@ -180,7 +180,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 8b844028751487045a5771c5a7c4d2c1, type: 2}
+  m_Motion: {fileID: 7400000, guid: 6faf16f2776b2bb429deb1e0bca5a92b, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
