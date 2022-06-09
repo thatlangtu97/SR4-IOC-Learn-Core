@@ -31,6 +31,7 @@ public class StateMachineController : MonoBehaviour
         //SetupAnim(animator);
         SpawnState();
         InitState();
+        SetupAnim(animator);
     }
 
     public void Recycle()

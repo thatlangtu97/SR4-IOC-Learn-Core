@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 6471316227819945590}
   - component: {fileID: 2095664645}
   - component: {fileID: 2095664644}
-  - component: {fileID: 4611551787971203826}
+  - component: {fileID: -1992572464389937643}
   m_Layer: 12
   m_Name: E40
   m_TagString: Untagged
@@ -85,6 +85,7 @@ MonoBehaviour:
   speedMove: 0
   originBoxCheckGround2d: {x: 0.4, y: 0.1}
   currentImunes: 
+  enableAI: 0
   baseImmunes: 
   jumpCount: 0
   dashCount: 0
@@ -166,8 +167,8 @@ MonoBehaviour:
         byteData: 
         byteDataArray: 
       Version: 1.6.8
-  gizmoViewMode: 2
-  showBehaviorDesignerGizmo: 1
+  gizmoViewMode: 0
+  showBehaviorDesignerGizmo: 0
 --- !u!50 &6471316227819945577
 Rigidbody2D:
   serializedVersion: 4
@@ -201,10 +202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77e0333c9605d43d9bfceb332c275006, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StateMachine:
-    value: {fileID: 6471316227819945590}
   value: {fileID: 6471316227819945590}
-  prefabMecanim: {fileID: 0}
 --- !u!61 &6471316227819945591
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -279,9 +277,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 844c2e9915e3dd54da7a3cf2dd8b0299, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthComponent:
-    health: 10
-    maxHealth: 10
   health: 10
   maxHealth: 10
 --- !u!114 &2095664644
@@ -296,10 +291,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1ef77160bb4e3947a21998ab4a822de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerComponent:
-    value: 10
   value: 10
---- !u!114 &4611551787971203826
+--- !u!114 &-1992572464389937643
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -308,9 +301,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6471316227819945589}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89d9befa8a257144db233035db8d0911, type: 3}
+  m_Script: {fileID: 11500000, guid: ad86720286f4fdb4592925c9bf221831, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stateMachine: {fileID: 6471316227819945590}
 --- !u!1 &6471316228301277987
 GameObject:
   m_ObjectHideFlags: 0
