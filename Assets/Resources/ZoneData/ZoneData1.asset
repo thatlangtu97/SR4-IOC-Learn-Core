@@ -24,7 +24,7 @@ MonoBehaviour:
   waveList:
   - WaveID: 1
     EnemyID: E1
-    Amount: 3
+    Amount: 0
     Time: 0
     TimeSpawnMin: 0.7
     TimeSpawnMax: 1
@@ -33,5 +33,5 @@ MonoBehaviour:
   - {fileID: 5561927636742712978, guid: 2f6f35420a3e2784a83ebf5783c701ef, type: 3}
   poolSizeData:
   - name: E1
-    size: 3
+    size: 0
   poolManager: {fileID: 0}

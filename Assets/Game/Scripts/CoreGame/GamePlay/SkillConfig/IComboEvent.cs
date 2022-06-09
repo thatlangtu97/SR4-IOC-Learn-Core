@@ -495,6 +495,8 @@ public class ColliderEvent : IComboEvent
                                 
                             }
                         }
+                        if(cols.Length>0)
+                            HitStopManager.HitStop();
                     }
 #if UNITY_EDITOR
                     GizmoDrawerTool.instance.draw(point, sizeBox, GizmoDrawerTool.colliderType.Box,angle);
@@ -547,7 +549,10 @@ public class ColliderEvent : IComboEvent
                                 DealDmgManager.DealDamage(componentManager.entity, entity, damageInfoSend);
                             }
                         }
+                        if(cols.Length>0)
+                            HitStopManager.HitStop();
                     }
+                    
                 }
 #if UNITY_EDITOR
                 GizmoDrawerTool.instance.draw(point, new Vector3(radius,0f,0f), GizmoDrawerTool.colliderType.Circle,0);
