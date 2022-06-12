@@ -28,7 +28,7 @@ public class JumpState : State
         if (controller.componentManager.checkGround() == false)
         {
             controller.componentManager.Rotate();
-            Vector3 newVelocity = new Vector2(controller.componentManager.speedMove, controller.componentManager.rgbody2D.velocity.y);
+            Vector3 newVelocity = new Vector2(controller.componentManager.speedMove * controller.transform.right.x, controller.componentManager.rgbody2D.velocity.y) ;
             if (controller.componentManager.checkWall() == true)
             {
                 newVelocity.x = 0;

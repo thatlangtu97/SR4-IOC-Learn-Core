@@ -20,8 +20,8 @@ public class FlySkillState : State
         {
             Vector2 velocityAttack = new Vector2(eventCollectionData[idState].curveX.Evaluate(timeTrigger),
                 eventCollectionData[idState].curveY.Evaluate(timeTrigger));
-            Vector2 force = new Vector2(velocityAttack.x * controller.transform.localScale.x,
-                velocityAttack.y * controller.transform.localScale.y);
+            Vector2 force = new Vector2(velocityAttack.x * controller.transform.right.x,
+                velocityAttack.y);
             if (!useCheckEnemyForwark)
             {
                

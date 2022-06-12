@@ -37,8 +37,12 @@ public class MoveState : State
         if(timeTrigger>timeTransition)
             controller.SetTrigger(eventCollectionData[idState].NameTrigger,eventCollectionData[idState].typeAnim,eventCollectionData[idState].timeStart);
         base.UpdateState();
-        controller.componentManager.rgbody2D.velocity = new Vector2(controller.componentManager.speedMove * eventCollectionData[idState].curveX.Evaluate(timeTrigger), controller.componentManager.rgbody2D.velocity.y);
-        controller.componentManager.Rotate();
+        
+        //controller.componentManager.Rotate();
+        Vector2 newVelocity = new Vector2(controller.componentManager.speedMove  * eventCollectionData[idState].curveX.Evaluate(timeTrigger), controller.componentManager.rgbody2D.velocity.y) * controller.componentManager.transform.right;
+
+        controller.componentManager.rgbody2D.velocity = newVelocity;
+
         if (controller.componentManager.checkGround() == false)
         {
             controller.ChangeState(NameState.FallingState);

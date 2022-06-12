@@ -5,12 +5,14 @@ using UnityEngine;
 public class AirAttackStateWithCurve : State
 {
     public float timeTriggerGroundPlatform=.3f;
+    private Vector2 forward;
     public override void EnterState()
     {
         base.EnterState();
         controller.componentManager.isAttack = true;
         controller.componentManager.attackAirCount += 1;
         CastSkill();
+        
 
     }
     public override void UpdateState()
@@ -18,9 +20,9 @@ public class AirAttackStateWithCurve : State
         base.UpdateState();
         if (timeTrigger < eventCollectionData[idState].durationAnimation)
         {
-            controller.componentManager.Rotate();
+            //controller.componentManager.Rotate();
                 Vector2 velocityAttack = new Vector2(eventCollectionData[idState].curveX.Evaluate(timeTrigger), eventCollectionData[idState].curveY.Evaluate(timeTrigger));
-                Vector2 velocityFinal = new Vector2(velocityAttack.x * controller.componentManager.speedMove,
+                Vector2 velocityFinal = new Vector2(velocityAttack.x * controller.componentManager.speedMove * forward.x,
                     velocityAttack.y);
                 controller.componentManager.rgbody2D.velocity=velocityFinal;
                 if (timeTrigger >= eventCollectionData[idState].durationAnimation)
@@ -79,6 +81,7 @@ public class AirAttackStateWithCurve : State
         controller.componentManager.Rotate();
         controller.SetTrigger(eventCollectionData[idState].NameTrigger,eventCollectionData[idState].typeAnim,eventCollectionData[idState].timeStart);
         controller.SetSpeed( eventCollectionData[idState].curveSpeedAnimation.Evaluate(timeTrigger));
+        forward = controller.transform.right;
     }
     public override void OnInputDash()
     {

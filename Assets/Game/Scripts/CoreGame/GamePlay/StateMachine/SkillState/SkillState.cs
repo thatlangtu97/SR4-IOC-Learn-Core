@@ -7,6 +7,7 @@ public class SkillState : State
     public bool LockGravity = true;
     public bool useCheckEnemyForwark=false;
     public bool useVelocityCurve = false;
+    private Vector2 forward;
     public override void EnterState()
     {
         base.EnterState();
@@ -15,17 +16,19 @@ public class SkillState : State
         if(LockGravity)
         controller.componentManager.rgbody2D.gravityScale = 0;
         controller.componentManager.rgbody2D.velocity = Vector2.zero;
-
+        forward = controller.transform.right;
     }
     public override void UpdateState()
     {
         base.UpdateState();
+        float curveX = eventCollectionData[idState].curveX.Evaluate(timeTrigger);
+        float curveY = eventCollectionData[idState].curveY.Evaluate(timeTrigger);
+        
         if (timeTrigger < eventCollectionData[idState].durationAnimation)
         {
-            Vector2 velocityAttack = new Vector2(eventCollectionData[idState].curveX.Evaluate(timeTrigger),
-                eventCollectionData[idState].curveY.Evaluate(timeTrigger));
-            Vector2 force = new Vector2(velocityAttack.x * controller.transform.localScale.x,
-                velocityAttack.y * controller.transform.localScale.y);
+            Vector2 velocityAttack = new Vector2(curveX, curveY);
+            Vector2 force = new Vector2(velocityAttack.x * forward.x, velocityAttack.y );
+            
             if (!useCheckEnemyForwark)
             {
                 if (!useVelocityCurve)

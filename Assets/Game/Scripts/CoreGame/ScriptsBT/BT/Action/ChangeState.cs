@@ -4,15 +4,20 @@ namespace CoreBT
     [TaskCategory("Extension")]
     public class ChangeState : Action
     {
-        public SharedComponentManager componentManager;
+        private StateMachineController Controller;
         public NameState nameState;
         public int idState;
         public bool forceChangeState;
+        public override void OnAwake()
+        {
+            base.OnAwake();
+            Controller = transform.GetComponent<StateMachineController>();
+        }
+
         public override void OnStart()
         {
             base.OnStart();
-            componentManager.Value.stateMachine.ChangeState(nameState, idState, forceChangeState);
-
+            Controller.ChangeState(nameState, idState, forceChangeState);
         }
     }
 }

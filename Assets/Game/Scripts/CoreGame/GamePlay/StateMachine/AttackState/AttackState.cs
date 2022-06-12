@@ -8,6 +8,8 @@ public class AttackState : State
     public bool useCheckEnemyForwark=true;
     public bool useVelocityCurve = false;
     public List<float> timeBuffers = new List<float>();
+    
+    private Vector2 forward;
     protected override void OnBeforeSerialize()
     {
         if (eventCollectionData == null) return;
@@ -34,6 +36,10 @@ public class AttackState : State
     public override void UpdateState()
     {
         base.UpdateState();
+        float curveX = eventCollectionData[idState].curveX.Evaluate(timeTrigger);
+        float curveY = eventCollectionData[idState].curveY.Evaluate(timeTrigger);
+        
+        
         if (timeTrigger < eventCollectionData[idState].durationAnimation)
         {
             if(useCheckEnemyForwark)
@@ -51,18 +57,17 @@ public class AttackState : State
 //                }
                 if (!useVelocityCurve)
                 {
-                    Vector2 velocityAttack = new Vector2(eventCollectionData[idState].curveX.Evaluate(timeTrigger), eventCollectionData[idState].curveY.Evaluate(timeTrigger));
-                    Vector2 velocityFinal = new Vector2(velocityAttack.x * controller.transform.localScale.x,velocityAttack.y * controller.transform.localScale.y) * Time.deltaTime;
+                    Vector2 velocityAttack = new Vector2(curveX , curveY);
+                    Vector2 velocityFinal = new Vector2(velocityAttack.x * forward.x , velocityAttack.y ) * Time.deltaTime;
                     controller.componentManager.rgbody2D.position += velocityFinal;
                 }
                 else
                 {
-                    Vector2 velocityAttack = new Vector2(eventCollectionData[idState].curveX.Evaluate(timeTrigger), eventCollectionData[idState].curveY.Evaluate(timeTrigger));
-                    Vector2 velocityFinal = new Vector2(velocityAttack.x * controller.transform.localScale.x,velocityAttack.y * controller.transform.localScale.y);
+                    Vector2 velocityAttack = new Vector2(curveX, curveY);
+                    Vector2 velocityFinal = new Vector2(velocityAttack.x * forward.x,velocityAttack.y * controller.transform.localScale.y);
                     controller.componentManager.rgbody2D.velocity = velocityFinal;
                 }
-                    //controller.componentManager.rgbody2D.velocity = Vector2.zero;
-                }
+            }
 
             if (controller.componentManager.isBufferAttack == true && (timeTrigger + timeBuffers[idState]) > eventCollectionData[idState].durationAnimation)
             {
@@ -142,6 +147,7 @@ public class AttackState : State
         controller.SetSpeed(eventCollectionData[idState].curveSpeedAnimation.Evaluate(timeTrigger));
         controller.componentManager.rgbody2D.velocity = Vector2.zero;
         controller.componentManager.isBufferAttack = false;
+        forward = controller.transform.right;
 
     }
     public override void OnInputDash()

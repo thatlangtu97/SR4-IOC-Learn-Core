@@ -7,6 +7,8 @@ using Doozy.Engine.Extensions;
 using Entitas;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Timeline;
+
 [System.Serializable]
 public class ComponentManager : MonoBehaviour
 {
@@ -157,6 +159,13 @@ public class ComponentManager : MonoBehaviour
             speedMove = maxSpeedMove;
         }
     }
+    
+    public void OnInputChangeFacing(Transform target)
+    {
+        Vector2 newRight =(target.position - transform.position).normalized;
+        newRight.y = 0;
+        transform.right = newRight;
+    }
     public void ResetJumpCount()
     {
         jumpCount = 0;
@@ -266,14 +275,14 @@ public class ComponentManager : MonoBehaviour
     }
     public void Rotate()
     {
-        if (speedMove == maxSpeedMove)
-        {
-            transform.localScale = new Vector3(1f, 1f, 1f);
-        }
-        if (speedMove == -maxSpeedMove)
-        {
-            transform.localScale = new Vector3(-1f, 1f, 1f);
-        }
+//        if (speedMove == maxSpeedMove)
+//        {
+//            transform.localScale = new Vector3(1f, 1f, 1f);
+//        }
+//        if (speedMove == -maxSpeedMove)
+//        {
+//            transform.localScale = new Vector3(-1f, 1f, 1f);
+//        }
     }
     public void DestroyEntity()
     {

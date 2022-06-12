@@ -77,15 +77,16 @@ public class Joystick : MonoBehaviour, IDragHandler, IPointerUpHandler, IPointer
     {
         if (componentManager != null)
         {
-            if (ForceVector.x > 0)
-            {
-                componentManager.speedMove = componentManager.maxSpeedMove;
-            }
-            if (ForceVector.x < 0)
-            {
-                componentManager.speedMove = -componentManager.maxSpeedMove;
-            }
-
+            componentManager.transform.right = new Vector3(ForceVector.x,0f,0f);
+//            if (ForceVector.x > 0)
+//            {
+//                componentManager.speedMove = componentManager.maxSpeedMove;
+//            }
+//            if (ForceVector.x < 0)
+//            {
+//                componentManager.speedMove = -componentManager.maxSpeedMove;
+//            }
+            componentManager.speedMove = componentManager.maxSpeedMove;
             componentManager.vectorSpeed = ForceVector;
         }
     }

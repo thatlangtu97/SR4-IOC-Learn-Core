@@ -161,7 +161,6 @@ public class EnemySpawnController : MonoBehaviour
         {
             count += wave.Amount;
         }
-        Debug.Log("count enemy "+ count);
         return count;
     }
     [Button("SPAWN ENEMY", ButtonSizes.Gigantic), GUIColor(0.4f, 0.8f, 1),]

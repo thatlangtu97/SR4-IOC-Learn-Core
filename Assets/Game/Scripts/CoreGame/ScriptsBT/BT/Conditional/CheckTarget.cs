@@ -1,14 +1,15 @@
-﻿using BehaviorDesigner.Runtime;
-using BehaviorDesigner.Runtime.Tasks;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
+using BehaviorDesigner.Runtime;
+using BehaviorDesigner.Runtime.Tasks;
 using UnityEngine;
+
 namespace CoreBT
 {
+    
     [TaskCategory("Extension")]
-    public class HasTarget : Conditional
+    public class CheckTarget : Conditional
     {
-//        public SharedComponentManager componentManager;
         public SharedTransform Owner;
         public SharedTransform Target;
 
@@ -28,6 +29,7 @@ namespace CoreBT
             if (cols == null)
             {
                 Target.SetValue(null);
+                return TaskStatus.Failure;
             }
             else
             {
@@ -39,9 +41,9 @@ namespace CoreBT
                         break;
                     }
                 }
+                return TaskStatus.Success;
             }
-            return TaskStatus.Failure;
-            
         }
     }
 }
+

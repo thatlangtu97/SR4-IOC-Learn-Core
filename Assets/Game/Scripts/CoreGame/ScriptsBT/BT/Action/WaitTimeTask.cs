@@ -8,7 +8,6 @@ using UnityEngine;
 [TaskIcon("{SkinColor}WaitIcon.png")]
 public class WaitTimeTask : Action
 {
-    public SharedComponentManager componentManager;
     public SharedFloat waitTime = 1;
     private float startTime;
     public bool useRandomWaitTime = false;

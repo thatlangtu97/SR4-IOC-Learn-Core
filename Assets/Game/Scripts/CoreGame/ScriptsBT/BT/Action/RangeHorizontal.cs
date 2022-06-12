@@ -6,12 +6,13 @@ namespace CoreBT
     [TaskCategory("Extension")]
     public class RangeHorizontal : Action
     {
-        public SharedComponentManager componentManager;
+        public SharedTransform Target;
+        public SharedTransform Owner;
         public SharedFloat rangeToEnemy;
         public override void OnStart()
         {
             base.OnStart();
-            float space = componentManager.Value.enemy.position.x - componentManager.Value.transform.position.x;
+            float space = Target.Value.position.x - Owner.Value.position.x;
             rangeToEnemy.Value = Mathf.Abs(space);
         }
     }

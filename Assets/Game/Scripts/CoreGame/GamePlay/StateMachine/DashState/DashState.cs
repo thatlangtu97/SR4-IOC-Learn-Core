@@ -2,21 +2,25 @@
 [CreateAssetMenu(fileName = "DashState", menuName = "CoreGame/State/DashState")]
 public class DashState : State
 {
+    private Vector2 forward;
     public override void EnterState()
     {
         base.EnterState();
         controller.componentManager.dashCount += 1;
-        controller.SetTrigger(eventCollectionData[idState].NameTrigger,eventCollectionData[idState].typeAnim,eventCollectionData[idState].timeStart);
-        controller.componentManager.Rotate();
+        controller.SetTrigger( eventCollectionData[idState].NameTrigger, eventCollectionData[idState].typeAnim, eventCollectionData[idState].timeStart);
+        forward = controller.transform.right;
+        //controller.componentManager.Rotate();
     }
     public override void UpdateState()
     {
         base.UpdateState();
-
+        float curveX = eventCollectionData[idState].curveX.Evaluate(timeTrigger);
+        float curveY = eventCollectionData[idState].curveY.Evaluate(timeTrigger);
+        
+        
         if (timeTrigger < eventCollectionData[idState].durationAnimation)
         {
-            Vector2 velocityAttack = new Vector2(   eventCollectionData[idState].curveX.Evaluate(timeTrigger) * controller.componentManager.transform.localScale.x,
-                                                    eventCollectionData[idState].curveY.Evaluate(timeTrigger));
+            Vector2 velocityAttack = new Vector2(   curveX * forward.x, curveY);
             controller.componentManager.rgbody2D.velocity = new Vector2(velocityAttack.x, velocityAttack.y);
             if ((velocityAttack.x * controller.componentManager.speedMove) < 0)
             {
